@@ -1,0 +1,15 @@
+{
+    "id": "SEMBY",
+    "name": "Shimmerberry",
+    "author": ["Flowire"],
+    "description": "Full of Critters!",
+    "prefix": "SEMBY",
+    "main_file": "ShimmerBerry.lua",
+    "badge_colour": "FAADBD",
+    "badge_text_colour": "ffffff",
+    "dependencies": [
+    	"Steamodded (==1.0.0~BETA-0323b)",
+        "Lovely (>=0.6)"
+    ],
+    "version": "25w18c"
+}

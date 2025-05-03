@@ -1,0 +1,74 @@
+![Shimmerberry Logo](assets/repo/Logo.png)
+
+Shimmerberry is my personal mod that adds some vanilla-like/extending content with some fun references to other games.
+
+# Content
+
+My silly mod currently adds:
+- 15 Jokers
+- 3 Blinds (1 Boss Blind)
+- 1 Deck with 1 respective [Card Sleeve](https://github.com/larswijn/CardSleeves)
+
+<details open>
+
+<summary>For a very detailed description, Click here!</summary>
+
+## Jokers
+
+| Name | Description | Notes | Rarity |
+| ---- | ---- | ---- | ---- |
+| Abandoned Soul | This Joker gains X0.05 Chips every<br>time a Playing card is destroyed | - | Rare |
+| Booster Pack | 2 additional Booster Packs in each Shop | - | Common |
+| Bound Joker | +4 Joker slots<br>Disable and Destroy leftmost joker<br>at beginning of round | - | Uncommon |
+| Echoing Joker | Duplicate the next used Consumable 1 time | Enhanced by<br>Probability-Buffs | Rare |
+| Emergency Button | Prevents Death and Rerolls<br>all Jokers and Consumables | - | Uncommon |
+| JEV\]\[L | Generates a random Negative Consumable<br>at beginning of round, 1 in 5 to replace it<br>with a random "Joker" instead | Enhanced by<br>Probability-Buffs | Legendary |
+| Lost Constellation | 1 in 3 Planet cards upgrade hand 3 times | - | Uncommon |
+| Misery | X0.5 Mult<br>X2.0 Chips | - | Rare |
+| Money Laundering | When Blind is selected, gain<br>+2 Hands and +2 Discards<br>Shops are Expensive | - | Uncommon |
+| Oblivion | -1 Ante when Boss Blind is defeated | Blinds still scale,<br>but slower | Rare |
+| Potted Flowers | Gains X0.15 Chips if poker hand<br>contains a Diamond card, Club card,<br>Heart card, and Spade card | - | Uncommon |
+| Screw'd | Does nothing! | Does something. | Common |
+| Shooting Star | Upgrade every Poker Hand by 1<br>level when Boss Blind is defeated | Enhanced by<br>Probability-Buffs | Uncommon |
+| Sword Swallower | X1.0 Mult for each Common Joker | - | Rare |
+| To n' Fro | Played cards swap Chips and Mult when scored<br>Earn $1 every 11 swaps | - | Common |
+
+![Shimmerberry Jokers](assets/1x/jokers.png)
+
+## Blinds
+
+| Name | Description | Boss Blind? |
+| ---- | ---- | ---- |
+| The Frog | -1 hand size and +1 discard<br>for each hand played | No, it's just<br>a tiny guy! |
+| The Pencil | Debuff first played<br>card every hand | No |
+| Ten Paces | If scored chips are between<br>80% and 100% of required chips,<br>increase required chips by 10%<br> | Yes |
+
+![Shimmerberry Jokers](assets/repo/Frog.png)
+
+## Deck(s); Skat Deck!
+
+Start with a 32 Card "[Skat Deck](https://en.wikipedia.org/wiki/Skat_(card_game))" (ranks 2 up to 7 are missing):<br>
+Start with 10 hand size and 0 discards.<br>
+Discard 2 random cards with each hand played.<br>
+(The Skat-[Sleeve](https://github.com/larswijn/CardSleeves) works basically the same!)
+
+</details>
+
+# Requires
+- [Steamodded](https://github.com/Steamopollys/Steamodded)
+- [Lovely](https://github.com/ethangreen-dev/lovely-injector)
+
+# Planned
+- Localization.
+
+# Known Issues
+- None so far :>
+
+# Credits
+- [Tetrapak](https://github.com/tetraminus/Tetrapak) for some Ideas and getting me to create this very Mod :3
+
+# Thank you for reading
+
+And I hope you enjoy my mod!
+
+![Shimmerberry Goodbey](assets/repo/Flowire.png)
