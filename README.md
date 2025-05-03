@@ -1,6 +1,7 @@
 ![Shimmerberry Logo](assets/repo/Logo.png)
 
-Shimmerberry is my personal mod that adds some vanilla-like/extending content with some fun references to other games.
+Shimmerberry is my personal mod that adds some vanilla-like/extending<br>
+content with some fun references to other games.
 
 # Content
 
