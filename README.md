@@ -55,7 +55,8 @@ Discard 2 random cards with each hand played.<br>
 
 </details>
 
-# Requires
+# Download and Requirements
+Click on "<> Code" and "Download ZIP", or just [Click Here](https://github.com/FlowireXen/Shimmerberry/archive/refs/heads/main.zip)!
 - [Steamodded](https://github.com/Steamopollys/Steamodded)
 - [Lovely](https://github.com/ethangreen-dev/lovely-injector)
 
