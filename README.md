@@ -1,6 +1,7 @@
 ![Shimmerberry Logo](assets/repo/Logo.png)
 
-Shimmerberry is my personal mod that adds some vanilla-like/extending content with some fun references to other games.
+Shimmerberry is my personal mod that adds some vanilla-like/extending<br>
+content with some fun references to other games.
 
 # Content
 
@@ -54,7 +55,8 @@ Discard 2 random cards with each hand played.<br>
 
 </details>
 
-# Requires
+# Download and Requirements
+Click on "<> Code" and "Download ZIP", or just [Click Here](https://github.com/FlowireXen/Shimmerberry/archive/refs/heads/main.zip)!
 - [Steamodded](https://github.com/Steamopollys/Steamodded)
 - [Lovely](https://github.com/ethangreen-dev/lovely-injector)
 
