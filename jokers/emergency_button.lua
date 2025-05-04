@@ -32,7 +32,7 @@ SMODS.Joker {
 					return true
 				end
 			}))
-            G.GAME.used_jokers[tpjokerSlug("emergency_button")] = nil
+            G.GAME.used_jokers["j_SEMBY_emergency_button"] = nil
             local jokers = G.jokers.cards
             local consumables = G.consumeables.cards
             local num_jokers = #jokers - 1
