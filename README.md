@@ -9,6 +9,29 @@ My silly mod currently adds:
 - 1 Deck with 1 respective [Card Sleeve](https://github.com/larswijn/CardSleeves)
 - 15 Jokers
 
+## Blinds
+![Shimmerberry Jokers](repo/REPO_Blinds.png)
+
+<details open>
+
+<summary>Click me to read up on my Blinds (in order)!</summary>
+
+| Name | Description | Boss Blind? |
+| ---- | ---- | ---- |
+| The Pencil | Debuff first played<br>card every hand | No |
+| The Frog | -1 hand size and +1 discard<br>for each hand played | No, it's just<br>a tiny guy! |
+| Ten Paces | If scored chips are between<br>80% and 100% of required chips,<br>increase required chips by 10%<br> | Yes |
+
+</details>
+
+## Deck(s); Scartare Deck!
+![Shimmerberry Jokers](repo/REPO_Decks.png)
+
+Start with a 32 Card "[Scartare Deck](https://en.wikipedia.org/wiki/Skat_(card_game))" (all ranks below 7 are missing):<br>
+Start with 10 hand size and 0 discards.<br>
+Discard 2 random cards with each hand played.<br>
+(The Scartare-[Sleeve](https://github.com/larswijn/CardSleeves) works exactly the same!)
+
 ## Jokers
 ![Shimmerberry Jokers](repo/REPO_Jokers.png)
 
@@ -36,38 +59,15 @@ My silly mod currently adds:
 
 </details>
 
-## Blinds
-![Shimmerberry Jokers](repo/REPO_Blinds.png)
-
-<details open>
-
-<summary>Click me to read up on my Blinds (in order)!</summary>
-
-| Name | Description | Boss Blind? |
-| ---- | ---- | ---- |
-| The Pencil | Debuff first played<br>card every hand | No |
-| The Frog | -1 hand size and +1 discard<br>for each hand played | No, it's just<br>a tiny guy! |
-| Ten Paces | If scored chips are between<br>80% and 100% of required chips,<br>increase required chips by 10%<br> | Yes |
-
-</details>
-
-## Deck(s); Scartare Deck!
-![Shimmerberry Jokers](repo/REPO_Decks.png)
-
-Start with a 32 Card "[Scartare Deck](https://en.wikipedia.org/wiki/Skat_(card_game))" (all ranks below 7 are missing):<br>
-Start with 10 hand size and 0 discards.<br>
-Discard 2 random cards with each hand played.<br>
-(The Scartare-[Sleeve](https://github.com/larswijn/CardSleeves) works exactly the same!)
-
 # Download and Requirements
 Click on "<> Code" and "Download ZIP", or just [Click Here](https://github.com/FlowireXen/Shimmerberry/archive/refs/heads/main.zip)!<br>
 You also need:
-- [Steamodded](https://github.com/Steamopollys/Steamodded)
 - [Lovely](https://github.com/ethangreen-dev/lovely-injector)
+- [Steamodded](https://github.com/Steamopollys/Steamodded)
 
 # Credits and Shoutouts
-- [Tetrapak](https://github.com/tetraminus/Tetrapak) for some ideas and getting me to create this mod :3
 - [Buffoonery](https://github.com/pinkmaggit-hub/Buffoonery) for being a great learning resource ^w^
+- [Tetrapak](https://github.com/tetraminus/Tetrapak) for some ideas and getting me to create this mod :3
 
 # Planned
 - [Partner-API](https://github.com/Icecanno/Partner-API) Mod integration!~
