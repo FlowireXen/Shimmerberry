@@ -1,15 +1,6 @@
 SMODS.Joker {
 	key = "potted_flowers",
-	loc_txt = {
-		name = "Potted Flowers",
-		text = {
-            "Gains {X:chips,C:white}X#1#{} Chips if",
-            "poker hand contains a",
-            "{C:diamonds}Diamond{} card, {C:clubs}Club{} card,",
-            "{C:hearts}Heart{} card, and {C:spades}Spade{} card",
-			"{C:inactive}(Currently {}{X:chips,C:white}X#2#{}{C:inactive} Chips){}"
-		}
-	},
+	name = "SEMBY_potted_flowers",
 	rarity = 2,
 	cost = 6,
 	atlas = "SEMBY_jokers",

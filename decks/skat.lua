@@ -1,47 +1,40 @@
 SMODS.Back{
 	key = "skat",
-	loc_txt = {
-		name = "Skat Deck",
-		text={
-			"{C:inactive,s:0.75}Skat decks only have {}{C:blue,s:0.75}32{}{C:inactive,s:0.75} cards!{}",
-			"Start with {C:attention}#1#{} hand size",
-			"and {C:red}#2#{} discards",
-			"Discard {C:red}#3#{} random cards",
-			"with each hand played"
-		},
-	},
+	name = "SEMBY_skat",
 	config = {
 		start = {
-			hand_size = 10, -- set
-			discards = 0,   -- set
-			min_id = 7,     -- remove below
-			buff_id = 11    -- buff: jacks
+			discards = 3,  -- remove
+			hand_size = 2, -- add
+			min_id = 7     -- remove below
 		},
 		extra = {
-			discards = 2
+			discards = 2,
+			discard_mod = 0 -- for the sleeve, gets set to 0 every game-start
 		}
 	},
 	loc_vars = function(self, info_queue, card)
-		return { vars = { self.config.start.hand_size, self.config.start.discards, self.config.extra.discards } }
+		return { vars = { self.config.start.min_id, self.config.start.hand_size, self.config.start.discards, self.config.extra.discards } }
 	end,
 	unlocked = true,
     discovered = true,
 	atlas = "shimmer_decks",
 	pos = { x = 0, y = 0 },
     apply = function(self)
-		-- DISCARDS EACH ROUND: set to 0
-        G.GAME.starting_params.discards = self.config.start.discards
-		-- HAND SIZE: set to 10
-		G.GAME.starting_params.hand_size = self.config.start.hand_size
-		-- MODIFY DECK: buff jacks, remove all below 7
+		-- Reset Discard-Modifier
+		self.config.extra.discard_mod = 0
+		-- DISCARDS EACH ROUND: -3
+		local failsafe = G.GAME.starting_params.discards - self.config.start.discards
+		if failsafe < 0 then
+			failsafe = 0
+		end
+		G.GAME.starting_params.discards = failsafe
+		-- HAND SIZE: +2
+		G.GAME.starting_params.hand_size = G.GAME.starting_params.hand_size + self.config.start.hand_size
+		-- MODIFY DECK: remove all below 7
         G.E_MANAGER:add_event(Event({
             func = function()
 				for i = #G.playing_cards, 1, -1 do
-					if G.playing_cards[i]:get_id() == self.config.start.buff_id then
-						G.playing_cards[i]:set_ability(G.P_CENTERS.m_wild)
-						G.playing_cards[i]:set_edition('e_foil', true)
-					elseif G.playing_cards[i]:get_id() < self.config.start.min_id then
-						--G.playing_cards[i]:remove()
+					if G.playing_cards[i]:get_id() < self.config.start.min_id then
 						G.playing_cards[i]:start_dissolve(nil, true)
 					end
 				end
@@ -80,7 +73,7 @@ SMODS.Back{
 						end
 					end
 					local _selected = {}
-					for i = 1, self.config.extra.discards do
+					for i = 1, (self.config.extra.discards + self.config.extra.discard_mod) do
 						local selected_card, card_key = pseudorandom_element(_cards, pseudoseed('skat'))
 						_selected[#_selected+1] = selected_card
 						table.remove(_cards, card_key)
@@ -121,10 +114,10 @@ SMODS.Back{
 						--# Eitherway: The run is now BRICKED.
 						
 						--# But surely, you would never call the function twice, right?
-						--# Well, let me ask you this: What do you think my Card-Sleeve is doing? :)
+						--# Well, let me ask you this: What do you think my Card-Sleeve is doing? (edit: i fixed this but still.) :)
 						--# Or maybe another Mod adds a Joker that Discards cards with the same function... ¯\_(owo)_/¯
 						
-						--# Figuring this out was an asolute pain, I cannot recommend :')
+						--# Figuring this out was an absolute pain, I cannot recommend :')
 					end
 					return true
 				end

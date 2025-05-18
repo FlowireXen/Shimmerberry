@@ -1,14 +1,6 @@
 SMODS.Joker {
 	key = "tonfro_joker",
-	loc_txt = {
-		name = "To n' Fro",
-		text = {
-			"Played cards swap",
-			"{C:chips}Chips{} and {C:mult}Mult{} when scored",
-			"Earn {C:gold}$#1#{} every {C:attention}#2#{} swaps",
-			"{C:inactive}(#3# Left){}"
-		}
-	},
+	name = "SEMBY_tonfro_joker",
 	cost = 5,
 	rarity = 1,
 	blueprint_compat = true,

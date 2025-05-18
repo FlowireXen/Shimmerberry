@@ -1,13 +1,6 @@
 SMODS.Joker {
 	key = "debugjoker",
-	loc_txt = {
-		name = "DEBUGJOKER",
-		text = {
-            "{X:chips,C:white} X0.0 {} Chips, {X:mult,C:white} X0.0 {} Mult",
-			"{C:blue}+1{} hand every hand",
-			"{C:red}+1{} discard every discard",
-		}
-	},
+	name = "SEMBY_debugjoker",
 	rarity = 1, cost = 0,
 	atlas = "SEMBY_jokers",
 	pos = { x = 6, y = 0 },

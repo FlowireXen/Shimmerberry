@@ -1,24 +1,17 @@
 SMODS.Joker {
 	key = "shooting_star",
-	loc_txt = {
-		name = "Shooting Star",
-		text = {
-			"Upgrade every",
-			"{C:legendary,E:1}Poker Hand{}",
-			"by {C:green}#1#{} level#2#",
-			"when {C:attention}Boss Blind{}",
-			"is defeated"
-		}
-	},
+	name = "SEMBY_shooting_star",
 	rarity = 2,
 	cost = 9,
 	atlas = "SEMBY_jokers",
 	pos = { x = 3, y = 0 },
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		local retval = ""
-		if G.GAME.probabilities.normal and G.GAME.probabilities.normal > 1 then retval = "s" end
-		return { vars = { (G.GAME.probabilities.normal or 1), retval } }
+		if G.GAME.probabilities.normal and G.GAME.probabilities.normal > 1 then
+			return { key = "j_SEMBY_shooting_star_multiple", vars = { (G.GAME.probabilities.normal or 1) } }
+		else
+			return { key = "j_SEMBY_shooting_star_one" }
+		end
 	end,
 	calculate = function(self, card, context)
 		if context.end_of_round and context.cardarea == G.jokers and G.GAME.blind.boss then
@@ -45,13 +38,13 @@ SMODS.Joker {
 				card:juice_up(0.8, 0.5)
 				G.TAROT_INTERRUPT_PULSE = nil
 			return true end }))
-			update_hand_text({sound = 'button', volume = 0.7, pitch = 0.9, delay = 0}, {level='+1'})
+			update_hand_text({sound = 'button', volume = 0.7, pitch = 0.9, delay = 0}, {level='+'..probability}) -- show amount of upgrade...
 			delay(1.3)
 			-- Upgrade all Hands
 			for k, v in pairs(G.GAME.hands) do
 				level_up_hand(card, k, true, probability)
 			end
-			-- More 'nilla Code
+			-- More 'nilla Code (Reset Left Side Info)
 			update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
 			-- Return (More Feedback!)
             return { message = localize('k_upgrade_ex'), card = card, colour = G.C.PLANET }

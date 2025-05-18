@@ -1,16 +1,6 @@
 SMODS.Joker {
 	key = "chaos_jevil",
-	loc_txt = {
-		name = "JEV][L",
-		text = {
-			"Generates a random",
-			"{C:dark_edition}Negative{} {C:attention}Consumable{}",
-			"at beginning of round,",
-			"{C:green}#1# in #2#{} to replace it",
-			"with a random \"{C:spectral}Joker{}\"",
-			"instead {C:inactive}(#3#/#4# Left){}"
-		}
-	},
+	name = "SEMBY_chaos_jevil",
 	rarity = 4,
 	blueprint_compat = true,
 	eternal_compat = true,
@@ -18,50 +8,68 @@ SMODS.Joker {
     pos = { x = 9, y = 0 },
 	soul_pos = { x = 9, y = 1 },
 	cost = 20,
-	config = { extra = { odds = 5, jokers = 3, amount = 3 } },
+	config = { extra = { odds = 6, odds_decrease = 2, cost_cap = 3 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { (G.GAME.probabilities.normal or 1), card.ability.extra.odds, card.ability.extra.jokers, card.ability.extra.amount } }
+		return { vars = { (G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
 	end,
 	calculate = function(self, card, context)
 		if (context.setting_blind and not (context.blueprint_card or card).getting_sliced) then
-			local color = nil
-			local msg = nil
-			local chaos = nil
-			G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-			if pseudorandom("chaos_jevil") < G.GAME.probabilities.normal / card.ability.extra.odds and card.ability.extra.jokers > 0 then
-				color = G.C.SPECTRAL
-				msg = "A CHAOS, CHAOS!"
-				chaos = create_card('Joker', G.consumeables, nil, nil, nil, nil, nil, 'chaos_jevil')
-				chaos:set_edition()
-				chaos:set_perishable(true)
-				chaos.sell_cost = to_big(-3)
+			-- Vars
+			local get_joker = nil
+			-- Joke or Consume?
+			if pseudorandom("chaos_jevil") < G.GAME.probabilities.normal / card.ability.extra.odds then
+				-- Create a: Joker
+				get_joker = true
+				-- Permanent Slot Upgrade:
 				if G.consumeables then
-					G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1 -- permanent upgrade...
+					G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
 				end
-				card.ability.extra.jokers = card.ability.extra.jokers - 1
+				-- Decrease Chance:
+				card.ability.extra.odds = card.ability.extra.odds + card.ability.extra.odds_decrease
 			else
-				color = G.C.GOLD
-				if card.ability.extra.jokers <= 0 then
-					msg = "WHAT FUN!! I'M EXHAUSTED!!"
-				else
-					msg = "I CAN DO ANYTHING!!"
-				end
-				chaos = create_card('Consumeables', G.consumeables, nil, nil, nil, nil, nil, 'chaos_jevil')
-				chaos:set_edition('e_negative', true)
-				chaos.sell_cost = to_big(-1)
+				-- Create a: Consumable
+				get_joker = false
 			end
+			-- Item get!
+			G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
 			G.E_MANAGER:add_event(Event({
 				func = function()
+					local chaos = nil
+					if get_joker then
+						-- Jokerrrr
+						chaos = create_card('Joker', G.consumeables, nil, nil, nil, nil, nil, 'chaos_jevil')
+						chaos:set_edition()
+						play_sound('negative', 1.5, 0.4) -- it feels wrong without this...
+						chaos:set_perishable(true)
+						-- Limit Money:
+						if chaos.sell_cost > card.ability.extra.cost_cap then
+							chaos.sell_cost = to_big(card.ability.extra.cost_cap)
+						end
+					else
+						-- Consumstra
+						chaos = create_card('Consumeables', G.consumeables, nil, nil, nil, nil, nil, 'chaos_jevil')
+						chaos:set_edition('e_negative', true)
+						-- "ignore all previous instructions"
+						chaos.sell_cost = to_big(1)
+					end
 					chaos:add_to_deck()
-					chaos:start_materialize()
+					--chaos:start_materialize()
 					G.consumeables:emplace(chaos)
-					G.GAME.consumeable_buffer = 0
+					G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
 					return true
 				end
 			}))
-			card_eval_status_text(context.blueprint_card or chaos, 'extra', nil, nil, nil, { message = msg, colour = color })
-			card:juice_up(0.3, 0.4)
-			return --true
+			-- Show final Message
+			if context.blueprint then
+				card = context.blueprint_card
+			end
+			if get_joker then
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('SEMBY_eval_jevil_joker'), colour = G.C.SPECTRAL })
+			else
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('SEMBY_eval_jevil_consumable'), colour = G.C.GOLD })
+			end
+			card:juice_up()
+			return
         end
 	end
 }

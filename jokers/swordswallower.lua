@@ -1,13 +1,6 @@
 SMODS.Joker {
 	key = "swordswallower",
-	loc_txt = {
-		name = "Sword Swallower",
-		text = {
-			"{X:mult,C:white}X1{} Mult for each",
-			"{X:blue,C:white}Common{} Joker",
-			"{C:inactive}(Currently {}{X:mult,C:white}X#1#{}{C:inactive} Mult){}"
-		}
-	},
+	name = "SEMBY_swordswallower",
 	rarity = 3,
     cost = 8,
 	atlas = "SEMBY_jokers",
@@ -15,7 +8,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	config = { extra = { Xmult = 1 } },
 	loc_vars = function(self, _info, card)
-        return { vars = { card.ability.extra.Xmult, card.ability.extra.Xchip, } }
+        return { vars = { card.ability.extra.Xmult } }
     end,
 	loc_vars = function(self, _info, card)
         local num_common = 0

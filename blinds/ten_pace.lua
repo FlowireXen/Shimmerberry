@@ -3,14 +3,8 @@ local PACE_TO = 1.0
 local PACE_ADD = 0.1
 --local PACE_WEAK = 0.5
 local blind = {
-	loc_txt =  	{
-        name = 'Ten Paces',
-        text = {
-			'If scored {C:chips}chips{} are between',
-			'{C:attention}#1#%{} and {C:attention}#2#%{} of required {C:chips}chips{},',
-			'{C:attention}increase{} required {C:chips}chips{} by {C:legendary}#3#%{}'
-		}
-    },
+	key = "ten_pace",
+	name = "SEMBY_ten_pace",
     vars = { 100 * PACE_FROM, 100 * PACE_TO, 100 * PACE_ADD },
     config = {
 		extra = {

@@ -1,13 +1,6 @@
 SMODS.Joker {
 	key = "abandoned_soul",
-	loc_txt = {
-		name = "Abandoned Soul",
-		text = {
-			"This Joker gains {X:chips,C:white}X#1#{} Chips every",
-			"time a {C:attention}Playing card{} is destroyed",
-			"{C:inactive}(Currently {X:chips,C:white}X#2#{}{C:inactive} Chips){}"
-		}
-	},
+	name = "SEMBY_abandoned_soul",
 	rarity = 3,
 	blueprint_compat = true,
 	eternal_compat = true,

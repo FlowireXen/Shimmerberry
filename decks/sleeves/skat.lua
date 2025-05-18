@@ -6,32 +6,31 @@ CardSleeves.Sleeve {
     pos = { x = 0, y = 0 },
     loc_vars = function(self)
 		local key
-		local vars
+		local vars = {}
         if self.get_current_deck_key() == "b_SEMBY_skat" then
 			vars = { 
-				self.config.start.bonus_discards, -- loc-file is singular
-				self.config.extra.discards
+				self.config.start.bonus_hands,
+				self.config.start.bonus_discards
 			}
-            key = "skat_sleeve_alt"
+            key = "sl_SEMBY_skat_alt"
         else
 			vars = { 
-				self.config.start.min_inclusive_id,
-				self.config.start.max_exclusive_id,
+				self.config.start.min_id,
 				self.config.start.hand_size,
 				self.config.start.discards,
 				self.config.extra.discards
 			}
-            key = "skat_sleeve"
+            key = "sl_SEMBY_skat"
         end
         return { key = key, vars = vars }
     end,
 	config = {
 		start = {
-			hand_size = 2, -- add
 			discards = 3,  -- remove
-			bonus_discards = 1,  -- add
-			min_inclusive_id = 2, -- remove and above
-			max_exclusive_id = 7  -- remove below
+			hand_size = 2, -- add
+			min_id = 7,    -- remove below
+			bonus_hands = 1,
+			bonus_discards = 2
 		},
 		extra = {
 			discards = 2
@@ -39,8 +38,10 @@ CardSleeves.Sleeve {
 	},
     apply = function(self)
 		if self.get_current_deck_key() == "b_SEMBY_skat" then
-			-- DISCARDS EACH ROUND: +1
-			G.GAME.starting_params.discards = G.GAME.starting_params.discards + self.config.start.bonus_discards
+			-- HANDS EACH ROUND: +1
+			G.GAME.starting_params.hands = G.GAME.starting_params.hands + self.config.start.bonus_hands
+			-- MODIFY DECK: Auto-Discards +2
+			G.GAME.selected_back.effect.center.config.extra.discard_mod = G.GAME.selected_back.effect.center.config.extra.discard_mod + self.config.start.bonus_discards
 		else
 			-- DISCARDS EACH ROUND: -3
 			local failsafe = G.GAME.starting_params.discards - self.config.start.discards
@@ -50,13 +51,13 @@ CardSleeves.Sleeve {
 			G.GAME.starting_params.discards = failsafe
 			-- HAND SIZE: +2
 			G.GAME.starting_params.hand_size = G.GAME.starting_params.hand_size + self.config.start.hand_size
-			-- MODIFY DECK: remove all "2 up to 7"
+			-- MODIFY DECK: remove all below 7
 			G.E_MANAGER:add_event(Event({
 				func = function()
 					for i = #G.playing_cards, 1, -1 do
-						if G.playing_cards[i]:get_id() >= self.config.start.min_inclusive_id
-						and G.playing_cards[i]:get_id() < self.config.start.max_exclusive_id
-						then G.playing_cards[i]:start_dissolve(nil, true) end
+						if G.playing_cards[i]:get_id() < self.config.start.min_id then
+							G.playing_cards[i]:start_dissolve(nil, true)
+						end
 					end
 					G.E_MANAGER:add_event(Event({
 						func = function()
@@ -70,7 +71,7 @@ CardSleeves.Sleeve {
 		end
     end,
 	calculate = function(self, back, context)
-        if context.after then
+        if context.after and not self.get_current_deck_key() == "b_SEMBY_skat" then
 			-- ((Based on "The Hook"'s Function!))
 			G.E_MANAGER:add_event(Event({
 				func = function()
@@ -111,7 +112,6 @@ CardSleeves.Sleeve {
 							G.hand:add_to_highlighted(_selected[i], true)
 						end
 						-- discard selected cards
-						-- THIS GOD FORSAKEN FUNCTION HAS COSTED ME ***SO*** MUCH FFFUCKING TIME
 						G.FUNCS.discard_cards_from_highlighted(nil, true)
 						-- safety: re-select prev.
 						for i = 1, #_highlighted do

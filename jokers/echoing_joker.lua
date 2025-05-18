@@ -1,12 +1,6 @@
 SMODS.Joker{
 	key = "echoing_joker",
-	loc_txt = {
-		name = "Echoing Joker",
-        text = {
-			"Duplicate the next used",
-			"{C:attention}Consumable{} {C:green}#1#{} time#2#"
-        }
-	},
+	name = "SEMBY_echoing_joker",
     atlas = 'SEMBY_jokers',
     pos = { x = 1, y = 0 },
     rarity = 3,
@@ -16,11 +10,11 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = false,
 	loc_vars = function(self, info_queue, card)
-		local retval = ""
 		if G.GAME.probabilities.normal and G.GAME.probabilities.normal > 1 then
-			retval = "s"
+			return { key = "j_SEMBY_echoing_joker_multiple", vars = { (G.GAME.probabilities.normal or 1) } }
+		else
+			return { key = "j_SEMBY_echoing_joker_one" }
 		end
-		return { vars = { (G.GAME.probabilities.normal or 1), retval } }
 	end,
     calculate = function(self, card, context)
         if context.using_consumeable then
@@ -53,29 +47,28 @@ SMODS.Joker{
 				}))
 			end
 			
-			G.E_MANAGER:add_event(Event({
-				func = function()
-					play_sound('tarot1')
-					card:juice_up(0.3, 0.4)
-					if destroy == true then
+			card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('SEMBY_eval_echoing_joker'), colour = G.C.ATTENTION})
+			if destroy == true then
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						delay(0.5)
 						G.E_MANAGER:add_event(Event({
 							trigger = 'after',
 							blockable = false,
 							func = function()
 								G.jokers:remove_card(card)
-								card:remove()
+								card:start_dissolve()
+								--card:remove()
 								card = nil
 								return true;
 							end
 						}))
+						return true
 					end
-					return true
-				end
-			}))
+				}))
+			end
 			
-			return {
-				message = 'Echoed!'
-			}
+			return
         end
     end
 }

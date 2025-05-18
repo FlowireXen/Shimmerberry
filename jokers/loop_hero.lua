@@ -1,16 +1,6 @@
 SMODS.Joker {
 	key = "loop_hero",
-	loc_txt = {
-		name = "Oblivion",
-		text = {
-			"{C:attention}-#1#{} Ante when",
-			"{C:attention}Boss Blind{}",
-			"is defeated",
-			-- the nerf I didn't want but had to implement...
-			"{C:inactive,s:0.75}Blinds slowly grow{}",
-			"{C:inactive,s:0.75}stronger each loop{}"
-		}
-	},
+	name = "SEMBY_loop_hero",
 	rarity = 3, --might as well be a legendary...
 	cost = 20,
 	atlas = "SEMBY_jokers",
@@ -26,7 +16,7 @@ SMODS.Joker {
 			print("Ante Final Scaling: " .. G.GAME.starting_params.ante_scaling)
 			G.GAME.starting_params.ante_scaling = G.GAME.starting_params.ante_scaling - card.ability.ante_modifier
 			print("Reset Ante Scaling: " .. G.GAME.starting_params.ante_scaling)
-			card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Escaped...', colour = G.C.DARK_EDITION })
+			card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('SEMBY_eval_loop_hero_removed'), colour = G.C.DARK_EDITION })
         end
     end,
 	calculate = function(self, card, context)
@@ -40,8 +30,8 @@ SMODS.Joker {
 			print("Current Ante Scaling: " .. G.GAME.starting_params.ante_scaling)
 			-- purely visual:
 			card.ability.loop = card.ability.loop + 1
-			card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Loop '..card.ability.loop, colour = G.C.DARK_EDITION })
-			return --true --> Juices Up, Unless you're Blueprint.. Then it Crashes.
+			card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('SEMBY_eval_loop_hero')..card.ability.loop, colour = G.C.DARK_EDITION })
+			return
         end
 	end
 }

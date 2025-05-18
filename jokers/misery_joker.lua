@@ -1,12 +1,6 @@
 SMODS.Joker {
 	key = "misery",
-	loc_txt = {
-		name = "Misery",
-		text = {
-            "{X:mult,C:white} X#1# {} Mult",
-			"{X:chips,C:white} X#2# {} Chips"
-		}
-	},
+	name = "SEMBY_misery",
 	rarity = 3,
 	cost = 6,
 	atlas = "SEMBY_jokers",

@@ -25,10 +25,13 @@ assert(SMODS.load_file('jokers/lost_constellation.lua'))()
 assert(SMODS.load_file('jokers/misery_joker.lua'))()
 assert(SMODS.load_file('jokers/money_laundering.lua'))()
 assert(SMODS.load_file('jokers/potted_flowers.lua'))()
-assert(SMODS.load_file('jokers/screwd.lua'))()
 assert(SMODS.load_file('jokers/shooting_star.lua'))()
 assert(SMODS.load_file('jokers/swordswallower.lua'))()
 assert(SMODS.load_file('jokers/tonfro_joker.lua'))()
+assert(SMODS.load_file('jokers/true_mystery.lua'))()
+
+--assert(SMODS.load_file('jokers/aaafreeidea.lua'))()
+
 -- Debug Joker
 --assert(SMODS.load_file('jokers/DEBUG.lua'))()
 

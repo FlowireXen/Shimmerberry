@@ -1,14 +1,6 @@
 SMODS.Joker{
 	key = "bound",
-	loc_txt = {
-		name = "Bound Joker",
-		text = {
-			"{C:attention}+#1#{} Joker slots",
-			"{C:red}Disable{} and {C:red}Destroy{}",
-			"{C:attention}leftmost{} joker at",
-			"beginning of round"
-		}
-	},
+	name = "SEMBY_bound", -- For lovely patching
     atlas = 'SEMBY_jokers',
     pos = { x = 1, y = 1 },
     rarity = 2,
@@ -28,26 +20,40 @@ SMODS.Joker{
     end,
     add_to_deck = function(self, card, from_debuff)
         if G.jokers then
-			G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.slots  -- Adds joker slots when added
+			G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.slots
         end
     end,
     remove_from_deck = function(self, card, from_debuff)
         if G.jokers then
-            G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.slots  -- Removes the slots when removed
+            G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.slots
         end
     end,
 	calculate = function(self, card, context)
-        if context.setting_blind and G and G.jokers and G.jokers.cards and not context.blueprint then
-			if #G.jokers.cards > 0 then
-				if G.jokers.cards[1] == self then
-					self:set_debuff(true)
-					self:start_dissolve()
-				else
-					G.jokers.cards[1]:set_debuff(true)
-					G.jokers.cards[1]:start_dissolve()
+        if context.setting_blind and not context.blueprint and not self.getting_sliced then
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				func = function()
+					-- Animate Bound
+					card:juice_up()
+					play_sound('tarot1')
+					if #G.jokers.cards > 0 then
+						local local_jokers = G.jokers.cards
+						for k, v in pairs(local_jokers) do
+							if not v.debuff then
+								-- Debuff (and Destroy) Joker
+								v:set_debuff(true)
+								if not v.ability.eternal then
+									v:start_dissolve()
+								end
+								return true -- return fresh and early!
+							end
+						end
+					end
+					return true -- uNrEaChAbLe CoDe DeTeCtEd
 				end
-			end
-			return --true
+			}))
+			delay(1.0)
+			return
         end
 	end
 }

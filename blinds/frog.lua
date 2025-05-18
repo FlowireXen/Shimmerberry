@@ -1,12 +1,6 @@
 local blind = {
-	loc_txt =  	{
-        name = 'The Frog',
-        text = {
-			'{C:attention}-1{} hand size and',
-			'{C:red}+1{} discard for',
-			'each hand played'
-		}
-    },
+	key = "frog",
+	name = "SEMBY_frog",
 	boss = {min = 2, max = 10},
     boss_colour = HEX("8ed132"), --frog
     atlas = "critterblinds",
@@ -23,7 +17,7 @@ end
 blind.disable = function(self)
 	-- Reset Hand
     G.hand:change_size(G.GAME.blind.hands_sub)
-    G.FUNCS.draw_from_deck_to_hand(blind.hands_sub)
+    --G.FUNCS.draw_from_deck_to_hand(blind.hands_sub)
     G.GAME.blind.hands_sub = 0
 	-- "Reset" Discards
     ease_discard(-self.discards_sub)

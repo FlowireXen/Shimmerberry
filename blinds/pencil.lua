@@ -1,11 +1,6 @@
 local blind = {
-	loc_txt =  	{
-        name = 'The Pencil',
-        text = {
-			'Debuff {C:attention}first{} played',
-			'card every hand'
-		}
-    },
+	key = "pencil",
+	name = "SEMBY_pencil",
 	boss = {min = 1, max = 10},
     boss_colour = HEX("4b43a5"), --blue/purple... blurple
     atlas = "critterblinds",

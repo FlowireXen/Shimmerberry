@@ -1,0 +1,32 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# Always allow buying "Bound Joker"
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "G.FUNCS.check_for_buy_space = function(card)"
+position = "after"
+payload = '''
+if card.ability.name == 'SEMBY_bound' then
+  return true
+end
+'''
+match_indent = true
+
+# Always allow selecting "Bound Joker" (in packs for example!)
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "G.FUNCS.can_select_card = function(e)"
+position = "after"
+payload = '''
+if e.config.ref_table.ability.set == 'Joker' and e.config.ref_table.ability.name == 'SEMBY_bound' then
+  e.config.colour = G.C.GREEN
+  e.config.button = 'use_card'
+  return
+end
+'''
+match_indent = true
