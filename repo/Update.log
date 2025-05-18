@@ -1,0 +1,49 @@
+Update 0: Release
+
+Nothing to note, it's the public release!! :3
+
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+
+Update 1: Localisation and Bugfixes (and Polish)
+
+General Info:
+- Added a Localisation-File, the Mod can now be officially Translated! :)
+- "Skat" is now "Scartare", it's texture has been updated too!
+
+Blind Updates:
+- The Frog Bugfix: Disabling the blind now won't over-draw additional cards
+
+Deck Updates:
+- Scartare compatibility update: Variables get changed with plus/minus-operators instead of setting them to a number
+- Scartare compatibility update: Added additional code for the Scartare-Sleeve, making the Sleeve feel more like an extension to the Deck
+
+Sleeve Updates:
+- Scartare compatibility update: Slight Changes for the Scartare-Deck
+- Scartare Rewording: "Deletes all suits below 7"
+
+Joker Updates:
+- Boosterpack: Added visual when entering a shop
+- Bound:
+-- Lovely Patch: Can always be acquired now...
+-- Bugfix: Doesn't destroy Eternal Jokers anymore
+-- Added compatibility with itself (Ignores debuffed Jokers)
+-- Added a bit more visual feedback
+- Echoing Joker: Reworded
+- Emergency Button:
+-- Bugfix: Doesn't destroy Eternal Jokers anymore
+-- Bugfix: Now Correctly Destroys ALL Jokers
+-- Added compatibility with itself (Only one trigger per Game Over)
+-- Buff: Respects Negative Modifier (Reapplies Negative on random Jokers)
+-- Nerf: Consumable-Category gets ignored on reroll
+- Jevil:
+-- Buff: Joker-Limit removed
+-- Nerf: Each Joker decreases the chance to get another one
+-- Buff: Sell-Costs are now positive
+-- Nerf: Sell-Costs are now capped
+-- Better visuals
+- Money Laundering: Shops refresh on pickup and removal
+- Shooting Star: Visuals now reflect upgrade amount...
+- Screw'd: Removed.
+- Mystery Joker?: Added :)
+
+##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
