@@ -4,17 +4,17 @@ Shimmerberry is my personal mod that adds some vanilla-like/extending<br>
 content to the game, including fun references to other games!
 
 # Content
-
 My silly mod currently adds:
-- 15 Jokers
 - 3 Blinds (1 Boss Blind)
 - 1 Deck with 1 respective [Card Sleeve](https://github.com/larswijn/CardSleeves)
-
-<details open>
-
-<summary>For a very detailed description, Click here!</summary>
+- 15 Jokers
 
 ## Jokers
+![Shimmerberry Jokers](repo/REPO_Jokers.png)
+
+<details>
+
+<summary>Click here to see all the relevant Joker information (in order)!</summary>
 
 | Name | Description | Notes | Rarity |
 | ---- | ---- | ---- | ---- |
@@ -34,31 +34,34 @@ My silly mod currently adds:
 | Sword Swallower | X1.0 Mult for each Common Joker | - | Rare |
 | To n' Fro | Played cards swap Chips and Mult when scored<br>Earn $1 every 11 swaps | - | Common |
 
-![Shimmerberry Jokers](assets/1x/jokers.png)
+</details>
 
 ## Blinds
+![Shimmerberry Jokers](repo/REPO_Blinds.png)
+
+<details open>
+
+<summary>Click me to read up on my Blinds (in order)!</summary>
 
 | Name | Description | Boss Blind? |
 | ---- | ---- | ---- |
-| The Frog | -1 hand size and +1 discard<br>for each hand played | No, it's just<br>a tiny guy! |
 | The Pencil | Debuff first played<br>card every hand | No |
+| The Frog | -1 hand size and +1 discard<br>for each hand played | No, it's just<br>a tiny guy! |
 | Ten Paces | If scored chips are between<br>80% and 100% of required chips,<br>increase required chips by 10%<br> | Yes |
 
-![Shimmerberry Jokers](repo/Frog.png)
+</details>
 
 ## Deck(s); Scartare Deck!
+![Shimmerberry Jokers](repo/REPO_Decks.png)
 
 Start with a 32 Card "[Scartare Deck](https://en.wikipedia.org/wiki/Skat_(card_game))" (all ranks below 7 are missing):<br>
 Start with 10 hand size and 0 discards.<br>
 Discard 2 random cards with each hand played.<br>
 (The Scartare-[Sleeve](https://github.com/larswijn/CardSleeves) works exactly the same!)
 
-![Shimmerberry Jokers](assets/1x/decks.png)
-
-</details>
-
 # Download and Requirements
-Click on "<> Code" and "Download ZIP", or just [Click Here](https://github.com/FlowireXen/Shimmerberry/archive/refs/heads/main.zip)!
+Click on "<> Code" and "Download ZIP", or just [Click Here](https://github.com/FlowireXen/Shimmerberry/archive/refs/heads/main.zip)!<br>
+You also need:
 - [Steamodded](https://github.com/Steamopollys/Steamodded)
 - [Lovely](https://github.com/ethangreen-dev/lovely-injector)
 
@@ -70,7 +73,6 @@ Click on "<> Code" and "Download ZIP", or just [Click Here](https://github.com/F
 - [Partner-API](https://github.com/Icecanno/Partner-API) Mod integration!~
 
 # Thank you for reading
-
 And I hope you enjoy my mod!
 
 ![Shimmerberry Goodbey](repo/Flowire.png)
