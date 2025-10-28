@@ -1,15 +1,15 @@
 {
     "id": "SEMBY",
     "name": "Shimmerberry",
-    "author": ["Flowire"],
-    "description": "Full of Critters!",
+    "author": ["Flowire", "unkokat"],
+    "description": "Adds Fluffy, Custom and Vanilla-Like Content: 90 Jokers, 20 Challenges, 4 Vouchers, 3 Decks (+Sleeves!), 3 Consumables and more!",
     "prefix": "SEMBY",
     "main_file": "ShimmerBerry.lua",
-    "badge_colour": "FAADBD",
+    "badge_colour": "FF8FA9",
     "badge_text_colour": "ffffff",
     "dependencies": [
-    	"Steamodded (>=1.0.0~BETA-0323b)",
+    	"Steamodded (>=1.0.0~BETA-0827c)",
         "Lovely (>=0.6)"
     ],
-    "version": "25w21a"
+    "version": "25w44a"
 }
