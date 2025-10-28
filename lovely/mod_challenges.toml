@@ -1,0 +1,69 @@
+[manifest]
+version = "1.0.2"
+dump_lua = true
+priority = 10
+
+## Additional Parameters and Changes for Challenges:
+#> Add "Winning Ante" as Start-Parameter
+#> Add More Options for Jokers (Stickers, etc.)
+
+
+## Add "Winning Ante" as Start-Parameter: [
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "hand_size = {value = starting_params.hand_size, order = 3},"
+position = "after"
+payload = "winning_ante = {value = starting_params.winning_ante, order = 8},"
+match_indent = false
+# ], [
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "erratic_suits_and_ranks = false,"
+position = "after"
+payload = "winning_ante = 8,"
+match_indent = false
+# ], [
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "self.GAME.current_round.reroll_cost = self.GAME.base_reroll_cost"
+position = "after"
+payload = "self.GAME.win_ante = self.GAME.starting_params.winning_ante"
+match_indent = false
+# ]
+
+## Add More Options for Jokers: [
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "if v.pinned then card.pinned = true end"
+position = "after"
+payload = '''
+	if v.perishable then card:add_sticker('perishable', true) end
+	if v.debuffed then card:set_debuff(true) end
+	if v.SEMBY_possessive then card:add_sticker('SEMBY_possessive', true) end
+	if v.SEMBY_glitched then
+		if type(v.SEMBY_glitched) == "number" then card.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched end
+		card:add_sticker('SEMBY_tmtrainer_sticker', true)
+	end
+'''
+match_indent = false
+# ], [
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if v.pinned then _joker.pinned = true end"
+position = "after"
+payload = '''
+	if v.perishable then _joker:add_sticker('perishable', true) end
+	if v.debuffed then _joker:set_debuff(true) end
+	if v.SEMBY_possessive then _joker:add_sticker('SEMBY_possessive', true) end
+	if v.SEMBY_glitched then
+		if type(v.SEMBY_glitched) == "number" then _joker.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched end
+		_joker:add_sticker('SEMBY_tmtrainer_sticker', true)
+	end
+'''
+match_indent = false
+# ]

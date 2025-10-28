@@ -1,0 +1,15 @@
+[manifest]
+version = "2.0.0"
+dump_lua = true
+priority = 10
+
+# Allows Hiding the "Wining Ante" (replaces it with a simple '?')
+# This adds an extra check and should be the least intrusive implementation (imo/afaik)
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''{n=G.UIT.T, config={ref_table = G.GAME, ref_value='win_ante', scale = scale, colour = G.C.WHITE, shadow = true}}'''
+position = "before"
+payload = '''SEMBY_Hide_Win_Ante() and {n=G.UIT.T, config={text = "?", scale = scale, colour = G.C.WHITE, shadow = true}} or'''
+match_indent = true

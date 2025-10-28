@@ -1,0 +1,28 @@
+[manifest]
+version = "1.2.0"
+dump_lua = true
+priority = 10
+
+# Allows overwriting the cardcount-text for all cardareas with custom text
+# This adds an extra check and makes previous nodes obsolete, but this is the least intrusive implementation (imo/afaik)
+# -----------------------------------------------------------------------------------------------------------------------
+# Flow Info: These areas get drawn *once*, use "G.[cardarea].children.area_uibox = nil" to force an area redraw!
+# Flow Info: Text-Size is also only set *once*, same as above when the text starts escaping the intended text-area!
+# -----------------------------------------------------------------------------------------------------------------------
+# Used by: "annoying_dog.lua", "zz_DELETE_THIS.lua"
+
+[[patches]]
+[patches.pattern]
+target = "cardarea.lua"
+pattern = '''self.children.area_uibox = UIBox{'''
+position = "before"
+payload = '''
+if self.config.SEMBY_overwrite and self.config.SEMBY_overwrite[1] then
+    card_count.nodes = {
+        {n=G.UIT.B, config={w = 0.1,h=0.1}},
+        {n=G.UIT.T, config={ref_table = self.config.SEMBY_overwrite[1], ref_value = 'text', scale = 0.3, colour = G.C.WHITE}},
+        {n=G.UIT.B, config={w = 0.1,h=0.1}}
+    }
+end
+'''
+match_indent = true

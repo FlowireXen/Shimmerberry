@@ -1,0 +1,20 @@
+[manifest]
+version = "1.0.1"
+dump_lua = true
+priority = 10
+
+# Disables Selling when "possessive"-Sticker is applied
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+if (G.SETTINGS.tutorial_complete or G.GAME.pseudorandom.seed ~= 'TUTORIAL' or G.GAME.round_resets.ante > 1) and
+self.area and
+self.area.config.type == 'joker' and
+'''
+position = "after"
+payload = '''
+not (self.ability.SEMBY_possessive) and
+'''
+match_indent = false

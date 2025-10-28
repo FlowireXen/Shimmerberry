@@ -1,0 +1,23 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 10
+
+# 1.) [Global] - Percentage Based Shop-Scaling
+# 2.) [Local]  - Changes Buy/Sell Price *after* all Calculations
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if self.area and self.ability.couponed and (self.area == G.shop_jokers or self.area == G.shop_booster) then self.cost = 0 end"
+position = "after"
+payload = '''
+if G.GAME.SEMBY_shop_mod and G.GAME.SEMBY_shop_mod ~= 1.0 then
+    self.cost = math.max(0, math.floor(self.cost * G.GAME.SEMBY_shop_mod + 0.5))
+end
+if self.ability.SEMBY_price_mod then
+    self.cost = math.max(0, math.floor(self.cost + self.ability.SEMBY_price_mod))
+    self.sell_cost = math.max(0, math.floor(self.sell_cost + (self.ability.SEMBY_price_mod/2)))
+end
+'''
+match_indent = false

@@ -1,0 +1,101 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 10
+
+# Description: Adds "Shimmerberries" to Main Menu
+
+# Nearly the same Logic as the "Balatro"-Logo, except...
+# Somehow the Logo just disappears on a run start.
+# We need to do that manually! :))
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "G.SPLASH_LOGO = Sprite(0, 0,"
+position = "before"
+payload = '''
+	if G.SEMBY_BERRY then
+		G.SEMBY_BERRY.states.visible = true
+	else
+		G.SEMBY_BERRY = Sprite(0, 0, 
+			13*SC_scale, 
+			13*SC_scale*(G.ASSET_ATLAS["SEMBY_shimmerberry"].py/G.ASSET_ATLAS["SEMBY_shimmerberry"].px),
+			G.ASSET_ATLAS["SEMBY_shimmerberry"], {x=0,y=0})
+	end
+
+    G.SEMBY_BERRY:set_alignment({
+        major = G.title_top,
+        type = 'cm',
+        bond = 'Strong',
+        offset = {x=0,y=0}
+    })
+    G.SEMBY_BERRY:define_draw_steps({{
+            shader = 'dissolve',
+        }})
+
+    G.SEMBY_BERRY.dissolve_colours = {G.C.WHITE, G.C.WHITE}
+    G.SEMBY_BERRY.dissolve = 1
+
+'''
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)"
+position = "before"
+payload = "ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)"
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, 2.3)"
+position = "before"
+payload = "ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, 2.3)"
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if G.SPLASH_LOGO then"
+position = "before"
+payload = '''
+    if G.SEMBY_BERRY then
+        love.graphics.push()
+        G.SEMBY_BERRY:translate_container()
+        G.SEMBY_BERRY:draw()
+        love.graphics.pop()
+    end
+
+'''
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "function Game:start_run(args)"
+position = "after"
+payload = '''
+    if G.SEMBY_BERRY then
+        G.SEMBY_BERRY.states.visible = false
+    end
+'''
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "G.SPLASH_LOGO.states.visible = true"
+position = "before"
+payload = "G.SEMBY_BERRY.states.visible = true"
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "G.SPLASH_LOGO.states.visible = false"
+position = "before"
+payload = "G.SEMBY_BERRY.states.visible = false"
+match_indent = false
