@@ -118,7 +118,7 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 | Red Mask | This Joker gains +8 Chips<br>when adding or removing<br>a playing card<br>(Currently +0 Chips) | $6 | Uncommon | - |
 | Scaffolding | +/-0 Hand size<br>When Blind is selected<br>gain 1 Hand size for<br>every other Joker<br>Lose 3 Hand size<br>each Hand played | $5 | Uncommon | - |
 | 7 Wonders | When Blind is selected<br>reduce the Blind Size<br>by 2% for each 7 in<br>your full deck<br>(Currently 0%/50%) | $7 | Uncommon | - |
-| Shooting Star | When Boss Blind is<br>defeated, upgrade<br>every Poker Hand<br>by 1 level(s) | $7 | Uncommon | Luck Based |
+| Shooting Star | When Boss Blind is<br>defeated, upgrade<br>every Poker Hand<br>by 1 level(s) | $7 | Uncommon | Luck affected |
 | Stirn Librarian | When Blind is selected,<br>Debuff adjacent Jokers<br>+25 Mult for each<br>Debuffed Joker<br>(Currently +0 Mult) | $5 | Uncommon | - |
 | Stylish Joker | -1 hand size<br>+2 consumable slots<br>Earn $1 for every<br>Consumable you keep<br>at the end of round | $5 | Uncommon | - |
 | PUSH UR T3MPRR | BLIND SELECTED,<br>CLOCK IT UP 200%<br>CARD PLAYED,<br>PUSH IT DOWN 6% | $5 | Uncommon | - |
@@ -130,7 +130,7 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 | Ceaseless Void | This Joker gains a random<br>upgrade for each Joker sold<br>When Blind is selected<br>increase Blind Size by 0%<br>+20 Chips, X1 Chips<br>+0 Mult, X1 Mult<br>Earn $0 at end of round | $9 | Rare | - |
 | Common Denominator | Copies abilities of<br>all Common Jokers | $10 | Rare | - |
 | Copy Printer | At the end of the Shop<br>convert the Joker to the left<br>into the Joker to the right<br>(Destroyed after use) | $12 | Rare | - |
-| Echoing Joker | Create 2 Negative<br>copies of the next<br>used Consumable | $12 | Rare | Luck Based |
+| Echoing Joker | Create 2 Negative<br>copies of the next<br>used Consumable | $12 | Rare | Luck affected |
 | Hemoturgy | Discarded cards gain<br>a random Edition,<br>Enhancement or Seal<br>-1 Discard each round<br>Decreases amount of<br>Discardable Cards by 2 | $7 | Rare | - |
 | Improv Show | Spend 1 Discard<br>each hand played<br>to regain 1 Hand<br>Earn $1 less per<br>remaining Hand | $8 | Rare | - |
 | Lavish Joker | Regain lost Money<br>Each $1 regained<br>increases the next<br>Blind Size by 5%<br>(Next Blind: +0%)<br>Turns Possessive<br>after $20 regained | $1 | Rare | - |
@@ -146,6 +146,7 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 
 ### Parking Disc States
 | State | Effect | Note |
+| ---- | ---- | ---- |
 | X | Initial State | Excluded from<br>State 12 |
 | 1 | +1 Handsize | - |
 | 2 | X2 Mult | - |
