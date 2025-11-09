@@ -17,3 +17,5 @@ Change unkokat Extra-Artist-Text on Artist Tab (In default.lua)
 
 Make sure I'm compatible with:
 https://github.com/skyline69/balatro-mod-index
+
+-> Change Voucher an Tag Position on Image
