@@ -7,7 +7,7 @@ ___
 # W.I.P. DISCLAIMER
 This Mod is currently "Work In Progress":<br>
 
-\- <b>Textures</b>: Work in Progress -> 70 Textures Missing.<br>
+\- <b>Textures</b>: Work in Progress -> 50 Textures Missing.<br>
 \-\-\-\> Silly Placeholder-Textures are Provided! :)<br>
 
 \- <b>Code</b>: All Done!<br>
