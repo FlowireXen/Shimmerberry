@@ -18,6 +18,9 @@ SMODS.Joker {
 			breaks = false
 		}
 	},
+	pools = {
+        Food = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance, 'SEMBY_pinata')

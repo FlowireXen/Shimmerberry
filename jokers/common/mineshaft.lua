@@ -22,6 +22,9 @@ SMODS.Joker {
 			remaining = 3
 		}
 	},
+	pools = {
+        Repairable = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_stone

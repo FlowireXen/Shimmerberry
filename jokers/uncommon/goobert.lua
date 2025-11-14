@@ -24,6 +24,9 @@ SMODS.Joker {
 			soul_pos_valid = { left = 5, right = 4, y = 6 }
 		}
 	},
+	pools = {
+        Repairable = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {

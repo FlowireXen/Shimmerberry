@@ -16,6 +16,10 @@ SMODS.Joker {
 			mult = 8
 		}
 	},
+	pools = {
+        Food = true,
+		Berry = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		local card_one = G.GAME.current_round.SEMBY_berry_rank_one or { rank = 'King' }

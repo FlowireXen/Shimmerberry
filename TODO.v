@@ -19,3 +19,7 @@ Make sure I'm compatible with:
 https://github.com/skyline69/balatro-mod-index
 
 -> Change Voucher an Tag Position on Image
+
+Lavish Joker: Also increase Blind-Size when destroyed(?)
+
+Anchor: Make selectable when debuffed (Requires Patch maybe, Idea might be scrapped)

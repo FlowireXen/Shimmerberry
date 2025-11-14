@@ -8,29 +8,31 @@ priority = 10
 #> Add More Options for Jokers (Stickers, etc.)
 
 
-## Add "Winning Ante" as Start-Parameter: [
+## Add "Winning Ante" as Start-Parameter:
+# [
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = "hand_size = {value = starting_params.hand_size, order = 3},"
 position = "after"
-payload = "winning_ante = {value = starting_params.winning_ante, order = 8},"
+payload = "winning_ante = {value = (starting_params.winning_ante or 8), order = 8},"
 match_indent = false
 # ], [
-[[patches]]
-[patches.pattern]
-target = "functions/misc_functions.lua"
-pattern = "erratic_suits_and_ranks = false,"
-position = "after"
-payload = "winning_ante = 8,"
-match_indent = false
+## V.25w46a: Removed Default Value (Messes with Ownership)
+# [[patches]]
+# [patches.pattern]
+# target = "functions/misc_functions.lua"
+# pattern = "erratic_suits_and_ranks = false,"
+# position = "after"
+# payload = "winning_ante = 8,"
+# match_indent = false
 # ], [
 [[patches]]
 [patches.pattern]
 target = "game.lua"
 pattern = "self.GAME.current_round.reroll_cost = self.GAME.base_reroll_cost"
 position = "after"
-payload = "self.GAME.win_ante = self.GAME.starting_params.winning_ante"
+payload = "self.GAME.win_ante = (self.GAME.starting_params.winning_ante or self.GAME.win_ante)"
 match_indent = false
 # ]
 

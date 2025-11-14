@@ -22,6 +22,10 @@ SMODS.Joker {
 			chance = 5
 		}
 	},
+	pools = {
+		Tool = true,
+        Repairable = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
         local suit = (G.GAME.current_round.SEMBY_tool_suit or {}).suit or 'Spades'

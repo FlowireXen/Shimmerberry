@@ -259,7 +259,7 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 
 | Name | Description | Type |
 | ---- | ---- | ---- |
-| Ocean | Add Pearlescent or Shiny to<br>one selected Playing Card<br>or a random Joker. | Tarot |
+| Ocean | Add Pearlescent<br>or Shiny to either<br>one Playing Card<br>or a random Joker. | Tarot |
 | Order | Replace all Jokers with one random<br>Joker in your possession, the new<br>copies keep their old Modifiers<br>. | Spectral |
 | Soul Gem | Captures or Releases<br>the <i>Soul</i> of defeated Blinds. | Spectral |
 </details>

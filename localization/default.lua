@@ -1453,9 +1453,10 @@ return {
 			c_SEMBY_ocean = {
 				name = "Ocean",
 				text = {
-					"Add {C:dark_edition}Pearlescent{} or {C:dark_edition}Shiny",
-					"to {C:attention}one{} selected {C:attention}Playing Card",
-					"{C:attention}or{} a random {C:attention}Joker",
+					"Add {C:dark_edition}Pearlescent",
+					"or {C:dark_edition}Shiny{} to either",
+					"one {C:attention}Playing Card",
+					"or a random {C:attention}Joker",
 				}
 			},
 		},

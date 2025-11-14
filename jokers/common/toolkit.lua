@@ -33,6 +33,10 @@ SMODS.Joker {
 			}
 		}
 	},
+	pools = {
+		Tool = true,
+        Repairable = false,
+    },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
