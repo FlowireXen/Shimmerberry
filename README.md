@@ -309,7 +309,7 @@ Inspired me to start Modding:<br>
 <!--
 # Other Mod Pages
 Coming soon!<br>
--> Curseforge, Nexus, etc. ...
+-> Curseforge, Nexus, Thunderstore, etc. ...
 -->
 
 # Thank you for reading

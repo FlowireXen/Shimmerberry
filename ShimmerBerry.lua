@@ -5,7 +5,7 @@ Shimmerberry = SMODS.current_mod
 Shimmerberry.Debug = false
 
 --## Mod Integrity
-SMODS.Atlas({ key = "modicon", path = "modicon.png", px = 48, py = 48 })
+SMODS.Atlas({ key = "modicon", path = "modicon.png", px = 64, py = 64 })
 SMODS.Atlas({ key = "shimmerberry", path = "shimmerberry.png", px = 80, py = 80 })
 
 --## Compatibility
@@ -26,28 +26,27 @@ end
 SEMBY_Data = {
 	--> Base
 	{ true, "functions" },
-	{ true, "objects" },
+	{ true, "content/objects" },
 	--> Content
 	{ true, "assets" }, --> Artists
-	{ true, "blinds", "blinds", { px = 34, py = 34, atlas_table = "ANIMATION_ATLAS", frames = 21 } },
-	{ true, "challenges" },
-	{ true, "decks", "decks", { px = 71, py = 95 } },
-	{ true, "editions" },
-	{ true, "jokers", "jokers", { px = 71, py = 95 } }, --> Berries
-	{ true, "jokers/common" },
-	{ true, "jokers/uncommon" },
-	{ true, "jokers/rare" },
-	{ true, "jokers/legendary" },
+	{ true, "content/blinds", "blinds", { px = 34, py = 34, atlas_table = "ANIMATION_ATLAS", frames = 21 } },
+	{ true, "content/challenges" },
+	{ true, "content/decks", "decks", { px = 71, py = 95 } },
+	{ true, "content/editions" },
+	{ true, "content/jokers", "jokers", { px = 71, py = 95 } }, --> Berries
+	{ true, "content/jokers/common" },
+	{ true, "content/jokers/uncommon" },
+	{ true, "content/jokers/rare" },
+	{ true, "content/jokers/legendary" },
 	--{ false, "planets", "planets", { px = 71, py = 95 } },
-	{ Shimmerberry.compat.sleeves, "decks/sleeves", "sleeves", { px = 73, py = 95 } },
-	{ true, "spectrals", "spectrals", { px = 71, py = 95 } },
-	{ true, "stickers", "stickers", { px = 71, py = 95 } },
-	{ true, "tags", "tags", { px = 34, py = 34 } },
-	{ true, "tags/debt" },
-	{ true, "tarots", "tarots", { px = 71, py = 95 } },
-	{ true, "vouchers", "vouchers", { px = 71, py = 95 } },
+	{ Shimmerberry.compat.sleeves, "content/decks/sleeves", "sleeves", { px = 73, py = 95 } },
+	{ true, "content/consumables", "consumables", { px = 71, py = 95 } },
+	{ true, "content/stickers", "stickers", { px = 71, py = 95 } },
+	{ true, "content/tags", "tags", { px = 34, py = 34 } },
+	{ true, "content/tags/debt" },
+	{ true, "content/vouchers", "vouchers", { px = 71, py = 95 } },
 	--> Debug
-	{ Shimmerberry.Debug, "debug" },
+	{ Shimmerberry.Debug, "content/debug" },
 }
 
 --## Custom File-Loader

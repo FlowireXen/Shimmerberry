@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "soul_gem",
 	name = "SEMBY_soul_gem",
     set = "Spectral",
-	atlas = "SEMBY_spectrals",
+	atlas = "SEMBY_consumables",
     pos = { x = 1, y = 0 },
 	soul_pos = { x = 0, y = 1 },
     unlocked = true,

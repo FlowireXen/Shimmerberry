@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "order_shrine",
 	name = "SEMBY_order_shrine",
     set = "Spectral",
-	atlas = "SEMBY_spectrals",
+	atlas = "SEMBY_consumables",
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)

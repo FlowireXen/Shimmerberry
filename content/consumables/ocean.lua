@@ -2,8 +2,8 @@ SMODS.Consumable {
     key = "ocean",
 	name = "SEMBY_ocean",
     set = "Tarot",
-	atlas = "SEMBY_tarots",
-    pos = { x = 0, y = 0 },
+	atlas = "SEMBY_consumables",
+    pos = { x = 3, y = 0 },
     config = {
         extra = {
             odds = 3

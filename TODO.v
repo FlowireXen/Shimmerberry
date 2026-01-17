@@ -18,6 +18,7 @@
 - [   ]: Give all Jokers pronouns
 
 > Each Release:
-- Update Version Number :: ex. 26.1.17a :: "Year"."Month"."Day""Minor"
-- Update README.md
-- Setup GitHub Release
+- Update: README.md, Version Number ("Year"."Month"."Day""Minor"), Create *Latest GitHub Release*
+- External:
+- - Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
+- - Curseforge, Nexus, Thunderstore, Photon, etc. ...
