@@ -8,8 +8,8 @@
     "badge_colour": "FF8FA9",
     "badge_text_colour": "ffffff",
     "dependencies": [
-    	"Steamodded (>=1.0.0~BETA-0827c)",
-        "Lovely (>=0.6)"
+		"Steamodded (>=1.0.0~BETA-1221a)", 
+		"Lovely (>=0.8.0)"
     ],
-    "version": "25w46a"
+    "version": "26.1.17a"
 }

@@ -9,7 +9,7 @@ priority = 10
 # Flow Info: These areas get drawn *once*, use "G.[cardarea].children.area_uibox = nil" to force an area redraw!
 # Flow Info: Text-Size is also only set *once*, same as above when the text starts escaping the intended text-area!
 # -----------------------------------------------------------------------------------------------------------------------
-# Used by: "annoying_dog.lua", "zz_DELETE_THIS.lua"
+# Used by: "annoying_dog.lua", "xx_DELETE_THIS.lua"
 
 [[patches]]
 [patches.pattern]

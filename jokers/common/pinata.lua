@@ -19,9 +19,14 @@ SMODS.Joker {
 		}
 	},
 	pools = {
-        Food = true,
+        ["Food"] = true,
+		["Music"] = true,
+		["Numetal"] = true,
     },
 	loc_vars = function(self, info_queue, card)
+		if Shimmerberry.compat.buffoonery and Buffoonery.config.show_info then
+			info_queue[#info_queue+1] = {set = 'Other', key = 'nu_metal_info'}
+		end
 		SEMBY_Queue_Artist(card, info_queue)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance, 'SEMBY_pinata')
 		return { vars = {
@@ -33,9 +38,9 @@ SMODS.Joker {
     remove_from_deck = function(self, card, from_debuff)
 		if card.ability.extra.reward and not from_debuff then
 			G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.slots
-            for i = 1, G.consumeables.config.card_limit do
-				if G.GAME.consumeable_buffer + #G.consumeables.cards < G.consumeables.config.card_limit then
-					G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            for i = 0, G.consumeables.config.card_limit do
+				if (G.GAME.consumeable_buffer or 0) + #G.consumeables.cards <= G.consumeables.config.card_limit then
+					G.GAME.consumeable_buffer = (G.GAME.consumeable_buffer or 0) + 1
 					G.E_MANAGER:add_event(Event({
 						trigger = 'after',
 						delay = 0.2,

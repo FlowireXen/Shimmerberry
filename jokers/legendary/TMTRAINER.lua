@@ -8,7 +8,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
-	rarity = 3,
+	rarity = 3, --> "Legendary"
 	cost = 9,
 	config = {
 		extra = {
@@ -169,7 +169,7 @@ SMODS.Joker {
 						attention_text({
 							--text = number_format(context.card.ability.SEMBY_tmtrainer_value),
 							text = 'x'..number_format(round_number(Changed, 2)),
-							backdrop_colour = HEX('119933'),
+							backdrop_colour = G.C.SEMBY_TMTRAINER,
 							scale = 1.2, hold = 1.2, major = context.card,
 							align = 'cm', offset = { x = 0, y = 0 }
 						})
@@ -193,7 +193,7 @@ SMODS.Joker {
 			G.E_MANAGER:add_event(Event({ trigger = 'after', func = function() juice_card:juice_up(0.1) return true end }))
 			return {
 				message = localize('SEMBY_TMTRAINER_'..(Changed and 'Y' or 'N')..math.random(1, 4)),
-				colour = HEX('119933'),
+				colour = G.C.SEMBY_TMTRAINER,
 				message_card = context.card
 			}
 			-- END: RETURN

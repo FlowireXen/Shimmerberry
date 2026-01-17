@@ -4,7 +4,7 @@
 -- Get Info-Queue:
 function SEMBY_Queue_Artist(object, info_queue)
 	-- Doesn't support Collabs/Multiple Artists yet!
-	if object.area and object.area.config.collection then
+	if object and object.area and object.area.config.collection then
 		local artist = "art_"..(G.SEMBY.Art[object.config.center_key] or "placeholder")
 		info_queue[#info_queue + 1] = { key = artist, set = "Other" }
 	end
@@ -42,8 +42,6 @@ G.SEMBY.Artist = {
 			},
 		}
 	},
-	placeholder = { key = "placeholder" },
-	--WIP = { key = "WIP" },
 }
 -- Artists (Colours):
 G.ARGS.LOC_COLOURS.SEMBY_flowire = G.SEMBY.Artist.flowire.colour
@@ -65,16 +63,17 @@ G.SEMBY.Art = {
 	c_SEMBY_soul_gem = G.SEMBY.Artist.flowire.key,
 	--## Editions (Collection-View & Mod-Menu)
 	e_SEMBY_pearlescent = G.SEMBY.Artist.flowire.key,
+	e_SEMBY_resonance = G.SEMBY.Artist.flowire.key,
 	e_SEMBY_shiny = G.SEMBY.Artist.flowire.key,
 	--## Jokers (Collection-View & Mod-Menu)
-	j_SEMBY_abandoned_soul = "WIP",
-	j_SEMBY_adblocker = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_afterimage = "WIP",
-	j_SEMBY_agent_fourty_seven = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_alpha = "WIP",
+	j_SEMBY_abandoned_soul = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_adblocker = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_afterimage = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_agent_fourty_seven = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_alpha = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_anchor = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_annoying_dog = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_anodized_steel = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_anodized_steel = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_benthic_bloom = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_berry_blue = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_berry_golden = G.SEMBY.Artist.unkokat.key,
@@ -84,84 +83,82 @@ G.SEMBY.Art = {
 	j_SEMBY_bound = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_broken_record = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_buccaneer = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_butterfly = "WIP",
-	j_SEMBY_ceaseless_void = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_butterfly = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_ceaseless_void = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_chrono_break = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_cockroach = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_common_denominator = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_common_denominator = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_copy_printer = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_coupon = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_coupon_booklet = G.SEMBY.Artist.placeholder.key,
-	--j_SEMBY_debugjoker = G.SEMBY.Artist.flowire.key,
+	j_SEMBY_coupon = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_coupon_booklet = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_echoing_joker = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_emergency_button = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_eternal_fortune = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_fifty_seven_leaf_clover = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_fortune_cookie = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_garden_gnome = "WIP",
-	j_SEMBY_gold_bomb = "WIP",
-	j_SEMBY_goobert = "WIP",
+	j_SEMBY_garden_gnome = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_gold_bomb = G.SEMBY.Artist.flowire.key,
+	j_SEMBY_goobert = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_hemoturgy = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_hypetrain = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_improv = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_incinerator = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_hypetrain = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_improv = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_incinerator = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_jevil = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_jokebra = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_lavish_joker = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_lost_constellation = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_lottery_ticket = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_melon = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_mineshaft = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_mineshaft = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_misery = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_money_laundering = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_nashi_pear = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_money_laundering = G.SEMBY.Artist.unkokat.key, --was G.SEMBY.Artist.flowire.key,
+	j_SEMBY_nashi_pear = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_oblivion = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_obscure_ritual = "WIP",
-	j_SEMBY_opulent_skint = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_ouroboros = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_obscure_ritual = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_opulent_skint = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_ouroboros = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_parking_disc = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_pay_two_win = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_perfect_pitch = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_pet_plastic = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_piggy_bank = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_pinata = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_pay_two_win = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_perfect_pitch = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_pet_plastic = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_piggy_bank = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_pinata = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_plastic_key = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_pocket_dimension = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_pocket_dimension = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_potted_flowers = G.SEMBY.Artist.flowire.key,
 	j_SEMBY_quest = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_reagent = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_red_mask = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_reagent = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_red_mask = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_ripped_joker = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_risky_joker = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_scaffolding = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_seven_wonders = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_risky_joker = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_scaffolding = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_seven_wonders = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_shooting_star = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_silver_mask = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_silver_mask = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_singularity = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_stirn_librarian = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_stocked_shelves = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_stylish_joker = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_stern_teacher = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_stocked_shelves = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_stylish_joker = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_swordswallower = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_t3mprr = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_target_plush = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_target_plush = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_tempered_glass = G.SEMBY.Artist.flowire.key,
-	--j_SEMBY_the_debug = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_the_dwarf = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_the_giant = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_the_dwarf = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_the_giant = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_TMTRAINER = G.SEMBY.Artist.flowire.key,
-	j_SEMBY_to_and_fro = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_tool_axe = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_tool_hoe = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_tool_pickaxe = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_tool_shovel = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_toolkit = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_to_and_fro = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_tool_axe = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_tool_hoe = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_tool_pickaxe = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_tool_shovel = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_toolkit = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_twenty_to_die_for = G.SEMBY.Artist.unkokat.key,
 	j_SEMBY_unicorn = G.SEMBY.Artist.unkokat.key,
-	j_SEMBY_warm_embrace = G.SEMBY.Artist.placeholder.key,
-	j_SEMBY_watching_forest = G.SEMBY.Artist.placeholder.key,
+	j_SEMBY_warm_embrace = G.SEMBY.Artist.unkokat.key,
+	j_SEMBY_watching_forest = G.SEMBY.Artist.unkokat.key,
 	--## Stickers (Collection-View & Handled Seperatly)
 	SEMBY_event_horizon = G.SEMBY.Artist.flowire.key, --> Handled in "event_horizon.lua"
-	--SEMBY_forced_perishable = "Balatro", --> Edited Balatro Texture, No Credits.
+	--SEMBY_degrading = "Balatro", --> Edited Balatro Texture, No Credits.
 	SEMBY_possessive = G.SEMBY.Artist.flowire.key, --> Handled in "possessive.lua"
 	SEMBY_tmtrainer_sticker = G.SEMBY.Artist.flowire.key, --> Handled in "tmtrainer_sticker.lua"
 	--## Sleeves (Mod-Menu)
@@ -174,11 +171,13 @@ G.SEMBY.Art = {
 	tag_SEMBY_pearlescent_skip = G.SEMBY.Artist.flowire.key,
 	tag_SEMBY_shiny_skip = G.SEMBY.Artist.flowire.key,
 	tag_SEMBY_vouch_down = G.SEMBY.Artist.flowire.key,
+	tag_SEMBY_lavish_debt = G.SEMBY.Artist.flowire.key,
+	tag_SEMBY_resonance_debt = G.SEMBY.Artist.flowire.key,
 	--## Vouchers (Collection-View & Mod-Menu)
 	v_SEMBY_mask_comedy = G.SEMBY.Artist.flowire.key,
 	v_SEMBY_mask_tragedy = G.SEMBY.Artist.flowire.key,
-	v_SEMBY_urn_cursed = "WIP",
-	v_SEMBY_urn_old = "WIP",
+	v_SEMBY_urn_cursed = G.SEMBY.Artist.unkokat.key,
+	v_SEMBY_urn_old = G.SEMBY.Artist.unkokat.key,
 }
 
 -- Collection-View; Based on Artist-Key:
@@ -277,36 +276,42 @@ function G.FUNCS.SEMBY_Sound_Credits()
                 {n=G.UIT.R, config={ align = "cm" }, nodes={
                     {n=G.UIT.T, config={ text = "Sound Credits:", scale = 0.6, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
                 }}, {n=G.UIT.R, config={ align = "cm" }, nodes={
-				{n=G.UIT.C, config={ align = "cm" }, nodes={
-					{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Pearlescent & Shiny Edition:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = '"achievement-sparkle" by pigeonfriend', scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "CC0 - https://freesound.org/s/715067", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Modified from it's original state.", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-					}}, {n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
-					{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Gold Bomb Explosion:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Made with Beepbox.com", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+					{n=G.UIT.C, config={ align = "cm" }, nodes={
+						{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Pearlescent & Shiny Edition:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = '"achievement-sparkle" by pigeonfriend', scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "CC0 - https://freesound.org/s/715067", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Modified from it's original state.", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+						}}, {n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
+						{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Goobert Brush Sounds:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Inspired by Inscryption", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Made with Beepbox.com", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+						}}, {n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
+						{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Gold Bomb Explosion:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Made with Beepbox.com", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+						}},
 					}},
-				}},
-				{n=G.UIT.C, config={ align = "cm", padding = 0.1 }},
-				{n=G.UIT.C, config={ align = "cm" }, nodes={
-					{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Food/Crunch Sounds:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = '"Apple Crunching" by Rookster', scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "CC0 - https://freesound.org/s/723609", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Modified from it's original state.", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-					}}, {n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
-					{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Revive Sounds:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = 'Inverted Balatro "Glass"-Sounds', scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+					{n=G.UIT.C, config={ align = "cm", padding = 0.1 }},
+					{n=G.UIT.C, config={ align = "cm" }, nodes={
+						{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Food/Crunch Sounds:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = '"Apple Crunching" by Rookster', scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "CC0 - https://freesound.org/s/723609", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Modified from it's original state.", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+						}}, {n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
+						{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Resonance Edition Sound:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Inspired by Destiny 2", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Mixed & Modified Game-Sound", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+						}}, {n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
+						{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Revive Sounds:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = 'Inverted Balatro "Glass"-Sounds', scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
+						}},
 					}},
-				}} }},
-				{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY }, nodes={
-					{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Goobert Brush Sounds:", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-					{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Inspired by Inscryption", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-					{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Made with Beepbox.com", scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }}, }},
-				}},
+			    }}
 			}
 		})
     }
@@ -371,10 +376,10 @@ SMODS.current_mod.extra_tabs = function()
 						}},
 						{n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
 						{n=G.UIT.R, config={ align = "cm" }, nodes={ {n=G.UIT.C, nodes = {
-							{n=G.UIT.T, config={text = localize('SEMBY_artist_other_1'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
+							{n=G.UIT.T, config={text = localize('SEMBY_artist_flowire_extra_1'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
 						}}}},
 						{n=G.UIT.R, config={ align = "cm" }, nodes={ {n=G.UIT.C, nodes = {
-							{n=G.UIT.T, config={text = localize('SEMBY_artist_other_2'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
+							{n=G.UIT.T, config={text = localize('SEMBY_artist_flowire_extra_2'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
 						}}}},
 					}},
 					{n=G.UIT.C, config={ align = "cm", padding = 0.2 }},
@@ -423,14 +428,15 @@ SMODS.current_mod.extra_tabs = function()
 						}},
 						{n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
 						{n=G.UIT.R, config={ align = "cm" }, nodes={ {n=G.UIT.C, nodes = {
-							{n=G.UIT.T, config={text = localize('SEMBY_artist_title_1'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
+							{n=G.UIT.T, config={text = localize('SEMBY_artist_unkokat_extra_1'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
 						}}}},
 						{n=G.UIT.R, config={ align = "cm" }, nodes={ {n=G.UIT.C, nodes = {
-							{n=G.UIT.T, config={text = localize('SEMBY_artist_title_2'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
+							{n=G.UIT.T, config={text = localize('SEMBY_artist_unkokat_extra_2'), scale = 0.38, shadow = true, colour = G.C.UI.TEXT_LIGHT}},
 						}}}},
 					}},
 				}},
 				-- Placeholder
+				--[[
 				{n=G.UIT.R, config={ align = "cm" }, nodes={
 					-- Placeholder
 					show_placeholder and {n=G.UIT.C, config={ align = "cm" }, nodes={
@@ -462,6 +468,7 @@ SMODS.current_mod.extra_tabs = function()
 						}},
 					}} or nil,
 				}},
+				--]]
 				-- Sounds
 				{n=G.UIT.R, config={ align = "cm" }, nodes={
 					{n=G.UIT.R, config={ align = "cm", padding = 0.2 }},

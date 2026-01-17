@@ -53,7 +53,7 @@ SMODS.Back{
 					colour = G.C.DARK_EDITION,
 					G.E_MANAGER:add_event(Event({
 						func = function()
-							G.jokers:handle_card_limit(self.config.extra.slots)
+							G.jokers:change_size(self.config.extra.slots)
 							return true
 						end
 					}))

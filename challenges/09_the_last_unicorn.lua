@@ -15,6 +15,11 @@ SMODS.Challenge {
             { id = 'winning_ante', value = 99 },
         }
     },
+    restrictions = {
+        banned_cards = {
+            { id = 'j_SEMBY_unicorn' },
+        },
+    },
     jokers = {
         { id = 'j_SEMBY_unicorn', debuffed = true, SEMBY_possessive = true },
     },

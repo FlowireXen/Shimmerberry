@@ -17,7 +17,7 @@ SMODS.Challenge {
         { id = 'j_SEMBY_toolkit', perishable = true, SEMBY_possessive = true },
     },
 	apply = function(self)
-        G.GAME.SEMBY_forced_perishable = true
+        G.GAME.SEMBY_degrading = true
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()

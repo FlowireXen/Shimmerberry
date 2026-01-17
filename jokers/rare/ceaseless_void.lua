@@ -138,10 +138,10 @@ SMODS.Joker {
                 message = localize{ type = 'variable', key = 'SEMBY_up_blind_size', vars = {
 					(G.GAME.SEMBY_ceased_money and card.ability.extra.arithmetic.scale * 50 or card.ability.extra.arithmetic.scale * 100)
 				} },
-                colour = HEX('743AE9')
+                colour = G.C.SEMBY_PERCENT
             }
         end
-		if context.setting_blind and not (self.getting_sliced or context.blueprint) then
+		if context.setting_blind and not (self.getting_sliced or context.blueprint) and card.ability.extra.scale ~= 0 then
 		--if context.setting_blind and not (context.blueprint_card or self).getting_sliced then
 			SEMBY_Increase_Blindsize(card.ability.extra.scale, (context.blueprint_card or card), true)
 			return nil, true
@@ -156,7 +156,7 @@ SMODS.Joker {
         end
 		if context.end_of_round and context.cardarea == G.jokers and context.blueprint then
 			if G.GAME.SEMBY_ceased_money then return nil, false end
-			if card.ability.extra.dollar > 0 then
+			if card.ability.extra.dollar ~= 0 then
 				card.ability.extra.bonus.dollar = card.ability.extra.bonus.dollar + card.ability.extra.dollar
 				return {
 					message = localize{ type = 'variable', key = 'SEMBY_up_payout', vars = { math.floor(card.ability.extra.dollar) } },
@@ -166,10 +166,50 @@ SMODS.Joker {
 		end
 	end,
     calc_dollar_bonus = function(self, card)
-		if card.ability.extra.dollar > 0 then
+		if card.ability.extra.dollar ~= 0 then
 			local dollar = math.floor(card.ability.extra.dollar + card.ability.extra.bonus.dollar)
 			card.ability.extra.bonus.dollar = 0
 			return dollar
 		end
     end
 }
+
+--[[-- Could be reworked roughly:
+
+probability = {
+    scale = 10,
+    chips = 16,
+    mult = 21,
+    xchips = 16,
+    xmult = 21,
+    dollar = 16
+}
+
+local max_index = 0
+local for_val = 0
+for type, value in pairs(probability)
+    if value then
+        max_index = max_index + 1
+        value = value + 1
+        for_val = for_val + value
+    end
+end
+
+local rand = pseudorandom("SEMBY_ceaseless_void", 0, for_val)
+
+for_val = 0
+local ret_type = nil
+for type, value in pairs(probability)
+    if value then
+        for_val = for_val + value
+        if rand < for_val then
+            ret_type = type
+            value = value - max_index
+            break
+        end
+    end
+end
+
+--> able to use ret_type now
+
+--]]

@@ -7,6 +7,7 @@ SMODS.Consumable {
 	soul_pos = { x = 0, y = 1 },
     unlocked = true,
     discovered = false,
+	select_card = 'consumeables', --> Don't "Use" in Booster-Packs
 	config = {
 		extra = {
 			captured = 0,
@@ -16,26 +17,24 @@ SMODS.Consumable {
 	},
     loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
-		-- Maybe preview what Soul you would Capture:
-		local soul_type = card.ability.extra.captured
-		if soul_type == 0 then
+		if card.ability.extra.captured == 0 then
 			return { key = 'c_SEMBY_soul_gem_empty' }
-		elseif soul_type == 1 then
+		elseif card.ability.extra.captured == 1 then
 			return { vars = {
 				localize('k_common'),
 				colours = { G.C.RARITY.Common }
 			} }
-		elseif soul_type == 2 then
+		elseif card.ability.extra.captured == 2 then
 			return { vars = {
 				localize('k_uncommon'),
 				colours = { G.C.RARITY.Uncommon }
 			} }
-		elseif soul_type == 3 then
+		elseif card.ability.extra.captured == 3 then
 			return { vars = {
 				localize('k_rare'),
 				colours = { G.C.RARITY.Rare }
 			} }
-		elseif soul_type == 4 then
+		elseif card.ability.extra.captured == 4 then
 			return { vars = {
 				localize('k_legendary'),
 				colours = { G.C.RARITY.Legendary }
@@ -48,33 +47,6 @@ SMODS.Consumable {
 			} }
 		end
     end,
-	set_ability = function(self, card, initial, delay_sprites)
-		-- Pre-Capture in Booster-Packs
-		if card.config.center.discovered then
-			G.E_MANAGER:add_event(Event({
-				func = function()
-					if card.area == G.pack_cards then
-						local pre_captured = pseudorandom("SEMBY_soul_gem")
-						if pre_captured > 0.5 then
-							card.ability.extra.captured = 1
-						elseif pre_captured > 0.20 then
-							card.ability.extra.captured = 2
-						elseif pre_captured > 0.005 then
-							card.ability.extra.captured = 3
-						else
-							card.ability.extra.captured = 4
-						end
-						card.ability.extra.soul_pos_overwrite.x = card.ability.extra.soul_pos_valid.base + card.ability.extra.captured
-						card:flip()
-						card:set_soul_pos('SEMBY_spectrals', card.ability.extra.soul_pos_overwrite)
-						card:flip()
-						play_sound('tarot1')
-					end
-					return true
-				end
-			}))
-		end
-	end,
 	load = function(self, card, card_table, other_card)
 		G.E_MANAGER:add_event(Event({
 			func = function()

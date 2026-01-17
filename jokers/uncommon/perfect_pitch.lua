@@ -24,7 +24,14 @@ SMODS.Joker {
 			pos_overwrite = { x = 1, y = 8 }
 		}
 	},
+	pools = {
+		["Music"] = true,
+		["Numetal_Special"] = true,
+    },
 	loc_vars = function(self, info_queue, card)
+		if Shimmerberry.compat.buffoonery and Buffoonery.config.show_info then
+			info_queue[#info_queue+1] = {set = 'Other', key = 'nu_metal_info'}
+		end
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.xmult,

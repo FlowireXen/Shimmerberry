@@ -16,7 +16,7 @@ SMODS.Joker {
 	rarity = 1,
 	cost = 5,
 	config = {
-		SEMBY_forced_perishable = true,
+		SEMBY_degrading = true,
 		extra = {
 			slots = 3
 		}
@@ -24,8 +24,7 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
-			card.ability.extra.slots,
-			colours = { HEX('B659C7') }
+			card.ability.extra.slots
 		} }
 	end,
     add_to_deck = function(self, card, from_debuff)

@@ -1,12 +1,21 @@
 print("Loading: 'Shimmerberry'")
 ----------------------------------------------
 ------------MOD CODE -------------------------
-local Shimmerberry = SMODS.current_mod
+Shimmerberry = SMODS.current_mod
 Shimmerberry.Debug = false
 
 --## Mod Integrity
 SMODS.Atlas({ key = "modicon", path = "modicon.png", px = 48, py = 48 })
-SMODS.Atlas({ key = "shimmerberry", path = "shimmerberry.png", px = 333, py = 216 })
+SMODS.Atlas({ key = "shimmerberry", path = "shimmerberry.png", px = 80, py = 80 })
+
+--## Compatibility
+Shimmerberry.compat = {
+	-- Sleeves: Moar Content!!!
+	sleeves = (SMODS.Mods['CardSleeves'] or {}).can_load,
+	-- Others: Generic Compatibility
+	buffoonery = (SMODS.Mods['Buffoonery'] or {}).can_load,
+	cardpronouns = (SMODS.Mods['cardpronouns'] or {}).can_load,
+}
 
 --## Mod Desc. Style
 Shimmerberry.description_loc_vars = function()
@@ -17,6 +26,7 @@ end
 SEMBY_Data = {
 	--> Base
 	{ true, "functions" },
+	{ true, "objects" },
 	--> Content
 	{ true, "assets" }, --> Artists
 	{ true, "blinds", "blinds", { px = 34, py = 34, atlas_table = "ANIMATION_ATLAS", frames = 21 } },
@@ -29,10 +39,11 @@ SEMBY_Data = {
 	{ true, "jokers/rare" },
 	{ true, "jokers/legendary" },
 	--{ false, "planets", "planets", { px = 71, py = 95 } },
-	{ (SMODS.Mods['CardSleeves'] or {}).can_load, "decks/sleeves", "sleeves", { px = 73, py = 95 } },
+	{ Shimmerberry.compat.sleeves, "decks/sleeves", "sleeves", { px = 73, py = 95 } },
 	{ true, "spectrals", "spectrals", { px = 71, py = 95 } },
 	{ true, "stickers", "stickers", { px = 71, py = 95 } },
 	{ true, "tags", "tags", { px = 34, py = 34 } },
+	{ true, "tags/debt" },
 	{ true, "tarots", "tarots", { px = 71, py = 95 } },
 	{ true, "vouchers", "vouchers", { px = 71, py = 95 } },
 	--> Debug
@@ -51,11 +62,25 @@ function SEMBY_load_dir(directory)
 end
 
 --## Load Content
+-- Integrity
 G.SEMBY = {}
+-- Colours
 loc_colour()
-G.ARGS.LOC_COLOURS.SEMBY_percent = HEX('743AE9')
-G.ARGS.LOC_COLOURS.SEMBY_TMTRAINER = HEX('119933')
+G.C.SEMBY_DEBUFF = G.C.PERISHABLE
+G.C.SEMBY_DEGRADING = HEX('B659C7')
+G.C.SEMBY_PERCENT = HEX('743AE9')--HEX('BA3AE9')
+G.C.SEMBY_POSSESSIVE = HEX('743AE9')
+SMODS.Gradient{ key = 'RESONANCE', colours = { HEX('1B3099'), HEX('801B99') }, cycle = 3.5, }
+G.C.SEMBY_TMTRAINER = HEX('119933')
+G.ARGS.LOC_COLOURS.SEMBY_debuff = G.C.SEMBY_DEBUFF
+G.ARGS.LOC_COLOURS.SEMBY_degrading = G.C.SEMBY_DEGRADING
+G.ARGS.LOC_COLOURS.SEMBY_percent = G.C.SEMBY_PERCENT
+G.ARGS.LOC_COLOURS.SEMBY_possessive = G.C.SEMBY_POSSESSIVE
+G.ARGS.LOC_COLOURS.SEMBY_resonance = SMODS.Gradients.SEMBY_RESONANCE
+G.ARGS.LOC_COLOURS.SEMBY_TMTRAINER = G.C.SEMBY_TMTRAINER
+-- Sounds
 SMODS.Sound:register_global()
+-- Textures & Code
 for i = 1, #SEMBY_Data do
 	if SEMBY_Data[i][1] then
 		if SEMBY_Data[i][3] then

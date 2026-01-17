@@ -34,8 +34,8 @@ SMODS.Joker {
 		}
 	},
 	pools = {
-		Tool = true,
-        Repairable = false,
+		["Tool"] = true,
+        ["Repairable"] = false,
     },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
@@ -54,13 +54,14 @@ SMODS.Joker {
 					local repaired = false
 					local ret_msg = nil
 					-- Normal Behaviour
-					if joker.ability.SEMBY_Durability and joker.ability.SEMBY_Durability.repair_gain
-					and not (joker.ability.SEMBY_Durability.repair_gain == 0) then
+					if joker.ability.extra and type(joker.ability.extra) == "table"
+					and joker.ability.extra.SEMBY_Durability and joker.ability.extra.SEMBY_Durability.repair_gain
+					and not (joker.ability.extra.SEMBY_Durability.repair_gain == 0) then
 						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.SEMBY_Durability.durability > 0) then
-								if joker.ability.SEMBY_Durability.max_durability > joker.ability.SEMBY_Durability.durability then
-									joker.ability.SEMBY_Durability.durability = joker.ability.SEMBY_Durability.durability + joker.ability.SEMBY_Durability.repair_gain
-									card.ability.SEMBY_Durability.durability = card.ability.SEMBY_Durability.durability - joker.ability.SEMBY_Durability.repair_cost
+							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
+								if joker.ability.extra.SEMBY_Durability.max_durability > joker.ability.extra.SEMBY_Durability.durability then
+									joker.ability.extra.SEMBY_Durability.durability = joker.ability.extra.SEMBY_Durability.durability + joker.ability.extra.SEMBY_Durability.repair_gain
+									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - joker.ability.extra.SEMBY_Durability.repair_cost
 									repaired = true
 								else
 									break
@@ -70,24 +71,24 @@ SMODS.Joker {
 							end
 						end
 						if repaired then
-							if joker.ability.SEMBY_Durability.is_liquid then
+							if joker.ability.extra.SEMBY_Durability.is_liquid then
 								ret_msg = localize('SEMBY_durability_refilled')
-							elseif joker.ability.SEMBY_Durability.is_vital then
+							elseif joker.ability.extra.SEMBY_Durability.is_vital then
 								ret_msg = localize('SEMBY_durability_revitalized')
 							else
 								ret_msg = localize('SEMBY_durability_repaired')
 							end
-							if joker.ability.SEMBY_Durability.durability > joker.ability.SEMBY_Durability.max_durability then
-								joker.ability.SEMBY_Durability.durability = joker.ability.SEMBY_Durability.max_durability
+							if joker.ability.extra.SEMBY_Durability.durability > joker.ability.extra.SEMBY_Durability.max_durability then
+								joker.ability.extra.SEMBY_Durability.durability = joker.ability.extra.SEMBY_Durability.max_durability
 							end
 						end
 					-- Vanilla Support
 					elseif joker.config.center.key == 'j_selzer' then
 						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.SEMBY_Durability.durability > 0) then
+							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
 								if card.ability.extra.j_selzer.max_durability > joker.ability.extra then
 									joker.ability.extra = joker.ability.extra + card.ability.extra.j_selzer.repair_gain
-									card.ability.SEMBY_Durability.durability = card.ability.SEMBY_Durability.durability - card.ability.extra.j_selzer.repair_cost
+									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - card.ability.extra.j_selzer.repair_cost
 									repaired = true
 								else
 									break;
@@ -107,10 +108,10 @@ SMODS.Joker {
 					-- Perishable
 					if joker.ability.perishable and joker.ability.perish_tally then
 						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.SEMBY_Durability.durability > 0) then
+							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
 								if card.ability.extra.perishable.max_durability > joker.ability.perish_tally then
 									joker.ability.perish_tally = joker.ability.perish_tally + card.ability.extra.perishable.repair_gain
-									card.ability.SEMBY_Durability.durability = card.ability.SEMBY_Durability.durability - card.ability.extra.perishable.repair_cost
+									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - card.ability.extra.perishable.repair_cost
 									repaired = true
 								else
 									break;
@@ -126,13 +127,13 @@ SMODS.Joker {
 							end
 						end
 					end
-					-- Forced Perishable
-					if joker.ability.SEMBY_forced_perishable and joker.ability.SEMBY_forced_perish_tally then
+					-- Degrading
+					if joker.ability.SEMBY_degrading and joker.ability.SEMBY_degrading_tally then
 						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.SEMBY_Durability.durability > 0) then
-								if card.ability.extra.perishable.max_durability > joker.ability.SEMBY_forced_perish_tally then
-									joker.ability.SEMBY_forced_perish_tally = joker.ability.SEMBY_forced_perish_tally + card.ability.extra.perishable.repair_gain
-									card.ability.SEMBY_Durability.durability = card.ability.SEMBY_Durability.durability - card.ability.extra.perishable.repair_cost
+							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
+								if card.ability.extra.perishable.max_durability > joker.ability.SEMBY_degrading_tally then
+									joker.ability.SEMBY_degrading_tally = joker.ability.SEMBY_degrading_tally + card.ability.extra.perishable.repair_gain
+									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - card.ability.extra.perishable.repair_cost
 									repaired = true
 								else
 									break;
@@ -143,8 +144,8 @@ SMODS.Joker {
 						end
 						if repaired and not ret_msg then
 							ret_msg = localize('SEMBY_durability_revitalized')
-							if joker.ability.SEMBY_forced_perish_tally > card.ability.extra.perishable.max_durability then
-								joker.ability.SEMBY_forced_perish_tally = card.ability.extra.perishable.max_durability
+							if joker.ability.SEMBY_degrading_tally > card.ability.extra.perishable.max_durability then
+								joker.ability.SEMBY_degrading_tally = card.ability.extra.perishable.max_durability
 							end
 						end
 					end
@@ -174,8 +175,9 @@ SMODS.Joker {
 		if G.jokers then
 			for index, joker in pairs(G.jokers.cards) do
 				if joker.ability.perishable
-				or joker.ability.SEMBY_Durability
-				or joker.ability.SEMBY_forced_perishable
+				or (joker.config.center.pools and joker.config.center.pools.Repairable)
+				--or (joker.ability.extra and type(joker.ability.extra) == "table" and joker.ability.extra.SEMBY_Durability) 
+				or joker.ability.SEMBY_degrading
 				or joker.config.center.key == 'j_selzer'
 				then return true end
 			end

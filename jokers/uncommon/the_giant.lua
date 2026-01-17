@@ -21,7 +21,7 @@ SMODS.Joker {
 			local discards = math.max(0, G.GAME.current_round.discards_left)
 			if discards ~= 0 then
 				G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + discards
-				G.hand:handle_card_limit(discards)
+				G.hand:change_size(discards)
 				ease_discard(-discards)
 			end
 			return {

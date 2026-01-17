@@ -22,7 +22,7 @@ SMODS.Challenge {
             { id = 'j_SEMBY_bound' },
             { id = 'j_SEMBY_hemoturgy' },
             { id = 'j_SEMBY_incinerator' },
-            { id = 'j_SEMBY_stirn_librarian' },
+            { id = 'j_SEMBY_stern_teacher' },
             { id = 'v_SEMBY_old_urn' },
             { id = 'v_SEMBY_cursed_urn' },
         },

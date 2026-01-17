@@ -15,7 +15,7 @@ if G.GAME.SEMBY_blind_mod and G.GAME.SEMBY_blind_mod ~= 1.0 then
 	self.chips = math.max(0, math.floor(self.chips * G.GAME.SEMBY_blind_mod + 0.5))
 end
 '''
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -27,4 +27,4 @@ if G.GAME.SEMBY_blind_mod and G.GAME.SEMBY_blind_mod ~= 1.0 then
 	blind_amt = math.max(0, math.floor(blind_amt * G.GAME.SEMBY_blind_mod + 0.5))
 end
 '''
-match_indent = false
+match_indent = true

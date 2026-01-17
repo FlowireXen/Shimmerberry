@@ -243,7 +243,7 @@ function SEMBY_Challenge_Durability(amount)
 	G.E_MANAGER:add_event(Event({
 		func = function()
 			for index, joker in pairs(G.jokers.cards) do
-				if joker.ability.extra.SEMBY_Durability then
+				if joker.ability.extra and type(joker.ability.extra) == "table" and joker.ability.extra.SEMBY_Durability then
 					joker.ability.extra.SEMBY_Durability.max_durability = (amount or 100)
 					joker.ability.extra.SEMBY_Durability.durability = (amount or 100)
 				end

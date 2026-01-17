@@ -16,7 +16,7 @@ target = "functions/UI_definitions.lua"
 pattern = "hand_size = {value = starting_params.hand_size, order = 3},"
 position = "after"
 payload = "winning_ante = {value = (starting_params.winning_ante or 8), order = 8},"
-match_indent = false
+match_indent = true
 # ], [
 ## V.25w46a: Removed Default Value (Messes with Ownership)
 # [[patches]]
@@ -25,7 +25,7 @@ match_indent = false
 # pattern = "erratic_suits_and_ranks = false,"
 # position = "after"
 # payload = "winning_ante = 8,"
-# match_indent = false
+# match_indent = true
 # ], [
 [[patches]]
 [patches.pattern]
@@ -33,7 +33,7 @@ target = "game.lua"
 pattern = "self.GAME.current_round.reroll_cost = self.GAME.base_reroll_cost"
 position = "after"
 payload = "self.GAME.win_ante = (self.GAME.starting_params.winning_ante or self.GAME.win_ante)"
-match_indent = false
+match_indent = true
 # ]
 
 ## Add More Options for Jokers: [
@@ -51,7 +51,7 @@ payload = '''
 		card:add_sticker('SEMBY_tmtrainer_sticker', true)
 	end
 '''
-match_indent = false
+match_indent = true
 # ], [
 [[patches]]
 [patches.pattern]
@@ -67,5 +67,5 @@ payload = '''
 		_joker:add_sticker('SEMBY_tmtrainer_sticker', true)
 	end
 '''
-match_indent = false
+match_indent = true
 # ]

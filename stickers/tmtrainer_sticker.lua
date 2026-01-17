@@ -3,7 +3,7 @@
 SMODS.Sticker {
     key = "tmtrainer_sticker",
 	name = "SEMBY_tmtrainer_sticker",
-    badge_colour = HEX('119933'),
+    badge_colour = G.C.SEMBY_TMTRAINER,
 	atlas = "SEMBY_stickers",
     pos = { x = 2, y = 0 },
     loc_vars = function(self, info_queue, card)

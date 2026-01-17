@@ -36,7 +36,8 @@ SMODS.Joker {
 				colour = G.C.MONEY,
 				G.E_MANAGER:add_event(Event({
 					func = function()
-						-- Correct Shop Spacing
+						-- Shop Spacing
+						--G.shop_jokers.T.w = math.min(G.GAME.shop.joker_max*1.02*G.CARD_W,4.08*G.CARD_W)
 						G.shop_jokers.T.w = (#G.shop_jokers.cards + 1)*1.01*G.CARD_W * math.max(0.2, 1.0 - math.max(0.2, #G.shop_jokers.cards * 0.065))
 						G.shop:recalculate()
 						-- Add Item to Shop:

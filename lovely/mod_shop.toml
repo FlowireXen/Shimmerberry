@@ -20,4 +20,4 @@ if self.ability.SEMBY_price_mod then
     self.sell_cost = math.max(0, math.floor(self.sell_cost + (self.ability.SEMBY_price_mod/2)))
 end
 '''
-match_indent = false
+match_indent = true

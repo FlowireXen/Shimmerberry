@@ -12,7 +12,7 @@ target = "functions/state_events.lua"
 pattern = "G.hand.highlighted[i].ability.discarded = true"
 position = "before"
 payload = "if not G.hand.highlighted[i].SEMBY_removed then"
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -20,4 +20,4 @@ target = "functions/state_events.lua"
 pattern = "draw_card(G.hand, G.discard, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])"
 position = "after"
 payload = "end"
-match_indent = false
+match_indent = true

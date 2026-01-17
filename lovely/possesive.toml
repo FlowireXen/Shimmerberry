@@ -17,4 +17,4 @@ position = "after"
 payload = '''
 not (self.ability.SEMBY_possessive) and
 '''
-match_indent = false
+match_indent = true

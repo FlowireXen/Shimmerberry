@@ -12,7 +12,8 @@ SMODS.Joker {
 	cost = 4,
 	config = {
 		extra = {
-			--> Consider "Lavish Dreams"
+			-- Consider Challenge:
+			-- > Lavish Dreams
 			spend = 2,
 			mult = 30
 		}
@@ -31,13 +32,7 @@ SMODS.Joker {
 				return {
 					dollars = -card.ability.extra.spend,
 					extra = {
-						mult = card.ability.extra.mult,
-						G.E_MANAGER:add_event(Event({
-							func = function()
-								G.GAME.SEMBY_p2w = G.GAME.SEMBY_p2w - card.ability.extra.spend
-								return true
-							end
-						}))
+						mult = card.ability.extra.mult
 					}
 				}
 			else
@@ -48,5 +43,8 @@ SMODS.Joker {
 				}
 			end
         end
+		if context.after and G.GAME.SEMBY_p2w then
+			G.GAME.SEMBY_p2w = nil
+		end
 	end
 }

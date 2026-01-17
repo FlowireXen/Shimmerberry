@@ -3,9 +3,9 @@ version = "1.0.0"
 dump_lua = true
 priority = 10
 
-# Description: Adds "Shimmerberries" to Main Menu
+# Description: Adds a "Shimmerberry" to Main Menu
 
-# Nearly the same Logic as the "Balatro"-Logo, except...
+# Nearly the same Logic as the Balatro-Logo, except...
 # Somehow the Logo just disappears on a run start.
 # We need to do that manually! :))
 
@@ -15,30 +15,30 @@ target = "game.lua"
 pattern = "G.SPLASH_LOGO = Sprite(0, 0,"
 position = "before"
 payload = '''
-	if G.SEMBY_BERRY then
-		G.SEMBY_BERRY.states.visible = true
-	else
-		G.SEMBY_BERRY = Sprite(0, 0, 
-			13*SC_scale, 
-			13*SC_scale*(G.ASSET_ATLAS["SEMBY_shimmerberry"].py/G.ASSET_ATLAS["SEMBY_shimmerberry"].px),
-			G.ASSET_ATLAS["SEMBY_shimmerberry"], {x=0,y=0})
-	end
-
-    G.SEMBY_BERRY:set_alignment({
-        major = G.title_top,
-        type = 'cm',
-        bond = 'Strong',
-        offset = {x=0,y=0}
-    })
+	--if G.SEMBY_BERRY then
+	--	G.SEMBY_BERRY.states.visible = true
+	--else
+		G.SEMBY_BERRY = Sprite(
+			0, 0, 
+			2.8*SC_scale, 
+			2.8*SC_scale*(G.ASSET_ATLAS["SEMBY_shimmerberry"].py/G.ASSET_ATLAS["SEMBY_shimmerberry"].px),
+			G.ASSET_ATLAS["SEMBY_shimmerberry"], {x=0,y=0}
+		)
+	--end
+	G.SEMBY_BERRY:set_alignment({
+		major = G.title_top,
+		type = 'cm',
+		bond = 'Weak',
+		offset = {x=5.75,y=3.45}
+	})
     G.SEMBY_BERRY:define_draw_steps({{
-            shader = 'dissolve',
-        }})
-
+        shader = 'dissolve',
+    }})
     G.SEMBY_BERRY.dissolve_colours = {G.C.WHITE, G.C.WHITE}
     G.SEMBY_BERRY.dissolve = 1
 
 '''
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -46,7 +46,7 @@ target = "game.lua"
 pattern = "ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)"
 position = "before"
 payload = "ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)"
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -54,7 +54,7 @@ target = "game.lua"
 pattern = "ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, 2.3)"
 position = "before"
 payload = "ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, 2.3)"
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -70,7 +70,7 @@ payload = '''
     end
 
 '''
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -82,7 +82,7 @@ payload = '''
         G.SEMBY_BERRY.states.visible = false
     end
 '''
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -90,7 +90,7 @@ target = "functions/UI_definitions.lua"
 pattern = "G.SPLASH_LOGO.states.visible = true"
 position = "before"
 payload = "G.SEMBY_BERRY.states.visible = true"
-match_indent = false
+match_indent = true
 
 [[patches]]
 [patches.pattern]
@@ -98,4 +98,4 @@ target = "functions/UI_definitions.lua"
 pattern = "G.SPLASH_LOGO.states.visible = false"
 position = "before"
 payload = "G.SEMBY_BERRY.states.visible = false"
-match_indent = false
+match_indent = true

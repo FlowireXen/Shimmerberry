@@ -23,18 +23,27 @@ SMODS.Challenge {
         { id = 'j_SEMBY_parking_disc', eternal = true },
         { id = 'j_SEMBY_parking_disc', eternal = true },
         { id = 'j_SEMBY_parking_disc', eternal = true },
-        { id = 'j_SEMBY_parking_disc', eternal = true },
+        { id = 'j_SEMBY_parking_disc', eternal = true, SEMBY_glitched = 1.00 },
     },
 	apply = function(self)
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
-		-- Update...? Downgrade the "Joker".
+		-- Change Jokers:
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
+						-- Update...? Downgrade the "Joker".
 						G.jokers.cards[1].ability.mult = G.jokers.cards[1].ability.mult * 0.25
+						-- Change Parking Discs
+						local index = 0
+						for i = 2, #G.jokers.cards do
+							if G.jokers.cards[i].config.center_key == 'j_SEMBY_parking_disc' then
+								G.jokers.cards[i].ability.extra.index.main = math.floor(index)
+								index = index + 2.25
+							end
+						end
 						save_run()
 						return true
 					end

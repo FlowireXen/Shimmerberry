@@ -50,8 +50,7 @@ SMODS.Joker {
 		}))
 	end,
     add_to_deck = function(self, card, from_debuff)
-		--G.hand:change_size(card.ability.extra.current)
-		G.hand:handle_card_limit(card.ability.extra.current)
+		G.hand:change_size(card.ability.extra.current)
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				-- Handle Mismatch (from minus to plus):
@@ -66,8 +65,7 @@ SMODS.Joker {
 		end
     end,
     remove_from_deck = function(self, card, from_debuff)
-		--G.hand:change_size(-card.ability.extra.current)
-		G.hand:handle_card_limit(-card.ability.extra.current)
+		G.hand:change_size(-card.ability.extra.current)
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				-- Handle Mismatch (from minus to plus):
@@ -83,8 +81,7 @@ SMODS.Joker {
 			if context.setting_blind and not self.getting_sliced then
 				local adding = (#G.jokers.cards - 1) * card.ability.extra.handsize
 				card.ability.extra.current = (card.ability.extra.current or 0) + adding
-				--G.hand:change_size(adding)
-				G.hand:handle_card_limit(adding)
+				G.hand:change_size(adding)
 				return {
 					message = localize{type = 'variable', key = 'a_handsize', vars = { adding }},
 					colour = G.C.GREEN,
@@ -108,8 +105,7 @@ SMODS.Joker {
 			end
 			if context.joker_main then
 				card.ability.extra.current = (card.ability.extra.current or 0) - card.ability.extra.penalty
-				--G.hand:change_size(-card.ability.extra.penalty)
-				G.hand:handle_card_limit(-card.ability.extra.penalty)
+				G.hand:change_size(-card.ability.extra.penalty)
 				return {
 					message = localize{type = 'variable', key = 'a_handsize_minus', vars = { card.ability.extra.penalty }},
 					colour = G.C.RED,

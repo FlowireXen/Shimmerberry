@@ -21,9 +21,8 @@ SMODS.Joker {
 		if context.end_of_round and context.main_eval and context.game_over == false and G.GAME.blind.boss then
 			-- Actual Code:
 			local amount, _ = SMODS.get_probability_vars(card, 1, 0, 'SEMBY_shooting_star')
-			for planet, _ in pairs(G.GAME.hands) do
-				level_up_hand(card, planet, true, amount)
-			end
+			for planet, _ in pairs(G.GAME.hands) do level_up_hand(card, planet, true, amount) end
+			--SMODS.upgrade_poker_hands({ level_up = amount, instant = true, from = card })
 			-- Just Visuals:
 			local juice_card = (context.blueprint_card or card)
 			--> (99%) Vanilla Balatro Code:

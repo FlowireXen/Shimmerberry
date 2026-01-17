@@ -1,25 +1,23 @@
-Future WIPs:
-- [j_SEMBY_singularity]: Use "extra_slots_used" instead of "card_limit" ~~when Bugfix is Live: https://github.com/Steamodded/smods/issues/934~~ (is Live)
-- Add Un-/Lock requirements to some Jokers.
+# TODO's:
 
-Current WIPs:
---> UPDATE VERSION NUMBER
---> Turn off "Debug" for Final Release (V2.0)
+> List of Known Bugs:
+- [MAJOR][ Planned ]: Talisman crashes the Game
+- [MINOR][Won't Fix]: Copies of a Debuffed "Anchor" can *always* be Highlighted, even after the Debuff runs out.
+- [MINOR][Won't Fix]: Trans. "Anchor" Copies can only be Highlighted after returning from Main Menu.
+- [MINOR][Won't Fix]: "Afterimage" doesn't apply "context.modify_ante" correctly.
+- [MINOR][Can't Fix]: "Cockroach" after "Oblivion" ups the Ante by the Amount of "Cockroach".
 
-Update Git-Repo and Infos
-Update Discord-Thread
---> Need a Logo & Thumbnail
+> Future WiPs:
+- [+++]: Add Talisman Support
+- [+++]: Create Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
+- [ ++]: Add Unlock requirements to some Jokers
+- [ ++]: Add "Partners" Support
+- [  +]: Randomize Main Menu Shimmerberry Position (Corners Only)
+- [  +]: 4th Boss-Blind: "Ghost" -> "Hidden Blind Requirement"
+- [  +]: 4th Consumable: Tarot, "Monarch"
+- [   ]: Give all Jokers pronouns
 
-Menu-Background Texture needs to be Changed;
-Change unkokat Extra-Artist-Text on Artist Tab (In default.lua)
-
-!!! ALL TEXTURES: Replace Alpha with similiar colored Alpha !!!
-
-Make sure I'm compatible with:
-https://github.com/skyline69/balatro-mod-index
-
--> Change Voucher an Tag Position on Image
-
-Lavish Joker: Also increase Blind-Size when destroyed(?)
-
-Anchor: Make selectable when debuffed (Requires Patch maybe, Idea might be scrapped)
+> Each Release:
+- Update Version Number :: ex. 26.1.17a :: "Year"."Month"."Day""Minor"
+- Update README.md
+- Setup GitHub Release

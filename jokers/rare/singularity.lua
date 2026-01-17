@@ -11,14 +11,13 @@ SMODS.Joker {
 	rarity = 3,
 	cost = 10,
 	config = {
-		-- [WIP] extra_slots_used = 2
-		card_limit = -2
+		extra_slots_used = 2
+		--card_limit = -2
 	},
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
-			math.abs(card.ability.card_limit) + 1,
-			colours = { G.C.PERISHABLE }
+			card.ability.extra_slots_used + 1
 		} }
 	end,
     add_to_deck = function(self, card, from_debuff)
@@ -29,7 +28,7 @@ SMODS.Joker {
     remove_from_deck = function(self, card, from_debuff)
 		if from_debuff then
 			card:set_debuff(false)
-			card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('SEMBY_blocked_ex'), colour = G.C.PERISHABLE})
+			card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('SEMBY_blocked_ex'), colour = G.C.SEMBY_DEBUFF})
 		else
 			-- Animate: Juice Deck
 			G.E_MANAGER:add_event(Event({

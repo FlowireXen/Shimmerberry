@@ -16,16 +16,16 @@ SMODS.Joker {
 			difficulty = 0.0,
 			loop = 0,
 			progress_mod = {
-				small = 0.0225,
-				big = 0.035, -- default
-				boss = 0.055,
+				small = 0.0375,
+				big = 0.0525, -- default
+				boss = 0.0850,
 				showdown = 0.15,
 				cleared = 1.0
 			},
 			difficulty_mod = {
-				skip = 0.0925,
-				hand = 0.0175,
-				discard = 0.003,
+				skip = 0.10,
+				hand = 0.015,
+				discard = 0.004,
 				cleared = 1.25
 			},
 			loop_win = 40
@@ -97,7 +97,7 @@ SMODS.Joker {
 							return {
 								message = localize('SEMBY_oblivion_allowed'),
 								colour = G.C.GREEN,
-								modify = context.modify_ante == 0 and 1 or -(context.modify_ante - 1),
+								modify = G.GAME.SEMBY_ante_allowed and context.modify_ante or 0,
 								func = function()
 									-- Special Bypass:
 									G.E_MANAGER:add_event(Event({
@@ -115,7 +115,7 @@ SMODS.Joker {
 							return {
 								message = localize{ type = 'variable', key = 'SEMBY_loop', vars = { card.ability.extra.loop } },
 								colour = G.C.DARK_EDITION,
-								modify = G.GAME.SEMBY_ante_allowed and 0 or -context.modify_ante,
+								modify = G.GAME.SEMBY_ante_allowed and context.modify_ante or 0,
 								func = function()
 									if not (G.GAME.won) and card.ability.extra.loop >= card.ability.extra.loop_win then
 										win_game()
@@ -129,7 +129,7 @@ SMODS.Joker {
 						return {
 							message = localize('SEMBY_blocked_ex'),
 							colour = G.C.RED,
-							modify = -context.modify_ante
+							modify = 0
 						}
 					end
 				end

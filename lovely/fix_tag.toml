@@ -1,0 +1,13 @@
+[manifest]
+version = "1.0.1"
+dump_lua = true
+priority = 10
+
+# This makes sure that "Debt-Tags" don't Trigger Double-Tag
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "if self.name == 'Double Tag' and _context.tag.key ~= 'tag_double' then"
+position = "after"
+payload = "if _context.tag.ability and _context.tag.ability.debt then return true end"
+match_indent = true

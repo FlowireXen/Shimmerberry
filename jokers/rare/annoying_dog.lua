@@ -25,10 +25,10 @@ SMODS.Joker {
 	end,
     add_to_deck = function(self, card, from_debuff)
 		G.consumeables:add_text_overwrite(card.sort_id, 'SEMBY_dog_overflow')
-		G.consumeables:handle_card_limit(0, card.ability.extra.slots)
+		G.consumeables:SEMBY_block()
     end,
     remove_from_deck = function(self, card, from_debuff)
-		G.consumeables:handle_card_limit(0, -card.ability.extra.slots)
+		G.consumeables:SEMBY_unblock()
 		G.consumeables:remove_text_overwrite(card.sort_id)
     end,
 	calculate = function(self, card, context)

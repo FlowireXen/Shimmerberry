@@ -66,6 +66,7 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
+		G.GAME.SEMBY_lavish_mode = true
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 4.0
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',

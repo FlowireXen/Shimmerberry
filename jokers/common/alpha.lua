@@ -3,6 +3,7 @@ SMODS.Joker {
 	name = "SEMBY_alpha",
 	atlas = "SEMBY_jokers",
 	pos = { x = 8, y = 1 },
+    pixel_size = { w = 71, h = 71 },
     unlocked = true,
     discovered = false,
     eternal_compat = true,

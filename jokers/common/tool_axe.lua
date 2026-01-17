@@ -23,8 +23,8 @@ SMODS.Joker {
 		}
 	},
 	pools = {
-		Tool = true,
-        Repairable = true,
+		["Tool"] = true,
+        ["Repairable"] = true,
     },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
@@ -47,7 +47,7 @@ SMODS.Joker {
 		and context.other_card:is_suit(G.GAME.current_round.SEMBY_tool_suit.suit)
 		and (context.blueprint or card:durability_use()) then
 			card.ability.extra.used = true -- Only Check+Announce Durability if used
-			if pseudorandom('SEMBY_tool_axe') < G.GAME.probabilities.normal / card.ability.extra.chance then
+			if SMODS.pseudorandom_probability(card, 'SEMBY_tool_axe', 1, card.ability.extra.chance) then
 				context.other_card.ability.SEMBY_axed = true
 				return {
 					message = localize('SEMBY_hit_ex'),

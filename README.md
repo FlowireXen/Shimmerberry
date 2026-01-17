@@ -1,18 +1,7 @@
 <div align="center">
-  <p>Welcome to...</p>
-  <img src="repo/Logo.png" alt="Shimmerberry Logo"/>
+  <p>Welcome to <b>Shimmerberry</b>!</p>
+  <img src="repo/Banner.png" alt="Shimmerberry Banner"/>
 </div>
-
-___
-# W.I.P. DISCLAIMER
-This Mod is currently "Work In Progress":<br>
-
-\- <b>Textures</b>: Work in Progress -> 50 Textures Missing.<br>
-\-\-\-\> Silly Placeholder-Textures are Provided! :)<br>
-
-\- <b>Code</b>: All Done!<br>
-
-\- <b>Bugs</b>: No known Bugs.<br>
 
 ___
 # Shimmerberry
@@ -22,8 +11,8 @@ Shimmerberry adds Custom, Fluffy and Vanilla-Like content:
   > 34 Common<br> 37 Uncommon<br> 16 Rare<br> 3 Legendary
 - 20 Challenges
   > Including 4 Tutorials<br> and 2 Menageries
-- 4 Skip-Tags
-  > 2 Edition-Tags<br> 2 Effect-Tags
+- 6 Skip-Tags
+  > 2 Edition-Tags<br> 2 Effect-Tags<br> 2 Debt-Tags
 - 3 Boss Blinds
   > Including 1 Showdown Blind
 - 3 Decks
@@ -32,15 +21,20 @@ Shimmerberry adds Custom, Fluffy and Vanilla-Like content:
   > 1 Tarot<br> 2 Spectrals
 - 2 Vouchers
   > With 2 Upgrades
-- 2 Editions
+- 3 Editions
   > For both Jokers and Cards
 
 Programming by <ins>Flowire</ins>.<br>
 Art by <ins>unkokat</ins> and <ins>Flowire</ins>.
 
+# Download and Requirements
+[Download Shimmerberry](https://github.com/FlowireXen/Shimmerberry/releases/latest) and get the latest release, or check out [all Releases](https://github.com/FlowireXen/Shimmerberry/releases).
+
+Shimmerberry requires [Lovely](https://github.com/ethangreen-dev/lovely-injector) and [Steamodded](https://github.com/Steamodded/smods) to be installed,<br>
+visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn how to setup & install mods.
+
 # Content
 <!--Check out the [Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Shimmerberry) for detailed information!-->
-Details about added content will soon be avaliable on the [Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Main_Page)!
 
 ![Shimmerberry Collection](repo/Collection.png)
 
@@ -114,12 +108,12 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 | Plastic Key | Destroy this card and<br>create 2 Spectral cards<br>when Boss Blind is defeated<br>(Must have room) | $6 | Uncommon | - |
 | Potted Flowers | Gains X0.2 Chips if<br>poker hand contains a<br>Diamond card, Club card,<br>Heart card, and Spade card<br>(Currently X1 Chips) | $6 | Uncommon | - |
 | Quest? | Start a Quest!<br>Complete it to<br>Win the Game and<br>obtain a random<br>Legendary Joker | $7 | Uncommon | Quest\*<br>(See below) |
-| Reagent | X2.5 Mult<br>Loses X0.1 Mult<br>for each Enhanced<br>card in your deck | $6 | Uncommon | - |
+| Red Lion | X2.5 Mult<br>Loses X0.1 Mult<br>for each Enhanced<br>card in your deck | $6 | Uncommon | - |
 | Red Mask | This Joker gains +8 Chips<br>when adding or removing<br>a playing card<br>(Currently +0 Chips) | $6 | Uncommon | - |
 | Scaffolding | +/-0 Hand size<br>When Blind is selected<br>gain 1 Hand size for<br>every other Joker<br>Lose 3 Hand size<br>each Hand played | $5 | Uncommon | - |
 | 7 Wonders | When Blind is selected<br>reduce the Blind Size<br>by 2% for each 7 in<br>your full deck<br>(Currently 0%/50%) | $7 | Uncommon | - |
 | Shooting Star | When Boss Blind is<br>defeated, upgrade<br>every Poker Hand<br>by 1 level(s) | $7 | Uncommon | Luck affected |
-| Stirn Librarian | When Blind is selected,<br>Debuff adjacent Jokers<br>+25 Mult for each<br>Debuffed Joker<br>(Currently +0 Mult) | $5 | Uncommon | - |
+| Stern Teacher | When Blind is selected,<br>Debuff adjacent Jokers<br>+25 Mult for each<br>Debuffed Joker<br>(Currently +0 Mult) | $5 | Uncommon | - |
 | Stylish Joker | -1 hand size<br>+2 consumable slots<br>Earn $1 for every<br>Consumable you keep<br>at the end of round | $5 | Uncommon | - |
 | PUSH UR T3MPRR | BLIND SELECTED,<br>CLOCK IT UP 200%<br>CARD PLAYED,<br>PUSH IT DOWN 6% | $5 | Uncommon | - |
 | The Dwarf | When Blind is selected,<br>set hand size to 5 and<br>add the difference<br>to the Discards | $6 | Uncommon | - |
@@ -213,8 +207,8 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 | Parking Roulette | Challenge | Start with 5x "Parking Disc". |
 | Qwest? | Challenge | Start with a random Quest!<br>Custom Win Condition, no Showdowns. |
 | Emperor Calus | Challenge | Start with debt.<br>No Jokers in Shop. |
-| Speed of Light | Challenge | Start with better Poker Hands.<br>Increased Blind Scaling, <br>Doubled</b> Winning Ante! |
-| DELETE THIS | Glitched | TMTRAINER'd |
+| Last One Left | Challenge | Wild Kings but no Baron.<br><b>Higher</b> Winning Ante! |
+| Speed of Light | Challenge | Start with better Poker Hands.<br>Increased Blind Scaling, <br><b>Doubled</b> Winning Ante! |
 | Grandmaster Menagerie | Menagerie | Multiplies Blind size by current Ante.<br>Applies Gold Stake difficulty. |
 </details>
 
@@ -228,6 +222,13 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 | Pearlescent Tag | Next base edition shop Joker<br>is free and becomes Pearlescent | Shop-Item |
 | Shiny Tag | Next base edition shop <i>Consumable</i><br> is free and becomes Shiny | Shop-Item |
 | Vouch-down Tag | Reduce the cost of a random<br>Voucher by $5 next shop | Start of Shop |
+
+| Name | Description | Trigger | Source |
+| ---- | ---- | ---- | ---- |
+| Lavish Debt\* | +50% Blind Size next round<br> Percentage based on Source-Conditions | Start of Blind | Created by <i>Lavish Joker</i><br>after being sold. |
+| Resonance Debt\* | +25% Blind Size next round<br> Percentage based on Source-Conditions | Start of Blind | Created by <i>Resonance</i><br>after each blind. |
+
+\* Debt-Tags don't trigger Double-Tag!
 </details>
 
 ### Boss Blinds
@@ -260,18 +261,18 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 | Name | Description | Type |
 | ---- | ---- | ---- |
 | Ocean | Add Pearlescent<br>or Shiny to either<br>one Playing Card<br>or a random Joker. | Tarot |
-| Order | Replace all Jokers with one random<br>Joker in your possession, the new<br>copies keep their old Modifiers<br>. | Spectral |
-| Soul Gem | Captures or Releases<br>the <i>Soul</i> of defeated Blinds. | Spectral |
+| Order | Replace all Jokers with one random<br>Joker in your possession, the new<br>copies keep their old Modifiers. | Spectral |
+| Soul Gem | Captures the <i>Soul</i><br>of defeated Blinds. | Spectral |
 </details>
 
 ### Vouchers
 <details>
 <summary>Click to show: Vouchers</summary>
 
-| Base Name | Base Description | Upgrade Name | Upgrade Description |
-| ---- | ---- | ---- | ---- |
-| Comedy Mask | Reduce all Blind Sizes by 10%<br>-1 Hand size. | Tragedy Mask | Reduce all Blind Sizes by 15%<br>-1 Hand size. |
-| Old Urn | Permanently increase amount<br>of Discardable cards by 1. | Cursed Urn | Permanently increase amount<br>of Discardable cards by 2, but<br>lose 1 Discard each round. |
+| Base Name | Base Description | Upgrade Name | Upgrade Description | Total | 
+| ---- | ---- | ---- | ---- | ---- |
+| Comedy Mask | Reduce all Blind Sizes by 10%<br>-1 Hand size. | Tragedy Mask | Reduce all Blind Sizes by 15%<br>-1 Hand size. | -25% Blind size<br>-2 Hand size |
+| Old Urn | Permanently increase amount<br>of Discardable cards by 1. | Cursed Urn | Permanently increase amount<br>of Discardable cards by 2, but<br>lose 1 Discard each round. | +3 Discardable cards<br>-1 Discard each round |
 </details>
 
 ### Editions
@@ -281,6 +282,7 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 | Name | Joker Description | Card Description |
 | ---- | ---- | ---- |
 | Pearlescent | Reduce Blind Size by 5% | <small>(No Difference)</small> |
+| Resonance | +1 Area Slot,<br>Can't be Debuffed.<br>Each Resonance increases<br>next Blind Sizy by 25% | <small>(No Difference)</small> |
 | Shiny | Gains $3 of sell value<br>at end of round. | Grant $1 of sell value<br>to a random Joker. |
 </details>
 
@@ -290,31 +292,25 @@ Details about added content will soon be avaliable on the [Modded Balatro Wiki](
 
 | Name | Effect | Source | Technical Note |
 | ---- | ---- | ---- | ---- |
-| Event Horizon | Destroyed when<br>it's Singularity<br>is removed. | "Singularity"-Joker. | Purely Visual. |
-| Degrading | Destroyed<br>after 5 rounds. | Inherent Ability,<br>"JE\]\[L"-Joker<br>or in Challenges. | - |
-| Lavish | Can't be Debuffed. | "Lavish Joker"<br>in a Challenge. | Not actually<br>a Sticker. |
-| Possessive | Can't be sold. | Inherent Ability<br>or in Challenges. | - |
-| TMTRAINER'd | Shows "Change"-<br>Multiplier. | "TMTRAINER"-Joker<br>or in Challenges. | Purely Visual. |
+| Event Horizon | Destroyed when<br>it's Singularity<br>is removed | "Singularity"-Joker. | Purely Visual. |
+| Degrading | Destroyed<br>after 5 rounds. | Inherent Ability,<br>"JE\]\[L"-Joker<br>or in Challenges | - |
+| Possessive | Can't be sold. | Inherent Ability<br>or in Challenges | - |
+| TMTRAINER'd | Shows "Change"-<br>Multiplier. | "TMTRAINER"-Joker<br>or in Challenges | Purely Visual. |
 </details>
-
-# Download and Requirements
-[Download Shimmerberry](https://github.com/FlowireXen/Shimmerberry/releases/latest) and get the latest release, or check out [all Releases](https://github.com/FlowireXen/Shimmerberry/releases).
-
-Shimmerberry requires [Lovely](https://github.com/ethangreen-dev/lovely-injector) and [Steamodded](https://github.com/Steamodded/smods) to be installed,<br>
-visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn how to setup & install mods.
 
 # Art-Credits \& Shoutouts
 All the amazing Art was made by:<br>
 <ins><b>unkokat</b></ins>: [Ko-fi](https://ko-fi.com/unkokat), [X.com](https://x.com/unkokat)<sup>18+</sup><br>
 
 Inspired me to start Modding:<br>
-<ins><b>Buffoonery</b></ins>: [Mod-Page](https://github.com/pinkmaggit-hub/Buffoonery)<br>
-<ins><b>Tetrapak</b></ins>: [Mod-Page](https://github.com/tetraminus/Tetrapak)<br>
+<ins><b>Buffoonery</b></ins>: [GitHub-Page](https://github.com/pinkmaggit-hub/Buffoonery)<br>
+<ins><b>Tetrapak</b></ins>: [GitHub-Page](https://github.com/tetraminus/Tetrapak)<br>
 
+<!--
 # Other Mod Pages
-<!-- Curseforge, Nexus, ...? -->
 Coming soon!<br>
-(When all Textures are Done!)
+-> Curseforge, Nexus, etc. ...
+-->
 
 # Thank you for reading
 and we hope <i>You</i> will enjoy our mod!<br>
@@ -322,9 +318,13 @@ and we hope <i>You</i> will enjoy our mod!<br>
 \- Flowire, unkokat
 
 ___
+# License
+Shimmerberry is licensed under the [GNU General Public License (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).
+
+___
 # TL;DR
 Shimmerberry's main Additions:<br>
 <b>90</b> Jokers, <b>20</b> Challenges,<br>
-<b>3</b> Decks, <b>3</b> Blinds and <b>3</b> Consumables.<br>
+<b>3</b> Blinds, <b>3</b> Consumables and <b>3</b> Decks.<br>
 Go [Download Shimmerberry](https://github.com/FlowireXen/Shimmerberry/releases/latest),<br>
 you also need [Lovely](https://github.com/ethangreen-dev/lovely-injector) and [Steamodded](https://github.com/Steamodded/smods).

@@ -17,7 +17,14 @@ SMODS.Joker {
 			push_down = 0.06
 		}
 	},
+	pools = {
+		["Music"] = true,
+		["Numetal"] = true,
+    },
 	loc_vars = function(self, info_queue, card)
+		if Shimmerberry.compat.buffoonery and Buffoonery.config.show_info then
+			info_queue[#info_queue+1] = {set = 'Other', key = 'nu_metal_info'}
+		end
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.clock_up * 100,

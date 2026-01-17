@@ -1,5 +1,3 @@
---## KNOWN BUG: Blueprint and Multiple Copies don't work:
--- > Bugreport: https://github.com/Steamodded/smods/issues/976
 SMODS.Joker {
 	key = "cockroach", --> The Roach that Kills you
 	name = "SEMBY_cockroach",
@@ -22,14 +20,13 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
-			card.ability.extra.ante_mod,
-			colours = { HEX('BE3740') }
+			card.ability.extra.ante_mod
 		} }
 	end,
     add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
-			-- Important if another Effect skipped the Winning Ante,
-			-- so this Jokers doesn't suddenly give you the Win.
+			-- Important if something else skipped the Win-Ante,
+			-- so this Joker doesn't suddenly give you the Win.
 			if G.GAME.round_resets.ante > G.GAME.win_ante then
 				card.ability.extra.check_win = false
 			end
@@ -37,13 +34,32 @@ SMODS.Joker {
     end,
 	calculate = function(self, card, context)
 		if context.modify_ante and context.ante_end and context.cardarea == G.jokers then
+			-- Quick-Message
+			local juice_card = (context.blueprint_card or card)
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				blocking = false,
+				func = function()
+					juice_card:juice_up(0.1, (math.random() < 0.5) and 0.2 or -0.2)
+					play_sound('generic1', 1.2, 0.5)
+					attention_text({
+						text = localize('SEMBY_eval_cockroach'),
+						backdrop_colour = HEX('BE3740'),
+						scale = 0.8, hold = 0.5,
+						major = juice_card, align = 'bm',
+						offset = { x = 0, y = 0 }
+					})
+					return true
+				end
+			}))
 			return {
-				message = localize('SEMBY_eval_cockroach'),
-				colour = HEX('BE3740'),
-				modify = math.floor(card.ability.extra.ante_mod)
+				--message = localize('SEMBY_eval_cockroach'),
+				--colour = HEX('BE3740'),
+				modify = context.modify_ante + math.floor(card.ability.extra.ante_mod)
 			}
 		end
 		if context.ante_change and context.ante_end and card.ability.extra.check_win and context.cardarea == G.jokers then
+			-- Win when skipping the Win-Ante
 			if (G.GAME.round_resets.ante + context.ante_change) > G.GAME.win_ante then
 				card.ability.extra.check_win = false
 				if not G.GAME.won then

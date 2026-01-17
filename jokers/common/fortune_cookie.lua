@@ -11,7 +11,7 @@ SMODS.Joker {
 	rarity = 1,
 	cost = 6,
 	pools = {
-        Food = true,
+        ["Food"] = true,
     },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)

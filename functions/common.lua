@@ -61,6 +61,26 @@ local function reset_tool_suit()
     end
 end
 
+-- Calculate: Resonance
+-- ··· · −·−· ·−· · − ···
+local function calculate_resonance(run_start)
+	if run_start then
+		G.GAME.current_round.SEMBY_resonance = 0
+	end
+	for _, playing_card in ipairs(G.playing_cards) do
+		if playing_card.edition and playing_card.edition.SEMBY_resonance then
+			G.GAME.current_round.SEMBY_resonance = G.GAME.current_round.SEMBY_resonance + 1
+		end
+	end
+	if G.GAME.current_round.SEMBY_resonance ~= 0 then
+		local resonance_debt = Tag('tag_SEMBY_resonance_debt')
+		resonance_debt.ability.resonance_percent = G.SEMBY.Resonance * G.GAME.current_round.SEMBY_resonance
+		add_tag(resonance_debt)
+        play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
+		G.GAME.current_round.SEMBY_resonance = 0
+	end
+end
+
 -- Game Start and Reset Call
 function SMODS.current_mod.reset_game_globals(run_start)
 	if run_start then
@@ -78,6 +98,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
 	-- Every Round
     reset_berry_ranks()
 	reset_tool_suit()
+	calculate_resonance(run_start)
 	-- Challenge Stuff
 	if G.GAME.challenge then
 		SEMBY_Challenge_Blind_Defeated()

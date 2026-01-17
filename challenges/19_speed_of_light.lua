@@ -5,6 +5,7 @@ SMODS.Challenge {
             { id = 'SEMBY_speed_of_light' },
             { id = 'SEMBY_space' },
             { id = 'SEMBY_quick_scaling' },
+            { id = 'SEMBY_gold_stake' },
             { id = 'SEMBY_upgrade_pokerhands' },
         },
         modifiers = {
@@ -28,6 +29,10 @@ SMODS.Challenge {
         { id = 'c_planet_x' },
     },
 	apply = function(self)
+		-- Gold Stake
+		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
+		G.GAME.stake = SMODS.Stakes["stake_gold"].order
+		-- Faster Scaling
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
 		-- Perma Disable Unicorn
 		G.E_MANAGER:add_event(Event({

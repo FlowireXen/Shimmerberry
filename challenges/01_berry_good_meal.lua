@@ -30,6 +30,9 @@ SMODS.Challenge {
         { id = 'j_SEMBY_berry_golden', SEMBY_possessive = true },
         { id = 'j_SEMBY_berry_straw', SEMBY_possessive = true },
     },
+    vouchers = {
+        { id = 'v_blank' },
+    },
     deck = {
         type = 'Challenge Deck',
         cards = {

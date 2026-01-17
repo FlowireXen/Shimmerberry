@@ -113,9 +113,11 @@ SMODS.Joker {
 			local next_key = 'SEMBY_parking_disc'..'_'..card.ability.extra.state.main[next_index].desc
 			local next_val = card.ability.extra.state.main[next_index].value
 			if next_index == 9 then next_val = next_val * 100 end
-			--I tried everything, looked at the Code, tried every possible Combination... I do not understand why this won't work:
-			--info_queue[#info_queue + 1] = { key = 'j_'..next_key, set = "Joker", config = { extra = {}, next_val }, specific_vars = { next_val } }
-			--Workaround is just creating the Desc. twice ("Joker" & "Other") in the Loc-Files :annoyed:
+			--1: I tried everything, looked at the Code, tried every possible Combination... I don't understand why this doesn't work:
+			-- : info_queue[#info_queue + 1] = { key = 'j_'..next_key, set = "Joker", config = { extra = {}, next_val }, specific_vars = { next_val } }
+			-- : Workaround is just creating the Desc. twice ("Joker" & "Other") in the Loc-Files :annoyed:
+			--2: I tried again with more Info and Insight and still: Nope, still NIL-Values.
+			-- : I would be happy if it Crashes due to Looping the Desc.-Tables, but not even that happens.
 			info_queue[#info_queue + 1] = { key = next_key, set = "Other", vars = { next_val } }
 		end
 		-- Return

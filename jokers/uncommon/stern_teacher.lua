@@ -1,6 +1,6 @@
 SMODS.Joker {
-	key = "stirn_librarian",
-	name = "SEMBY_stirn_librarian",
+	key = "stern_teacher",
+	name = "SEMBY_stern_teacher",
 	atlas = "SEMBY_jokers",
 	pos = { x = 8, y = 5 },
     unlocked = true,
@@ -28,8 +28,7 @@ SMODS.Joker {
 		info_queue[#info_queue + 1] = { key = "debuffed_default", set = "Other" }
 		return { vars = {
 			card.ability.extra.mult,
-			card.ability.extra.mult * debuffed,
-			colours = { G.C.PERISHABLE }
+			card.ability.extra.mult * debuffed
 		} }
 	end,
     remove_from_deck = function(self, card, from_debuff)
@@ -69,7 +68,7 @@ SMODS.Joker {
 			delay(0.2)
             return {
 				message = localize('k_debuffed'),
-				colour = G.C.PERISHABLE,
+				colour = G.C.SEMBY_DEBUFF,
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
@@ -102,7 +101,7 @@ SMODS.Joker {
         if context.end_of_round and context.main_eval and context.game_over == false and not context.blueprint then
             return {
                 message = localize('k_reset'),
-				colour = G.C.PERISHABLE,
+				colour = G.C.SEMBY_DEBUFF,
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()

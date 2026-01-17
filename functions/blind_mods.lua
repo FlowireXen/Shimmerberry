@@ -44,7 +44,7 @@ function SEMBY_Increase_Blindsize(percent, card, wiggle)
 		if card then
 			card_eval_status_text(card, 'extra', nil, nil, nil, {
 				message = localize{type = 'variable', key = 'SEMBY_percentage', vars = {100 * percent}},
-				colour = G.ARGS.LOC_COLOURS.SEMBY_percent
+				colour = G.C.SEMBY_PERCENT
 			})
 		end
 	end
@@ -62,7 +62,7 @@ function SEMBY_Reduce_Blindsize(percent, card, wiggle)
 		if card then
 			card_eval_status_text(card, 'extra', nil, nil, nil, {
 				message = localize{type = 'variable', key = 'SEMBY_percentage_minus', vars = {100 * percent}},
-				colour = G.ARGS.LOC_COLOURS.SEMBY_percent
+				colour = G.C.SEMBY_PERCENT
 			})
 		end
 	end

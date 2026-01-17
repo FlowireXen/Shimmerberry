@@ -2,12 +2,13 @@ SMODS.Challenge {
     key = 'SEMBY_DELETE_THIS',
     rules = {
         custom = {
-			{ id = 'SEMBY_space' },
-            { id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' }, { id = 'SEMBY_DELETE_THIS_3' }, { id = 'SEMBY_DELETE_THIS_4' },
-			{ id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' }, { id = 'SEMBY_DELETE_THIS_3' }, { id = 'SEMBY_DELETE_THIS_4' },
-			{ id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' }, { id = 'SEMBY_DELETE_THIS_3' }, { id = 'SEMBY_DELETE_THIS_4' },
-			--{ id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' }, { id = 'SEMBY_DELETE_THIS_3' }, { id = 'SEMBY_DELETE_THIS_4' },
-			{ id = 'SEMBY_space' },
+            { id = 'SEMBY_space' }, { id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' },
+            { id = 'SEMBY_space' }, { id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' },
+            { id = 'SEMBY_space' }, { id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' },
+            { id = 'SEMBY_space' }, { id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' },
+            { id = 'SEMBY_space' }, { id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' },
+            { id = 'SEMBY_space' }, { id = 'SEMBY_DELETE_THIS_1' }, { id = 'SEMBY_DELETE_THIS_2' },
+			{ id = 'SEMBY_space' }, -- EOL
         },
         modifiers = {
             { id = 'hands', value = 99 },

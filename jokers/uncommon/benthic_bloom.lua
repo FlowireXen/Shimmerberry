@@ -22,8 +22,7 @@ SMODS.Joker {
         info_queue[#info_queue + 1] = G.P_CENTERS.m_glass
 		return { vars = {
 			numerator,
-			denominator,
-			colours = { HEX('BE3740') }
+			denominator
 		} }
 	end,
 	calculate = function(self, card, context)

@@ -3,7 +3,7 @@
 SMODS.Sticker {
     key = "possessive",
 	name = "SEMBY_possessive",
-    badge_colour = HEX('BE3740'),
+    badge_colour = G.C.SEMBY_POSSESSIVE,
 	atlas = "SEMBY_stickers",
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)

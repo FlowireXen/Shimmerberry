@@ -6,7 +6,7 @@ SMODS.Joker {
 	soul_pos = { x = 4, y = 6 },
     unlocked = true,
     discovered = false,
-    eternal_compat = true,
+    eternal_compat = true,  --> Paradoxic, I know.
     perishable_compat = true,
     blueprint_compat = false,
 	rarity = 2,
@@ -25,7 +25,7 @@ SMODS.Joker {
 		}
 	},
 	pools = {
-        Repairable = true,
+        ["Repairable"] = true,
     },
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)

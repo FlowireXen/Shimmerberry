@@ -33,6 +33,7 @@ SMODS.Tag {
 				tag:yep('+', G.C.SECONDARY_SET.Voucher, function()
 					voucher.ability.SEMBY_price_mod = (voucher.ability.SEMBY_price_mod or 0) - tag.config.extra.discount
 					voucher:set_cost()
+					voucher:juice_up()
 					return true
 				end)
 				tag.triggered = true

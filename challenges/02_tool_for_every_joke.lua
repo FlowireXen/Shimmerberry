@@ -33,6 +33,9 @@ SMODS.Challenge {
         { id = 'j_SEMBY_tool_shovel', SEMBY_possessive = true },
         { id = 'j_SEMBY_eternal_fortune' },
     },
+    vouchers = {
+        { id = 'v_blank' },
+    },
     consumeables = {
         { id = 'c_tower' },
         { id = 'c_tower' },

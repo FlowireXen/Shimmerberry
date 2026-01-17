@@ -18,7 +18,7 @@ SMODS.Tag {
     end,
     apply = function(self, tag, context)
         if context.type == 'round_start_bonus' then
-            tag:yep('-', G.ARGS.LOC_COLOURS.SEMBY_percent, function() return true end)
+            tag:yep('-', G.C.SEMBY_PERCENT, function() return true end)
 			SEMBY_Reduce_Blindsize(tag.config.extra.percent, nil, true)
             tag.triggered = true
             return true
