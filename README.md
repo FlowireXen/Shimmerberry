@@ -34,7 +34,7 @@ Shimmerberry requires [Lovely](https://github.com/ethangreen-dev/lovely-injector
 visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn how to setup & install mods.
 
 # Content
-<!--Check out the [Modded Balatro Wiki](https://balatromods.miraheze.org/wiki/Shimmerberry) for detailed information!-->
+#### Check out the [Shimmerberry Wiki](https://balatromods.miraheze.org/wiki/Shimmerberry) for detailed information!
 
 ![Shimmerberry Collection](repo/Collection.png)
 
