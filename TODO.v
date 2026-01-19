@@ -9,7 +9,6 @@
 
 > Future WiPs:
 - [+++]: Add Talisman Support
-- [+++]: Create Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
 - [ ++]: Add Unlock requirements to some Jokers
 - [ ++]: Add "Partners" Support
 - [  +]: Randomize Main Menu Shimmerberry Position (Corners Only)
@@ -21,4 +20,8 @@
 - Update: README.md, Version Number ("Year"."Month"."Day""Minor"), Create *Latest GitHub Release*
 - External:
 - - Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
-- - Curseforge, Nexus, Thunderstore, Photon, etc. ...
+- - Mod Index: https://github.com/FlowireXen/balatro-mod-index - meta.json, readme.md
+
+> Current TODO's:
+- Edit: https://balatromods.miraheze.org/wiki/Shimmerberry
+- Upload to: https://thunderstore.io/c/balatro

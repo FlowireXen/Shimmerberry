@@ -18,6 +18,7 @@ SMODS.Challenge {
     },
 	apply = function(self)
         G.GAME.SEMBY_degrading = true
+		--[[
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
@@ -32,6 +33,7 @@ SMODS.Challenge {
 				return true
 			end
 		}))
+		--]]
 	end,
 	button_colour = G.C.RED
 }

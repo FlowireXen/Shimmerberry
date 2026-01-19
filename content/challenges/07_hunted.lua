@@ -23,8 +23,8 @@ SMODS.Challenge {
             { id = 'j_SEMBY_hemoturgy' },
             { id = 'j_SEMBY_incinerator' },
             { id = 'j_SEMBY_stern_teacher' },
-            { id = 'v_SEMBY_old_urn' },
-            { id = 'v_SEMBY_cursed_urn' },
+            { id = 'v_SEMBY_urn_old' },
+            { id = 'v_SEMBY_urn_cursed' },
         },
     },
     jokers = {

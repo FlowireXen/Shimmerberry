@@ -1401,7 +1401,7 @@ return {
 				}
 			},
 			bl_SEMBY_sharp_shooter = {
-				name = 'Sharp Shooter',
+				name = alt and 'Justice' or 'Sharp Shooter',
 				text = {
 					"{C:attention}Five{} random Cards",
 					"debuffed every hand",
