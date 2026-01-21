@@ -24,4 +24,7 @@
 
 > Current TODO's:
 - Edit: https://balatromods.miraheze.org/wiki/Shimmerberry
+- -> https://balatromods.miraheze.org/wiki/Shimmerberry/Jokers
 - Upload to: https://thunderstore.io/c/balatro
+- Nashi Pear change Position(s)
+- Ritual and Perfect Pitch "fix" Text

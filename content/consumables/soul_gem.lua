@@ -51,7 +51,7 @@ SMODS.Consumable {
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				if card.ability.extra.captured ~= 0 then
-					card:set_soul_pos('SEMBY_spectrals', card.ability.extra.soul_pos_overwrite)
+					card:set_soul_pos('SEMBY_consumables', card.ability.extra.soul_pos_overwrite)
 				end
 				return true
 			end
@@ -61,7 +61,7 @@ SMODS.Consumable {
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				if card.ability.extra.captured ~= 0 then
-					card:set_soul_pos('SEMBY_spectrals', card.ability.extra.soul_pos_overwrite)
+					card:set_soul_pos('SEMBY_consumables', card.ability.extra.soul_pos_overwrite)
 				end
 				return true
 			end
@@ -91,7 +91,7 @@ SMODS.Consumable {
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						card:flip()
-						card:set_soul_pos('SEMBY_spectrals', card.ability.extra.soul_pos_overwrite)
+						card:set_soul_pos('SEMBY_consumables', card.ability.extra.soul_pos_overwrite)
 						card:flip()
 						play_sound('tarot1')
 						return true
