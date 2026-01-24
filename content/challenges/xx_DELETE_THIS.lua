@@ -78,31 +78,20 @@ SMODS.Challenge {
 		G.GAME.SEMBY_chaos_mode = true
         -- Others:
 		G.GAME.SEMBY_hide_win_ante = true
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 0.75
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-				-- Overrule Rules:
-				G.hand.config.real_card_limit = 11
-				G.hand.config.card_limit = 11
-				G.jokers.config.card_limit = 11
-				G.consumeables.config.card_limit = 11
-				G.GAME.dollars = 11
-				G.GAME.win_ante = 11
 				-- Hidden Rules:
 				G.GAME.modifiers.money_per_hand = 0
+				-- Overrule Rules:
+				G.GAME.dollars = 11
+				G.GAME.win_ante = 11
 				-- Modify all normal Areas:
 				G.jokers:add_text_overwrite(0, 'SEMBY_NaN')
 				G.consumeables:add_text_overwrite(0, 'SEMBY_NaN')
 				G.hand:add_text_overwrite(0, 'SEMBY_NaN')
 				G.deck:add_text_overwrite(0, 'SEMBY_NaN')
-				return true
-			end
-		}))
-		-- Change TMTRAINER:
-		G.E_MANAGER:add_event(Event({
-			trigger = 'after',
-			func = function()
+				-- Change TMTRAINER:
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()

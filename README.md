@@ -135,7 +135,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | 20 to Die for | Quadruples all listed<br>probabilities<br>(ex: 1 in 3 -> 4 in 3) | $6 | Rare | - |
 | TMTRAINER | Randomizes most<br>Numbers on newly<br>obtained Jokers<br>Range: 35%-255%<br>+1 Joker slot | $9 | Rare | TMTRAINER'd |
 | Afterimage | Copies ability of<br>Joker to the left<br>3 times | $20 | Legendary | - |
-| JEV\]\[L | Occupies the<br>Consumable-Area<br>+3 consumable slots<br>Using a Consumable<br>Degrades and Copies<br>another Consumable<br>in your possession<br>(Must have room) | $20 | Legendary | - |
+| JEV\]\[L | Occupies the<br>Consumable-Area<br>+2 consumable slots<br>Using a Consumable<br>Degrades and Copies<br>another Consumable<br>in your possession<br>(Must have room) | $20 | Legendary | - |
 | Oblivion | You can't Up the Ante,<br>Win after 40 Loops<br>Gain Progress by<br>defeating Blinds,<br>reaching 100% allows<br>you to Up the Ante<br>Difficulty rises<br>with each Hand played,<br>each Card discarded<br>or each Blind skipped | $20 | Legendary | - |
 
 ### Parking Disc States

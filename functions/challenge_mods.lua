@@ -201,7 +201,19 @@ function SEMBY_Challenge_Blind_Defeated()
 		end
 	end
 	if G.GAME.SEMBY_chaos_mode then
-		G.GAME.SEMBY_blind_mod = (G.GAME.SEMBY_blind_mod or 1.0) + (math.random(-8, 12) / 100)
+		-- Basic Parameters
+		G.hand.config.real_card_limit = pseudorandom("CHAOS_MODE", 4, 16)
+		G.hand.config.card_limit = pseudorandom("CHAOS_MODE", 4, 16)
+		G.jokers.config.card_limit = pseudorandom("CHAOS_MODE", 4, 16)
+		G.consumeables.config.card_limit = pseudorandom("CHAOS_MODE", 4, 16)
+		-- Blind Scaling
+		G.GAME.SEMBY_blind_mod = math.max(0, pseudorandom("CHAOS_MODE", -2, 45)/10)
+		-- Shop Scaling
+		G.GAME.SEMBY_shop_mod = math.max(0, pseudorandom("CHAOS_MODE", -2, 22)/10)
+		for k, v in pairs(G.I.CARD) do
+			if v.set_cost then v:set_cost() end
+		end
+		-- Deck
 		for i = #G.playing_cards, 1, -1 do
 			assert(SMODS.change_base(
 				G.playing_cards[i],

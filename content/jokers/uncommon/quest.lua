@@ -295,11 +295,19 @@ SMODS.Joker {
 							end
 						}))
 						delay(1.0)
-						-- Bonus/Failsafe
-						if G.GAME.blind.in_blind then--and not G.STATE == G.STATES.SELECTING_HAND then
-							-- Playing your Last hand to Finish the Quest doesn't Murder you! YIPPEEEE!!!!
-							ease_hands_played(1)
-							card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('SEMBY_bonus_hand'), colour = G.C.BLUE })
+						-- Win Blind
+						if G.GAME.blind.in_blind then
+							G.E_MANAGER:add_event(Event({
+								trigger = 'after',
+								func = function()
+									-- Pull Blind-Size down
+									G.GAME.blind.chips = math.floor(G.GAME.chips)
+									G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+									SEMBY_Blind_Wiggle()
+									return true
+								end
+							}))
+							SEMBY_Blind_Check(card)
 						end
 						if SMODS.is_eternal(card, card) then
 							-- Be able to claim your Reward! :3
