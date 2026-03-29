@@ -61,11 +61,7 @@ SMODS.Joker {
 			G.E_MANAGER:add_event(Event({
 				trigger = 'after',
 				func = function()
-					-- Use just SMODS and you don't draw your cards back
-					-- Use just Dissolve and destructions don't count
-					-- Use both and get the best of all Worlds! :))
-					context.other_card:start_dissolve({{1, 0, 0, 1}, {1, 0.5, 0.5, 1}}, false, nil, false)
-					SMODS.destroy_cards(context.other_card, nil, true, true)
+					SMODS.destroy_cards(context.other_card, nil, true, false)
 					return true
 				end
 			}))

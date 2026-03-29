@@ -12,7 +12,7 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			xchips_mod = 0.1,
+			xchips_mod = 0.2,
 			xchips = 1.0
 		}
 	},

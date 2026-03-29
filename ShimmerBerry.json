@@ -8,9 +8,9 @@
     "badge_colour": "FF8FA9",
     "badge_text_colour": "ffffff",
     "dependencies": [
-		"Steamodded (>=1.0.0~BETA-1221a)", 
-		"Lovely (>=0.8.0)"
+		"Steamodded (>=1.0.0~BETA-1503a)",
+		"Lovely (>=0.9.0)"
     ],
-    "version": "26.1.24a",
-	"allow_redistribution": true
+    "version": "26.3.29a",
+    "allow_redistribution": true
 }

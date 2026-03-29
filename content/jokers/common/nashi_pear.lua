@@ -12,7 +12,7 @@ SMODS.Joker {
 	cost = 3,
 	config = {
 		extra = {
-			score_base = 1000,
+			score_base = 2000,
 			state = 5,
 			pos_valid = { fresh = 0, bitten = 1, eaten = 2 },
 			pos_overwrite = { x = 0, y = 9 },

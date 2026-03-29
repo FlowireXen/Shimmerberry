@@ -13,7 +13,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			chips = 0,
-			chip_mod = 8
+			chip_mod = 10
 		}
 	},
 	loc_vars = function(self, info_queue, card)

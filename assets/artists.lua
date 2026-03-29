@@ -171,8 +171,8 @@ G.SEMBY.Art = {
 	tag_SEMBY_pearlescent_skip = G.SEMBY.Artist.flowire.key,
 	tag_SEMBY_shiny_skip = G.SEMBY.Artist.flowire.key,
 	tag_SEMBY_vouch_down = G.SEMBY.Artist.flowire.key,
+	tag_SEMBY_doom_debt = G.SEMBY.Artist.flowire.key,
 	tag_SEMBY_lavish_debt = G.SEMBY.Artist.flowire.key,
-	tag_SEMBY_resonance_debt = G.SEMBY.Artist.flowire.key,
 	--## Vouchers (Collection-View & Mod-Menu)
 	v_SEMBY_mask_comedy = G.SEMBY.Artist.flowire.key,
 	v_SEMBY_mask_tragedy = G.SEMBY.Artist.flowire.key,
@@ -227,20 +227,20 @@ function G.FUNCS.SEMBY_Warn_Website(e)
 				back_func = "openModUI_"..G.ACTIVE_MOD_UI.id, contents = {
 					-- Title
                     {n=G.UIT.R, config={ align = "cm" }, nodes={
-                        {n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_0'), scale = 0.6, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
+                        {n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_title'), scale = 0.6, shadow = true, colour = G.C.RED }},
                     }},
 					-- Warn-Text
 					{n=G.UIT.R, config={
 						align = "cm", padding = 0.2, r = 0.1, colour = G.C.GREY
 					}, nodes={
 						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={
-							{n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_1'), scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
+							{n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_nsfw_1'), scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
 						}},
 						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={
-							{n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_2'), scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
+							{n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_nsfw_2'), scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
 						}},
 						{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={
-							{n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_3'), scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
+							{n=G.UIT.T, config={ text = localize('SEMBY_artist_warn_nsfw_3'), scale = 0.4, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
 						}},
 					}},
 					{n=G.UIT.R, config={ align = "cm", padding = 0.1 }},

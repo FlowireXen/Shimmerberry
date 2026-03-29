@@ -1,6 +1,3 @@
--- Texture like this: https://www.reddit.com/r/whatisthisthing/comments/90btge/what_is_this_type_of_metal_plating_called_where/
--- apply pearlescent shader: https://www.shadertoy.com/view/4ctXR4
--- Texture is just steel but slightly purple and with the shader.
 SMODS.Joker {
 	key = "anodized_steel",
 	name = "SEMBY_anodized_steel",
@@ -15,7 +12,7 @@ SMODS.Joker {
 	cost = 8,
 	config = {
 		extra = {
-			percent = 0.075
+			percent = 0.08
 		}
 	},
 	enhancement_gate = 'm_steel',

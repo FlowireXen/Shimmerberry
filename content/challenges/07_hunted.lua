@@ -8,23 +8,32 @@ SMODS.Challenge {
             { id = 'SEMBY_hunted_2' },
             { id = 'SEMBY_hunted_3' },
             { id = 'SEMBY_space' },
-            { id = 'SEMBY_quick_scaling' },
+            { id = 'SEMBY_hunted_deal_1' },
+            { id = 'SEMBY_hunted_deal_2' },
+            { id = 'SEMBY_space' },
+            { id = 'SEMBY_scaling_15' },
         },
         modifiers = {
+            { id = 'hands', value = 3 },
             { id = 'discards', value = 6 },
-            { id = 'hand_size', value = 6 },
-            --{ id = 'joker_slots', value = 6 },
+            { id = 'hand_size', value = 5 },
             { id = 'winning_ante', value = 6 },
         }
     },
     restrictions = {
         banned_cards = {
             { id = 'j_SEMBY_bound' },
-            { id = 'j_SEMBY_hemoturgy' },
+            --{ id = 'j_SEMBY_hemoturgy' },
             { id = 'j_SEMBY_incinerator' },
             { id = 'j_SEMBY_stern_teacher' },
             { id = 'v_SEMBY_urn_old' },
             { id = 'v_SEMBY_urn_cursed' },
+            { id = 'p_standard_normal_1', ids = {
+                'p_standard_normal_1', 'p_standard_normal_2',
+                'p_standard_normal_3', 'p_standard_normal_4',
+                'p_standard_jumbo_1', 'p_standard_jumbo_2',
+                'p_standard_mega_1', 'p_standard_mega_2' }
+            },
         },
     },
     jokers = {
@@ -54,7 +63,7 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
-		G.GAME.SEMBY_survive_until = 40
+		--G.GAME.SEMBY_survive_until = 45
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
@@ -65,5 +74,37 @@ SMODS.Challenge {
 			end
 		}))
 	end,
+    calculate = function(self, context)
+        -- Game Over Condition [Forced]
+		if context.end_of_round and context.main_eval and context.game_over == false
+        and #G.playing_cards <= 45--G.GAME.SEMBY_survive_until
+        then SEMBY_Challenge_LOSE(); G.GAME.round_resets.ante = -1; end
+        -- Gain "+X Hand Size"
+        if context.pre_discard and context.full_hand and #context.full_hand == 3 then
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+			    func = function()
+                    G.hand:change_size(2)
+                    G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + 2
+                    -- Make "Deck" Yap
+			        G.E_MANAGER:add_event(Event({
+			        	trigger = 'after',
+			        	blocking = false,
+			        	func = function()
+                            G.deck:juice_up(0.2)
+			        		play_sound('generic1', 1.0, 0.8)
+			                attention_text({
+			                	text = '+2', backdrop_colour = G.C.GREEN,
+			                	scale = 1.0, hold = 1.0, major = G.deck,
+			                	align = 'tm', offset = { x = 0, y = -0.5 }
+			                })
+			        		return true
+			        	end
+			        }))
+					return true
+				end
+			}))
+        end
+    end,
 	button_colour = G.C.RED
 }

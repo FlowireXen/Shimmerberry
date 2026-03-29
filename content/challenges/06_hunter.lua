@@ -44,7 +44,7 @@ SMODS.Challenge {
     },
 	apply = function(self)
 		G.GAME.SEMBY_hide_win_ante = true
-        G.GAME.SEMBY_eleminate_until = 10
+        --G.GAME.SEMBY_eleminate_until = 10
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
@@ -54,5 +54,10 @@ SMODS.Challenge {
 			end
 		}))
 	end,
+    calculate = function(self, context)
+		if context.end_of_round and context.main_eval and context.game_over == false
+        and #G.playing_cards <= 10--G.GAME.SEMBY_eleminate_until
+        then SEMBY_Challenge_WIN() end
+    end,
 	button_colour = G.C.RED
 }

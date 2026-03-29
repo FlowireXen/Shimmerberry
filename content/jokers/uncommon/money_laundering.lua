@@ -14,8 +14,7 @@ SMODS.Joker {
 		extra = {
 			hands = 2.0,
 			discards = 2.0,
-			shop_mod = 1.0,
-			reroll = 3
+			shop_mod = 1.0
 		}
 	},
 	loc_vars = function(self, info_queue, card)
@@ -27,20 +26,20 @@ SMODS.Joker {
 		} }
     end,
     add_to_deck = function(self, card, from_debuff)
-		G.GAME.SEMBY_shop_mod = (G.GAME.SEMBY_shop_mod or 1.0) + card.ability.extra.shop_mod
-		for k, v in pairs(G.I.CARD) do
-			if v.set_cost then v:set_cost() end
-		end
-		G.GAME.round_resets.reroll_cost = G.GAME.round_resets.reroll_cost + card.ability.extra.reroll
-		G.GAME.current_round.reroll_cost = G.GAME.current_round.reroll_cost + card.ability.extra.reroll
+        G.E_MANAGER:add_event(Event({func = function()
+			G.GAME.SEMBY_shop_mod = (G.GAME.SEMBY_shop_mod or 1.0) + card.ability.extra.shop_mod
+			for k, v in pairs(G.I.CARD) do
+				if v.set_cost then v:set_cost() end
+			end
+		return true end }))
     end,
     remove_from_deck = function(self, card, from_debuff)
-		G.GAME.SEMBY_shop_mod = G.GAME.SEMBY_shop_mod - card.ability.extra.shop_mod
-		for k, v in pairs(G.I.CARD) do
-			if v.set_cost then v:set_cost() end
-		end
-		G.GAME.round_resets.reroll_cost = G.GAME.round_resets.reroll_cost - card.ability.extra.reroll
-		G.GAME.current_round.reroll_cost = math.max(0, G.GAME.current_round.reroll_cost - card.ability.extra.reroll)
+        G.E_MANAGER:add_event(Event({func = function()
+			G.GAME.SEMBY_shop_mod = G.GAME.SEMBY_shop_mod - card.ability.extra.shop_mod
+			for k, v in pairs(G.I.CARD) do
+				if v.set_cost then v:set_cost() end
+			end
+		return true end }))
     end,
 	calculate = function(self, card, context)
 		if context.setting_blind and not (context.blueprint_card or self).getting_sliced then

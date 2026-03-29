@@ -1,7 +1,8 @@
 local alt = math.random() < 0.1 --> Alt. Descriptions
 --## Translation Helper:
 -- > Minimizes Copy-Pasting similar Text-Blocks
-local SEMBY_Translation_Helper = {
+local SEMBY_TextHelper = {
+	-- Parking Disc
 	["parking_disc_1"] = {
 		name = "Parking Disc: 1",
 		text = {
@@ -82,6 +83,15 @@ local SEMBY_Translation_Helper = {
 			"with {C:dark_edition,E:1}Bonus Effect",
 		}
 	},
+	-- Shiny Edition
+	["shiny_playing_card"] = {
+		name = "Shiny",
+		text = {
+			"Grant {C:money}$#1#{} of",
+			"{C:attention}sell value{} to a",
+			"random {C:attention}Joker",
+		}
+	},
 }
 --## Normal Translations:
 return {
@@ -107,11 +117,11 @@ return {
 					"{C:SEMBY_unkokat}Artists{}-Tab for detailed credits!",
 					" ",
 					"{s:1.2}Have fun! {C:red,s:1.2}<3",
-					"{u:inactive}                                   ",
-                    "{s:0.5} ",
-                    "Leave Feedback or Report Bugs here:",
-					"{C:enhanced,u:enhanced,s:0.9}https://{C:enhanced,s:0.9}g{C:enhanced,u:enhanced,s:0.9}ithub.com/FlowireXen/Shimmerberr{C:enhanced,s:0.9}y",
-					--> https://github.com/FlowireXen/Shimmerberry
+					--"{u:inactive}                                   ",
+                    --"{s:0.5} ",
+                    --"Leave Feedback or Report Bugs here:",
+					--"{C:enhanced,u:enhanced,s:0.9}https://{C:enhanced,s:0.9}g{C:enhanced,u:enhanced,s:0.9}ithub.com/FlowireXen/Shimmerberr{C:enhanced,s:0.9}y",
+					----> https://github.com/FlowireXen/Shimmerberry
 					"{s:0.5} ",
                 }
             }
@@ -130,7 +140,7 @@ return {
 				name = "Adblocker",
 				text = {{
 					"When {C:attention}Blind{} is selected,",
-					"debuff a random suit",
+					"{C:SEMBY_debuff}Debuff{} a random suit",
 					"in your deck",
 					"{C:inactive}(Debuffed: {V:1}#1#{C:inactive})",
 				}, {
@@ -298,7 +308,7 @@ return {
 			j_SEMBY_buccaneer = {
 				name = "Buccaneer",
 				text = {
-					"Adds {C:attention}twice{} the sell",
+					"Adds {C:attention}thrice{} the sell",
 					"value of all other",
 					"owned {C:attention}Jokers{} to {C:chips}Chips",
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
@@ -307,7 +317,7 @@ return {
 			j_SEMBY_butterfly = {
 				name = "Butterfly",
 				text = {{
-					"{C:chips}#1#{} Chips",
+					"{C:chips}#1#{} Chips", -- No "+/-"!
 				}, {
 					"{C:green}Gains {C:chips}+#2#{} Chips",
 					"if played hand",
@@ -327,8 +337,6 @@ return {
 				}, {
 					"{C:chips}+#2#{} Chips, {X:chips,C:white}X#4#{} Chips",
 					"{C:mult}+#3#{} Mult, {X:mult,C:white}X#5#{} Mult",
-				}, {
-					"Earn {C:money}$#6#{} at end of round",
 				}}
 			},
 			j_SEMBY_chrono_break = {
@@ -471,8 +479,7 @@ return {
 					"{s:0.2} ",
 					"{C:red}-#1#{} Discard each round",
 					"{s:0.2} ",
-					"{C:red}Decrease{} amount of",
-					"Discardable Cards by {C:attention}#2#",
+					"{C:red}-#2#{} Discard Limit",
 				}
 			},
 			j_SEMBY_infoboard = {
@@ -521,23 +528,24 @@ return {
 			j_SEMBY_incinerator = {
 				name = "Incinerator",
 				text = {
-					"{C:green}Increase{} amount",
-					"of Discardable",
-					"cards by {C:attention}#1#",
+					"{C:green}+#1#{} Discard Limit",
 				}
 			},
 			j_SEMBY_jevil = {
 				name = "JEV][L",
 				text = {{
-					"Occupies the",
-					"{C:attention}Consumable{}-Area",
-					"{C:attention}+#1#{} consumable slots",
+					"{C:attention}+#1#{} #2#", --> "SEMBY_jevil_area[...]"
+					"{C:inactive}(Switches areas)",
 				}, {
-					"Using a {C:attention}Consumable",
-					"{C:SEMBY_degrading,E:2}Degrades{} and {C:green}Copies",
-					"{u:inactive}another{C:attention} Consumable",
-					"in your possession",
+					"When using a {C:attention}Consumable{},",
+					"destroy the Consumable",
+					"to the left and create {C:attention}#3#{}",
+					"{C:SEMBY_degrading,E:2}Possessive{} {C:attention}Consumables",
 					"{C:inactive}(Must have room)",
+				}, {
+					"{C:red}Increase {C:attention}Blind Size",
+					"by {C:SEMBY_percent}#4#%{} for each",
+					"Consumable created",
 				}}
 			},
 			j_SEMBY_jokebra = {
@@ -594,7 +602,7 @@ return {
 			j_SEMBY_lottery_ticket = {
 				name = "Lottery Ticket",
 				text = {
-					"Scoring {C:attention}numbered{} cards",
+					"Scoring {C:attention}non-face{} cards",
 					"have a {C:green}#1# in #2#{} chance",
 					"to give {C:mult}+#3#{} Mult or",
 					"{C:chips}+#4#{} Chips otherwise",
@@ -637,8 +645,8 @@ return {
 					"gain {C:blue}+#1#{} Hands and",
 					"{C:red}+#2#{} Discards",
 				}, {
-					"Shop prices",
-					"{C:red}increase{} by {C:money,E:1}#3#%",
+					"{C:red}Increase{} shop",
+					"prices by {C:money,E:1}#3#%",
 				}}
 			},
 			j_SEMBY_nashi_pear = {
@@ -653,21 +661,17 @@ return {
 			j_SEMBY_oblivion = {
 				name = "Oblivion",
 				text = {{
-					"You can't {E:2}Up the Ante{},",
-					"{C:dark_edition,E:1}Win{} after {C:attention}#1#{} Loops",
+					"When beating Ante {C:attention}#1#",
+					"{E:2}Loop{} back to Ante {C:attention}#2#",
+					--"Loop: {C:attention}#7#{}",
 				}, {
-					"Gain {C:green,E:2}Progress{} by",
-					"defeating {C:attention}Blinds{},",
-					"reaching {C:green}100%{} allows",
-					"you to {E:2}Up the Ante",
+					"Every {E:2}Loop{} {C:red}increases",
+					"all {C:attention}Blind Sizes{} by {C:SEMBY_percent}#3#%",
+					"{C:inactive}(Currently {C:SEMBY_percent}+#4#%{C:inactive})",
 				}, {
-					"{C:red,E:2}Difficulty{} rises",
-					"with each {C:blue}Hand{} played,",
-					"each Card {C:red}discarded",
-					"or each {C:attention}Blind{} skipped",
-				}, {
-					"Progress: {C:green}#2#%",
-					"Difficulty: {C:red}#3#%",
+					"Every {E:2}Loop{} {C:green}increases",
+					"{C:attention}Boss{} payouts by {C:money}$#5#",
+					"{C:inactive}(Currently {C:money}$#6#{C:inactive})",
 				}}
 			},
 			j_SEMBY_obscure_ritual = {
@@ -681,8 +685,8 @@ return {
 			j_SEMBY_opulent_skint = {
 				name = "Opulent Skint",
 				text = {
-					"Generate an {C:attention}extra",
-					"Joker in the Shop",
+					"Adds an {C:attention}extra{} Joker",
+					"when visiting a Shop",
 					"{s:0.2} ",
 					"The less {C:money}Money",
 					"you have, the",
@@ -735,17 +739,17 @@ return {
 			},
 			j_SEMBY_piggy_bank = {
 				name = "Piggy Bank",
-				text = {{
+                text = {{
+                    "When {C:attention}Blind{} is selected",
+                    "or skipped, spend {C:money}$#4#{} to",
+                    "add {C:money}$#5#{} of {C:attention}sell value",
+                }, {
+                    "Starts with {C:money}$#6#",
+                    "extra {C:attention}sell value",
+				}, {
 					"{X:mult,C:white}X#1#{} Mult for every",
 					"{C:money}$#2#{} of {C:attention}sell value",
 					"{C:inactive}(Currently {}{X:mult,C:white}X#3#{}{C:inactive} Mult)",
-				}, {
-					"When {C:attention}Blind{} is selected",
-					"or skipped, spend {C:money}$#4#{} to",
-					"add {C:money}$#5#{} of {C:attention}sell value",
-				}, {
-					"Starts with {C:money}$#6#",
-					"extra {C:attention}sell value",
 				}}
 			},
 			j_SEMBY_pinata = {
@@ -1041,17 +1045,16 @@ return {
 			j_SEMBY_singularity = {
 				name = "Singularity",
 				text = {{
-					"Create a copy of",
-					"{E:1}every{} {C:attention}scoring card",
+					"Create a copy of {E:1}every",
+					"{C:attention}scoring card{} without an",
+					"{C:purple,E:2}Event Horizon{} sticker",
 				}, {
-					"When this {C:attention}Joker",
-					"gets removed,",
-					"{C:red}Destroy{} all cards",
-					"it has created",
-					"{C:inactive,s:0.9}(Can't be {C:SEMBY_debuff,s:0.9}Debuffed{C:inactive,s:0.9})",
+					"When this {C:attention}Joker{} gets",
+					"removed, {C:red}Destroy{} all",
+					"cards it has created",
+					"{C:inactive}(Can't be {C:SEMBY_debuff}Debuffed{C:inactive})",
 				}, {
-					"Occupies {C:attention}#1#",
-					"Joker slots",
+					"Occupies {C:attention}#1#{} Joker slots",
 				}}
 			},
 			j_SEMBY_stern_teacher = {
@@ -1067,14 +1070,14 @@ return {
 			},
 			j_SEMBY_stylish_joker = {
 				name = "Stylish Joker",
-				text = {
-					"{C:red}-#1#{} hand size",
-					"{C:attention}+#2#{} consumable slots",
-					"{s:0.2} ",
+				text = {{
 					"Earn {C:money}$#3#{} for every",
 					"{C:attention}Consumable{} you keep",
 					"at the end of round",
-				}
+				}, {
+					"{C:attention}+#2#{} consumable slots",
+					"and {C:red}-#1#{} hand size",
+				}}
 			},
 			j_SEMBY_stocked_shelves = {
 				name = "Stocked Shelves",
@@ -1114,10 +1117,11 @@ return {
 			},
 			j_SEMBY_tempered_glass = {
 				name = "Tempered Glass",
-				text = {
-					"{C:enhanced}Glass Cards{} have",
-					"a {C:green}#1# in #2#{} chance",
-					"to be destroyed",
+                text = {
+					"{C:green}#1#%{} chance to",
+					"{C:legendary,E:1}Revive{} destroyed",
+					"{C:enhanced}Glass Cards{}",
+					"{C:inactive,s:0.9}(Fixed probability)",
 				}
 			},
 			j_SEMBY_the_dwarf = {
@@ -1226,15 +1230,12 @@ return {
 			j_SEMBY_toolkit = {
 				name = "Toolkit",
 				text = {{
-					"{C:attention}Jokers{} with a limited",
-					"number of uses are",
+					"All {C:attention}Jokers{} to the {C:attention}left{},",
+					"that have a limited",
+					"number of uses, are",
 					"{C:green,E:2}repaired{} and regain",
 					"up to {C:attention}#1#{} uses at the",
 					"end of the round",
-				}, {
-					"Some {C:attention}Jokers{} use up",
-					"more durability while",
-					"getting {C:green,E:2}repaired",
 				}, {
 					"{V:1}#2#{} uses left",
 					"{C:inactive,s:0.8}Can't be repaired",
@@ -1274,19 +1275,19 @@ return {
 					"{C:inactive}#2#",
 				}
 			},
-			--#> Check List at top for Translations
-			j_SEMBY_parking_disc_1 = SEMBY_Translation_Helper["parking_disc_1"],
-			j_SEMBY_parking_disc_2 = SEMBY_Translation_Helper["parking_disc_2"],
-			j_SEMBY_parking_disc_3 = SEMBY_Translation_Helper["parking_disc_3"],
-			j_SEMBY_parking_disc_4 = SEMBY_Translation_Helper["parking_disc_4"],
-			j_SEMBY_parking_disc_5 = SEMBY_Translation_Helper["parking_disc_5"],
-			j_SEMBY_parking_disc_6 = SEMBY_Translation_Helper["parking_disc_6"],
-			j_SEMBY_parking_disc_7 = SEMBY_Translation_Helper["parking_disc_7"],
-			j_SEMBY_parking_disc_8 = SEMBY_Translation_Helper["parking_disc_8"],
-			j_SEMBY_parking_disc_9 = SEMBY_Translation_Helper["parking_disc_9"],
-			j_SEMBY_parking_disc_10 = SEMBY_Translation_Helper["parking_disc_10"],
-			j_SEMBY_parking_disc_11 = SEMBY_Translation_Helper["parking_disc_11"],
-			j_SEMBY_parking_disc_12 = SEMBY_Translation_Helper["parking_disc_12"],
+			--#> Check seperate List at top for Translations
+			j_SEMBY_parking_disc_1 = SEMBY_TextHelper["parking_disc_1"],
+			j_SEMBY_parking_disc_2 = SEMBY_TextHelper["parking_disc_2"],
+			j_SEMBY_parking_disc_3 = SEMBY_TextHelper["parking_disc_3"],
+			j_SEMBY_parking_disc_4 = SEMBY_TextHelper["parking_disc_4"],
+			j_SEMBY_parking_disc_5 = SEMBY_TextHelper["parking_disc_5"],
+			j_SEMBY_parking_disc_6 = SEMBY_TextHelper["parking_disc_6"],
+			j_SEMBY_parking_disc_7 = SEMBY_TextHelper["parking_disc_7"],
+			j_SEMBY_parking_disc_8 = SEMBY_TextHelper["parking_disc_8"],
+			j_SEMBY_parking_disc_9 = SEMBY_TextHelper["parking_disc_9"],
+			j_SEMBY_parking_disc_10 = SEMBY_TextHelper["parking_disc_10"],
+			j_SEMBY_parking_disc_11 = SEMBY_TextHelper["parking_disc_11"],
+			j_SEMBY_parking_disc_12 = SEMBY_TextHelper["parking_disc_12"],
 		},
 		Back = {
 			b_SEMBY_hopeless = {
@@ -1306,7 +1307,7 @@ return {
 					"{C:attention}+#2#{} Hand size, {C:red}-#3#{} Discards",
 					"{s:0.2} ",
 					"Discard {C:red}#4#{} random cards",
-					"with each hand played",
+					"after each hand played",
 				}
 			},
 			b_SEMBY_strange = {
@@ -1320,11 +1321,10 @@ return {
 			sleeve_SEMBY_burning_sl = {
 				name = "Burned Sleeve",
 				text = {
-					"{C:legendary}Challenge Sleeve!",
-					"{s:0.2} ",
+					--"{C:legendary}Challenge Sleeve!", "{s:0.2} ",
 					"{C:red}Destroy{} the",
-					"first drawn hand",
-					"every {C:attention}Boss Blind",
+					"{C:attention}first{} scoring card",
+					"every {C:blue}Hand",
 				}
 			},
 			sleeve_SEMBY_hopeless_sl = {
@@ -1354,7 +1354,7 @@ return {
 					"{C:attention}+#2#{} Hand size, {C:red}-#3#{} Discards",
 					"{s:0.2} ",
 					"Discard {C:red}#4#{} random cards",
-					"with each hand played",
+					"after each hand played",
 				}
 			},
 			sleeve_SEMBY_scartare_sl_alt = { --> "Skat"(ska:t)
@@ -1363,7 +1363,7 @@ return {
 					"{C:attention}+#1#{} Hand size",
 					"{s:0.2} ",
 					"Discard {C:red}#2#{} additional",
-					"cards with each",
+					"cards after each",
 					"hand played",
 				}
 			},
@@ -1431,21 +1431,15 @@ return {
 			},
 			v_SEMBY_urn_old = { -- Urn 1
 				name = "Old Urn",
-				text = {
-					"Permanently",
-					"{C:green}increase{} amount",
-					"of Discardable",
-					"cards by {C:attention}#1#",
+                text = {
+                    "{C:green}+#1#{} Discard limit",
 				}
 			},
 			v_SEMBY_urn_cursed = { -- Urn 2
 				name = "Cursed Urn",
-				text = {
-					"Permanently",
-					"{C:green}increase{} amount",
-					"of Discardable",
-					"cards by {C:attention}#1#{}, but",
-					"{C:red}lose {C:attention}#2#{} Discard",
+                text = {
+                    "{C:green}+#1#{} Discard limit",
+					"but {C:red}lose {C:attention}#2#{} Discard",
 					"each round",
 				},
                 unlock = {
@@ -1460,9 +1454,10 @@ return {
 				name = "Ocean",
 				text = {
 					"Add {C:dark_edition}Pearlescent",
-					"or {C:dark_edition}Shiny{} to either",
-					"one {C:attention}Playing Card",
-					"or a random {C:attention}Joker",
+					"or {C:dark_edition}Shiny{} to a",
+					"random {C:attention}Joker",
+					"or {C:attention}Playing Card",
+					"in your hand"
 				}
 			},
 		},
@@ -1494,6 +1489,13 @@ return {
 			},
 		},
 		Tag = {
+			tag_SEMBY_doom_debt = {
+				name = "Doomed",
+				text = {
+					"{C:SEMBY_percent}+#1#% {C:attention}Blind Size{} for",
+					"next {C:attention,E:1}Showdown Blind",
+				}
+			},
 			tag_SEMBY_intimidating = {
 				name = "Intimidating Tag",
 				text = {
@@ -1514,13 +1516,6 @@ return {
 					"Next base edition shop",
 					"Joker is free and",
 					"becomes {C:dark_edition}Pearlescent",
-				}
-			},
-			tag_SEMBY_resonance_debt = {
-				name = "Resonance Debt",
-				text = {
-					"{C:SEMBY_percent}+#1#% {C:attention}Blind Size",
-					"next round",
 				}
 			},
 			tag_SEMBY_shiny_skip = {
@@ -1551,12 +1546,10 @@ return {
 			e_SEMBY_resonance = {
 				name = "Resonance",
 				text = {
-					"{C:dark_edition}+#1#{} Area slot",
 					"Can't be {C:SEMBY_debuff}Debuffed",
 					"{s:0.2} ",
-					"Each {C:SEMBY_resonance}Resonance",
-					"{C:red}increases{} next",
-					"Blind Size by {C:SEMBY_percent}#2#%",
+					"{C:red}Increase {C:attention}Blind",
+					"{C:attention}Size{} by {C:SEMBY_percent}#1#%",
 				}
 			},
 			e_SEMBY_shiny = {
@@ -1567,14 +1560,8 @@ return {
 					"end of round",
 				}
 			},
-			e_SEMBY_shiny_playing_card = {
-				name = "Shiny",
-				text = {
-					"Grant {C:money}$#1#{} of",
-					"{C:attention}sell value{} to a",
-					"random {C:attention}Joker",
-				}
-			},
+			--#> Check seperate List at top for Translations
+			e_SEMBY_shiny_playing_card = SEMBY_TextHelper["shiny_playing_card"],
 		},
 		Other = {
 			-- Artists:
@@ -1676,19 +1663,27 @@ return {
 					"changed by {C:SEMBY_TMTRAINER}x#1#",
 				}
 			},
-			--#> Check List at top for Translations
-			SEMBY_parking_disc_1 = SEMBY_Translation_Helper["parking_disc_1"],
-			SEMBY_parking_disc_2 = SEMBY_Translation_Helper["parking_disc_2"],
-			SEMBY_parking_disc_3 = SEMBY_Translation_Helper["parking_disc_3"],
-			SEMBY_parking_disc_4 = SEMBY_Translation_Helper["parking_disc_4"],
-			SEMBY_parking_disc_5 = SEMBY_Translation_Helper["parking_disc_5"],
-			SEMBY_parking_disc_6 = SEMBY_Translation_Helper["parking_disc_6"],
-			SEMBY_parking_disc_7 = SEMBY_Translation_Helper["parking_disc_7"],
-			SEMBY_parking_disc_8 = SEMBY_Translation_Helper["parking_disc_8"],
-			SEMBY_parking_disc_9 = SEMBY_Translation_Helper["parking_disc_9"],
-			SEMBY_parking_disc_10 = SEMBY_Translation_Helper["parking_disc_10"],
-			SEMBY_parking_disc_11 = SEMBY_Translation_Helper["parking_disc_11"],
-			SEMBY_parking_disc_12 = SEMBY_Translation_Helper["parking_disc_12"],
+			-- OTHERS:
+			SEMBY_parking_disc_XX = {
+				name = "Parking Disc: ?",
+				text = {
+					"Next state {C:dark_edition,E:1}Unknown{}.",
+				}
+			},
+			--#> Check seperate List at top for Translations
+			SEMBY_parking_disc_1 = SEMBY_TextHelper["parking_disc_1"],
+			SEMBY_parking_disc_2 = SEMBY_TextHelper["parking_disc_2"],
+			SEMBY_parking_disc_3 = SEMBY_TextHelper["parking_disc_3"],
+			SEMBY_parking_disc_4 = SEMBY_TextHelper["parking_disc_4"],
+			SEMBY_parking_disc_5 = SEMBY_TextHelper["parking_disc_5"],
+			SEMBY_parking_disc_6 = SEMBY_TextHelper["parking_disc_6"],
+			SEMBY_parking_disc_7 = SEMBY_TextHelper["parking_disc_7"],
+			SEMBY_parking_disc_8 = SEMBY_TextHelper["parking_disc_8"],
+			SEMBY_parking_disc_9 = SEMBY_TextHelper["parking_disc_9"],
+			SEMBY_parking_disc_10 = SEMBY_TextHelper["parking_disc_10"],
+			SEMBY_parking_disc_11 = SEMBY_TextHelper["parking_disc_11"],
+			SEMBY_parking_disc_12 = SEMBY_TextHelper["parking_disc_12"],
+			SEMBY_shiny_playing_card = SEMBY_TextHelper["shiny_playing_card"],
 		},
 	},
 	misc = {
@@ -1703,6 +1698,7 @@ return {
 		},
 		dictionary = {
 			SEMBY_acquired_ex = "Acquired!",
+			SEMBY_announce_doom = "Oblivion.",
 			SEMBY_bark_1 = "Bark!",
 			SEMBY_bark_2 = "Bark?",
 			SEMBY_bark_3 = "Woof!",
@@ -1715,10 +1711,8 @@ return {
 			SEMBY_burn = "BURN",
 			SEMBY_card_mined_ex = "Card Mined!",
 			SEMBY_collapsed_ex = "Collapsed!",
-			SEMBY_consumeable_none_1 = "Invalid",
-			SEMBY_consumeable_none_2 = "None",
-			SEMBY_consumeable_none_3 = "404",
-			SEMBY_consumeable_plus = "+1 Consumable",
+			SEMBY_jevil_area_j = "Joker slot",
+			SEMBY_jevil_area_c = "Consumable slot",
 			SEMBY_desc_challenge = "Challenge-Jokers excluded!",
 			SEMBY_desc_destroyed = "(Destroyed after use)",
 			SEMBY_desc_ignore_eternal = "(Can change Eternal Cards)",
@@ -1727,9 +1721,6 @@ return {
 			SEMBY_dog_overflow = 'Too many dogs!',
 			SEMBY_downgrade_ex = "Downgrade!",
 			SEMBY_durability_destroy = "Used up!",
-			SEMBY_durability_refilled = "Refilled!",
-			SEMBY_durability_repaired = "Repaired!",
-			SEMBY_durability_revitalized = "Revitalized!",
 			SEMBY_echoed_ex = "Echoed!",
 			SEMBY_embraced_1 = "Warm",
 			SEMBY_embraced_2 = "Comfy",
@@ -1749,6 +1740,9 @@ return {
 			SEMBY_goobert_4 = "I-is good?",
 			SEMBY_goobert_X = "Arrrghh!",
 			SEMBY_hit_ex = "Hit!",
+			SEMBY_horse_says_1 = "Neigh!",
+			SEMBY_horse_says_2 = "Neigh!", --> "Free Space" for Translators
+			SEMBY_horse_says_3 = "Sigh..",
 			SEMBY_hype_start = "Let's Go!",
 			SEMBY_joker_slot_plus = "+1 Joker Slot",
 			SEMBY_lavish_debt = "You owe me..",
@@ -1757,9 +1751,9 @@ return {
 			SEMBY_money_clean = "All Clean",
 			SEMBY_money_dirty = "NOT CLEAN!!",
 			SEMBY_nothing = "Nothing",
-			SEMBY_oblivion_allowed = "Continue...",
 			SEMBY_oblivion_removed = "Escaped...",
 			SEMBY_overshot_ex = "Overshot!",
+			SEMBY_parking_disc_free = "Free Parking!",
 			SEMBY_parking_disc_boss_2 = "Additional Hands",
 			SEMBY_parking_disc_boss_3 = "Reduce Blind Size",
 			SEMBY_parking_disc_boss_4 = "Disable Boss Blind",
@@ -1774,7 +1768,6 @@ return {
 			SEMBY_quest_active_shot = "Active in Blinds",
 			SEMBY_quest_active_use = "Always Active",
 			SEMBY_quest_completed = "Quest Complete!",
-			SEMBY_quest_duplicated = "Duplicated!?",
 			SEMBY_ritual_complete = "Complete!",
 			SEMBY_ritual_inactive = "Inactive...",
 			SEMBY_seal = "Seal",
@@ -1800,6 +1793,7 @@ return {
 			SEMBY_unchanged = "Unchanged",
 			-- Special Keys:
 			SEMBY_NaN = "NaN", --> Not a Number
+			SEMBY_QQQ = "???",
 			-- Mod-Menu Keys:
 			SEMBY_artist_tab = "Artists",
 			--SEMBY_artist_placeholder = "Placeholder",
@@ -1810,10 +1804,10 @@ return {
             SEMBY_artist_unkokat_extra_1 = "Also created Titlescreen",
 			SEMBY_artist_unkokat_extra_2 = "Berry, Mod-Logo & Icon!",
 			-- NSFW-Link Warning
-			SEMBY_artist_warn_0 = "Mature Content Warning",
-			SEMBY_artist_warn_1 = "The Website you are about to",
-			SEMBY_artist_warn_2 = "visit contains NSFW/18+ content!",
-			SEMBY_artist_warn_3 = "Please proceed with caution.",
+			SEMBY_artist_warn_title = "Content Warning",
+			SEMBY_artist_warn_nsfw_1 = "The Website you are about to",
+			SEMBY_artist_warn_nsfw_2 = "visit contains NSFW/18+ content!",
+			SEMBY_artist_warn_nsfw_3 = "Please proceed with caution.",
 			-- Proceed
 			SEMBY_artist_proceed = "Proceed",
 			-- Sound Credits are Hardcoded (in English);
@@ -1823,6 +1817,8 @@ return {
 			SEMBY_consumeables = "+#1# Consumables",
 			SEMBY_discards = "+#1# Discards",
 			SEMBY_discards_minus = "-#1# Discards",
+			SEMBY_durability_refilled = "#1# Refilled!",
+			SEMBY_durability_repaired = "#1# Repaired!",
 			SEMBY_durability_uses_eval = "#1#",
 			SEMBY_left = "#1# Left",
 			SEMBY_loop = "Loop #1#",
@@ -1856,7 +1852,7 @@ return {
 			c_SEMBY_printty_good = "Printty Good",
 			c_SEMBY_gaokao = "Gaokao",
 			c_SEMBY_lavish_dreams = "Lavish Dreams",
-			c_SEMBY_uses_left = "50 uses left",
+			c_SEMBY_uses_left = "100 uses left",
 			c_SEMBY_parking_roulette = "Parking Roulette",
 			c_SEMBY_qwest = "Qwest?",
 			c_SEMBY_emperor_calus = "Emperor Calus",
@@ -1865,67 +1861,81 @@ return {
 			c_SEMBY_grandmaster_menagerie = "Grandmaster Menagerie",
 			-- Page 3:
 			c_SEMBY_DELETE_THIS = "DELETE THIS",
-			c_SEMBY_exodia = "Exodia", --> UNUSED
+			c_SEMBY_exodia = "Exodia", --> Debug/Unused
 		},
 		v_text = {
 			-- Misc.
 			ch_c_SEMBY_space = { "{s:0.5} ", },
 			-- Page 1 (Lore):
 			ch_c_SEMBY_berry_good_meal = { "A tasty {C:blue}Tutorial{} for the {C:attention}Berry Jokers{}!" },
+			ch_c_SEMBY_berry_eaten_1 = { "{C:red,E:2}Lose{} when beating a {C:attention}Blind" },
+			ch_c_SEMBY_berry_eaten_2 = { "without a {C:attention}Berry Joker" },
 			ch_c_SEMBY_tool_for_every_joke = { "A handy {C:blue}Tutorial{} for the {C:attention}Tool Jokers{}!" },
 			ch_c_SEMBY_perishable_fate = { "Age and {C:purple,E:2}Wither{}, don't turn bitter." },
-			ch_c_SEMBY_countdown = { "{C:inactive}30:00... 29:59... 29:58... 29:57... 29:56..." },
+			ch_c_SEMBY_countdown = { "{C:inactive}24:00... 23:59... 23:58... 23:57... 23:56..." },
 			ch_c_SEMBY_shiny_hunt = { "Enjoy increased {C:money}Shiny{} spawns!" },
 			ch_c_SEMBY_hunter = { "Welcome to {C:enhanced}Balatro{}, {C:attention}47{}." },
-			ch_c_SEMBY_hunter_1 = { "{C:dark_edition,E:1}Win{} by beating a Blind" },
+			ch_c_SEMBY_hunter_1 = { "{C:dark_edition,E:1}Win{} by beating a {C:attention}Blind" },
 			ch_c_SEMBY_hunter_2 = { "with {C:attention}10 or less{} Cards" },
 			ch_c_SEMBY_hunter_3 = { "in your full Deck!" },
 			ch_c_SEMBY_hunted = { "{C:red}Target Acquired." },
-			ch_c_SEMBY_hunted_1 = { "{C:red,E:2}Lose{} when beating a Blind" },
-			ch_c_SEMBY_hunted_2 = { "with {C:attention}30 or less{} Cards" },
+			ch_c_SEMBY_hunted_1 = { "{C:red,E:2}Lose{} when beating a {C:attention}Blind" },
+			ch_c_SEMBY_hunted_2 = { "with {C:attention}45 or less{} Cards" },
 			ch_c_SEMBY_hunted_3 = { "in your full Deck!" },
+			ch_c_SEMBY_hunted_deal_1 = { "Discarding {C:attention}3{} cards {C:green}increases" },
+			ch_c_SEMBY_hunted_deal_2 = { "hand size by {C:attention}2{} for the round." },
 			ch_c_SEMBY_done_deal = { "{C:attention}King{} of {C:dark_edition,E:1}Everything{}, {C:attention}King{} of {E:2}Nothing{}." },
 			ch_c_SEMBY_the_last_unicorn = { "The Last Hunt." },
 			ch_c_SEMBY_the_last_unicorn_1 = { "{C:dark_edition,E:1}Win{} by beating a Blind" },
 			ch_c_SEMBY_the_last_unicorn_2 = { "without the {C:attention}Unicorn{}." },
 			ch_c_SEMBY_the_menagerie = { "Pleasure and delight awaits {C:attention}You{}." },
 			-- Page 2 (Lore):
-			ch_c_SEMBY_printty_good = { "A productive {C:blue}Tutorial{} for the {C:attention}Copy Printer{}!" },
+			ch_c_SEMBY_printty_good_1 = { "A productive {C:blue}Tutorial{}" },
+			ch_c_SEMBY_printty_good_2 = { "for the {C:attention}Copy Printer{}!" },
+			ch_c_SEMBY_printty_good_3 = { "{C:dark_edition,E:1}Win{} by beating a {C:attention}Blind{} with" },
+			ch_c_SEMBY_printty_good_4 = { "{C:attention}9{} copies of the same {C:attention}Joker{}!" },
 			ch_c_SEMBY_gaokao = { "An annual {C:blue}Tutorial{} for {C:attention}Jokebra{}!" },
 			ch_c_SEMBY_lavish_dreams_1 = { '"Prove Your {E:1}Worth{}."' },
 			ch_c_SEMBY_lavish_dreams_2 = { '            - {C:money}Lavish Joker' },
 			ch_c_SEMBY_uses_left_1 = { "{C:attention}JOKER{} IS ETERNAL." },
 			ch_c_SEMBY_uses_left_2 = { "{C:money}MONEY{} IS FUEL." },
 			ch_c_SEMBY_uses_left_3 = { "{C:enhanced}BALATRO{} IS FULL." },
-			ch_c_SEMBY_used_up_1 = { "{C:red,E:2}Lose{} when beating a" },
-			ch_c_SEMBY_used_up_2 = { "Blind with {C:money}$0 {C:attention}or less{}!" },
-			ch_c_SEMBY_parking_roulette = { "{C:attention,E:2}Three {C:red,E:2}Cherries{} = {C:blue,E:2}Parking Spot" },
-			ch_c_SEMBY_qwest_1 = { "Epic {C:enhanced}Dungeons{}, Cool {C:legendary}Dragons{}..." },
-			ch_c_SEMBY_qwest_2 = { "But no {C:red}Demons{}!" },
-			ch_c_SEMBY_emperor_calus = { "{E:2}Grow Fat From {C:attention,E:2}Strength" },
+			ch_c_SEMBY_used_up = { "{C:red,E:2}Lose{} when money is {C:money}$0 {C:attention}or less{}." },
+			ch_c_SEMBY_parking_roulette = { "{C:attention,E:2}Three {C:red,E:2}Cherries{} = {C:blue,E:2}Free Parking" },
+			ch_c_SEMBY_parking_random = { "{C:attention}Parking Discs{} are {C:green,E:2}randomized" },
+			ch_c_SEMBY_qwest_sprout = { "{s:2.0,E:1}Qwest!" },
+			ch_c_SEMBY_qwest_tougher = { "{C:attention}Quests{} are tougher" },
+			ch_c_SEMBY_emperor_calus = { "{E:2}Grow Fat From {C:attention,E:2}Strength{E:2}!" },
 			ch_c_SEMBY_last_one_left_1 = { "{C:attention}I{} know where {C:attention}I'm{} supposed to be," },
 			ch_c_SEMBY_last_one_left_2 = { "crushed my {C:red}Enemies{} long ago," },
 			ch_c_SEMBY_last_one_left_3 = { "the last one left to go is {C:attention}Me{}." },
 			ch_c_SEMBY_speed_of_light = { "Reach the {C:attention}edge{} of the {C:dark_edition,E:1}Universe{}!" },
 			ch_c_SEMBY_grandmaster_menagerie = { "Sorrow and despair awaits {C:red}Us{}." },
 			-- Page 3 (Lore):
-			ch_c_SEMBY_DELETE_THIS_1 = { "No Showdown Blinds, No {C:SEMBY_TMTRAINER,E:1}Winning{} Ante, {E:2}X99999{} base Blind size" },
-			ch_c_SEMBY_DELETE_THIS_2 = { "{C:SEMBY_TMTRAINER,E:1}Impossible{} Score-Requirements, {X:SEMBY_TMTRAINER,C:white,E:1}DELETE{X:SEMBY_TMTRAINER,C:white,E:1}THIS{}, {X:SEMBY_TMTRAINER,C:white,E:1}DELETE{X:SEMBY_TMTRAINER,C:white,E:1}THIS{}" },
+			ch_c_SEMBY_DELETE_THIS_1 = { "::{C:SEMBY_TMTRAINER}UNKNOWN{} RULESET {X:blue,C:white}0x16b64e926" },
+			ch_c_SEMBY_DELETE_THIS_2 = { "::{C:SEMBY_TMTRAINER}UNKNOWN{} RULESET {X:red,C:white}0x16b68f512" },
+			ch_c_SEMBY_DELETE_THIS_3 = { "::{C:SEMBY_TMTRAINER}UNKNOWN{} RULESET {X:green,C:white}1x32b12c092" },
+			ch_c_SEMBY_DELETE_THIS_4 = { "::{C:SEMBY_TMTRAINER}UNKNOWN{} RULESET {X:money,C:white}0x16b80c740" },
+			ch_c_SEMBY_DELETE_THIS_5 = { "::{C:SEMBY_TMTRAINER}UNKNOWN{} RULESET {X:purple,C:white}1x32b04a335" },
 			-- Modifiers:
-			ch_c_SEMBY_aggressive_scaling = { "{C:red,E:2}X4.0{} base Blind size" },
 			ch_c_SEMBY_countdown_mode = { "Don't regain {C:blue}Hands{} or {C:red}Discards" },
-			ch_c_SEMBY_degrading = { "All Cards are {E:2,C:SEMBY_degrading}Degraging", },
-			ch_c_SEMBY_extra_bonus = { "Extra {C:blue}Hands{} earn {C:green}more{} money", },
+			ch_c_SEMBY_degrading = { "All Cards are {E:2,C:SEMBY_degrading}Degraging" },
+			ch_c_SEMBY_doomed_cards = { "Gain {C:SEMBY_percent}2% {C:SEMBY_percent,E:2}Doomed{} per card played" },
+			ch_c_SEMBY_doomed_start = { "Start with {C:SEMBY_percent}100% {C:SEMBY_percent,E:2}Doomed" },
+			ch_c_SEMBY_extra_bonus = { "Extra {C:blue}Hands{} earn {C:green}more{} money" },
 			ch_c_SEMBY_gold_stake = { "Apply {C:money}Gold Stake{} difficulty" },
-			ch_c_SEMBY_impossible_blinds = { "{C:red,E:1}Impossible{} Score-Requirements" },
-			ch_c_SEMBY_menagerie_mode = { "{C:legendary,E:1}Multiplies{} Blind size by current Ante" },
 			ch_c_SEMBY_no_showdown = { "No {C:attention}Showdown{} Blinds" },
 			ch_c_SEMBY_no_win_ante = { "No {C:dark_edition,E:1}Winning{} Ante" },
-			ch_c_SEMBY_quick_scaling = { "{C:red}X1.5{} base Blind size" },
-			ch_c_SEMBY_remaining_discard_pay = { "{C:red}Pay {C:money}$1{} per remaining {C:red}Discard" },
-			ch_c_SEMBY_remaining_hand_pay = { "{C:red}Pay {C:money}$2{} per remaining {C:blue}Hand" },
-			ch_c_SEMBY_slow_scaling = { "{C:green}X0.5{} base Blind size" },
+			ch_c_SEMBY_pay_to_play = { "Pay {C:money}$1{} per card played" },
+			--ch_c_SEMBY_unknown_ante = { "{C:dark_edition}Unknown{} Winning Ante" },
 			ch_c_SEMBY_upgrade_pokerhands = { "Start with {C:green}better {E:2}Poker Hands" },
+			-- Scaling Modifiers:
+			ch_c_SEMBY_impossible_blinds = { "{C:red,E:1}Impossible{} Score-Requirements" },
+			ch_c_SEMBY_menagerie_mode = { "{C:legendary,E:1}Multiplies{} Blind size by current Ante" },
+			ch_c_SEMBY_scaling_05 = { "{C:green}X0.5{} base Blind size" },
+			ch_c_SEMBY_scaling_15 = { "{C:red}X1.5{} base Blind size" },
+			ch_c_SEMBY_scaling_20 = { "{C:red}X2.0{} base Blind size" },
+			ch_c_SEMBY_scaling_40 = { "{C:red,E:2}X4.0{} base Blind size" },
 			-- Lovely Patched:
 			ch_m_winning_ante = { "Winning Ante: {C:attention}#1#", },
 		},

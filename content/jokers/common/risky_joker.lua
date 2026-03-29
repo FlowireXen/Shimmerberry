@@ -12,7 +12,7 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			chips = 4,
+			chips = 6,
 			mult = 1,
 			gold = 1,
 			payout = 0

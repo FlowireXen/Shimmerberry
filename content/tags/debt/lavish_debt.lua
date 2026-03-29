@@ -17,7 +17,7 @@ SMODS.Tag {
 			((tag.ability.lavish_percent or tag.config.extra.base_percent) * 100)
 		} }
     end,
-	set_ability= function(self, tag)
+	set_ability = function(self, tag)
 		tag.ability.debt = true
 	end,
     apply = function(self, tag, context)

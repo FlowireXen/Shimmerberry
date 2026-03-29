@@ -12,7 +12,7 @@ SMODS.Joker {
 	cost = 4,
 	config = {
 		extra = {
-			chips = 2
+			chips = 3
 		}
 	},
 	loc_vars = function(self, info_queue, card)

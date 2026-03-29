@@ -33,14 +33,14 @@ SMODS.Joker {
 	end,
 	set_ability = function(self, card, initial, delay_sprites)
 		--if card.config.center.discovered then
-			card:set_dissolve({G.C.RED, G.C.PURPLE}, 0.0, 0.2, 0)
+			card:SEMBY_set_dissolve({G.C.RED, G.C.PURPLE}, 0.0, 0.2, 0)
 		--end
 	end,
 	load = function(self, card, card_table, other_card)
-		card:set_dissolve({G.C.RED, G.C.PURPLE}, 0.0, 0.2, 0)
+		card:SEMBY_set_dissolve({G.C.RED, G.C.PURPLE}, 0.0, 0.2, 0)
 	end,
 	add_to_deck = function(self, card, from_debuff)
-		if not from_debuff then card:set_dissolve({G.C.RED, G.C.PURPLE}, 0.0, 0.2, 0) end
+		if not from_debuff then card:SEMBY_set_dissolve({G.C.RED, G.C.PURPLE}, 0.0, 0.2, 0) end
 	end,
 	calculate = function(self, card, context)
 		if context.setting_blind and not (self.getting_sliced or context.blueprint) then

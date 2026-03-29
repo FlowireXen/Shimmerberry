@@ -5,48 +5,31 @@ CardSleeves.Sleeve {
     pos = { x = 3, y = 0 },
     --loc_vars = function(self) SEMBY_Queue_Artist(self, info_queue) end,
     calculate = function(self, sleeve, context)
-		if context.setting_blind then
-			-- Stop Player from Selecting any Cards
-			for _, playing_card in ipairs(G.playing_cards) do
-				playing_card.ability.SEMBY_click = playing_card.states.click.can
-				playing_card.states.click.can = false
-			end
-		end
-        if context.first_hand_drawn and G.GAME.blind.boss then
-			delay(0.5)
-			return {
-				message = localize('SEMBY_burn'),
-				colour = G.C.RED,
+        if context.destroy_card and context.destroy_card == context.scoring_hand[1] then
+            -- Message doesn't take up any time:
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				blocking = false,
 				func = function()
-					local first_amount = 0
-					for _, card in ipairs(G.hand.cards) do
-						first_amount = first_amount + 1
-						G.E_MANAGER:add_event(Event({
-							trigger = 'after',
-							delay = 0.2,
-							func = function()
-								if SMODS.shatters(card) then card:shatter()
-								else card:start_dissolve() end
-								return true
-							end
-						}))
-					end
-					G.E_MANAGER:add_event(Event({
-						trigger = 'after',
-						delay = 0.2,
-						func = function()
-							-- Make Cards Selectable again
-							for _, playing_card in ipairs(G.playing_cards) do
-								playing_card.states.click.can = (playing_card.ability.SEMBY_click or true)
-								playing_card.ability.SEMBY_click = nil
-							end
-							SMODS.draw_cards(first_amount)
-							return true
-						end
-					}))
+					context.scoring_hand[1]:juice_up(0.15)
+                    G.deck:juice_up(0.1)
+					play_sound('generic1', 1.2, 0.5)
+					attention_text({
+						text = localize('SEMBY_burn'),
+						backdrop_colour = G.C.RED,
+						scale = 0.8,
+						hold = 1.0,
+						major = G.deck,
+						align = 'tm',
+						offset = { x = 0, y = -0.5 }
+					})
+					return true
 				end
-			}
-		end
+			}))
+            return {
+                remove = true
+            }
+        end
     end,
     unlocked = false,
     unlock_condition = { deck = "b_SEMBY_scartare", stake = "stake_purple" },

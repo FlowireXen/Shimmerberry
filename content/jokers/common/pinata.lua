@@ -78,6 +78,7 @@ SMODS.Joker {
 				end
 			end
 			if context.after and card.ability.extra.breaks then
+        		G.GAME.SEMBY_pinata_hits = (G.GAME.SEMBY_pinata_hits or 0) + 1
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
@@ -88,10 +89,7 @@ SMODS.Joker {
 			end
 		end
 	end,
---> Potential nerf for V3.0:
---	in_pool = function(self, args)
---		if G.consumeables then
---			return (G.consumeables.config.card_limit <= 5)
---		end
---	end
+	in_pool = function(self, args)
+		return ((G.GAME.SEMBY_pinata_hits or 0) < 5)
+	end
 }

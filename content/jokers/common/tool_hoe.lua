@@ -12,14 +12,12 @@ SMODS.Joker {
 	cost = 5,
 	config = {
 		extra = {
-			SEMBY_Durability = {
-				max_durability = 250,
-				durability = 250,
-				repair_cost = 1,
-				repair_gain = 1
-			},
+			-- Durability
+			durability = 250,
+			durability_max = 250,
+			-- Joker
 			used = false,
-			chips = 20
+			chips = 25
 		}
 	},
 	pools = {
@@ -32,17 +30,17 @@ SMODS.Joker {
 		return { vars = {
 			localize(suit, 'suits_singular'),
 			card.ability.extra.chips,
-			card:durability_amount(),
+			card:SEMBY_durability_amount(),
 			colours = { 
 				G.C.SUITS[suit],
-				card:durability_color()
+				card:SEMBY_durability_color()
 			}
 		} }
 	end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round
 		and context.other_card:is_suit(G.GAME.current_round.SEMBY_tool_suit.suit)
-		and (context.blueprint or card:durability_use()) then
+		and (context.blueprint or card:SEMBY_durability_use()) then
 			card.ability.extra.used = true -- Only Check+Announce Durability if used
 			return {
 				chips = card.ability.extra.chips
@@ -51,7 +49,7 @@ SMODS.Joker {
 		if context.after and not context.blueprint then
 			if card.ability.extra.used then
 				card.ability.extra.used = false
-				card:durability_check()
+				card:SEMBY_durability_check()
 			end
 		end
     end

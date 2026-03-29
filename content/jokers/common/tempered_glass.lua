@@ -11,63 +11,32 @@ SMODS.Joker {
     unlocked = true,
     discovered = false,
     eternal_compat = true,
-    perishable_compat = false,
+    perishable_compat = true,
     blueprint_compat = false,
 	rarity = 1,
 	cost = 4,
 	config = {
 		extra = {
-			odds = 12
+			odds = 0.5
 		}
 	},
 	enhancement_gate = 'm_glass',
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'SEMBY_tempered_glass')
         info_queue[#info_queue + 1] = G.P_CENTERS.m_glass
 		return { vars = {
-			numerator,
-			denominator
+			card.ability.extra.odds * 100
 		} }
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				if G.GAME.SEMBY_glass then
-					G.P_CENTERS.m_glass.config.SEMBY_extra = G.P_CENTERS.m_glass.config.extra
-					G.P_CENTERS.m_glass.config.extra = card.ability.extra.odds
-				end
-				return true
-			end
-		}))
-	end,
-	add_to_deck = function(self, card, from_debuff)
-		G.GAME.SEMBY_glass = (G.GAME.SEMBY_glass or 0) + 1
-		if G.GAME.SEMBY_glass == 1 then
-			G.P_CENTERS.m_glass.config.SEMBY_extra = G.P_CENTERS.m_glass.config.extra
-			G.P_CENTERS.m_glass.config.extra = card.ability.extra.odds
-			-- Only needs to be done once:
-			for _, playing_card in ipairs(G.playing_cards) do
-				if SMODS.has_enhancement(playing_card, 'm_glass') then
-					playing_card.ability.extra = G.P_CENTERS.m_glass.config.extra
-				end
-			end
-		end
-	end,
-	remove_from_deck = function(self, card, from_debuff)
-		G.GAME.SEMBY_glass = (G.GAME.SEMBY_glass or 1) - 1
-		if G.GAME.SEMBY_glass == 0 then
-			G.P_CENTERS.m_glass.config.extra = G.P_CENTERS.m_glass.config.SEMBY_extra
-			G.P_CENTERS.m_glass.config.SEMBY_extra = nil
-			-- Only needs to be done once:
-			for _, playing_card in ipairs(G.playing_cards) do
-				if SMODS.has_enhancement(playing_card, 'm_glass') then
-					playing_card.ability.extra = G.P_CENTERS.m_glass.config.extra
-					if playing_card.ability.SEMBY_extra then
-						playing_card.ability.SEMBY_extra = nil
-					end
-				end
-			end
-		end
-	end
+    calculate = function(self, card, context)
+        if context.remove_playing_cards and not context.blueprint then
+			-- Create Copies
+            for _, removed_card in ipairs(context.removed) do
+                if SMODS.has_enhancement(removed_card, 'm_glass')
+				and pseudorandom("SEMBY_tempered_glass") <= card.ability.extra.odds
+				then removed_card:SEMBY_revive_copy(card) end
+            end
+			return nil, true -- For retrigger purposes
+        end
+    end
 }

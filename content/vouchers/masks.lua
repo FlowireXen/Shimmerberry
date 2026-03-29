@@ -5,7 +5,7 @@ SMODS.Voucher {
     pos = { x = 0, y = 0 },
 	config = {
 		extra = {
-			percent = 0.1,
+			percent = 0.2,
 			hand_size = 1
 		}
 	},
@@ -31,7 +31,7 @@ SMODS.Voucher {
     requires = { 'v_SEMBY_mask_comedy' },
 	config = {
 		extra = {
-			percent = 0.15,
+			percent = 0.2,
 			hand_size = 1
 		}
 	},

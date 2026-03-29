@@ -7,7 +7,7 @@ SMODS.Tag {
     discovered = false,
 	config = {
 		extra = {
-			percent = 0.1
+			percent = 0.2
 		}
 	},
     loc_vars = function(self, info_queue, tag)

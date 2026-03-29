@@ -28,7 +28,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.repetition then
 			if next(SMODS.get_enhancements(context.other_card)) then
-				context.other_card.SEMBY_repeated = (context.other_card.SEMBY_repeated or 0) + 1
+				context.other_card.SEMBY_repeated = true
 				return { repetitions = card.ability.extra.repetitions }
 			end
 		end
@@ -36,11 +36,8 @@ SMODS.Joker {
 			if context.destroy_card.SEMBY_repeated then
 				local destroy = false
 				if next(SMODS.get_enhancements(context.destroy_card)) then
-					for i = 1, context.destroy_card.SEMBY_repeated do
-						if SMODS.pseudorandom_probability(card, 'SEMBY_benthic_bloom', 1, (G.P_CENTERS.m_glass.config.extra or 4)) then
-							destroy = true
-							break
-						end
+					if SMODS.pseudorandom_probability(card, 'SEMBY_benthic_bloom', 1, (G.P_CENTERS.m_glass.config.extra or 4)) then
+						destroy = true
 					end
 				end
 				context.destroy_card.SEMBY_repeated = nil

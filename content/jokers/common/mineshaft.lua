@@ -12,12 +12,10 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			SEMBY_Durability = {
-				max_durability = 50,
-				durability = 50,
-				repair_cost = 3,
-				repair_gain = 1
-			},
+			-- Durability
+			durability = 50,
+			durability_max = 50,
+			-- Joker
 			every = 3,
 			remaining = 3
 		}
@@ -32,8 +30,8 @@ SMODS.Joker {
         info_queue[#info_queue + 1] = G.P_CENTERS.m_gold
 		return { vars = {
 			card.ability.extra.remaining,
-			card:durability_amount(),
-			colours = { card:durability_color() }
+			card:SEMBY_durability_amount(),
+			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
     calculate = function(self, card, context)
@@ -41,7 +39,7 @@ SMODS.Joker {
 			card.ability.extra.remaining = card.ability.extra.remaining - 1
 			if card.ability.extra.remaining <= 0 then
 				card.ability.extra.remaining = card.ability.extra.every
-				if context.blueprint or card:durability_use() then
+				if context.blueprint or card:SEMBY_durability_use() then
 					-- Create Card:
 					local minecard = SMODS.create_card{ set = "Base", enhancement = SMODS.poll_enhancement({ guaranteed = true, options = { 'm_stone', 'm_steel', 'm_gold' } }) }
             		G.playing_card = (G.playing_card and G.playing_card + 1) or 1
@@ -96,7 +94,7 @@ SMODS.Joker {
 					playing_card.SEMBY_mined = nil
 				end
 			end
-			card:durability_check()
+			card:SEMBY_durability_check()
 		end
     end
 }

@@ -24,7 +24,7 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = false,
 	rarity = 1,
-	cost = 4,
+	cost = 5,
 	config = {
 		extra = {
 			slots = 1

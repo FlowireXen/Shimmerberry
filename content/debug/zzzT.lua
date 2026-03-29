@@ -16,7 +16,7 @@ SMODS.Joker {
 	--	card:set_alignment{ major = card, type = 'cm', offset = {x=0, y=0} }
 	--end,
 	--add_to_deck = function(self, card, from_debuff)
-	--	card:set_dissolve({G.C.WHITE, G.C.BLACK}, 0.0, 0.5, 0)
+	--	card:SEMBY_set_dissolve({G.C.WHITE, G.C.BLACK}, 0.0, 0.5, 0)
 	--end,
 	calculate = function(self, card, context)
 		-- UNSAFE CODE: Blueprint will Hardcrash if Pointed at this Joker.

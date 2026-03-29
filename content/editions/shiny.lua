@@ -45,22 +45,26 @@ SMODS.Edition {
             }
         end
 		if context.main_scoring and context.cardarea == G.play then
-			local shiny_card = pseudorandom_element(G.jokers.cards, 'shiny')
+			local shiny_card = pseudorandom_element(G.jokers.cards, 'SEMBY_shiny')
 			if shiny_card then
 				shiny_card.ability.extra_value = shiny_card.ability.extra_value + card.edition.card_value
 				shiny_card:set_cost()
-				--card_eval_status_text(shiny_card, 'extra', nil, nil, nil, { message = localize('k_val_up'), colour = G.C.MONEY })
-				return {
-					message = localize('k_val_up'),
-					colour = G.C.MONEY,
-					G.E_MANAGER:add_event(Event({
-						trigger = 'after',
-						func = function()
-							shiny_card:juice_up()
-							return true
-						end
-					}))
-				}
+				-- Message with no Delay:
+				G.E_MANAGER:add_event(Event({
+					trigger = 'after',
+					blocking = false,
+					func = function()
+						shiny_card:juice_up()
+						play_sound('generic1', 1.2, 0.5)
+						attention_text({
+							text = localize('k_val_up'), backdrop_colour = G.C.MONEY,
+							scale = 0.8, hold = 0.5, major = shiny_card,
+							align = 'bm', offset = { x = 0, y = 0 }
+						})
+						return true
+					end
+				}))
+				return nil, true
 			end
 		end
     end

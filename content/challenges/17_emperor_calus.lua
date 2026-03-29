@@ -27,7 +27,7 @@ SMODS.Challenge {
     },
     jokers = {
         { id = 'j_SEMBY_opulent_skint', eternal = true },
-        { id = 'j_credit_card', edition = "SEMBY_shiny", perishable = true },
+        { id = 'j_credit_card', edition = "SEMBY_shiny", SEMBY_perishable = true },
         { id = 'j_SEMBY_coupon' },
     },
     consumeables = {
@@ -54,5 +54,21 @@ SMODS.Challenge {
             { s = 'S', r = '2' }, { s = 'H', r = '2' }, { s = 'C', r = '2' }, { s = 'D', r = '2' },
         }
     },
+	apply = function(self)
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			func = function()
+                -- Discourage Skipping Instantly
+			    local lavish_debt = Tag('tag_SEMBY_lavish_debt')
+			    lavish_debt.ability.lavish_percent = 1.0
+                add_tag(lavish_debt)
+                play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
+                -- Gives Money for the rest of the run
+				add_tag(Tag('tag_investment'))
+				add_tag(Tag('tag_investment'))
+				return true
+			end
+		}))
+	end,
 	button_colour = G.C.RED
 }

@@ -105,7 +105,9 @@ SMODS.Joker {
 			end
 		end
 		-- Next State:
-		if card.area and not card.area.config.collection then
+		if G.GAME.SEMBY_random_parking then
+			info_queue[#info_queue + 1] = { key = 'SEMBY_parking_disc_XX', set = "Other" }
+		elseif card.area and not card.area.config.collection then
 			local next_index = current_index + 1
 			if next_index > card.ability.extra.limit.main.max then
 				next_index = card.ability.extra.limit.main.min
@@ -132,7 +134,7 @@ SMODS.Joker {
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
-				card:set_soul_pos('SEMBY_jokers', card.ability.extra.soul_pos_overwrite)
+				card:SEMBY_set_soul_pos('SEMBY_jokers', card.ability.extra.soul_pos_overwrite)
 				return true
 			end
 		}))
@@ -151,7 +153,7 @@ SMODS.Joker {
 			card.ability.extra.pos_overwrite.y = card.ability.extra.pos_valid.y
 			card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
 			card.ability.extra.soul_pos_overwrite.x = card.ability.extra.soul_pos_valid.base
-			card:set_soul_pos('SEMBY_jokers', card.ability.extra.soul_pos_overwrite)
+			card:SEMBY_set_soul_pos('SEMBY_jokers', card.ability.extra.soul_pos_overwrite)
 		end
     end,
 	calculate = function(self, card, context)
@@ -166,7 +168,9 @@ SMODS.Joker {
 			if not cref.setup then
 				cref.setup = true
 				-- Next Effect
-				cref.index.main = cref.index.s12 and cref.limit.main.min or cref.index.main + 1
+				if G.GAME.SEMBY_random_parking then
+					cref.index.main = pseudorandom("SEMBYPDsXX", cref.limit.main.min, cref.limit.main.max)
+				else cref.index.main = cref.index.s12 and cref.limit.main.min or cref.index.main + 1 end
 				local mult = 1.0
 				-- EOL: State 12
 				cref.index.s12 = false
@@ -207,7 +211,7 @@ SMODS.Joker {
 						card.children.center:set_sprite_pos(cref.pos_overwrite)
 						-- Soul Texture
 						cref.soul_pos_overwrite.x = cref.soul_pos_valid.base + cref.index.boss
-						card:set_soul_pos('SEMBY_jokers', cref.soul_pos_overwrite)
+						card:SEMBY_set_soul_pos('SEMBY_jokers', cref.soul_pos_overwrite)
 						-- Effects
 						card:juice_up()
 						card:flip()

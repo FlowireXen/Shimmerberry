@@ -8,14 +8,13 @@ SMODS.Challenge {
             { id = 'no_reward' },
             { id = 'no_extra_hand_money' },
             { id = 'no_interest' },
-            { id = 'SEMBY_aggressive_scaling' },
+            { id = 'SEMBY_scaling_40' },
         },
         modifiers = {
             { id = 'hands', value = 2 },
             { id = 'discards', value = 2 },
             { id = 'hand_size', value = 12 },
             { id = 'dollars', value = 1 },
-            --{ id = 'winning_ante', value = 6 },
         }
     },
     restrictions = {
@@ -24,6 +23,9 @@ SMODS.Challenge {
             { id = 'v_money_tree' },
             { id = 'j_to_the_moon' },
             { id = 'j_SEMBY_copy_printer' },
+            { id = 'c_hermit' },
+            { id = 'c_temperance' },
+            { id = 'c_immolate' },
         },
         banned_tags = {
             { id = 'tag_investment' },
@@ -37,15 +39,12 @@ SMODS.Challenge {
         banned_other = {
             { id = 'bl_final_heart', type = 'blind' },
             { id = 'bl_final_leaf',  type = 'blind' },
-            { id = 'bl_final_acorn', type = 'blind' },
         },
     },
     jokers = {
         { id = 'j_SEMBY_lavish_joker', pinned = true, eternal = true, SEMBY_possessive = true },
-        { id = 'j_SEMBY_lavish_joker', SEMBY_glitched = -1.0 },
-        { id = 'j_SEMBY_pay_two_win', SEMBY_glitched = 0.5, edition = "negative" },
-        { id = 'j_bootstraps' },
-        { id = 'j_bull' },
+        { id = 'j_SEMBY_lavish_joker' },
+        { id = 'j_SEMBY_pay_two_win', SEMBY_glitched = 0.5, SEMBY_perishable = true },
     },
     deck = {
         type = 'Challenge Deck',
@@ -79,7 +78,8 @@ SMODS.Challenge {
 								G.jokers.cards[i].ability.extra.spend = math.floor(G.jokers.cards[i].ability.extra.spend * 0.5)
 								G.jokers.cards[i].ability.extra.mult = G.jokers.cards[i].ability.extra.mult * 0.5
 							end
-							if G.jokers.cards[i].config.center_key == 'j_SEMBY_lavish_joker' then
+							if G.jokers.cards[i].config.center_key == 'j_SEMBY_lavish_joker'
+                            and G.jokers.cards[i].ability.SEMBY_possessive then
 								G.jokers.cards[i].ability.extra.uses = 0
 								G.jokers.cards[i].ability.extra.possessive = true
 								G.jokers.cards[i].ability.extra.lavish_buff = true

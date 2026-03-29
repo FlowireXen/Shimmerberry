@@ -6,14 +6,17 @@ SMODS.Challenge {
             { id = 'SEMBY_last_one_left_2' },
             { id = 'SEMBY_last_one_left_3' },
             { id = 'SEMBY_space' },
+            { id = 'SEMBY_doomed_start' },
+            { id = 'SEMBY_doomed_cards' },
+            { id = 'SEMBY_space' },
             { id = 'no_reward' },
             { id = 'SEMBY_extra_bonus' },
             { id = 'no_interest' },
-            { id = 'SEMBY_quick_scaling' },
+            { id = 'SEMBY_scaling_15' },
         },
         modifiers = {
             { id = 'hands', value = 5 },
-            { id = 'discards', value = 2 },
+            { id = 'discards', value = 1 },
             { id = 'joker_slots', value = 6 },
             { id = 'dollars', value = 0 },
             { id = 'winning_ante', value = 12 },
@@ -32,11 +35,10 @@ SMODS.Challenge {
             { id = 'bl_window', type = 'blind' },
             { id = 'bl_head', type = 'blind' },
             { id = 'bl_plant', type = 'blind' },
-            --{ id = 'bl_mark', type = 'blind' },
         },
     },
     jokers = {
-        { id = 'j_baron', pinned = true, eternal = true, debuffed = true },
+        { id = 'j_baron', eternal = true, SEMBY_debuffed = true },
         { id = 'j_SEMBY_fifty_seven_leaf_clover', eternal = true, edition = "SEMBY_resonance" },
         { id = 'j_SEMBY_tool_shovel', SEMBY_possessive = true },
     },
@@ -67,30 +69,48 @@ SMODS.Challenge {
 		G.GAME.modifiers.money_per_hand = (G.GAME.modifiers.money_per_hand or 1) + 1
 		-- Faster Scaling
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
-		-- Edit Jokers
+        -- Add Doom
+        G.GAME.SEMBY_doomed = 1.0
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-				-- Change Durability
-				SEMBY_Challenge_Durability(100) --> Easy Start... Good Luck.
-				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					func = function()
-						-- Instant Resonance
-						local resonance_debt = Tag('tag_SEMBY_resonance_debt')
-						resonance_debt.ability.resonance_percent = G.SEMBY.Resonance
-						add_tag(resonance_debt)
-						play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
-						-- Perma Disable Baron
-						SMODS.debuff_card(G.jokers.cards[1], true, 'SEMBY_last_one_left')
-						-- Save Run
-						save_run()
-						return true
-					end
-				}))
+				add_tag(Tag('tag_SEMBY_doom_debt'))
+				play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
 				return true
 			end
 		}))
 	end,
+    calculate = function(self, context)
+        if context.press_play then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+                func = function()
+                    for i = 1, #G.play.cards do
+                        -- Actual Doom
+                        G.GAME.SEMBY_doomed = (G.GAME.SEMBY_doomed or 0) + 0.02
+                        -- Animation
+				        G.E_MANAGER:add_event(Event({
+				        	trigger = 'after',
+				        	--blocking = false,
+				        	func = function()
+				        		G.play.cards[i]:juice_up(0.1)
+				                play_sound('highlight1', 1.2 + math.random() * 0.4, 0.5)
+				        		attention_text({
+				        			text = localize{type = 'variable', key = 'SEMBY_percentage', vars = { 2 }},
+				        			backdrop_colour = G.C.SEMBY_PERCENT, scale = 1.0, hold = 0.5,
+				        			major = G.play.cards[i], align = 'tm', offset = { x = 0, y = 0 }
+				        		})
+				        		return true
+				        	end
+				        }))
+                        delay(0.23)
+                    end
+                    return true
+                end
+            }))
+            delay(0.4)
+        end
+    end,
 	button_colour = G.C.RED
 }

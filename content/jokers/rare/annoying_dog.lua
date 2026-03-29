@@ -24,12 +24,12 @@ SMODS.Joker {
 		} }
 	end,
     add_to_deck = function(self, card, from_debuff)
-		G.consumeables:add_text_overwrite(card.sort_id, 'SEMBY_dog_overflow')
+		G.consumeables:SEMBY_add_text_overwrite(card.sort_id, 'SEMBY_dog_overflow')
 		G.consumeables:SEMBY_block()
     end,
     remove_from_deck = function(self, card, from_debuff)
 		G.consumeables:SEMBY_unblock()
-		G.consumeables:remove_text_overwrite(card.sort_id)
+		G.consumeables:SEMBY_remove_text_overwrite(card.sort_id)
     end,
 	calculate = function(self, card, context)
 		if context.joker_main then

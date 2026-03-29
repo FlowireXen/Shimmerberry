@@ -1,12 +1,12 @@
 --## Hide Winning Ante (Lovely-Patch):
 -- @ lovely/mod_ante.toml
-function SEMBY_Hide_Win_Ante()
+function SEMBY_Win_Ante_Hidden()
 	return G.GAME.SEMBY_hide_win_ante
 end
 
 --## Generic Challenge Modifiers
 function SEMBY_Challenge_Generic()
-	-- "Order"-Immunity for Eternal Jokers
+	-- "Order"-Immunity for Eternal/Possessive Jokers
 	G.E_MANAGER:add_event(Event({
 		func = function()
 			if G.jokers and G.jokers.cards and #G.jokers.cards > 0 then
@@ -22,12 +22,14 @@ function SEMBY_Challenge_Generic()
 	-- Bans, Break Progression:
 	G.GAME.banned_keys['j_SEMBY_cockroach'] = true
 	G.GAME.banned_keys['j_SEMBY_emergency_button'] = true
-	--G.GAME.banned_keys['j_SEMBY_quest'] = true
 	-- Bans, Overpowered:
 	G.GAME.banned_keys['j_SEMBY_lavish_joker'] = true
 	G.GAME.banned_keys['j_SEMBY_singularity'] = true
 	G.GAME.banned_keys['j_SEMBY_oblivion'] = true
+	G.GAME.banned_keys['j_SEMBY_bound'] = true
+	-- Breaking or OP, but get to Stay:
 	--G.GAME.banned_keys['j_SEMBY_copy_printer'] = true
+	--G.GAME.banned_keys['c_SEMBY_order_shrine'] = true
 end
 
 --## Custom Bans for Vanilla Challenges
@@ -36,7 +38,6 @@ function SEMBY_Challenge_Vanilla()
 	then -- Remove Joker-Generator:
 		G.GAME.banned_keys['c_SEMBY_soul_gem'] = true
 		-- Useless
-		G.GAME.banned_keys['c_SEMBY_ocean'] = true
 		G.GAME.banned_keys['c_SEMBY_order_shrine'] = true
 		G.GAME.banned_keys['tag_SEMBY_pearlescent_skip'] = true
 		-- Too Difficult
@@ -49,14 +50,10 @@ function SEMBY_Challenge_Vanilla()
 			if G.P_CENTER_POOLS.Joker[i].mod
 			and G.P_CENTER_POOLS.Joker[i].mod.id == 'SEMBY'
 			and not G.P_CENTER_POOLS.Joker[i].eternal_compat
-			then
-				--print(G.P_CENTER_POOLS.Joker[i].key)
+			then --print(G.P_CENTER_POOLS.Joker[i].key)
 				G.GAME.banned_keys[G.P_CENTER_POOLS.Joker[i].key] = true
 			end
 		end
-		-- Too OP
-		G.GAME.banned_keys['j_SEMBY_bound'] = true
-		--G.GAME.banned_keys['c_SEMBY_order_shrine'] = true
 		return
 	end
 	if G.GAME.challenge == 'c_five_card_1'
@@ -103,7 +100,6 @@ function SEMBY_Challenge_Vanilla()
 	or G.GAME.challenge == 'c_inflation_1'
 	or G.GAME.challenge == 'c_golden_needle_1'
 	then -- Ban all kinds of Money Generation:
-		G.GAME.SEMBY_ceased_money = true --> "j_SEMBY_ceaseless_void"
 		G.GAME.banned_keys['c_SEMBY_ocean'] = true
 		G.GAME.banned_keys['e_SEMBY_shiny'] = true
 		G.GAME.banned_keys['j_SEMBY_adblocker'] = true
@@ -151,12 +147,13 @@ function SEMBY_Challenge_WIN()
 		end
 	}))
 end
-function SEMBY_Challenge_LOSE()
+function SEMBY_Challenge_LOSE(forced)
 	G.E_MANAGER:add_event(Event({
 		blocking = false,
 		func = function()
 			if G.STATE == G.STATES.BLIND_SELECT
 			or G.STATE == G.STATES.ROUND_EVAL
+			or forced -- Might cause bugs!
 			then
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
@@ -176,91 +173,6 @@ function SEMBY_Challenge_LOSE()
 				return true
 			end
 			return false
-		end
-	}))
-end
--- Triggers at the End of each Blind
-function SEMBY_Challenge_Blind_Defeated()
-	if G.GAME.SEMBY_eleminate_until then
-		if #G.playing_cards <= G.GAME.SEMBY_eleminate_until then
-			SEMBY_Challenge_WIN()
-		end
-	end
-	if G.GAME.SEMBY_survive_until then
-		if #G.playing_cards <= G.GAME.SEMBY_survive_until then
-			SEMBY_Challenge_LOSE()
-		end
-	end
-	if G.GAME.SEMBY_countdown_mode then
-		G.GAME.round_resets.hands = G.GAME.starting_params.hands - (G.GAME.hands_played or 0)
-		--ease_hands_played(0)
-		if G.GAME.unused_discards > 0 then
-			G.GAME.round_resets.discards = G.GAME.round_resets.discards - (G.GAME.round_resets.discards - (G.GAME.unused_discards or 0))
-			G.GAME.unused_discards = 0
-			--ease_discard(0)
-		end
-	end
-	if G.GAME.SEMBY_chaos_mode then
-		-- Basic Parameters
-		G.hand.config.real_card_limit = pseudorandom("CHAOS_MODE", 4, 16)
-		G.hand.config.card_limit = pseudorandom("CHAOS_MODE", 4, 16)
-		G.jokers.config.card_limit = pseudorandom("CHAOS_MODE", 4, 16)
-		G.consumeables.config.card_limit = pseudorandom("CHAOS_MODE", 4, 16)
-		-- Blind Scaling
-		G.GAME.SEMBY_blind_mod = math.max(0, pseudorandom("CHAOS_MODE", -2, 45)/10)
-		-- Shop Scaling
-		G.GAME.SEMBY_shop_mod = math.max(0, pseudorandom("CHAOS_MODE", -2, 22)/10)
-		for k, v in pairs(G.I.CARD) do
-			if v.set_cost then v:set_cost() end
-		end
-		-- Deck
-		for i = #G.playing_cards, 1, -1 do
-			assert(SMODS.change_base(
-				G.playing_cards[i],
-				pseudorandom_element(SMODS.Suits).key,
-				pseudorandom_element(SMODS.Ranks).key
-			))
-		end
-	end
-	if G.GAME.SEMBY_unicorn_mode then
-		if G.jokers and not G.GAME.won then
-			local gone = true
-			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i].config.center_key == 'j_SEMBY_unicorn' then
-					gone = false
-					break
-				end
-			end
-			if gone and G.GAME.round ~= 0 then
-				SEMBY_Challenge_WIN()
-			end
-		end
-	end
-	if G.GAME.SEMBY_money_fuel_mode then
-		if G.GAME.dollars <= 0 then
-			SEMBY_Challenge_LOSE()
-		end
-	end
-	if G.GAME.SEMBY_menagerie_mode then
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				G.GAME.starting_params.ante_scaling = math.max(1, G.GAME.round_resets.ante)
-				return true
-			end
-		}))
-	end
-end
--- Sets Durability for all Jokers
-function SEMBY_Challenge_Durability(amount)
-	G.E_MANAGER:add_event(Event({
-		func = function()
-			for index, joker in pairs(G.jokers.cards) do
-				if joker.ability.extra and type(joker.ability.extra) == "table" and joker.ability.extra.SEMBY_Durability then
-					joker.ability.extra.SEMBY_Durability.max_durability = (amount or 100)
-					joker.ability.extra.SEMBY_Durability.durability = (amount or 100)
-				end
-			end
-			return true
 		end
 	}))
 end

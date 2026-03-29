@@ -2,34 +2,32 @@ SMODS.Challenge {
     key = 'SEMBY_printty_good',
     rules = {
         custom = {
-            { id = 'SEMBY_printty_good' },
+            { id = 'SEMBY_printty_good_1' },
+            { id = 'SEMBY_printty_good_2' },
+            { id = 'SEMBY_space' },
+            { id = 'SEMBY_printty_good_3' },
+            { id = 'SEMBY_printty_good_4' },
             { id = 'SEMBY_space' },
             { id = 'no_reward' },
-            { id = 'no_extra_hand_money' },
-            { id = 'no_interest' },
+            { id = 'SEMBY_no_win_ante' },
+            { id = 'SEMBY_no_showdown' },
+            { id = 'SEMBY_scaling_15' },
         },
         modifiers = {
             { id = 'discards', value = 4 },
+            { id = 'joker_slots', value = 10 },
             { id = 'dollars', value = 0 },
-            { id = 'winning_ante', value = 6 },
+            { id = 'winning_ante', value = 99 },--6 },
         }
     },
     restrictions = {
         banned_cards = {
-            { id = 'v_seed_money' },
-            { id = 'v_money_tree' },
-            { id = 'j_to_the_moon' },
-        },
-        banned_other = {
-            { id = 'bl_final_heart', type = 'blind' },
-            { id = 'bl_final_leaf',  type = 'blind' },
-            { id = 'bl_final_acorn', type = 'blind' },
+            { id = 'c_SEMBY_order_shrine' },
         },
     },
     jokers = {
-        { id = 'j_SEMBY_copy_printer', eternal = true, edition = "negative" },
-        { id = 'j_flash' },
-        { id = 'j_SEMBY_copy_printer' },
+        { id = 'j_flash', eternal = true },
+        { id = 'j_SEMBY_copy_printer', eternal = true, SEMBY_rental = true },
         { id = 'j_joker' },
     },
     vouchers = {
@@ -52,14 +50,46 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
-		G.E_MANAGER:add_event(Event({
-			trigger = 'after',
-			func = function()
-				add_tag(Tag('tag_investment'))
-				add_tag(Tag('tag_investment'))
-				return true
-			end
-		}))
+		G.GAME.SEMBY_hide_win_ante = true
+		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
 	end,
+    calculate = function(self, context)
+		if context.end_of_round and context.main_eval and context.game_over == false and not G.GAME.won then
+            -- Local Vars.
+            local DupeCheck = {}
+            local DupeSuccess = false
+            local DupeHighest = 0
+            -- Get Highest & Check for Win
+		    for i = 1, #G.jokers.cards do
+                DupeCheck[G.jokers.cards[i].config.center_key] = (DupeCheck[G.jokers.cards[i].config.center_key] or 0) + 1
+                if DupeCheck[G.jokers.cards[i].config.center_key] > DupeHighest then
+                    DupeHighest = DupeCheck[G.jokers.cards[i].config.center_key]
+                end
+                if DupeCheck[G.jokers.cards[i].config.center_key] >= 9 then
+                    DupeSuccess = true
+                    break;
+                end
+            end
+            -- Announce Highest (Message doesn't take up time)
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+                blocking = false,
+				func = function()
+                    G.deck:juice_up(0.1)
+					play_sound('generic1', 1.0, 0.8)
+					attention_text({
+						text = localize{ type = 'variable', key = 'SEMBY_out_of', vars = { DupeHighest, '9' } },
+						backdrop_colour = G.C.BLUE, scale = 0.8, hold = 1.0,
+						major = G.deck, align = 'tm', offset = { x = 0, y = -0.5 }
+					})
+					return true
+				end
+			}))
+            -- Apply Win
+            if DupeSuccess then
+		    	SEMBY_Challenge_WIN()
+            end
+        end
+    end,
 	button_colour = G.C.BLUE
 }

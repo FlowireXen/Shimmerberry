@@ -11,5 +11,5 @@ priority = 10
 target = "functions/UI_definitions.lua"
 pattern = '''{n=G.UIT.T, config={ref_table = G.GAME, ref_value='win_ante', scale = scale, colour = G.C.WHITE, shadow = true}}'''
 position = "before"
-payload = '''SEMBY_Hide_Win_Ante() and {n=G.UIT.T, config={text = "?", scale = scale, colour = G.C.WHITE, shadow = true}} or'''
+payload = '''SEMBY_Win_Ante_Hidden() and {n=G.UIT.T, config={text = "?", scale = scale, colour = G.C.WHITE, shadow = true}} or'''
 match_indent = true

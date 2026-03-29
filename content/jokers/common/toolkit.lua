@@ -1,3 +1,15 @@
+-- Other Repairables:
+local SEMBY_durable_jokers = {
+	["j_selzer"]      = { edit_key = "extra",  durability_max = 10, durability_other = { direct = true, refill = true } },
+	["j_popcorn"]     = { edit_key = "mult",   durability_max = 20, durability_other = { direct = true, refill = true } },
+	["j_ice_cream"]   = { edit_key = "chips",  durability_max = 100 },
+	--["j_turtle_bean"] = { edit_key = "h_size", durability_max = 5   },
+}
+local Semby_durable_abilities = {
+	["perishable"]      = { edit_key = "perish_tally",          durability_max = 5 },
+	["SEMBY_degrading"] = { edit_key = "SEMBY_degrading_tally", durability_max = 5 },
+}
+-- Joker Code
 SMODS.Joker {
 	key = "toolkit",
 	name = "SEMBY_toolkit",
@@ -12,25 +24,12 @@ SMODS.Joker {
 	cost = 4,
 	config = {
 		extra = {
-			SEMBY_Durability = {
-				max_durability = 500,
-				durability = 500,
-				repair_cost = 0,
-				repair_gain = 0
-			},
+			-- Durability
+			durability = 200,
+			durability_max = 200,
+			durability_other = { no_repair = true },
+			-- Joker
 			repair_mod = 5,
-			-- Vanilla Support
-			j_selzer = {
-				max_durability = 10,
-				repair_cost = 5,
-				repair_gain = 1
-			},
-			-- Sticker Support
-			perishable = {
-				max_durability = 6, -- Max: 5, +1 Extra
-				repair_cost = 20,
-				repair_gain = 1
-			}
 		}
 	},
 	pools = {
@@ -41,144 +40,105 @@ SMODS.Joker {
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.repair_mod,
-			card:durability_amount(),
-			colours = { 
-				card:durability_color()
-			}
+			card:SEMBY_durability_amount(),
+			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
 	calculate = function(self, card, context)
-		if context.end_of_round and context.cardarea == G.jokers and not context.game_over then
-			for index, joker in pairs(G.jokers.cards) do
+		if context.end_of_round and context.main_eval and not context.game_over then
+			for _, joker in pairs(G.jokers.cards) do
+				if joker == card then break; end
 				if not (joker.debuff or joker.getting_sliced) then
-					local repaired = false
-					local ret_msg = nil
-					-- Normal Behaviour
-					if joker.ability.extra and type(joker.ability.extra) == "table"
-					and joker.ability.extra.SEMBY_Durability and joker.ability.extra.SEMBY_Durability.repair_gain
-					and not (joker.ability.extra.SEMBY_Durability.repair_gain == 0) then
-						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
-								if joker.ability.extra.SEMBY_Durability.max_durability > joker.ability.extra.SEMBY_Durability.durability then
-									joker.ability.extra.SEMBY_Durability.durability = joker.ability.extra.SEMBY_Durability.durability + joker.ability.extra.SEMBY_Durability.repair_gain
-									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - joker.ability.extra.SEMBY_Durability.repair_cost
-									repaired = true
-								else
-									break
+					-- Max Amount for Repair
+					local repair_max = context.blueprint and card.ability.extra.repair_mod
+									   or math.min(card.ability.extra.repair_mod, card.ability.extra.durability)
+					if repair_max ~= 0 then
+						-- Vars.
+						local repair_gain = 0
+						local repair_type = "repaired" -- repaired, refilled
+						-- Normal Behaviour
+						if joker:SEMBY_has_durability() then
+							-- Check Properties
+							if type((joker.ability.extra.durability_other or nil)) == "table" then
+								if joker.ability.extra.durability_other.no_repair then goto no_repair; end
+								if joker.ability.extra.durability_other.refill then repair_type = "refilled"; end
+							end
+							-- Maximum Repair
+							if type((joker.ability.extra.durability_max or nil)) == "number" then
+								repair_gain = math.max(0, math.min(repair_max, joker.ability.extra.durability_max - joker.ability.extra.durability))
+							else repair_gain = repair_max end
+							-- Repair Joker
+							joker.ability.extra.durability = joker.ability.extra.durability + repair_gain
+						-- Support Behaviour
+						elseif SEMBY_durable_jokers[joker.config.center.key] then
+							local edit_path = SEMBY_durable_jokers[joker.config.center.key].edit_key
+							local edit_direct = false
+							-- Check Properties
+							if type((SEMBY_durable_jokers[joker.config.center.key].durability_other or nil)) == "table" then
+								if SEMBY_durable_jokers[joker.config.center.key].durability_other.direct then edit_direct = true; end
+								if SEMBY_durable_jokers[joker.config.center.key].durability_other.refill then repair_type = "refilled"; end
+							end
+							-- Maximum Repair & Repair Joker
+							if edit_direct then
+								repair_gain = math.max(0, math.min(repair_max, SEMBY_durable_jokers[joker.config.center.key].durability_max - joker.ability[edit_path]))
+								joker.ability[edit_path] = joker.ability[edit_path] + repair_gain
+							else
+								repair_gain = math.max(0, math.min(repair_max, SEMBY_durable_jokers[joker.config.center.key].durability_max - joker.ability.extra[edit_path]))
+								joker.ability.extra[edit_path] = joker.ability.extra[edit_path] + repair_gain
+							end
+						end
+						-- Normal Feedback
+						if repair_gain and repair_gain > 0 then
+							-- Damage Toolkit
+							if not context.blueprint then card.ability.extra.durability = card.ability.extra.durability - repair_gain; end
+							-- Animate + Feedback
+							local juice_card = (context.blueprint_card or card)
+							G.E_MANAGER:add_event(Event({ func = function() juice_card:juice_up(); return true; end }))
+							card_eval_status_text(joker, 'extra', nil, nil, nil, {
+								message = localize { type = 'variable', key = 'SEMBY_durability_'..repair_type, vars = { repair_gain } },
+								colour = G.C.GREEN
+							})
+						end
+						-- Ability Behaviour
+						repair_type = "repaired"
+						for key, ability in pairs(Semby_durable_abilities) do
+							if joker.ability[key] and joker.ability[ability.edit_key] then
+								-- Maximum Repair & Repair Joker
+								repair_max = context.blueprint and card.ability.extra.repair_mod
+											 or math.min(card.ability.extra.repair_mod, card.ability.extra.durability)
+								if repair_max ~= 0 then
+									repair_gain = math.max(0, math.min(repair_max, ability.durability_max - joker.ability[ability.edit_key]))
+									joker.ability[ability.edit_key] = joker.ability[ability.edit_key] + repair_gain
+									-- Ability Feedback
+									if repair_gain and repair_gain > 0 then
+										-- Damage Toolkit
+										if not context.blueprint then card.ability.extra.durability = card.ability.extra.durability - repair_gain; end
+										-- Animate + Feedback
+										local juice_card = (context.blueprint_card or card)
+										G.E_MANAGER:add_event(Event({ func = function() juice_card:juice_up(); return true; end }))
+										card_eval_status_text(joker, 'extra', nil, nil, nil, {
+											message = localize { type = 'variable', key = 'SEMBY_durability_'..repair_type, vars = { repair_gain } },
+											colour = G.C.GREEN
+										})
+									end
 								end
-							else
-								break
 							end
 						end
-						if repaired then
-							if joker.ability.extra.SEMBY_Durability.is_liquid then
-								ret_msg = localize('SEMBY_durability_refilled')
-							elseif joker.ability.extra.SEMBY_Durability.is_vital then
-								ret_msg = localize('SEMBY_durability_revitalized')
-							else
-								ret_msg = localize('SEMBY_durability_repaired')
-							end
-							if joker.ability.extra.SEMBY_Durability.durability > joker.ability.extra.SEMBY_Durability.max_durability then
-								joker.ability.extra.SEMBY_Durability.durability = joker.ability.extra.SEMBY_Durability.max_durability
-							end
-						end
-					-- Vanilla Support
-					elseif joker.config.center.key == 'j_selzer' then
-						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
-								if card.ability.extra.j_selzer.max_durability > joker.ability.extra then
-									joker.ability.extra = joker.ability.extra + card.ability.extra.j_selzer.repair_gain
-									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - card.ability.extra.j_selzer.repair_cost
-									repaired = true
-								else
-									break;
-								end
-							else
-								break;
-							end
-						end
-						if repaired then
-							ret_msg = localize('SEMBY_durability_refilled')
-							if joker.ability.extra > card.ability.extra.j_selzer.max_durability then
-								joker.ability.extra = card.ability.extra.j_selzer.max_durability
-							end
-						end
-					end
-					-- Sticker Support
-					-- Perishable
-					if joker.ability.perishable and joker.ability.perish_tally then
-						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
-								if card.ability.extra.perishable.max_durability > joker.ability.perish_tally then
-									joker.ability.perish_tally = joker.ability.perish_tally + card.ability.extra.perishable.repair_gain
-									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - card.ability.extra.perishable.repair_cost
-									repaired = true
-								else
-									break;
-								end
-							else
-								break;
-							end
-						end
-						if repaired and not ret_msg then
-							ret_msg = localize('SEMBY_durability_revitalized')
-							if joker.ability.perish_tally > card.ability.extra.perishable.max_durability then
-								joker.ability.perish_tally = card.ability.extra.perishable.max_durability
-							end
-						end
-					end
-					-- Degrading
-					if joker.ability.SEMBY_degrading and joker.ability.SEMBY_degrading_tally then
-						for i = 1, card.ability.extra.repair_mod do
-							if context.blueprint or (card.ability.extra.SEMBY_Durability.durability > 0) then
-								if card.ability.extra.perishable.max_durability > joker.ability.SEMBY_degrading_tally then
-									joker.ability.SEMBY_degrading_tally = joker.ability.SEMBY_degrading_tally + card.ability.extra.perishable.repair_gain
-									card.ability.extra.SEMBY_Durability.durability = card.ability.extra.SEMBY_Durability.durability - card.ability.extra.perishable.repair_cost
-									repaired = true
-								else
-									break;
-								end
-							else
-								break;
-							end
-						end
-						if repaired and not ret_msg then
-							ret_msg = localize('SEMBY_durability_revitalized')
-							if joker.ability.SEMBY_degrading_tally > card.ability.extra.perishable.max_durability then
-								joker.ability.SEMBY_degrading_tally = card.ability.extra.perishable.max_durability
-							end
-						end
-					end
-					-- The End!
-					if repaired then
-						local juice_card = (context.blueprint_card or card)
-						G.E_MANAGER:add_event(Event({
-							func = function()
-								juice_card:juice_up()
-								return true
-							end
-						}))
-						card_eval_status_text(joker, 'extra', nil, nil, nil, {
-							message = ret_msg,
-							colour = G.C.GREEN
-						})
 					end
 				end
+				::no_repair::
 			end
 			if not context.blueprint then
-				card:durability_check()
+				card:SEMBY_durability_check()
 			end
 			return nil, true
 		end
 	end,
     in_pool = function(self, args)
 		if G.jokers then
-			for index, joker in pairs(G.jokers.cards) do
-				if joker.ability.perishable
-				or (joker.config.center.pools and joker.config.center.pools.Repairable)
-				--or (joker.ability.extra and type(joker.ability.extra) == "table" and joker.ability.extra.SEMBY_Durability) 
-				or joker.ability.SEMBY_degrading
-				or joker.config.center.key == 'j_selzer'
+			for _, joker in pairs(G.jokers.cards) do
+				if (joker.config.center.pools and joker.config.center.pools.Repairable)
+				or joker.ability.perishable or joker.ability.SEMBY_degrading
 				then return true end
 			end
 		end

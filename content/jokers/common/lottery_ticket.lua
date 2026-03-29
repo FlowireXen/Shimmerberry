@@ -12,19 +12,16 @@ SMODS.Joker {
 	cost = 5,
 	config = {
 		extra = {
-			chance = {
-				max = 3,
-				base = 4
-			},
+			chance = 4,
 			mult = 2.5,
 			chips = 12
 		}
 	},
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance.base, 'SEMBY_lottery_ticket')
+		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance, 'SEMBY_lottery_ticket')
 		return { vars = {
-			math.min(card.ability.extra.chance.max, numerator),
+			numerator,
 			denominator,
 			card.ability.extra.mult,
 			card.ability.extra.chips
@@ -32,12 +29,9 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play
-		and context.other_card:get_id() <= 10
-		and context.other_card:get_id() >= 2
+		and not (context.other_card:is_face())
 		then
-			-- Scuffed way of always having a Chance for Chips:
-			local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance.base, 'SEMBY_lottery_ticket')
-			if math.random(1, math.floor(denominator)) <= math.min(card.ability.extra.chance.max, math.floor(numerator)) then
+			if SMODS.pseudorandom_probability(card, 'SEMBY_lottery_ticket', 1, card.ability.extra.chance) then
 				return { mult = card.ability.extra.mult }
 			else return { chips = card.ability.extra.chips } end
 		end

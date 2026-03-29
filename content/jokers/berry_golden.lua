@@ -61,21 +61,12 @@ SMODS.Joker {
 				--]]--> I'm not gonna use that.
 			end
 		end
-		if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
+		if context.end_of_round and context.main_eval and not context.blueprint then
 			if not card.ability.activated then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        card:juice_up()
-                        play_sound('SEMBY_crunch_'..math.random(1, 2)) --'cancel'
-                        G.E_MANAGER:add_event(Event({
-                            trigger = 'after',
-                            delay = 0.3,
-                            blockable = false,
-                            func = function()
-								card:start_dissolve()
-                                return true
-                            end
-                        }))
+                        play_sound('SEMBY_crunch_'..math.random(1, 2))
+						card:start_dissolve()
                         return true
                     end
                 }))

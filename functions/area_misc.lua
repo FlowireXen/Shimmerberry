@@ -6,7 +6,7 @@ local count_ref = CardArea.count_property
 function CardArea:count_property(property)
 	local retVal = count_ref(self, property)
 	if property == "extra_slots_used" and self.config.SEMBY_blocked and self.config.SEMBY_blocked ~= 0 then
-		retVal = retVal + self.config.card_limits.total_slots
+		retVal = retVal + self.config.card_limits.total_slots * 2
 	end
 	return retVal
 end
@@ -21,7 +21,7 @@ function CardArea:SEMBY_unblock()
 end
 
 -- Area Overwrite-Text:
-function CardArea:add_text_overwrite(id, loc_key)
+function CardArea:SEMBY_add_text_overwrite(id, loc_key)
 	if not (self.config.SEMBY_overwrite and self.config.SEMBY_overwrite[1]) then
 		self.config.SEMBY_overwrite = { }
 	end
@@ -32,7 +32,7 @@ function CardArea:add_text_overwrite(id, loc_key)
 	-- Force Redraw
 	self.children.area_uibox = nil
 end
-function CardArea:remove_text_overwrite(id)
+function CardArea:SEMBY_remove_text_overwrite(id)
 	if self.config.SEMBY_overwrite and self.config.SEMBY_overwrite[1] then
 		for i = 1, #self.config.SEMBY_overwrite do
 			if self.config.SEMBY_overwrite[i].id == id then

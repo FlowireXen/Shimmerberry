@@ -9,29 +9,15 @@ SMODS.Challenge {
         modifiers = {
             { id = 'discards', value = 4 },
             { id = 'hand_size', value = 12 },
-            { id = 'winning_ante', value = 6 },
+            { id = 'winning_ante', value = 5 },
         }
     },
     restrictions = {
         banned_cards = {
-			{ id = 'c_SEMBY_ocean' },
-            --{ id = 'j_SEMBY_alpha' },
-            { id = 'j_SEMBY_anodized_steel' },
-            { id = 'j_SEMBY_berry_shimmer' },
-            { id = 'j_SEMBY_ceaseless_void' },
-            { id = 'j_SEMBY_lavish_joker' },
-            { id = 'j_SEMBY_melon' },
-            { id = 'j_SEMBY_obscure_ritual' },
-            { id = 'j_SEMBY_ouroboros' },
-            { id = 'j_SEMBY_seven_wonders' },
-            { id = 'j_SEMBY_t3mprr' },
-            { id = 'v_SEMBY_mask_comedy' },
-            { id = 'v_SEMBY_mask_tragedy' },
+            { id = 'j_SEMBY_stern_teacher' },
         },
         banned_tags = {
             { id = 'tag_boss' },
-            { id = 'tag_SEMBY_intimidating' },
-            { id = 'tag_SEMBY_pearlescent_skip' },
         },
         banned_other = {
             { id = 'bl_needle', type = 'blind' },
@@ -67,9 +53,9 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
-		-- "No Requirement":
+		-- "Impossible" Blinds:
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 10000 --math.huge
-		-- Your final Exam:
+		-- Your final Exam (Shows that it will show the extra Score anyways):
 		for key, value in pairs(G.P_BLINDS) do
 			if value.boss and value.boss.showdown then
 				if not (value.key == "bl_final_acorn") then
@@ -78,8 +64,6 @@ SMODS.Challenge {
 				end
 			end
 		end
-		-- Other Bans:
-		G.GAME.banned_keys["e_SEMBY_pearlescent"] = true
 	end,
 	button_colour = G.C.BLUE
 }

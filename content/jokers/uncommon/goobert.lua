@@ -13,13 +13,11 @@ SMODS.Joker {
 	cost = 8,
 	config = {
 		extra = {
-			SEMBY_Durability = {
-				max_durability = 10,
-				durability = 10,
-				repair_cost = 25,
-				repair_gain = 1,
-				is_liquid = true
-			},
+			-- Durability
+			durability = 10,
+			durability_max = 10,
+			durability_other = { refill = true },
+			-- Joker
 			soul_pos = true, --> Bad but I don't care
 			soul_pos_valid = { left = 5, right = 4, y = 6 }
 		}
@@ -30,10 +28,8 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
-			card:durability_amount(),
-			colours = { 
-				card:durability_color()
-			}
+			card:SEMBY_durability_amount(),
+			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
 	calculate = function(self, card, context)
@@ -43,7 +39,7 @@ SMODS.Joker {
 			local slimed_cards = {}
 			for _, playing_card in ipairs(context.cards) do
 				if not playing_card.ability.SEMBY_goobert then
-					if context.blueprint or card:durability_use() then
+					if context.blueprint or card:SEMBY_durability_use() then
 						-- Create Copy
 						G.playing_card = (G.playing_card and G.playing_card + 1) or 1
 						local slime_card = copy_card(playing_card, nil, nil, G.playing_card)
@@ -99,11 +95,11 @@ SMODS.Joker {
 						-- Visuals
 						play_sound('SEMBY_brush_paint_'..math.random(1, 2), math.random()*0.3 + 0.8)
 						juice_card:juice_up(0.2, v_rot)
-						card:set_soul_pos('SEMBY_jokers', { x = pos_1, y = soul_ref.y })
+						card:SEMBY_set_soul_pos('SEMBY_jokers', { x = pos_1, y = soul_ref.y })
 						-- Visibility
 						for i = 1, #slimed_cards do
 							slimed_cards[i].states.visible = true
-							slimed_cards[i]:set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 1.0, 0.7, 0.4)
+							slimed_cards[i]:SEMBY_set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 1.0, 0.7, 0.4)
 						end
 						return true
 					end
@@ -116,10 +112,10 @@ SMODS.Joker {
 						-- Visuals
 						play_sound('SEMBY_brush_paint_'..math.random(1, 2), math.random()*0.3 + 0.8)
 						juice_card:juice_up(0.2, -v_rot)
-						card:set_soul_pos('SEMBY_jokers', { x = pos_2, y = soul_ref.y })
+						card:SEMBY_set_soul_pos('SEMBY_jokers', { x = pos_2, y = soul_ref.y })
 						-- Visibility
 						for i = 1, #slimed_cards do
-							slimed_cards[i]:set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 0.7, 0.3, 0.4)
+							slimed_cards[i]:SEMBY_set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 0.7, 0.3, 0.4)
 						end
 						return true
 					end
@@ -132,10 +128,10 @@ SMODS.Joker {
 						-- Visuals
 						play_sound('SEMBY_brush_paint_'..math.random(1, 2), math.random()*0.3 + 0.8)
 						juice_card:juice_up(0.2, v_rot)
-						card:set_soul_pos('SEMBY_jokers', { x = pos_1, y = soul_ref.y })
+						card:SEMBY_set_soul_pos('SEMBY_jokers', { x = pos_1, y = soul_ref.y })
 						-- Visibility
 						for i = 1, #slimed_cards do
-							slimed_cards[i]:set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 0.3, 0.0, 0.4)
+							slimed_cards[i]:SEMBY_set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 0.3, 0.0, 0.4)
 						end
 						return true
 					end
@@ -158,7 +154,7 @@ SMODS.Joker {
 				else
 					delay(0.4)
 				end
-				local alive = card:durability_check()
+				local alive = card:SEMBY_durability_check()
 				return {
 					message = localize('SEMBY_goobert_'..(alive and math.random(1, 4) or 'X')),
 					colour = G.C.GREEN,

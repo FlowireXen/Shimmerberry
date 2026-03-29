@@ -11,7 +11,18 @@ SMODS.Challenge {
 	apply = function(self)
 		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
 		G.GAME.stake = SMODS.Stakes["stake_gold"].order
-		G.GAME.SEMBY_menagerie_mode = true
+		G.GAME.starting_params.ante_scaling = math.max(1.0, G.GAME.round_resets.ante)
 	end,
+    calculate = function(self, context)
+        if context.ante_change then
+		    G.E_MANAGER:add_event(Event({
+		    	func = function()
+                    --print(G.GAME.round_resets.ante)
+		    		G.GAME.starting_params.ante_scaling = math.max(1.0, G.GAME.round_resets.ante)
+		    		return true
+		    	end
+		    }))
+        end
+    end,
 	button_colour = G.C.PURPLE
 }

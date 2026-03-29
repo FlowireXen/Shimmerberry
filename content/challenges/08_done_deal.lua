@@ -25,14 +25,14 @@ SMODS.Challenge {
         banned_other = {
             { id = 'bl_ox', type = 'blind' },
             { id = 'bl_arm', type = 'blind' },
-            { id = 'bl_tooth', type = 'blind' },
+            --{ id = 'bl_tooth', type = 'blind' },
             { id = 'bl_final_bell', type = 'blind' },
         },
     },
     jokers = {
         { id = 'j_SEMBY_alpha', eternal = true },
-        { id = 'j_dna', eternal = true, edition = "negative" },
-        { id = 'j_SEMBY_goobert' },
+        { id = 'j_dna', SEMBY_perishable = true, edition = "negative" },
+        { id = 'j_SEMBY_goobert', SEMBY_possessive = true },
     },
     vouchers = {
         { id = 'v_blank' },

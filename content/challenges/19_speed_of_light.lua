@@ -4,9 +4,9 @@ SMODS.Challenge {
         custom = {
             { id = 'SEMBY_speed_of_light' },
             { id = 'SEMBY_space' },
-            { id = 'SEMBY_quick_scaling' },
             { id = 'SEMBY_gold_stake' },
             { id = 'SEMBY_upgrade_pokerhands' },
+            { id = 'SEMBY_scaling_20' },
         },
         modifiers = {
             { id = 'discards', value = 4 },
@@ -21,7 +21,7 @@ SMODS.Challenge {
         },
     },
     jokers = {
-        { id = 'j_SEMBY_shooting_star', eternal = true },
+        { id = 'j_SEMBY_shooting_star', SEMBY_possessive = true },
         { id = 'j_SEMBY_afterimage', eternal = true },
         { id = 'j_SEMBY_twenty_to_die_for' },
     },
@@ -33,8 +33,8 @@ SMODS.Challenge {
 		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
 		G.GAME.stake = SMODS.Stakes["stake_gold"].order
 		-- Faster Scaling
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
-		-- Perma Disable Unicorn
+		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 2.0
+		-- Level up all Hands
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()

@@ -4,26 +4,19 @@ SMODS.Challenge {
         custom = {
             { id = 'SEMBY_tool_for_every_joke' },
             { id = 'SEMBY_space' },
-            { id = 'no_interest' },
+            { id = 'no_shop_jokers' },
         },
         modifiers = {
             { id = 'hand_size', value = 16 },
-            { id = 'joker_slots', value = 6 },
-            { id = 'dollars', value = 0 },
             { id = 'winning_ante', value = 6 },
         }
     },
     restrictions = {
         banned_cards = {
-            { id = 'v_seed_money' },
-            { id = 'v_money_tree' },
-            { id = 'j_to_the_moon' },
             { id = 'j_SEMBY_toolkit' },
         },
         banned_other = {
-            { id = 'bl_final_heart', type = 'blind' },
             { id = 'bl_final_leaf',  type = 'blind' },
-            { id = 'bl_final_acorn', type = 'blind' },
         },
     },
     jokers = {
@@ -35,10 +28,11 @@ SMODS.Challenge {
     },
     vouchers = {
         { id = 'v_blank' },
+        { id = 'v_magic_trick' },
     },
     consumeables = {
         { id = 'c_tower' },
-        { id = 'c_tower' },
+        { id = 'c_lovers' },
     },
     deck = {
         type = 'Challenge Deck',
@@ -58,14 +52,19 @@ SMODS.Challenge {
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-				SEMBY_Challenge_Durability(1000)
-				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					func = function()
-						save_run()
-						return true
-					end
-				}))
+                -- Used to be it's own function:
+	            G.E_MANAGER:add_event(Event({
+	            	func = function()
+	            		for index, joker in pairs(G.jokers.cards) do
+                            if joker:SEMBY_has_durability() then
+	            				joker.ability.extra.durability = 1000 --(amount or 100)
+	            				joker.ability.extra.durability_max = 1000 --(amount or 100)
+	            			end
+	            		end
+	            		save_run()
+	            		return true
+	            	end
+	            }))
 				return true
 			end
 		}))

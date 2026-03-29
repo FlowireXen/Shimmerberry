@@ -5,7 +5,6 @@ SMODS.Shader {
 }
 
 --## Edition
-G.SEMBY.Resonance = 0.25
 SMODS.Edition {
     key = "resonance",
 	name = "SEMBY_resonance",
@@ -13,19 +12,18 @@ SMODS.Edition {
 	disable_base_shader = true,
 	apply_to_float = true,
     config = {
-		card_limit = 1
+		percent = 0.05
 	},
     in_shop = true,
-    weight = 1,
-    extra_cost = 7,
+    weight = 3,
+    extra_cost = 2,
     sound = { sound = "SEMBY_resonance", per = 1.2, vol = 1.1 },
 	badge_colour = SMODS.Gradients.SEMBY_RESONANCE,
     loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
 		info_queue[#info_queue + 1] = { key = "debuffed_default", set = "Other" }
-		return { vars = {
-			((card.edition or {}).card_limit or self.config.card_limit),
-			G.SEMBY.Resonance * 100
+        return { vars = {
+			((card.edition or {}).percent or self.config.percent) * 100
 		} }
     end,
     get_weight = function(self)
@@ -38,8 +36,9 @@ SMODS.Edition {
 		if G.GAME.blind then SMODS.debuff_card(card, false, 'SEMBY_resonance') end
     end,
     calculate = function(self, card, context)
-		if context.end_of_round and context.main_eval and context.game_over == false then
-			G.GAME.current_round.SEMBY_resonance = (G.GAME.current_round.SEMBY_resonance or 0) + 1 --> "/functions/common.lua"
-		end
+        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
+			SEMBY_Increase_Blindsize(self.config.percent, card, true)
+			return nil, true
+        end
     end
 }

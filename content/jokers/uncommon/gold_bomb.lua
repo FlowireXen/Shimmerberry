@@ -19,7 +19,7 @@ SMODS.Joker {
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
-						card:set_dissolve({G.C.L_BLACK, G.C.BLACK}, 0.0, 0.4, 0)
+						card:SEMBY_set_dissolve({G.C.L_BLACK, G.C.BLACK}, 0.0, 0.4, 0)
 						card:juice_up(1.5, 1.25)
 						return true
 					end
@@ -37,7 +37,7 @@ SMODS.Joker {
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
-						card:set_dissolve({G.C.L_BLACK, G.C.BLACK}, 0.4, 0.0, 1.0)
+						card:SEMBY_set_dissolve({G.C.L_BLACK, G.C.BLACK}, 0.4, 0.0, 1.0)
 						card:juice_up(0.1, 0.1)
 						return true
 					end

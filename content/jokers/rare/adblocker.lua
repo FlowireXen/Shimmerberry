@@ -18,6 +18,7 @@ SMODS.Joker {
 	},
 	loc_vars = function(self, info_queue, card)
 		SEMBY_Queue_Artist(card, info_queue)
+		info_queue[#info_queue + 1] = { key = "debuffed_playing_card", set = "Other" }
 		local ret_val
 		local ret_col
 		if card.ability.extra.debuffed then

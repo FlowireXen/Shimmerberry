@@ -59,7 +59,7 @@ SMODS.Joker {
 					}
 				end
 			end
-			if context.end_of_round and context.cardarea == G.jokers then
+			if context.end_of_round and context.main_eval then
 				if card.ability.extra.active then
 					card.ability.extra.active = false
 					G.E_MANAGER:add_event(Event({
