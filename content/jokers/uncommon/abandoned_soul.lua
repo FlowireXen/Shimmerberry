@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "abandoned_soul",
-	name = "SEMBY_abandoned_soul",
-	atlas = "SEMBY_jokers",
-	pos = { x = 3, y = 3 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 8, y = 4 },
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
@@ -16,8 +14,10 @@ SMODS.Joker {
 			xchips = 1.0
 		}
 	},
+    attributes = {
+		'face', 'scaling', 'xchips'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.xchips_mod,
 			card.ability.extra.xchips

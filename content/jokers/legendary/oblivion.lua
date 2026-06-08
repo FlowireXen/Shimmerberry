@@ -3,11 +3,9 @@ local SEMBY_Loop_Ante = 1
 -- Joker
 SMODS.Joker {
 	key = "oblivion",
-	name = "SEMBY_oblivion",
-	atlas = "SEMBY_jokers",
-	pos = { x = 1, y = 1 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 7, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -23,8 +21,11 @@ SMODS.Joker {
 			loop = 0
 		}
 	},
+    attributes = {
+		'xblindsize', 'economy',
+		'ante'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local current_ante = (G.GAME.round_resets.ante or 1)
 		local highest_ante = (card.ability.extra.highest_ante or current_ante)
 		return { vars = {
@@ -44,21 +45,22 @@ SMODS.Joker {
     add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
 			card.ability.extra.highest_ante = G.GAME.round_resets.ante
-			--card.ability.extra.loop = 0
 		end
 		if card.ability.extra.difficulty ~= 0 then
-			G.GAME.SEMBY_blind_mod = G.GAME.SEMBY_blind_mod + card.ability.extra.difficulty
+        	SEMBY_Global_BlindMod_Add('oblivion'..card.sort_id, card.ability.extra.difficulty)
+			SEMBY_Update_Blind_Select(true)
 		end
 	end,
     remove_from_deck = function(self, card, from_debuff)
 		if card.ability.extra.difficulty ~= 0 then
-			G.GAME.SEMBY_blind_mod = G.GAME.SEMBY_blind_mod - card.ability.extra.difficulty
+			SEMBY_Global_BlindMod_Remove('oblivion'..card.sort_id)
 			if not from_debuff then
 				card_eval_status_text(card, 'extra', nil, nil, nil, {
 					message = localize('SEMBY_oblivion_removed'),
 					colour = G.C.DARK_EDITION
 				})
 			end
+			SEMBY_Update_Blind_Select()
 		end
 	end,
 	calculate = function(self, card, context)
@@ -70,7 +72,7 @@ SMODS.Joker {
 				card.ability.extra.payout = card.ability.extra.payout + card.ability.extra.payout_mod
 				-- Difficulty
 				card.ability.extra.difficulty = card.ability.extra.difficulty + card.ability.extra.difficulty_mod
-				G.GAME.SEMBY_blind_mod = G.GAME.SEMBY_blind_mod + card.ability.extra.difficulty_mod
+        		SEMBY_Global_BlindMod_Add('oblivion'..card.sort_id, card.ability.extra.difficulty_mod)
 				-- Force-Reset & Animate Ante (Only Once!)
 				if not G.GAME.SEMBY_oblivion then
 					G.GAME.SEMBY_oblivion = true

@@ -1,11 +1,9 @@
 SMODS.Joker {
 	key = "alpha",
-	name = "SEMBY_alpha",
-	atlas = "SEMBY_jokers",
-	pos = { x = 8, y = 1 },
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 5, y = 5 },
     pixel_size = { w = 71, h = 71 },
-    unlocked = true,
-    discovered = false,
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,9 +14,12 @@ SMODS.Joker {
 			hands = 1
 		}
 	},
+    attributes = {
+		'hands', 'enhancements',
+		'magic'
+	},
 	enhancement_gate = 'm_stone',
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
 		return { vars = {
 			card.ability.extra.hands

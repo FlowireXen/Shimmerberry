@@ -1,65 +1,121 @@
 SMODS.Joker {
 	key = "opulent_skint",
-	name = "SEMBY_opulent_skint",
-	atlas = "SEMBY_jokers",
-	pos = { x = 8, y = 4 },
-    unlocked = true,
-    discovered = false,
-    eternal_compat = true,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 6, y = 2 },
+    eternal_compat = false,
     perishable_compat = true,
-    blueprint_compat = true,
+    blueprint_compat = false,
 	rarity = 2,
-	cost = 5,
+	cost = 10,
 	config = {
 		extra = {
-			base_rarity = 1.05,
-			rarity_mod = 100,
-			legend_limit = 1.15
+			numerator = 1,
+			denominator = 256
 		}
 	},
+    attributes = {
+		'generation', 'destroy_card',
+		'shop'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
+		local numerator, denominator = SMODS.get_probability_vars(card,
+			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_opulent_skint')
+		return { vars = {
+			numerator,
+			denominator
+		} }
 	end,
-    remove_from_deck = function(self, card, from_debuff)
-		if G.shop and G.shop_jokers and G.shop_jokers.cards then
-			G.shop_jokers.T.w = math.min((#G.shop_jokers.cards-1)*1.02*G.CARD_W,4.08*G.CARD_W)
-			G.shop:recalculate()
-		end
-    end,
 	calculate = function(self, card, context)
-		-- Thank you SMODS for the "starting_shop"-context!
-		if context.starting_shop then
-			local rarity = math.max(0.00, card.ability.extra.base_rarity - (math.floor(G.GAME.dollars) / card.ability.extra.rarity_mod))
-			local legend = (rarity >= card.ability.extra.legend_limit) -- Being in debt generates a Legendary
-			return {
-				message = localize('k_plus_joker'),
-				colour = G.C.MONEY,
+		if not context.blueprint then
+			-- Gain a Legendary ..Maybe:
+			if context.buying_self then
+				delay(0.1)
 				G.E_MANAGER:add_event(Event({
+					trigger = 'after',
+					delay = 0.15,
 					func = function()
-						if G.shop_jokers and G.shop_jokers.cards then
-							-- Temporary Shop Spacing
-							G.shop_jokers.T.w = math.min((#G.shop_jokers.cards+1)*1.02*G.CARD_W,4.08*G.CARD_W)
-							G.shop:recalculate()
-							-- Add Item to Shop:
-							local shop_card = SMODS.create_card({
-								set = 'Joker',
-								area = G.shop_jokers,
-								legendary = legend,
-								rarity = rarity
-							})
-							create_shop_card_ui(shop_card)
-							G.shop_jokers:emplace(shop_card)
-							-- Save, otherwise they're gone later...
-							G.E_MANAGER:add_event(Event({ func = function() save_run(); return true end}))
-						end
+						card:flip()
+						play_sound('card1', 1.12 + math.random()*0.06)
+						card:juice_up(0.3)
 						return true
 					end
 				}))
-			}
-        end
-        if context.reroll_shop and G.GAME.shop.SEMBY_Opulent then
-			G.shop_jokers.T.w = math.min(#G.shop_jokers.cards*1.02*G.CARD_W,4.08*G.CARD_W)
-			G.shop:recalculate()
+				delay(0.2)
+				local success = SMODS.pseudorandom_probability(card, 'SEMBY_opulent_skint', card.ability.extra.numerator, card.ability.extra.denominator)
+				if success then --> Give Legendary
+					G.E_MANAGER:add_event(Event({
+						trigger = 'after',
+						delay = 0.15,
+						func = function()
+							local legend = SMODS.create_card({ set = 'Joker', legendary = true })
+							if legend.config.center_key == 'j_joker' then
+								legend:remove(); legend = SMODS.create_card({ set = 'Joker', legendary = true, allow_duplicates = true })
+							end
+							copy_card(legend, card)
+							legend:remove();
+							return true
+						end
+					}))
+				else delay(0.15) end
+				G.E_MANAGER:add_event(Event({
+					trigger = 'after',
+					delay = 0.15,
+					func = function()
+						card:flip()
+						play_sound('card1', 1.08 + math.random()*0.04)
+						card:juice_up(0.3)
+						return true
+					end
+				}))
+				if success then
+					G.E_MANAGER:add_event(Event({
+						trigger = 'after',
+						delay = 0.4,
+						func = function()
+							play_sound('timpani')
+							card:juice_up()
+							check_for_unlock { type = 'spawn_legendary' }
+							return true
+						end
+					}))
+				end
+			end
+			-- Replace Shop-Joker:
+			if context.selling_self then
+				if G.shop_jokers and next(G.shop_jokers.cards) then
+					selected_card = pseudorandom_element(G.shop_jokers.cards, 'SEMBY_opulent_skint')
+					if selected_card then
+            			G.E_MANAGER:add_event(Event({
+							trigger = 'after',
+							delay = 0.15,
+            			    func = function()
+								play_sound('generic1', 0.9 + math.random()*0.2)
+            			        return true
+            			    end
+            			}))
+						-- Remove "selected_card"
+						selected_card.getting_sliced = true
+						selected_card.SEMBY_skip_and_shut_up = true
+						selected_card:start_dissolve()
+						-- Create Replacement (in Shop)
+						local replacement = copy_card(card)
+						replacement.states.visible = nil
+						G.shop_jokers:emplace(replacement)
+            			G.E_MANAGER:add_event(Event({
+							trigger = 'after',
+							delay = 0.15,
+            			    func = function()
+								replacement.states.visible = true
+								replacement:juice_up(0.3)
+								create_shop_card_ui(replacement)
+								replacement:set_cost()
+            			        return true
+            			    end
+            			}))
+					end
+				end
+			end
 		end
 	end
 }

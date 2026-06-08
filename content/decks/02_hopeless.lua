@@ -1,6 +1,6 @@
 SMODS.Back{
 	key = "hopeless",
-	name = "SEMBY_hopeless",
+	SEMBY_art = "flowire",
 	atlas = "SEMBY_decks",
 	pos = { x = 2, y = 0 },
 	config = {
@@ -12,7 +12,6 @@ SMODS.Back{
 		}
 	},
 	loc_vars = function(self, info_queue, back)
-		--SEMBY_Queue_Artist(back, info_queue)
 		return { vars = {
 			self.config.extra.slots,
 			G.GAME.SEMBY_hopeless_view and

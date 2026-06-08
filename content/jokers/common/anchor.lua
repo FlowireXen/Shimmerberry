@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "anchor",
-	name = "SEMBY_anchor",
-    atlas = 'SEMBY_jokers',
-    pos = { x = 8, y = 3 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+    atlas = 'SEMBY_jokers_1',
+    pos = { x = 9, y = 1 },
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
@@ -13,11 +11,14 @@ SMODS.Joker {
 	config = {
 		extra = {
 			xchips = 2.0,
-			selectable = false
+			selectable = true
 		}
 	},
+    attributes = {
+		'xchips',
+		'ocean',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.xchips
 		} }
@@ -32,12 +33,12 @@ SMODS.Joker {
 		}))
 	end,
     add_to_deck = function(self, card, from_debuff)
-		--[MINOR][Won't Fix]: Copies of a Debuffed "Anchor" can always be Highlighted, even after the Debuff runs out.
-		if from_debuff then card.ability.extra.selectable = false end
+		if from_debuff then card.ability.extra.selectable = false
+		else card.ability.extra.selectable = card.debuff end
 		card.states.click.can = card.ability.extra.selectable
 	end,
     remove_from_deck = function(self, card, from_debuff)
-		if from_debuff then card.ability.extra.selectable = true end
+		card.ability.extra.selectable = true
 		card.states.click.can = card.ability.extra.selectable
 	end,
 	calculate = function(self, card, context)

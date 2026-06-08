@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "annoying_dog",
-	name = "SEMBY_annoying_dog",
-	atlas = "SEMBY_jokers",
-	pos = { x = 11, y = 1 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 5, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,20 +14,23 @@ SMODS.Joker {
 			slots = 103
 		}
 	},
+    attributes = {
+		'xmult',
+		'consumable', 'animal',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		info_queue[#info_queue + 1] = { key = "inspired_vio_undertale", set = "Other" }
 		return { vars = {
 			(card.ability.extra.xmult % 1 == 0) and card.ability.extra.xmult..'.0' or card.ability.extra.xmult
 		} }
 	end,
     add_to_deck = function(self, card, from_debuff)
-		G.consumeables:SEMBY_add_text_overwrite(card.sort_id, 'SEMBY_dog_overflow')
+		G.consumeables:SEMBY_add_text_override(card.sort_id, 'SEMBY_dog_overflow')
 		G.consumeables:SEMBY_block()
     end,
     remove_from_deck = function(self, card, from_debuff)
 		G.consumeables:SEMBY_unblock()
-		G.consumeables:SEMBY_remove_text_overwrite(card.sort_id)
+		G.consumeables:SEMBY_remove_text_override(card.sort_id)
     end,
 	calculate = function(self, card, context)
 		if context.joker_main then

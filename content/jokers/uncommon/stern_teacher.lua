@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "stern_teacher",
-	name = "SEMBY_stern_teacher",
-	atlas = "SEMBY_jokers",
-	pos = { x = 8, y = 5 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 3, y = 7 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -15,8 +13,11 @@ SMODS.Joker {
 			mult = 25
 		}
 	},
+    attributes = {
+		'mult',
+		'debuff_card'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local debuffed = 0
 		if G.jokers then
             for i = 1, #G.jokers.cards do

@@ -1,6 +1,6 @@
 SMODS.Back{
 	key = "scartare",
-	name = "SEMBY_scartare",
+	SEMBY_art = "flowire",
 	atlas = "SEMBY_decks",
 	pos = { x = 0, y = 0 },
 	config = {
@@ -13,7 +13,6 @@ SMODS.Back{
 		}
 	},
 	loc_vars = function(self, info_queue, back)
-		--SEMBY_Queue_Artist(back, info_queue)
 		return { vars = {
 			self.config.extra.min_id,
 			self.config.extra.hand_size,

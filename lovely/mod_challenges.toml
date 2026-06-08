@@ -1,5 +1,5 @@
 [manifest]
-version = "1.0.2"
+version = "1.0.3"
 dump_lua = true
 priority = 10
 
@@ -40,7 +40,7 @@ payload = '''
 	if v.SEMBY_debuffed then card:set_debuff(true) end
 	if v.SEMBY_possessive then card:add_sticker('SEMBY_possessive', true) end
 	if v.SEMBY_glitched then
-		if type(v.SEMBY_glitched) == "number" then card.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched end
+		card.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
 		card:add_sticker('SEMBY_tmtrainer_sticker', true)
 	end
 '''
@@ -57,7 +57,7 @@ payload = '''
 	if v.SEMBY_debuffed then SMODS.debuff_card(_joker, true, 'SEMBY_challenge_debuff') end
 	if v.SEMBY_possessive then _joker:add_sticker('SEMBY_possessive', true) end
 	if v.SEMBY_glitched then
-		if type(v.SEMBY_glitched) == "number" then _joker.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched end
+		_joker.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
 		_joker:add_sticker('SEMBY_tmtrainer_sticker', true)
 	end
 '''

@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "target_plush",
-	name = "SEMBY_target_plush",
-	atlas = "SEMBY_jokers",
-	pos = { x = 7, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 5, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,11 @@ SMODS.Joker {
 			mult = 5
 		}
 	},
+    attributes = {
+		'joker', 'joker_slot', 'mult', 'chips',
+		'animal'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local jokers = 0
 		local joke_limit = 0
 		if G.jokers then

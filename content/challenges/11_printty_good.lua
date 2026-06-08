@@ -26,7 +26,7 @@ SMODS.Challenge {
         },
     },
     jokers = {
-        { id = 'j_flash', eternal = true },
+        { id = 'j_flash' },
         { id = 'j_SEMBY_copy_printer', eternal = true, SEMBY_rental = true },
         { id = 'j_joker' },
     },
@@ -67,7 +67,7 @@ SMODS.Challenge {
                 end
                 if DupeCheck[G.jokers.cards[i].config.center_key] >= 9 then
                     DupeSuccess = true
-                    break;
+                    break
                 end
             end
             -- Announce Highest (Message doesn't take up time)

@@ -59,6 +59,11 @@ SMODS.Challenge {
                             return true
                         end
 		            end
+                    G.GAME.SEMBY_defeated = {
+                        atlas = G.P_CENTERS.j_SEMBY_berry_shimmer.atlas,
+                        position = G.P_CENTERS.j_SEMBY_berry_shimmer.pos,
+                        loc_key = 'SEMBY_lose_01_berry'
+                    }
 		            SEMBY_Challenge_LOSE()
 	        		return true
 	        	end

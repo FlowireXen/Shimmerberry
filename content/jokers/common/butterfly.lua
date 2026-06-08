@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "butterfly",
-	name = "SEMBY_butterfly",
-	atlas = "SEMBY_jokers",
-	pos = { x = 10, y = 1 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 8, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -18,8 +16,11 @@ SMODS.Joker {
 			type = 'Pair'
 		}
 	},
+    attributes = {
+		'chips', 'hand_type', 'scaling',
+		'animal'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.chips >= 0 and '+'..card.ability.extra.chips or card.ability.extra.chips,
 			card.ability.extra.chip_gain,

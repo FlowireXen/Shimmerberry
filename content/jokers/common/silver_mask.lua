@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "silver_mask",
-	name = "SEMBY_silver_mask",
-	atlas = "SEMBY_jokers",
-	pos = { x = 3, y = 5 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 2, y = 3 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -16,8 +14,10 @@ SMODS.Joker {
 			goldmod = 2
 		}
 	},
+    attributes = {
+		'hand_size', 'economy'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			G.hand and math.max(0, card.ability.extra.gold - (G.hand.config.card_limit * card.ability.extra.goldmod)) or card.ability.extra.gold,
 			card.ability.extra.goldmod

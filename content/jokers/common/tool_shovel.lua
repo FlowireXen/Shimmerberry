@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "tool_shovel",
-	name = "SEMBY_tool_shovel",
-	atlas = "SEMBY_jokers",
-	pos = { x = 10, y = 7 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 4, y = 1 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -20,12 +18,15 @@ SMODS.Joker {
 			xmult = 1.2
 		}
 	},
+    attributes = {
+		'mult', 'suit',
+		'durability'
+	},
 	pools = {
 		["Tool"] = true,
         ["Repairable"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         local suit = (G.GAME.current_round.SEMBY_tool_suit or {}).suit or 'Spades'
 		return { vars = {
 			localize(suit, 'suits_singular'),

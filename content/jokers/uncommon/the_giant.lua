@@ -1,18 +1,16 @@
 SMODS.Joker {
 	key = "the_giant",
-	name = "SEMBY_the_giant",
-	atlas = "SEMBY_jokers",
-	pos = { x = 11, y = 7 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 2, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
 	rarity = 2,
 	cost = 6,
-	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
-	end,
+    attributes = {
+		'discard', 'hand_size'
+	},
 	calculate = function(self, card, context)
 		if context.setting_blind and not (context.blueprint_card or self).getting_sliced then
 			-- I wanted to make this Work with The Dwarf and Other Discard-Giving Effects...

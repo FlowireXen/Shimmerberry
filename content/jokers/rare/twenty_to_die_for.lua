@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "twenty_to_die_for",
-	name = "SEMBY_twenty_to_die_for",
-	atlas = "SEMBY_jokers",
-	pos = { x = 2, y = 4 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 0, y = 5 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -15,11 +13,14 @@ SMODS.Joker {
 			luck = 4.0
 		}
 	},
+    attributes = {
+		'mod_chance',
+		'magic'
+	},
 	pools = {
         ["Goobleck"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.luck
 		} }

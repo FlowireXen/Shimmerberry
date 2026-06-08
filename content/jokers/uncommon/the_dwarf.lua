@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "the_dwarf",
-	name = "SEMBY_the_dwarf",
-	atlas = "SEMBY_jokers",
-	pos = { x = 11, y = 6 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 1, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -15,8 +13,10 @@ SMODS.Joker {
 			handsize = 5
 		}
 	},
+    attributes = {
+		'hand_size', 'discard'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.handsize
 		} }

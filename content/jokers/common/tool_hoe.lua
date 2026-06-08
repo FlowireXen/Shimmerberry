@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "tool_hoe",
-	name = "SEMBY_tool_hoe",
-	atlas = "SEMBY_jokers",
-	pos = { x = 10, y = 6 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 2, y = 1 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -20,12 +18,15 @@ SMODS.Joker {
 			chips = 25
 		}
 	},
+    attributes = {
+		'chips', 'suit',
+		'durability'
+	},
 	pools = {
 		["Tool"] = true,
         ["Repairable"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         local suit = (G.GAME.current_round.SEMBY_tool_suit or {}).suit or 'Spades'
 		return { vars = {
 			localize(suit, 'suits_singular'),

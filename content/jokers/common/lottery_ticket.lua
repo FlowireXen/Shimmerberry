@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "lottery_ticket",
-	name = "SEMBY_lottery_ticket",
-	atlas = "SEMBY_jokers",
-	pos = { x = 4, y = 4 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 3, y = 6 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -12,14 +10,18 @@ SMODS.Joker {
 	cost = 5,
 	config = {
 		extra = {
-			chance = 4,
+			numerator = 1,
+			denominator = 4,
 			mult = 2.5,
 			chips = 12
 		}
 	},
+    attributes = {
+		'chance', 'mult', 'chips', 'face'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance, 'SEMBY_lottery_ticket')
+		local numerator, denominator = SMODS.get_probability_vars(card,
+			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_lottery_ticket')
 		return { vars = {
 			numerator,
 			denominator,
@@ -31,7 +33,9 @@ SMODS.Joker {
 		if context.individual and context.cardarea == G.play
 		and not (context.other_card:is_face())
 		then
-			if SMODS.pseudorandom_probability(card, 'SEMBY_lottery_ticket', 1, card.ability.extra.chance) then
+			if SMODS.pseudorandom_probability(card, 'SEMBY_lottery_ticket',
+				card.ability.extra.numerator, card.ability.extra.denominator)
+			then
 				return { mult = card.ability.extra.mult }
 			else return { chips = card.ability.extra.chips } end
 		end

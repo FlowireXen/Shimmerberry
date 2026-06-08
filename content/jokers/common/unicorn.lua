@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "unicorn",
-	name = "SEMBY_unicorn",
-	atlas = "SEMBY_jokers",
-	pos = { x = 9, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 2, y = 5 },
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
@@ -16,8 +14,11 @@ SMODS.Joker {
 			temp_val = 0
 		}
 	},
+    attributes = {
+		'chips', 'enhancements', 'editions', 'seals', 'full_deck',
+		'magic', 'animal'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local abilities = {}
 		for i, playing_card in ipairs(G.playing_cards or {}) do
 			if playing_card.edition then abilities[playing_card.edition.key] = true end

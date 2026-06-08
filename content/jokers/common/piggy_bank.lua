@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "piggy_bank",
-	name = "SEMBY_piggy_bank",
-	atlas = "SEMBY_jokers",
-	pos = { x = 7, y = 1 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 1, y = 6 },
     eternal_compat = false,
     perishable_compat = false,
     blueprint_compat = true,
@@ -21,8 +19,11 @@ SMODS.Joker {
 			}
 		}
 	},
+    attributes = {
+		'xmult', 'economy', 'scaling', 'sell_value',
+		'animal'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.xmult_mod,
 			card.ability.extra.value_mod,

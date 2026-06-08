@@ -20,28 +20,28 @@ function CardArea:SEMBY_unblock()
 	end
 end
 
--- Area Overwrite-Text:
-function CardArea:SEMBY_add_text_overwrite(id, loc_key)
-	if not (self.config.SEMBY_overwrite and self.config.SEMBY_overwrite[1]) then
-		self.config.SEMBY_overwrite = { }
+-- Area Override-Text:
+function CardArea:SEMBY_add_text_override(id, loc_key)
+	if not (self.config.SEMBY_override and self.config.SEMBY_override[1]) then
+		self.config.SEMBY_override = { }
 	end
-	self.config.SEMBY_overwrite[#self.config.SEMBY_overwrite+1] = {
+	self.config.SEMBY_override[#self.config.SEMBY_override+1] = {
 		text = localize(loc_key),
 		id = id
 	}
 	-- Force Redraw
 	self.children.area_uibox = nil
 end
-function CardArea:SEMBY_remove_text_overwrite(id)
-	if self.config.SEMBY_overwrite and self.config.SEMBY_overwrite[1] then
-		for i = 1, #self.config.SEMBY_overwrite do
-			if self.config.SEMBY_overwrite[i].id == id then
-				table.remove(self.config.SEMBY_overwrite, i)
+function CardArea:SEMBY_remove_text_override(id)
+	if self.config.SEMBY_override and self.config.SEMBY_override[1] then
+		for i = 1, #self.config.SEMBY_override do
+			if self.config.SEMBY_override[i].id == id then
+				table.remove(self.config.SEMBY_override, i)
 				break
 			end
 		end
-		if #self.config.SEMBY_overwrite == 0 then
-			self.config.SEMBY_overwrite = nil
+		if #self.config.SEMBY_override == 0 then
+			self.config.SEMBY_override = nil
 		end
 	end
 	-- Force Redraw

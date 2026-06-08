@@ -1,11 +1,9 @@
 SMODS.Joker {
 	key = "t3mprr",
-	name = "SEMBY_t3mprr",
-	atlas = "SEMBY_jokers",
-	pos = { x = 0, y = 6 },
-	soul_pos = { x = 0, y = 7 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_2",
+	pos = { x = 8, y = 0 },
+	soul_pos = { x = 9, y = 0 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -17,6 +15,10 @@ SMODS.Joker {
 			push_down = 0.06
 		}
 	},
+    attributes = {
+		'xblindsize',
+		'music', 'animal'
+	},
 	pools = {
 		["Music"] = true,
 		["Numetal"] = true,
@@ -25,7 +27,6 @@ SMODS.Joker {
 		if Shimmerberry.compat.buffoonery and Buffoonery.config.show_info then
 			info_queue[#info_queue+1] = {set = 'Other', key = 'nu_metal_info'}
 		end
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.clock_up * 100,
 			card.ability.extra.push_down * 100

@@ -1,10 +1,14 @@
+local function get_texture(state)
+	if state and state ~= 0 then
+		return state > 0 and { x = 7, y = 3 } or { x = 5, y = 3 }
+	end
+	return { x = 6, y = 3 }
+end
 SMODS.Joker {
 	key = "scaffolding",
-	name = "SEMBY_scaffolding",
-	atlas = "SEMBY_jokers",
-	pos = { x = 6, y = 9 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_2",
+	pos = get_texture(),
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -14,25 +18,18 @@ SMODS.Joker {
 		extra = {
 			handsize = 1,
 			penalty = 3,
-			current = 0,
-			texture = {
-				overwrite = { x = 6, y = 9 },
-				-- States
-				positive = { x = 7, y = 9 },
-				neutral =  { x = 6, y = 9 },
-				negative = { x = 5, y = 9 }
-			}
+			current = 0
 		}
 	},
+    attributes = {
+		'joker', 'scaling', 'hand_size', 'hands'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local color = G.C.IMPORTANT
-		if card.ability.extra.current then
-			if card.ability.extra.current > 0 then
-				color = G.C.GREEN
-			elseif card.ability.extra.current ~= 0 then
-				color = G.C.RED
-			end
+		if card.ability.extra.current > 0 then
+			color = G.C.GREEN
+		elseif card.ability.extra.current ~= 0 then
+			color = G.C.RED
 		end
 		return { vars = {
 			card.ability.extra.handsize,
@@ -44,7 +41,7 @@ SMODS.Joker {
 	load = function(self, card, card_table, other_card)
 		G.E_MANAGER:add_event(Event({
 			func = function()
-				card.children.center:set_sprite_pos(card.ability.extra.texture.overwrite)
+				card.children.center:set_sprite_pos(get_texture(card.ability.extra.current))
 				return true
 			end
 		}))
@@ -61,7 +58,7 @@ SMODS.Joker {
 			end
 		}))
 		if not from_debuff then
-			card.children.center:set_sprite_pos(card.ability.extra.texture.overwrite)
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.current))
 		end
     end,
     remove_from_deck = function(self, card, from_debuff)
@@ -92,12 +89,7 @@ SMODS.Joker {
 								G.hand.config.true_card_limit = G.hand.config.card_limit
 							end
 							-- Texture
-							if card.ability.extra.current > 0 then
-								card.ability.extra.texture.overwrite = card.ability.extra.texture.positive
-							elseif card.ability.extra.current == 0 then
-								card.ability.extra.texture.overwrite = card.ability.extra.texture.neutral
-							else card.ability.extra.texture.overwrite = card.ability.extra.texture.negative end
-							card.children.center:set_sprite_pos(card.ability.extra.texture.overwrite)
+							card.children.center:set_sprite_pos(get_texture(card.ability.extra.current))
 							return true
 						end
 					}))
@@ -116,12 +108,7 @@ SMODS.Joker {
 								G.hand.config.true_card_limit = G.hand.config.card_limit
 							end
 							-- Texture
-							if card.ability.extra.current > 0 then
-								card.ability.extra.texture.overwrite = card.ability.extra.texture.positive
-							elseif card.ability.extra.current == 0 then
-								card.ability.extra.texture.overwrite = card.ability.extra.texture.neutral
-							else card.ability.extra.texture.overwrite = card.ability.extra.texture.negative end
-							card.children.center:set_sprite_pos(card.ability.extra.texture.overwrite)
+							card.children.center:set_sprite_pos(get_texture(card.ability.extra.current))
 							return true
 						end
 					}))

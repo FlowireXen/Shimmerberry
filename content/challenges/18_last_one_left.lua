@@ -74,7 +74,7 @@ SMODS.Challenge {
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-				add_tag(Tag('tag_SEMBY_doom_debt'))
+				add_tag(Tag('tag_SEMBY_ngt_doom'))
 				play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
 				return true
 			end

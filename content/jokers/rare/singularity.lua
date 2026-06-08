@@ -1,10 +1,8 @@
 SMODS.Joker {
-	key = "singularity",
-	name = "SEMBY_singularity",
-	atlas = "SEMBY_jokers",
-	pos = { x = 9, y = 3 },
-    unlocked = true,
-    discovered = false,
+	key = "singularity", -- black hole, black_hole, blackhole
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 9, y = 5 },
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
@@ -14,8 +12,10 @@ SMODS.Joker {
 		extra_slots_used = 2
 		--card_limit = -2
 	},
+    attributes = {
+		'generation', 'destroy_card', 'joker_slot', 'space'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         info_queue[#info_queue + 1] = {key = 'SEMBY_event_horizon', set = 'Other'}
 		return { vars = {
 			card.ability.extra_slots_used + 1

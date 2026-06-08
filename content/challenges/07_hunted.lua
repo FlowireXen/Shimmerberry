@@ -75,10 +75,17 @@ SMODS.Challenge {
 		}))
 	end,
     calculate = function(self, context)
-        -- Game Over Condition [Forced]
-		if context.end_of_round and context.main_eval and context.game_over == false
-        and #G.playing_cards <= 45--G.GAME.SEMBY_survive_until
-        then SEMBY_Challenge_LOSE(); G.GAME.round_resets.ante = -1; end
+        -- Game Over Condition
+		if context.end_of_round and context.main_eval and context.game_over == false and #G.playing_cards <= 45 then
+            G.GAME.win_ante = 99
+            G.GAME.SEMBY_defeated = {
+                atlas = G.P_CENTERS.j_SEMBY_agent_fourty_seven.atlas,
+                position = G.P_CENTERS.j_SEMBY_agent_fourty_seven.pos,
+                loc_key = 'SEMBY_lose_07_hunted',
+                color = G.C.RED
+            }
+            SEMBY_Challenge_LOSE()
+        end
         -- Gain "+X Hand Size"
         if context.pre_discard and context.full_hand and #context.full_hand == 3 then
 			G.E_MANAGER:add_event(Event({

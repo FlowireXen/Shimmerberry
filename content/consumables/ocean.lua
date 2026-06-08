@@ -1,16 +1,10 @@
 SMODS.Consumable {
     key = "ocean",
-	name = "SEMBY_ocean",
-    set = "Tarot",
+    SEMBY_art = "lizrushpy",
 	atlas = "SEMBY_consumables",
-    pos = { x = 3, y = 0 },
-    config = {
-        extra = {
-            odds = 5
-        }
-    },
+    pos = { x = 2, y = 0 },
+    set = "Tarot",
     loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         info_queue[#info_queue + 1] = G.P_CENTERS.e_SEMBY_pearlescent
         info_queue[#info_queue + 1] = G.P_CENTERS.e_SEMBY_shiny
         --info_queue[#info_queue + 1] = { key = "e_SEMBY_shiny_playing_card", set = "Edition", config = G.P_CENTERS.e_SEMBY_shiny.config }
@@ -23,7 +17,7 @@ SMODS.Consumable {
         -- Card Selection
         local selected_card
         if next(jokers) and next(pl_cards) then -- chance for both
-            if SMODS.pseudorandom_probability(card, 'SEMBY_ocean', 1, (card.ability.extra.odds or 5)) then
+            if SMODS.pseudorandom_probability(card, 'SEMBY_ocean', 1, 5, nil, true) then
                 selected_card = pseudorandom_element(jokers, 'SEMBY_ocean')
             else
                 selected_card = pseudorandom_element(pl_cards, 'SEMBY_ocean')
@@ -56,7 +50,7 @@ SMODS.Consumable {
             delay = 0.4,
             func = function()
                 play_sound('tarot1')
-                selected_card:juice_up(0.3, 0.5)
+                selected_card:juice_up(0.3)
                 return true
             end
         }))
@@ -66,7 +60,7 @@ SMODS.Consumable {
             func = function()
                 selected_card:flip()
                 play_sound('card1', 1.1)
-                selected_card:juice_up(0.3, 0.3)
+                selected_card:juice_up(0.3)
                 return true
             end
         }))
@@ -77,7 +71,7 @@ SMODS.Consumable {
             func = function()
                 local edition = poll_edition('SEMBY_ocean', nil, true, true, { 'e_SEMBY_pearlescent', 'e_SEMBY_shiny' })
                 selected_card:set_edition(edition, true)
-                selected_card:juice_up(0.3, 0.5)
+                selected_card:juice_up(0.3)
                 return true
             end
         }))
@@ -87,7 +81,7 @@ SMODS.Consumable {
             func = function()
                 selected_card:flip()
                 play_sound('tarot2', 0.8, 0.6)
-                selected_card:juice_up(0.3, 0.3)
+                selected_card:juice_up(0.3)
                 return true
             end
         }))

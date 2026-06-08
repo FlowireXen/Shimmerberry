@@ -1,5 +1,5 @@
 [manifest]
-version = "1.2.0"
+version = "1.2.1"
 dump_lua = true
 priority = 10
 
@@ -17,10 +17,10 @@ target = "cardarea.lua"
 pattern = '''self.children.area_uibox = UIBox{'''
 position = "before"
 payload = '''
-if self.config.SEMBY_overwrite and self.config.SEMBY_overwrite[1] then
+if self.config.SEMBY_override and self.config.SEMBY_override[1] then
     card_count.nodes = {
         {n=G.UIT.B, config={w = 0.1,h=0.1}},
-        {n=G.UIT.T, config={ref_table = self.config.SEMBY_overwrite[1], ref_value = 'text', scale = 0.3, colour = G.C.WHITE}},
+        {n=G.UIT.T, config={ref_table = self.config.SEMBY_override[1], ref_value = 'text', scale = 0.3, colour = G.C.WHITE}},
         {n=G.UIT.B, config={w = 0.1,h=0.1}}
     }
 end

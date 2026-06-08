@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "hemoturgy",
-	name = "SEMBY_hemoturgy",
-	atlas = "SEMBY_jokers",
-	pos = { x = 7, y = 4 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 3, y = 5 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -12,25 +10,22 @@ SMODS.Joker {
 	cost = 7,
 	config = {
 		extra = {
-			discard_size = 1,
 			discard_limit = 2
 		}
 	},
+    attributes = {
+		'discard', 'enhancements', 'editions', 'seals', 'modify_card',
+		'magic'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
-			card.ability.extra.discard_size,
 			card.ability.extra.discard_limit
 		} }
 	end,
     add_to_deck = function(self, card, from_debuff)
-        G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.discard_size
-        ease_discard(-card.ability.extra.discard_size)
 		SMODS.change_discard_limit(-card.ability.extra.discard_limit)
     end,
     remove_from_deck = function(self, card, from_debuff)
-        G.GAME.round_resets.discards = G.GAME.round_resets.discards + card.ability.extra.discard_size
-        ease_discard(card.ability.extra.discard_size)
 		SMODS.change_discard_limit(card.ability.extra.discard_limit)
     end,
     calculate = function(self, card, context)
@@ -42,7 +37,7 @@ SMODS.Joker {
 				delay = 0.2,
 				func = function()
 					context.other_card:flip()
-					juice_card:juice_up(0.1, 0.1)
+					juice_card:juice_up(0.1)
 					play_sound('card1', math.random()*0.2 + 0.85, 0.5)
 					return true
 				end
@@ -113,8 +108,8 @@ SMODS.Joker {
 						ret_col = G.C.UI.TEXT_INACTIVE
 						play_sound('cancel', 1.0, 0.8)
 					end
-					context.other_card:juice_up(0.2, 0.5)
-					juice_card:juice_up(0.1, -0.1)
+					context.other_card:juice_up(0.2)
+					juice_card:juice_up(0.1)
 					attention_text({
 						text = localize(ret_key),
 						backdrop_colour = ret_col,
@@ -133,7 +128,7 @@ SMODS.Joker {
 				delay = 0.4,
 				func = function()
 					context.other_card:flip()
-					juice_card:juice_up(0.1, 0.1)
+					juice_card:juice_up(0.1)
 					play_sound('card1', math.random()*0.2 + 1.05, 0.5)
 					return true
 				end

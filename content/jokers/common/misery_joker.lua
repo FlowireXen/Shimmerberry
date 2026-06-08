@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "misery",
-	name = "SEMBY_misery",
-	atlas = "SEMBY_jokers",
-	pos = { x = 5, y = 3 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 9, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,10 @@ SMODS.Joker {
 			Xchip = 4.0
 		}
 	},
+    attributes = {
+		'hands', 'xmult', 'xchips'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         return { vars = {
 			card.ability.extra.Xmult,
 			card.ability.extra.Xchip

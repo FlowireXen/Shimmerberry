@@ -1,10 +1,9 @@
 SMODS.Joker {
 	key = "berry_golden",
-	name = "SEMBY_berry_golden",
-	atlas = "SEMBY_jokers",
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
 	pos = { x = 3, y = 0 },
-    unlocked = true,
-    discovered = false,
+    discovered = true,
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -13,18 +12,18 @@ SMODS.Joker {
 	config = {
 		activated = false,
 		extra = {
-			-- Description says "1 or 2" but
-			-- it's actually "between 1 and 2"
 			dollars_min = 1,
 			dollars_max = 2
 		}
+	},
+    attributes = {
+		'food', 'rank', 'economy'
 	},
 	pools = {
         ["Food"] = true,
 		["Berry"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local card_one = G.GAME.current_round.SEMBY_berry_rank_one or { rank = 'King' }
 		local card_two = G.GAME.current_round.SEMBY_berry_rank_two or { rank = 'Queen' }
 		return { vars = {
@@ -43,29 +42,15 @@ SMODS.Joker {
 			or context.other_card:get_id() == G.GAME.current_round.SEMBY_berry_rank_two.id then
 				card.ability.activated = true
 				--> This is too slow: Card scores, and when the NEXT card scores you get the Money.
-				return { dollars = math.floor(pseudorandom('SEMBY_berry_golden_'..card.sort_id, card.ability.extra.dollars_min, card.ability.extra.dollars_max)) }
-				--[[--> Quick'n'Dirty Alternative:
-				local gain = math.floor(pseudorandom('SEMBY_berry_golden_'..card.sort_id, card.ability.extra.dollars_min, card.ability.extra.dollars_max))
-				return {
-            		func = function()
-						ease_dollars(gain)
-						return true
-					end,
-					extra = {
-						message = localize{ type = 'variable', key = 'SEMBY_money', vars = { gain } },
-						colour = G.C.MONEY,
-						sound = 'coin'..math.random(3, 5),
-						size = 1.2
-					}
-				}
-				--]]--> I'm not gonna use that.
+				return { dollars = pseudorandom('SEMBY_berry_golden') > 0.5 and card.ability.extra.dollars_max or card.ability.extra.dollars_min }
 			end
 		end
 		if context.end_of_round and context.main_eval and not context.blueprint then
 			if not card.ability.activated then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        play_sound('SEMBY_crunch_'..math.random(1, 2))
+    			        card:juice_up()
+    			        play_sound('SEMBY_crunch_'..math.random(1, 2), 1.0, 0.8)
 						card:start_dissolve()
                         return true
                     end

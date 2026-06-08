@@ -1,11 +1,13 @@
+local soul_textures = {
+	left = { x = 7, y = 2 },
+	right = { x = 6, y = 2 }
+}
 SMODS.Joker {
 	key = "goobert",
-	name = "SEMBY_goobert",
-	atlas = "SEMBY_jokers",
-	pos = { x = 3, y = 6 },
-	soul_pos = { x = 4, y = 6 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_2",
+	pos = { x = 5, y = 2 },
+	soul_pos = soul_textures.right,
     eternal_compat = true,  --> Paradoxic, I know.
     perishable_compat = true,
     blueprint_compat = false,
@@ -18,20 +20,40 @@ SMODS.Joker {
 			durability_max = 10,
 			durability_other = { refill = true },
 			-- Joker
-			soul_pos = true, --> Bad but I don't care
-			soul_pos_valid = { left = 5, right = 4, y = 6 }
+			soul_switch = true
 		}
+	},
+    attributes = {
+		'generation', 'modify_card',
+		'durability'
 	},
 	pools = {
         ["Repairable"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card:SEMBY_durability_amount(),
 			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
+	load = function(self, card, card_table, other_card)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				card:SEMBY_set_soul_pos('SEMBY_jokers_2',
+					card.ability.extra.soul_switch and soul_textures.right or soul_textures.left
+				)
+				return true
+			end
+		}))
+	end,
+    add_to_deck = function(self, card, from_debuff)
+		if not from_debuff and card.ability.extra.texture_switch then
+			card.ability.extra.soul_switch = not card.ability.extra.soul_switch
+			card:SEMBY_set_soul_pos('SEMBY_jokers_2',
+				card.ability.extra.soul_switch and soul_textures.right or soul_textures.left
+			)
+		end
+    end,
 	calculate = function(self, card, context)
 		-- This Joker was initially designed with Blueprint in Mind;
 		if context.playing_card_added and not context.blueprint then
@@ -82,11 +104,10 @@ SMODS.Joker {
 				}))
 				-- Vars. for Visuals:
 				local juice_card = (context.blueprint_card or card)
-				local soul_ref = card.ability.extra.soul_pos_valid
-				local pos_1 = card.ability.extra.soul_pos and soul_ref.left or soul_ref.right
-				local pos_2 = card.ability.extra.soul_pos and soul_ref.right or soul_ref.left
-				local v_rot = card.ability.extra.soul_pos and 0.5 or -0.5
-				card.ability.extra.soul_pos = not card.ability.extra.soul_pos
+				local soul_pos_1 = card.ability.extra.soul_switch and soul_textures.left or soul_textures.right
+				local soul_pos_2 = card.ability.extra.soul_switch and soul_textures.right or soul_textures.left
+				local v_rot = card.ability.extra.soul_switch and 0.5 or -0.5
+				card.ability.extra.soul_switch = not card.ability.extra.soul_switch
 				-- Swing Visibility, Step 1
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
@@ -95,7 +116,7 @@ SMODS.Joker {
 						-- Visuals
 						play_sound('SEMBY_brush_paint_'..math.random(1, 2), math.random()*0.3 + 0.8)
 						juice_card:juice_up(0.2, v_rot)
-						card:SEMBY_set_soul_pos('SEMBY_jokers', { x = pos_1, y = soul_ref.y })
+						card:SEMBY_set_soul_pos('SEMBY_jokers_2', soul_pos_1)
 						-- Visibility
 						for i = 1, #slimed_cards do
 							slimed_cards[i].states.visible = true
@@ -112,7 +133,7 @@ SMODS.Joker {
 						-- Visuals
 						play_sound('SEMBY_brush_paint_'..math.random(1, 2), math.random()*0.3 + 0.8)
 						juice_card:juice_up(0.2, -v_rot)
-						card:SEMBY_set_soul_pos('SEMBY_jokers', { x = pos_2, y = soul_ref.y })
+						card:SEMBY_set_soul_pos('SEMBY_jokers_2', soul_pos_2)
 						-- Visibility
 						for i = 1, #slimed_cards do
 							slimed_cards[i]:SEMBY_set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 0.7, 0.3, 0.4)
@@ -128,7 +149,7 @@ SMODS.Joker {
 						-- Visuals
 						play_sound('SEMBY_brush_paint_'..math.random(1, 2), math.random()*0.3 + 0.8)
 						juice_card:juice_up(0.2, v_rot)
-						card:SEMBY_set_soul_pos('SEMBY_jokers', { x = pos_1, y = soul_ref.y })
+						card:SEMBY_set_soul_pos('SEMBY_jokers_2', soul_pos_1)
 						-- Visibility
 						for i = 1, #slimed_cards do
 							slimed_cards[i]:SEMBY_set_dissolve({{0, 1, 0, 1}, {0.2, 0.8, 0.2, 0.8}}, 0.3, 0.0, 0.4)
@@ -145,7 +166,6 @@ SMODS.Joker {
 							-- Add to Deck instead:
 							for i = 1, #slimed_cards do
 								slimed_cards[i].area:remove_card(slimed_cards[i])
-								slimed_cards[i]:add_to_deck()
 								G.deck:emplace(slimed_cards[i])
 							end
 							return true

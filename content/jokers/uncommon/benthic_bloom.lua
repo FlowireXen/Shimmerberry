@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "benthic_bloom",
-	name = "SEMBY_benthic_bloom",
-	atlas = "SEMBY_jokers",
-	pos = { x = 4, y = 1 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 9, y = 0 },
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = true,
@@ -16,8 +14,11 @@ SMODS.Joker {
 			repetitions = 1
 		}
 	},
+    attributes = {
+		'enhancements', 'destroy_card', 'chance', 'retrigger',
+		'nature',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, (G.P_CENTERS.m_glass.config.extra or 4), 'SEMBY_benthic_bloom')
         info_queue[#info_queue + 1] = G.P_CENTERS.m_glass
 		return { vars = {

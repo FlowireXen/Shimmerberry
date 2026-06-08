@@ -31,10 +31,9 @@ SMODS.Challenge {
 			local DiscHighest = 1
 			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i].config.center_key == 'j_SEMBY_parking_disc' then
-					DiscCheck[G.jokers.cards[i].ability.extra.index.main] = (DiscCheck[G.jokers.cards[i].ability.extra.index.main] or 0) + 1
-					if DiscCheck[G.jokers.cards[i].ability.extra.index.main] > DiscHighest then
-						--TODO: Also check if State 12 is active
-						DiscHighest = DiscCheck[G.jokers.cards[i].ability.extra.index.main]
+					DiscCheck[G.jokers.cards[i].ability.extra.SEMBY_Text] = (DiscCheck[G.jokers.cards[i].ability.extra.SEMBY_Text] or 0) + 1
+					if DiscCheck[G.jokers.cards[i].ability.extra.SEMBY_Text] > DiscHighest then
+						DiscHighest = DiscCheck[G.jokers.cards[i].ability.extra.SEMBY_Text]
 					end
 				end
     		end

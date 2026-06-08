@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "pocket_dimension",
-	name = "SEMBY_pocket_dimension",
-	atlas = "SEMBY_jokers",
-	pos = { x = 8, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 8, y = 1 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,11 @@ SMODS.Joker {
 			xmult = 1.5
 		}
 	},
+    attributes = {
+		'xmult', 'space',
+		'consumable', 'magic',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.slots,
 			card.ability.extra.xmult

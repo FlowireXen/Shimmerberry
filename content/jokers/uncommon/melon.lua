@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "melon",
-	name = "SEMBY_melon",
-	atlas = "SEMBY_jokers",
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
 	pos = { x = 5, y = 0 },
-    unlocked = true,
-    discovered = false,
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -12,15 +10,16 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			percent = 0.5,
-			delayed = false
+			percent = 0.5
 		}
+	},
+    attributes = {
+		'food', 'boss_blind', 'xblindsize'
 	},
 	pools = {
         ["Food"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			100 * card.ability.extra.percent
 		} }
@@ -32,28 +31,19 @@ SMODS.Joker {
         end
 		if context.end_of_round and context.main_eval and context.game_over == false
 		and G.GAME.blind.boss and not context.blueprint then
-			-- Makes sure, you can actually get "Winning Stickers" on the Joker! :3
-			if G.GAME.blind.config.blind.boss.showdown then
-				card.ability.extra.delayed = true
-				card.ability.SEMBY_price_mod = -1000000
-				card:set_cost()
-			end
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    card:juice_up()
-                    play_sound('SEMBY_crunch_'..math.random(1, 2)) --'cancel'
-                    G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.3,
-                        blockable = false,
-                        func = function()
-							card:start_dissolve()
-                            return true
-                        end
-                    }))
-                    return true
-                end
-            }))
+			-- Delay Destruction until Payout; Allows "Winning Stickers"! :3
+			card.ability.extra.delayed = not G.GAME.won and G.GAME.round_resets.ante >= G.GAME.win_ante
+    		G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+    		    func = function()
+    		        card:juice_up()
+    		        play_sound('SEMBY_crunch_'..math.random(1, 2), 1.0, 0.8)
+					if card.ability.extra.delayed then
+						card:add_sticker('SEMBY_possessive', true)
+					else card:start_dissolve() end
+    		        return true
+    		    end
+    		}))
             return {
 				message = localize('k_eaten_ex'),
 				colour = G.C.GREEN
@@ -61,8 +51,6 @@ SMODS.Joker {
 		end
 	end,
     calc_dollar_bonus = function(self, card)
-		if card.ability.extra.delayed then
-			card:start_dissolve()
-		end
+		if card.ability.extra.delayed then card:start_dissolve() end
     end
 }

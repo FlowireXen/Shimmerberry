@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "buccaneer",
-	name = "SEMBY_buccaneer",
-	atlas = "SEMBY_jokers",
-	pos = { x = 6, y = 10 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 5, y = 7 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -15,8 +13,10 @@ SMODS.Joker {
 			chips = 3
 		}
 	},
+    attributes = {
+		'chips', 'joker', 'sell_value'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         local sell_cost = 0
         for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
             if joker ~= card then

@@ -1,20 +1,21 @@
 SMODS.Joker{
 	key = "bound",
-	name = "SEMBY_bound",
-    atlas = 'SEMBY_jokers',
-    pos = { x = 4, y = 3 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+    atlas = 'SEMBY_jokers_1',
+    pos = { x = 2, y = 4 },
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = false,
     rarity = 2,
     cost = 8,
 	config = {
-		card_limit = 4
+		card_limit = 3
+	},
+    attributes = {
+		'destroy_card', 'joker', 'joker_slot',
+		'debuff_card'
 	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         return { vars = {
 			card.ability.card_limit
 		} }
@@ -24,16 +25,23 @@ SMODS.Joker{
 			G.E_MANAGER:add_event(Event({
 				trigger = 'after',
 				func = function()
-					card:juice_up(0.2, 0.1)
+					card:juice_up(0.2)
 					play_sound('tarot1')
 					if #G.jokers.cards > 0 then
 						local local_jokers = G.jokers.cards
-						for k, v in pairs(local_jokers) do
-							if not v.debuff then
-								v:set_debuff(true)
-								if not SMODS.is_eternal(v, card) then
-									v:start_dissolve()
+						for index, joker in pairs(local_jokers) do
+							if not (joker.debuff or joker.getting_sliced) then
+								joker:set_debuff(true)
+								if not SMODS.is_eternal(joker, card) then
+									joker.getting_sliced = true
+									joker:start_dissolve()
 								end
+            					joker:juice_up()
+								attention_text({
+									text = localize('SEMBY_bound_ex'),
+									backdrop_colour = G.C.RED, hold = 0.8,
+									major = joker, align = 'bm'
+								})
 								break
 							end
 						end

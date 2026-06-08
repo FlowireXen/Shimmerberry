@@ -1,6 +1,6 @@
 CardSleeves.Sleeve {
     key = "scartare_sl",
-	name = "SEMBY_scartare_sl",
+	SEMBY_art = "flowire",
     atlas = "SEMBY_sleeves",
     pos = { x = 0, y = 0 },
 	config = {
@@ -14,7 +14,6 @@ CardSleeves.Sleeve {
 		}
 	},
     loc_vars = function(self)
-		--SEMBY_Queue_Artist(self, info_queue)
         if self.get_current_deck_key() == "b_SEMBY_scartare" then
 			return { key = "sleeve_SEMBY_scartare_sl_alt", vars = {
 				self.config.extra.bonus_limit,

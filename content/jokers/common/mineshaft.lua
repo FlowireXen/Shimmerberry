@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "mineshaft",
-	name = "SEMBY_mineshaft",
-	atlas = "SEMBY_jokers",
-	pos = { x = 5, y = 10 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 0, y = 6 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -17,28 +15,32 @@ SMODS.Joker {
 			durability_max = 50,
 			-- Joker
 			every = 3,
-			remaining = 3
+			count = 0
 		}
+	},
+    attributes = {
+		'generation', 'enhancements',
+		'durability'
 	},
 	pools = {
         ["Repairable"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
         info_queue[#info_queue + 1] = G.P_CENTERS.m_steel
         info_queue[#info_queue + 1] = G.P_CENTERS.m_gold
 		return { vars = {
-			card.ability.extra.remaining,
+			card.ability.extra.every,
+			card.ability.extra.count,
 			card:SEMBY_durability_amount(),
 			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-			card.ability.extra.remaining = card.ability.extra.remaining - 1
-			if card.ability.extra.remaining <= 0 then
-				card.ability.extra.remaining = card.ability.extra.every
+			card.ability.extra.count = card.ability.extra.count + 1
+			if card.ability.extra.count >= card.ability.extra.every then
+				card.ability.extra.count = 0
 				if context.blueprint or card:SEMBY_durability_use() then
 					-- Create Card:
 					local minecard = SMODS.create_card{ set = "Base", enhancement = SMODS.poll_enhancement({ guaranteed = true, options = { 'm_stone', 'm_steel', 'm_gold' } }) }
@@ -47,9 +49,9 @@ SMODS.Joker {
             		table.insert(G.playing_cards, minecard)
 					-- Setup "Materialize"
 					minecard.states.visible = nil
-					context.other_card.SEMBY_mined = (context.other_card.SEMBY_mined or -0.5) + 0.5
+					context.other_card.SEMBY_offset = (context.other_card.SEMBY_offset or -0.5) + 0.5
 					minecard.T.x = context.other_card.T.x
-					minecard.T.y = context.other_card.T.y + (context.other_card.SEMBY_mined % 3)
+					minecard.T.y = context.other_card.T.y + (context.other_card.SEMBY_offset % 3)
 					-- Materialize --> Shows with Text
 					local juice_card = (context.blueprint_card or card)
 					G.E_MANAGER:add_event(Event({
@@ -69,7 +71,7 @@ SMODS.Joker {
 					-- Eval-Status instead of return; Slows down further Animations
 					card_eval_status_text(context.other_card, 'extra', nil, nil, nil, {
 						message = localize('SEMBY_card_mined_ex'),
-						colour = G.C.ATTENTION
+						colour = G.C.IMPORTANT
 					})
 					-- Let the Card stay a bit before emplacing:
 					G.E_MANAGER:add_event(Event({
@@ -89,11 +91,14 @@ SMODS.Joker {
 			end
 		end
 		if context.after and not context.blueprint then
+			local mined = false
 			for _, playing_card in ipairs(G.playing_cards) do
-				if playing_card.SEMBY_mined then
-					playing_card.SEMBY_mined = nil
+				if playing_card.SEMBY_offset then
+					mined = true
+					playing_card.SEMBY_offset = nil
 				end
 			end
+			if mined then G.deck:shuffle() end
 			card:SEMBY_durability_check()
 		end
     end

@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "agent_fourty_seven",
-	name = "SEMBY_agent_fourty_seven",
-	atlas = "SEMBY_jokers",
-	pos = { x = 4, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 4, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -15,8 +13,10 @@ SMODS.Joker {
 			discard_limit = 3
 		}
 	},
+    attributes = {
+		'destroy_card', 'discard'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.discard_limit
 		} }
@@ -33,7 +33,7 @@ SMODS.Joker {
 					end
 				else
 					context.full_hand[target_location].ability.SEMBY_hitman = card.sort_id
-					break;
+					break
 				end
 			end
 			return nil, true

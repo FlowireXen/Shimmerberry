@@ -64,6 +64,12 @@ SMODS.Challenge {
 				end
 			end
 		end
+        -- Custom Death Reason:
+        G.GAME.SEMBY_defeated = {
+            atlas = G.P_CENTERS.j_SEMBY_jokebra.atlas,
+            position = G.P_CENTERS.j_SEMBY_jokebra.pos,
+            loc_key = 'SEMBY_lose_12_gaokao'
+        }
 	end,
 	button_colour = G.C.BLUE
 }

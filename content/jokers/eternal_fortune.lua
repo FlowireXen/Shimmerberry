@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "eternal_fortune",
-	name = "SEMBY_eternal_fortune",
-	atlas = "SEMBY_jokers",
-	pos = { x = 6, y = 1 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 7, y = 0 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -16,8 +14,11 @@ SMODS.Joker {
 			luck = 1.0
 		}
 	},
+    attributes = {
+		'passive', 'hands', 'mod_chance',
+		'nature',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.hands,
 			card.ability.extra.luck
@@ -27,8 +28,11 @@ SMODS.Joker {
         G.E_MANAGER:add_event(Event({func = function()
 			G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
 			ease_hands_played(card.ability.extra.hands)
-			card:juice_up(0.1, 0.1) -- Tiny "Wind"-Shake
+			card:juice_up(0.1)
 		return true end }))
+		if not from_debuff then
+			G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) +1
+		end
     end,
     remove_from_deck = function(self, card, from_debuff)
         G.E_MANAGER:add_event(Event({func = function()
@@ -37,6 +41,9 @@ SMODS.Joker {
 				ease_hands_played(-card.ability.extra.hands)
 			end
 		return true end }))
+		if not from_debuff then
+			G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) -1
+		end
     end,
     calculate = function(self, card, context)
         if context.mod_probability and not context.blueprint then

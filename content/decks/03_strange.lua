@@ -1,6 +1,6 @@
 SMODS.Back{
 	key = "strange",
-	name = "SEMBY_strange",
+	SEMBY_art = "flowire",
 	atlas = "SEMBY_decks",
 	pos = { x = 1, y = 0 },
 	config = {
@@ -12,7 +12,6 @@ SMODS.Back{
 		}
 	},
     loc_vars = function(self, info_queue, card)
-		--SEMBY_Queue_Artist(back, info_queue)
 		return {
 			-- TODO: Have a changing Value like "Misprint" in V3.0
 			vars = { 
@@ -60,7 +59,6 @@ SMODS.Back{
 					return true
 				end
 			}))
-			--delay(0.1)
 			G.E_MANAGER:add_event(Event({
 				func = function()
 					strange_card:juice_up()
@@ -72,7 +70,6 @@ SMODS.Back{
 					return true
 				end
 			}))
-			return nil, true
 		end
     end,
 	unlocked = false,

@@ -1,22 +1,26 @@
+local function get_soul_texture(state)
+	if state and state ~= 0 then
+		if state == 1 then return { x = 2, y = 1 } end
+		if state == 2 then return { x = 3, y = 1 } end
+		if state == 3 then return { x = 4, y = 1 } end
+		if state == 4 then return { x = 5, y = 1 } end
+	end
+	return { x = 1, y = 1 }
+end
 SMODS.Consumable {
     key = "soul_gem",
-	name = "SEMBY_soul_gem",
-    set = "Spectral",
+	SEMBY_art = "flowire",
 	atlas = "SEMBY_consumables",
-    pos = { x = 1, y = 0 },
-	soul_pos = { x = 0, y = 1 },
-    unlocked = true,
-    discovered = false,
+	pos = { x = 0, y = 1 },
+	soul_pos = get_soul_texture(),
 	select_card = 'consumeables', --> Don't "Use" in Booster-Packs
+    set = "Spectral",
 	config = {
 		extra = {
-			captured = 0,
-			soul_pos_valid = { base = 0 },
-			soul_pos_overwrite = { x = 0, y = 1 }
+			captured = 0
 		}
 	},
     loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		if card.ability.extra.captured == 0 then
 			return { key = 'c_SEMBY_soul_gem_empty' }
 		elseif card.ability.extra.captured == 1 then
@@ -51,7 +55,7 @@ SMODS.Consumable {
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				if card.ability.extra.captured ~= 0 then
-					card:SEMBY_set_soul_pos('SEMBY_consumables', card.ability.extra.soul_pos_overwrite)
+					card:SEMBY_set_soul_pos('SEMBY_consumables', get_soul_texture(card.ability.extra.captured))
 				end
 				return true
 			end
@@ -61,14 +65,15 @@ SMODS.Consumable {
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				if card.ability.extra.captured ~= 0 then
-					card:SEMBY_set_soul_pos('SEMBY_consumables', card.ability.extra.soul_pos_overwrite)
+					card:SEMBY_set_soul_pos('SEMBY_consumables', get_soul_texture(card.ability.extra.captured))
 				end
 				return true
 			end
 		}))
     end,
 	calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and card.ability.extra.captured == 0 and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval
+		and card.ability.extra.captured == 0 and not context.blueprint then
 			-- What got Defeated?
 			if G.GAME.blind.boss then
 				if G.GAME.blind.config.blind.boss.showdown then
@@ -83,15 +88,14 @@ SMODS.Consumable {
 					card.ability.extra.captured = 2
 				end
 			end
-			card.ability.extra.soul_pos_overwrite.x = card.ability.extra.soul_pos_valid.base + card.ability.extra.captured
 			-- Visual Feedback
 			return {
-				message = 'Captured!', --localize('k_common'),
+				message = localize('SEMBY_captured'),
 				colour = G.C.SECONDARY_SET.Spectral,
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						card:flip()
-						card:SEMBY_set_soul_pos('SEMBY_consumables', card.ability.extra.soul_pos_overwrite)
+						card:SEMBY_set_soul_pos('SEMBY_consumables', get_soul_texture(card.ability.extra.captured))
 						card:flip()
 						play_sound('tarot1')
 						return true
@@ -140,7 +144,7 @@ SMODS.Consumable {
                     offset = { x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) and -0.2 or 0 }
                 })
 				play_sound(ret_sound, 1.05, 0.8)
-                card:juice_up(0.3, 0.5)
+                card:juice_up(0.3)
                 return true
             end
         }))

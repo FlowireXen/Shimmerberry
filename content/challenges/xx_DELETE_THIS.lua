@@ -16,11 +16,11 @@ SMODS.Challenge {
     },
     restrictions = {
         banned_cards = {
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' },
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' },
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' },
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' },
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_TMTRAINER' },
+            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' },
+            { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' },
+            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' },
+            { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' },
+            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' },
         },
     },
     consumeables = {
@@ -63,11 +63,11 @@ SMODS.Challenge {
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-			    -- Add Area Overwrites
-			    G.jokers:SEMBY_add_text_overwrite(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.75) and 'SEMBY_NaN' or 'SEMBY_QQQ')
-			    G.consumeables:SEMBY_add_text_overwrite(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.75) and 'SEMBY_NaN' or 'SEMBY_QQQ')
-			    G.hand:SEMBY_add_text_overwrite(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.5) and 'SEMBY_NaN' or 'SEMBY_QQQ')
-			    G.deck:SEMBY_add_text_overwrite(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.25) and 'SEMBY_NaN' or 'SEMBY_QQQ')
+			    -- Add Area Overrides
+			    G.jokers:SEMBY_add_text_override(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.75) and 'SEMBY_NaN' or 'SEMBY_QQQ')
+			    G.consumeables:SEMBY_add_text_override(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.75) and 'SEMBY_NaN' or 'SEMBY_QQQ')
+			    G.hand:SEMBY_add_text_override(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.5) and 'SEMBY_NaN' or 'SEMBY_QQQ')
+			    G.deck:SEMBY_add_text_override(0, (pseudorandom("SEMBY_DELETE_THIS") <= 0.25) and 'SEMBY_NaN' or 'SEMBY_QQQ')
                 -- Starting Stats Change (Static):
                 G.jokers.config.card_limit = G.jokers.config.card_limit + 1
 		        G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
@@ -85,22 +85,23 @@ SMODS.Challenge {
 		        	assert(SMODS.change_base(G.playing_cards[i], suit, rank))
 		        end
                 -- Cheaper & Better Shops:
-                G.GAME.SEMBY_shop_mod = (G.GAME.SEMBY_shop_mod or 0) - 0.2
-		        for k, v in pairs(G.I.CARD) do if v.set_cost then v:set_cost() end end
+                SEMBY_Global_ShopMod_Add('DELETE_THIS', -0.2)
 		        G.GAME.round_resets.reroll_cost = G.GAME.round_resets.reroll_cost - 2.0
                 SMODS.change_booster_limit(1)
                 -- Increased Challenge:
-                G.GAME.SEMBY_blind_mod = (G.GAME.SEMBY_blind_mod or 0) + 0.25
-		        G.GAME.win_ante = 12 --> "99" Implies "None", but in reality it's 12 :3
+        	    SEMBY_Global_BlindMod_Add('DELETE_THIS', 0.25)
+		        G.GAME.win_ante = 8 --> "99" Implies "None", but in reality it's ~~12~~ 8* :3
 				-- Change TMTRAINER:
 		        G.E_MANAGER:add_event(Event({
 		        	func = function()
                         local joker = G.jokers.cards[1]
                         -- Modify Joker:
-		        		joker.ability.extra.rng_min = 0.00
-		        		joker.ability.extra.rng_max = 2.00
+		        		joker.ability.extra.SEMBY_TMTR = "RNG"
+		        		joker.ability.extra.SEMBY_TMTR_MIN = 2.00
+		        		joker.ability.extra.SEMBY_TMTR_MAX = 4.00
+                        joker.ability.SEMBY_tmtrainer_value = '???'
 		        		joker.ability.extra.corrupt = true
-		        		joker.children.center:set_sprite_pos({ x = 1, y = 11 })
+		        		joker.children.center:set_sprite_pos({ x = 9, y = 3 })
                         -- Move Joker to Area: "G.consumeable"
 		        		joker.area:remove_card(joker)
 		        		joker:add_to_deck()
@@ -112,6 +113,13 @@ SMODS.Challenge {
 				return true
 			end
 		}))
+        -- Custom Death Reason (Imitate Fallback):
+        G.GAME.SEMBY_defeated = {
+            atlas = "SEMBY_jokers_1",
+            position = { x = 0, y = 0 },
+            loc_key = 'SEMBY_lose_xx_DELETE',
+            color = HEX('FF00FF')
+        }
 	end,
     calculate = function(self, context)
         -- Skipping = 1/2 Chance for a "Double Tag"
@@ -157,13 +165,12 @@ SMODS.Challenge {
         -- Increase Challenge Stats for each Boss Blind defeated
 		if context.end_of_round and context.main_eval and context.game_over == false and G.GAME.blind.boss then
             -- Stat Change
-            G.GAME.SEMBY_shop_mod = (G.GAME.SEMBY_shop_mod or 0) - 0.05
-            for k, v in pairs(G.I.CARD) do if v.set_cost then v:set_cost() end end
-            G.GAME.SEMBY_blind_mod = (G.GAME.SEMBY_blind_mod or 0) + 0.25
+            SEMBY_Global_ShopMod_Add('DELETE_THIS', -0.05)
+            SEMBY_Global_BlindMod_Add('DELETE_THIS', 0.25)
             -- Hide Doom until first Blind defeated
             if G.GAME.SEMBY_hide_doom then
                 G.GAME.SEMBY_hide_doom = false
-				add_tag(Tag('tag_SEMBY_doom_debt'))
+				add_tag(Tag('tag_SEMBY_ngt_doom'))
 				play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
 			    return { message = localize('SEMBY_announce_doom'), colour = G.C.PURPLE }
             end

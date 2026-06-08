@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "risky_joker",
-	name = "SEMBY_risky_joker",
-	atlas = "SEMBY_jokers",
-	pos = { x = 6, y = 5 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 4, y = 6 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -18,8 +16,10 @@ SMODS.Joker {
 			payout = 0
 		}
 	},
+    attributes = {
+		'mult', 'chips', 'economy'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.chips,
 			card.ability.extra.mult,

@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "jokebra",
-	name = "SEMBY_jokebra",
-	atlas = "SEMBY_jokers",
-	pos = { x = 1, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 0, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -19,8 +17,10 @@ SMODS.Joker {
 			target = 0
 		}
 	},
+    attributes = {
+		'blindsize', 'reset'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		info_queue[#info_queue + 1] = { key = "inspired_buffoonery", set = "Other" }
 		if card.ability.extra.active then
 			return {
@@ -57,7 +57,7 @@ SMODS.Joker {
 					trigger = 'after',
 					func = function()
 						-- Effects
-						card:juice_up(0.2, (math.random() < 0.5) and 0.2 or -0.2)
+						card:juice_up(0.2)
 						play_sound('generic1')
 						-- Infobox Below Joker:
 						SEMBY_jokebra_infobox(card)
@@ -76,14 +76,14 @@ SMODS.Joker {
 				-- Select Target
 				local range_max = card.ability.extra.range_max > G.GAME.blind.chips and not (G.GAME.blind.chips ~= G.GAME.blind.chips) and G.GAME.blind.chips
 								  or card.ability.extra.range_max
-				card.ability.extra.target = math.floor(pseudorandom('SEMBY_jokebra_'..card.sort_id, card.ability.extra.range_min, range_max))
+				card.ability.extra.target = math.floor(pseudorandom('SEMBY_jokebra'..card.sort_id, card.ability.extra.range_min, range_max))
 				card.ability.extra.active = true
 				-- Finish:
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
 						-- Effects
-						card:juice_up(0.2, (math.random() < 0.5) and 0.2 or -0.2)
+						card:juice_up(0.2)
 						play_sound('generic1')
 						-- Infobox Below Joker:
 						SEMBY_jokebra_infobox(card)
@@ -93,7 +93,7 @@ SMODS.Joker {
 				delay(0.4)
 				return nil, false
 			end
-			if context.after and context.cardarea == G.jokers and card.ability.extra.active then
+			if context.after and card.ability.extra.active then
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()

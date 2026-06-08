@@ -1,0 +1,30 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = -99999
+
+# Running out of cards doesn't trigger an infinite loop anymore.
+# I *will* make Patches that try to undo this fix.
+# This isn't a Good or Intended game mechanic.
+# Shimmerberry fixes it. Period.
+
+# -- Hook: Fix "OOC" Game Over
+# local update_hook = Game.update_selecting_hand
+# function Game:update_selecting_hand(dt)
+# 	if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 then
+# 		G.STATE = G.STATES.HAND_PLAYED
+# 		G.STATE_COMPLETE = true
+# 	end
+# 	update_hook(self, dt)
+# end
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 then"
+position = "after"
+payload = '''
+    G.STATE = G.STATES.HAND_PLAYED
+    G.STATE_COMPLETE = true
+'''
+match_indent = true

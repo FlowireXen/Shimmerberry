@@ -14,11 +14,11 @@ SMODS.Challenge {
     },
     jokers = {
         { id = 'j_ceremonial', pinned = true, eternal = true, edition = "negative" },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
     },
     vouchers = {
         { id = 'v_blank' },
@@ -47,7 +47,8 @@ SMODS.Challenge {
 					trigger = 'after',
 					func = function()
 						for i = 2, #G.jokers.cards do
-							G.jokers.cards[i].ability.extra = G.jokers.cards[i].ability.extra * 2.0
+							G.jokers.cards[i].ability.extra = G.jokers.cards[i].ability.extra + 3.0
+                            --G.jokers.cards[i].edition.base_value = G.jokers.cards[i].edition.base_value + 3.0
 						end
 						save_run()
 						return true

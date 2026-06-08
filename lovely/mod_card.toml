@@ -1,0 +1,56 @@
+[manifest]
+version = "1.2.0"
+dump_lua = true
+priority = 10
+
+# 1.) Upgrades TMTRAINER functionality by modifying "Card:add_to_deck()"
+# 2.) Adds an Alternative to "skip_destroy_animation"
+
+# TMTRAINER
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+local obj = self.config.center
+if obj and obj.add_to_deck and type(obj.add_to_deck) == 'function' then
+'''
+position = "before"
+payload = '''
+if not from_debuff and G.GAME.SEMBY_TMTRAINER and self.ability.set == "Joker" then
+    SEMBY_TMTR_Change(self)
+end
+'''
+match_indent = true
+
+# Alternative
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if self.skip_destroy_animation then"
+position = "before"
+payload = '''
+if self.SEMBY_skip_and_shut_up then
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            self.T.r = -0.2
+            self:juice_up(0.3, 0.4)
+            self.states.drag.is = true
+            self.children.center.pinch.x = true
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				delay = 0.3,
+				blockable = false,
+				func = function()
+                    G.jokers:remove_card(self)
+                    self:remove()
+                    self = nil
+					return true
+				end
+			}))
+            return true
+        end
+    })) 
+    return
+end
+'''
+match_indent = true

@@ -1,9 +1,8 @@
 CardSleeves.Sleeve {
     key = "burning_sl",
-	name = "SEMBY_burning_sl",
+	SEMBY_art = "flowire",
     atlas = "SEMBY_sleeves",
     pos = { x = 3, y = 0 },
-    --loc_vars = function(self) SEMBY_Queue_Artist(self, info_queue) end,
     calculate = function(self, sleeve, context)
         if context.destroy_card and context.destroy_card == context.scoring_hand[1] then
             -- Message doesn't take up any time:

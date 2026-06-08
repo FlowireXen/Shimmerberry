@@ -1,17 +1,13 @@
 # TODO's:
 
 > List of Known Bugs:
-- [MAJOR][ Planned ]: Talisman crashes the Game
+- [MAJOR][Won't Fix]: Talisman crashes the Game, use Amulet instead.
 - [MINOR][ Planned ]: "Afterimage" doesn't apply "context.modify_ante" correctly.
-- [MINOR][Won't Fix]: Copies of a Debuffed "Anchor" can *always* be Highlighted, even after the Debuff runs out.
-- [MINOR][Won't Fix]: Transformed "Anchor" Copies can only be Highlighted after returning from Main Menu.
 
 > Future WiPs:
-- [+++]: Add Talisman Support
+- [+++]: Add Support for https://github.com/nh6574/JokerDisplay
 - [ ++]: "Winning Ante: 99" should be "Winning Ante: None/-" (Requires patching UI)
-- [ ++]: Add Unlock requirements to some Jokers
-- [ ++]: Add "Partners" Support
-- [  +]: Make sure "play_sound" from Jokers/Challenges with no delay only play once
+- [  +]: Add Unlock requirements to some Jokers
 - [   ]: Give all Jokers pronouns
 
 > Each Release:
@@ -20,48 +16,123 @@
 - - Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
 - - Mod Index: https://github.com/FlowireXen/balatro-mod-index - meta.json, readme.md
 
-> Maybe TODO's:
+> Next TODO's:
 - Upload to: https://thunderstore.io/c/balatro
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+Patch Notes:
+Updated Art-Credits system, now always shows the Art-Credits, much like the PotatoPatchUtils
+Internal Update: Removed unnecessary "name" property from all Onbjects
+"Shiny" edition now shows both states in collection
+"Degrading" works in Collection View again
+"Degrading" now works with Playing cards -> "Destroyed if this card is held in hand at end of round"
+Updated Translation File: Removed Duplicate Entries
+Updated Challenge "Shiny Hunt": Now grants a flat $3 bonus to all starting eggs
+Reworked "Improv Show": Now Converts leftover hands into bonus hands for future scoring
+"Cockroach" now relies on the SMODS fallback when skipping the Winning Ante -> Added some fitting ingame info!
+"TMTRAINER" is no longer Blueprint Compatible, but doesn't break as often anymore.
+Technical: All Destruction Effects happen quicker now
+"Bound Joker" has more visual feedback
+"Melon" and "Plastic Key" wait for the Win-Screen before getting destroyed in more/better circumstances
+Obscure Ritual has been Buffed (50% -> 66.6%)
+Eternal Jokers given by Challenges are Immune to "Emergency Button", "Copy Printer" and "Order (Spectral)"
+"Echoing Joker" reduced cost by $2 + Description Updated
+"Shooting Star" Description Updated
+All Jokers with a Changing Texture are now less prone to breaking/crashing when changing the internal Values
+"Revives" now always shuffle into the Deck
+Updated "Chrono Break" Revive Mechanic, "Chrono Break" now Shatters all scoring cards instead of 1 random
+Updated "Tempered Glass" Revive Mechanic
+Enjoy Art from GhostSalt, lanedarushpy, ... :3
+Some Challenges now have Custom Death Reasons!
+Intimidating: Now only shows up Ante 2 and up
+Nerfed: Stocked Shelves (Destroyed after buying 5 cards)
+Buffed: Watching Forest -> Now always sorts once, direction changes every 3 hands
+Nerfed: Bound Joker -> Gives 3 slots instead of 4
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+-->
+Uhh hh kit ty — 19:15
+cuckoo and harebrained are ones I purrsonally like for theorhetical mult ones
+or you could go the way of the suit jokers and do deadly sins...
+--<
+((kitty: of course mew could also instead of harebrained you could do birdbrain but then you'd have to make that one kasane teto))
+
+
+
+Don't forget to Ban certain Tags in certain Challenges
+(Generally all Challenges)
+
+
+Make sure no joker has :: loc_txt
+
+
+Add sound sources to origin
+Add Texture files to origin
+( Generally Update Origin )
+
+
+More Achievements: 1 / 6 done
+2:: "Nobody like me" :: Own 5 copies of the same Joker :: [In Global Joker Added Event, add this Achievement Check]
+3:: "Memory Overflow" :: Fill a Memory with +1000 Chips :: [Global "After" Context]
+4:: "%:1( %=/*+" :: Own 5 TMTRAINER'd Jokers :: [Add a Check to the TMTRAINER Code]
+5:: "Loop Hero" :: Complete 21 Loops in a Row :: [Add a Check to the Oblivion Joker]
+6:: "Flowire Loves You!" :: Beat all Shimmerberry Challenges :: [Add a Check to the Win-Hook]
+
+
+
+
+
+Ideas:
+
+[IDEA] Deck:
+- Replaces Money with Time
+- - $1 => 10 seconds
+- - Literally just show a time in the Money-Slot
+- - "Set Cost" can just be hooked etc.
+
+Sticker: "Temporary Copy"
+Effect:  "Doesn't take up Space, Destroyed at the End of Shop"
+--> set one to "-1" and the other to "0" (so negative doesn't apply either)
+
+Joker Idea:
+"{C:green}Reduce{} Blind Size by {C:SEMBY_percent}10%{}",
+"for each unscoring card",
+
+
 > Next Update [Sketch]:
-
-Arch: +100 Chips if there is a 5 rank gap between scoring cards / 1 gap in rank -> new hand type
-Something New: gain 10 dollars if you play a hand you havent played before
-Fire Exit: 1 in 4 to reduce blind size by 50%
-~~Taskmaster: multiple tasks, rewards dollars, destroyed after 3 failed tasks, BASE for Challenges...~~
-Dent/Chipped: Add flat 50 score for each card played or discarded
-Blind: 2X Size, When beaten, Resets Score and Disables Blind
-???: Returns last three used Consumables (must have space)
-"Joker": Reduce/Increase Round Score by 50%, +1XMULT for every 1000 Points removed/added
-"Deck"/"Challenge": Disables "High Card", "Pair" and "Three of a kind" -> Sleeve BLOCKS these hands
-Wine Garden: Gain a random Berry at the start of each Blind, Berry Jokers don't take up space, (Destroying this Joker destroyes all Berries)
-Healing Salve: Every 3 scoring cards this gains 1%, When sold, reduce current blind size by X%
-4th Boss-Blind: "Ghost" -> "Phanta" Mod reference!
-4th Consumable: Tarot, "Monarch"
-
-Eden Soul (Uncommon):
-Mode 1: Winning a Blind with this grants a random Joker next run, also randomly gives 10 Mult or 50 Chips
-Mode 2: When starting a Blind, create a Random Joker (and remove 1 from "Eden Souls")
-Can create Legendaries!
-Technical: Add an option "Eden Souls" -> With Reset-Button and "Set to Max"-Button (9999+)
 
 > Challenger Approaching [SPOILER][Sketch]:
 
-"Nonrefundable Trial": 10 Hand Size, but once you've drawn a Hand, the rest of your Deck gets Discarded
+"Nonrefundable Trial": 10 Hand Size, 10 Cards, playing cards are all Degrading
 "Explosive Trial": Buff Shop, Go from Ante 1 to Ante 8 instantly
 "Deckless Trial": All playing cards are debuffed
 "Desperate Trial": Starting Stats -1, Hands only earn $0.5, Only one Card each Shop (No Vouchers or boosters), No reward money
 "Doomsday Trial": Start with "[Degrading] Black Hole", Deck is Linked to Black Hole, Winning Ante 6, Ban Revive Jokers, (Empty Shops?)
+"??": After beating a Boss Blind, permanently Disable all owned Jokers
+
 "Pizzo Trial": Don't Regain Hands & Discards, You're able to buy Hands and Discards in Shop (Vouchers, Ban Upgrades), Start with 5 of each
+- Instead of Vouchers; Add two Custom Buttons above the Deck -> $4 per Discard, $8 per Hand
+- Hands (and Discards) DO still give money
 
 "Gungame Trial":
 - Entire Deck start as 2's
 - Played Cards up their rank by 3
-- Played Queens, Kings and Aces get destroyed
-- - 2 -> 5 -> 8 -> Jack -> Ace -> Gone
+- Played Face Cards get destroyed
+- (Ace) -> 2 -> 5 -> 8 -> Jack -> Ace -> Gone
 - Played "Stone Cards" / "Cards with no ranks" get Destroyed (Message from Deck; "INVALID")
 - Ban Normal Card Packs
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[FINAL] "Digital Roses" (Challenge):
+- Start with "Flower Pot" and "Potted Flower" [2x Eternal]
+- All Face Cards are "Memory Cards" / Entire Deck is "Memory Cards" (+ Ban Pluto)
+
+[FINAL] "Cascade"/"Escalation Protocol" (Challenge):
+- First Blind starts at 100
+- Beat Double the last round score every Blind
+- Skipping Actively just Doubles all Score immidiatly
+
+--G.GAME.SEMBY_last_score = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
+

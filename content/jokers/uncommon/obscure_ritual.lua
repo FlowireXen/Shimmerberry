@@ -1,10 +1,12 @@
+local textures = {
+	active = { x = 4, y = 2 },
+	inactive = { x = 3, y = 2 }
+}
 SMODS.Joker {
 	key = "obscure_ritual",
-	name = "SEMBY_obscure_ritual",
-	atlas = "SEMBY_jokers",
-	pos = { x = 6, y = 6 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_2",
+	pos = textures.inactive,
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -12,14 +14,15 @@ SMODS.Joker {
 	cost = 5,
 	config = {
 		extra = {
-			percent = 0.50,
-			active = false,
-			pos_valid = { base = 6, mod = 7 },
-			pos_overwrite = { x = 6, y = 6 }
+			percent = 0.666,
+			active = false
 		}
 	},
+    attributes = {
+		'xblindsize', 'full_deck',
+		'magic'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.percent * 100
 		} }
@@ -27,14 +30,16 @@ SMODS.Joker {
 	load = function(self, card, card_table, other_card)
 		G.E_MANAGER:add_event(Event({
 			func = function()
-				card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+				if card.ability.extra.active then
+					card.children.center:set_sprite_pos(textures.active)
+				end
 				return true
 			end
 		}))
 	end,
     add_to_deck = function(self, card, from_debuff)
-		if not from_debuff then
-			card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+		if not from_debuff and card.ability.extra.active then
+			card.children.center:set_sprite_pos(textures.active)
 		end
     end,
 	calculate = function(self, card, context)
@@ -44,8 +49,7 @@ SMODS.Joker {
 					card.ability.extra.active = true
 					G.E_MANAGER:add_event(Event({
 						func = function()
-							card.ability.extra.pos_overwrite.x = card.ability.extra.pos_valid.mod
-							card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+							card.children.center:set_sprite_pos(textures.active)
 							return true
 						end
 					}))
@@ -64,8 +68,7 @@ SMODS.Joker {
 					card.ability.extra.active = false
 					G.E_MANAGER:add_event(Event({
 						func = function()
-							card.ability.extra.pos_overwrite.x = card.ability.extra.pos_valid.base
-							card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+							card.children.center:set_sprite_pos(textures.inactive)
 							return true
 						end
 					}))

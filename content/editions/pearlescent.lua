@@ -7,7 +7,7 @@ SMODS.Shader {
 --## Edition
 SMODS.Edition {
     key = "pearlescent",
-	name = "SEMBY_pearlescent",
+	SEMBY_art = "flowire",
     shader = "pearlescent",
     config = {
 		percent = 0.05
@@ -15,9 +15,8 @@ SMODS.Edition {
     in_shop = true,
     weight = 5,
     extra_cost = 3,
-    sound = { sound = "SEMBY_pearlescent", per = 1.2 * 1.58, vol = 0.4 },
+    sound = { sound = "SEMBY_pearlescent", per = 1.2 * 1.58, vol = 1.2 },
     loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         return { vars = {
 			((card.edition or {}).percent or self.config.percent) * 100
 		} }

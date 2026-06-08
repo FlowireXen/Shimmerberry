@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "fortune_cookie",
-	name = "SEMBY_fortune_cookie",
-	atlas = "SEMBY_jokers",
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
 	pos = { x = 6, y = 0 },
-    unlocked = true,
-    discovered = false,
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = false,
@@ -13,8 +11,11 @@ SMODS.Joker {
 	pools = {
         ["Food"] = true,
     },
+    attributes = {
+		'editions', 'food', 'on_sell',
+		'changing_effects'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		if card.edition and card.edition.key then
 			local loc_key = G.localization.descriptions.Edition[card.edition.key]
 			if loc_key and loc_key.name then

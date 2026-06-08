@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "pay_two_win",
-	name = "SEMBY_pay_two_win",
-	atlas = "SEMBY_jokers",
-	pos = { x = 6, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 3, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -18,8 +16,10 @@ SMODS.Joker {
 			mult = 30
 		}
 	},
+    attributes = {
+		'mult', 'economy'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.spend,
 			card.ability.extra.mult

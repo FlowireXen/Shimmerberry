@@ -1,10 +1,18 @@
+local function get_texture(state)
+	if state then
+		if state <= 1 then return { x = 0, y = 0 } end
+		if state == 2 then return { x = 1, y = 0 } end
+		if state == 3 then return { x = 2, y = 0 } end
+		if state == 4 then return { x = 3, y = 0 } end
+		if state >= 5 then return { x = 4, y = 0 } end
+	end
+	return { x = 1, y = 0 }
+end
 SMODS.Joker {
 	key = "perfect_pitch",
-	name = "SEMBY_perfect_pitch",
-	atlas = "SEMBY_jokers",
-	pos = { x = 1, y = 8 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_2",
+	pos = get_texture(),
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -12,17 +20,14 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			scoring = {
-				state = 2,
-				max = 5
-			},
-			xmult = 2.0,
-			xmult_gain = 1.0,
-			streak = 0,
-			streak_active = false,
-			pos_valid = { base = 0 }, --> Starts with state 2, but state 1 is pos 0
-			pos_overwrite = { x = 1, y = 8 }
+			scoring = { state = 2, max = 5 },
+			streak = 0, streak_active = false,
+			xmult = 2.0, xmult_gain = 1.0
 		}
+	},
+    attributes = {
+		'xmult', 'scaling', 'hand_type',
+		'music'
 	},
 	pools = {
 		["Music"] = true,
@@ -32,7 +37,6 @@ SMODS.Joker {
 		if Shimmerberry.compat.buffoonery and Buffoonery.config.show_info then
 			info_queue[#info_queue+1] = {set = 'Other', key = 'nu_metal_info'}
 		end
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.xmult,
 			card.ability.extra.scoring.state,
@@ -44,14 +48,14 @@ SMODS.Joker {
 	load = function(self, card, card_table, other_card)
 		G.E_MANAGER:add_event(Event({
 			func = function()
-				card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+				card.children.center:set_sprite_pos(get_texture(card.ability.extra.scoring.state))
 				return true
 			end
 		}))
 	end,
     add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
-			card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.scoring.state))
 		end
     end,
     calculate = function(self, card, context)
@@ -62,14 +66,13 @@ SMODS.Joker {
 			}
         end
 		if context.after and not context.blueprint then
-			card.ability.extra.scoring.state = card.ability.extra.scoring.state + 1
+			card.ability.extra.scoring.state = math.floor(card.ability.extra.scoring.state) + 1
 			if card.ability.extra.scoring.state > card.ability.extra.scoring.max then
 				card.ability.extra.scoring.state = 1
 			end
 			G.E_MANAGER:add_event(Event({
 				func = function()
-					card.ability.extra.pos_overwrite.x = card.ability.extra.pos_valid.base + card.ability.extra.scoring.state - 1
-					card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+					card.children.center:set_sprite_pos(get_texture(card.ability.extra.scoring.state))
 					return true
 				end
 			}))

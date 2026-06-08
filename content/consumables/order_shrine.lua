@@ -1,11 +1,10 @@
 SMODS.Consumable {
     key = "order_shrine",
-	name = "SEMBY_order_shrine",
-    set = "Spectral",
+	SEMBY_art = "flowire",
 	atlas = "SEMBY_consumables",
-    pos = { x = 0, y = 0 },
+	pos = { x = 1, y = 0 },
+    set = "Spectral",
     loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local main_challenge_info = nil
 		if G.GAME.challenge then
 			main_challenge_info = { {
@@ -57,7 +56,7 @@ SMODS.Consumable {
 				func = function()
 					G.jokers.cards[i]:flip()
 					play_sound('card1', percent)
-					G.jokers.cards[i]:juice_up(0.3, 0.3)
+					G.jokers.cards[i]:juice_up(0.3)
 					return true
 				end
 			}))
@@ -70,17 +69,23 @@ SMODS.Consumable {
 				delay = 0.15,
 				func = function()
 					-- Actual Logic
-					if G.jokers.cards[i] ~= selected_card then
-						if not G.jokers.cards[i].ability.SEMBY_OI then -- "Order Immune"
-							-- copy_card(selected_card, G.jokers.cards[i], nil, nil, nil)
-							G.jokers.cards[i]:set_ability(selected_card.config.center)
-							G.jokers.cards[i].ability.type = selected_card.ability.type
-							G.jokers.cards[i]:set_base(selected_card.config.card)
-						end
+					if G.jokers.cards[i].ability.SEMBY_ChallengeImmunity then
+						attention_text({
+							text = localize('SEMBY_immune_ex'),
+							backdrop_colour = G.C.RED,
+							scale = 1.0, hold = 0.8,
+							major = G.jokers.cards[i],
+							align = 'cm', offset = { x = 0, y = 0 }
+						})
+					elseif G.jokers.cards[i] ~= selected_card then
+						-- copy_card(selected_card, G.jokers.cards[i], nil, nil, nil)
+						G.jokers.cards[i]:set_ability(selected_card.config.center)
+						G.jokers.cards[i].ability.type = selected_card.ability.type
+						G.jokers.cards[i]:set_base(selected_card.config.card)
 					end
 					-- Flair
 					play_sound('paper1', percent, 0.6)
-					G.jokers.cards[i]:juice_up(0.3, 0.3)
+					G.jokers.cards[i]:juice_up(0.3)
 					return true
 				end
 			}))
@@ -94,7 +99,7 @@ SMODS.Consumable {
 				func = function()
 					G.jokers.cards[i]:flip()
 					play_sound('tarot2', percent, 0.6)
-					G.jokers.cards[i]:juice_up(0.3, 0.3)
+					G.jokers.cards[i]:juice_up(0.3)
 					return true
 				end
 			}))

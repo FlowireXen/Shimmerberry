@@ -12,11 +12,9 @@ local Semby_durable_abilities = {
 -- Joker Code
 SMODS.Joker {
 	key = "toolkit",
-	name = "SEMBY_toolkit",
-	atlas = "SEMBY_jokers",
-	pos = { x = 9, y = 5 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 5, y = 1 },
     eternal_compat = false,
     perishable_compat = false,
     blueprint_compat = true,
@@ -32,12 +30,14 @@ SMODS.Joker {
 			repair_mod = 5,
 		}
 	},
+    attributes = {
+		'joker',
+		'durability'
+	},
 	pools = {
 		["Tool"] = true,
-        ["Repairable"] = false,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.repair_mod,
 			card:SEMBY_durability_amount(),
@@ -47,7 +47,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and not context.game_over then
 			for _, joker in pairs(G.jokers.cards) do
-				if joker == card then break; end
+				if joker == card then break end
 				if not (joker.debuff or joker.getting_sliced) then
 					-- Max Amount for Repair
 					local repair_max = context.blueprint and card.ability.extra.repair_mod

@@ -7,8 +7,8 @@ SMODS.Challenge {
             { id = 'no_shop_jokers' },
         },
         modifiers = {
-            { id = 'joker_slots', value = 6 },
-            { id = 'dollars', value = -25 },
+            { id = 'joker_slots', value = 4 },
+            { id = 'dollars', value = -10 },
         }
     },
     restrictions = {
@@ -26,9 +26,9 @@ SMODS.Challenge {
         },
     },
     jokers = {
-        { id = 'j_SEMBY_opulent_skint', eternal = true },
+        { id = 'j_SEMBY_opulent_skint', SEMBY_rental = true },
         { id = 'j_credit_card', edition = "SEMBY_shiny", SEMBY_perishable = true },
-        { id = 'j_SEMBY_coupon' },
+        { id = 'j_SEMBY_coupon', eternal = true },
     },
     consumeables = {
         { id = 'c_temperance' },
@@ -58,17 +58,20 @@ SMODS.Challenge {
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-                -- Discourage Skipping Instantly
-			    local lavish_debt = Tag('tag_SEMBY_lavish_debt')
+                -- Discourage Skipping
+			    local lavish_debt = Tag('tag_SEMBY_ngt_lavish')
 			    lavish_debt.ability.lavish_percent = 1.0
                 add_tag(lavish_debt)
                 play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
-                -- Gives Money for the rest of the run
-				add_tag(Tag('tag_investment'))
-				add_tag(Tag('tag_investment'))
 				return true
 			end
 		}))
 	end,
+    calculate = function(self, context)
+        if context.starting_shop then
+			local card = SMODS.add_voucher_to_shop('j_SEMBY_opulent_skint', false)
+            card:add_sticker('rental', true)
+        end
+    end,
 	button_colour = G.C.RED
 }

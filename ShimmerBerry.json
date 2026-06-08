@@ -1,16 +1,17 @@
 {
-    "id": "SEMBY",
-    "name": "Shimmerberry",
-    "author": ["Flowire", "unkokat"],
-    "description": "Adds Fluffy, Custom and Vanilla-Like Content: 90 Jokers, 20 Challenges, 4 Vouchers, 3 Decks (+Sleeves!), 3 Consumables and more!",
-    "prefix": "SEMBY",
-    "main_file": "ShimmerBerry.lua",
-    "badge_colour": "FF8FA9",
-    "badge_text_colour": "ffffff",
-    "dependencies": [
-		"Steamodded (>=1.0.0~BETA-1503a)",
-		"Lovely (>=0.9.0)"
-    ],
-    "version": "26.3.29a",
-    "allow_redistribution": true
+  "id": "SEMBY",
+  "name": "Shimmerberry",
+  "author": ["Flowire", "unkokat"],
+  "description": "Adds Fluffy, Custom and Vanilla-Like Content: 90 Jokers, 20 Challenges, 4 Vouchers, 3 Decks (+Sleeves!), 3 Consumables and more!",
+  "prefix": "SEMBY",
+  "main_file": "ShimmerBerry.lua",
+  "badge_colour": "FF8FA9",
+  "badge_text_colour": "ffffff",
+  "priority": 5,
+  "dependencies": [
+    "Steamodded (>=1.0.0~BETA-1503a)",
+    "Lovely (>=0.9.0)"
+  ],
+  "version": "26.5.20b",
+  "allow_redistribution": true
 }

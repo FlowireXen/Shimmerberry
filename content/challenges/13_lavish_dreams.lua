@@ -14,7 +14,7 @@ SMODS.Challenge {
             { id = 'hands', value = 2 },
             { id = 'discards', value = 2 },
             { id = 'hand_size', value = 12 },
-            { id = 'dollars', value = 1 },
+            { id = 'dollars', value = 2 },
         }
     },
     restrictions = {
@@ -34,7 +34,7 @@ SMODS.Challenge {
             { id = 'tag_coupon' },
             { id = 'tag_skip' },
             { id = 'tag_economy' },
-            { id = 'tag_SEMBY_vouch_down' },
+            { id = 'tag_SEMBY_bnt_vouch_down' },
         },
         banned_other = {
             { id = 'bl_final_heart', type = 'blind' },
@@ -42,7 +42,7 @@ SMODS.Challenge {
         },
     },
     jokers = {
-        { id = 'j_SEMBY_lavish_joker', pinned = true, eternal = true, SEMBY_possessive = true },
+        { id = 'j_SEMBY_lavish_joker', pinned = true, eternal = true },
         { id = 'j_SEMBY_lavish_joker' },
         { id = 'j_SEMBY_pay_two_win', SEMBY_glitched = 0.5, SEMBY_perishable = true },
     },
@@ -73,15 +73,14 @@ SMODS.Challenge {
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
+                        local buffed = false
 						for i = 1, #G.jokers.cards do
 							if G.jokers.cards[i].config.center_key == 'j_SEMBY_pay_two_win' then
 								G.jokers.cards[i].ability.extra.spend = math.floor(G.jokers.cards[i].ability.extra.spend * 0.5)
 								G.jokers.cards[i].ability.extra.mult = G.jokers.cards[i].ability.extra.mult * 0.5
 							end
-							if G.jokers.cards[i].config.center_key == 'j_SEMBY_lavish_joker'
-                            and G.jokers.cards[i].ability.SEMBY_possessive then
-								G.jokers.cards[i].ability.extra.uses = 0
-								G.jokers.cards[i].ability.extra.possessive = true
+							if G.jokers.cards[i].config.center_key == 'j_SEMBY_lavish_joker' and not buffed then
+                                buffed = true
 								G.jokers.cards[i].ability.extra.lavish_buff = true
 								SMODS.debuff_card(G.jokers.cards[i], 'prevent_debuff', 'SEMBY_lavish_joker')
 							end

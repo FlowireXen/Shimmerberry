@@ -32,18 +32,16 @@ local function SEMBY_Get_Quest()
 end
 -- Texture Data
 local SEMBY_quest_pos = {
-	base     = { x = 3, y =  9 },
-	active   = { x = 3, y = 10 },
-	complete = { x = 3, y = 11 },
+	base     = { x = 0, y = 2 },
+	active   = { x = 1, y = 2 },
+	complete = { x = 2, y = 2 },
 }
 -- Joker Code
 SMODS.Joker {
 	key = "quest",
-	name = "SEMBY_quest",
-	atlas = "SEMBY_jokers",
-	pos = { x = 3, y = 9 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_2",
+	pos = SEMBY_quest_pos.base,
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = false,
@@ -51,7 +49,6 @@ SMODS.Joker {
 	cost = 7,
     config = {
 		extra = {
-			pos_overwrite = { x = 3, y = 9 },
 			-- Version 3.5 State-Logic
 			quest = {
 				category = "unset",
@@ -65,8 +62,11 @@ SMODS.Joker {
 			target = 0,
 		}
 	},
+    attributes = {
+		'scaling', 'reset', 'generation',
+		'changing_effects'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local ret_key = 'j_SEMBY_quest'
 		local ret_val = nil
 		local info_val = nil
@@ -101,7 +101,15 @@ SMODS.Joker {
 	load = function(self, card, card_table, other_card)
 		G.E_MANAGER:add_event(Event({
 			func = function()
-				card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+				if card.ability.extra.quest.complete then
+					card.children.center:set_sprite_pos(SEMBY_quest_pos.complete)
+				elseif card.ability.extra.quest.action == "use" then
+					card.children.center:set_sprite_pos(SEMBY_quest_pos.active)
+				elseif not card.ability.extra.quest.reset then
+					card.children.center:set_sprite_pos(SEMBY_quest_pos.active)
+				else
+					card.children.center:set_sprite_pos(SEMBY_quest_pos.base)
+				end
 				return true
 			end
 		}))
@@ -128,8 +136,9 @@ SMODS.Joker {
 			card.ability.extra.quest.check = false
 			card.ability.extra.quest.silent = false
 			-- Set Correct Texture
-			card.ability.extra.pos_overwrite = card.ability.extra.quest.reset and SEMBY_quest_pos.base or SEMBY_quest_pos.active
-			card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+			card.children.center:set_sprite_pos(
+				card.ability.extra.quest.reset and SEMBY_quest_pos.base or SEMBY_quest_pos.active
+			)
 			-- Announce Start!
 			card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('SEMBY_quest_accepted'), colour = G.C.GREEN })
 		end
@@ -139,7 +148,7 @@ SMODS.Joker {
 			if card.ability.extra.quest.complete then
 				local legend = SMODS.create_card({ set = 'Joker', legendary = true })
 				if legend.config.center_key == 'j_joker' then
-					legend:start_dissolve(nil, true, 0, true) -- Do you need to do this?
+					legend:remove()--legend:start_dissolve(nil, true, 0, true)
 					legend = SMODS.create_card({ set = 'Joker', legendary = true, allow_duplicates = true })
 				end
 				legend:add_to_deck()
@@ -164,21 +173,20 @@ SMODS.Joker {
 						func = function()
 							play_sound('button')
 							-- Texture: Active
-							card.ability.extra.pos_overwrite = SEMBY_quest_pos.active
-							card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+							card.children.center:set_sprite_pos(SEMBY_quest_pos.active)
 							return true
 						end
 					}))
 					return {
 						message = localize('k_reset'),
-						colour = G.C.ATTENTION
+						colour = G.C.IMPORTANT
 					}
 				end
 				return --> early
 			end
 			if not card.ability.extra.quest.reset then
 				if card.ability.extra.quest.category == "hand" then
-					if context.joker_main and context.cardarea == G.jokers then
+					if context.joker_main then
 						if card.ability.extra.quest.action == "use" or card.ability.extra.quest.action == "shot" then
 							card.ability.extra.major = card.ability.extra.major + 1
 							card.ability.extra.quest.check = true
@@ -188,7 +196,7 @@ SMODS.Joker {
 						end
 					end
 				elseif card.ability.extra.quest.category == "discard" then
-					if context.discard and context.cardarea == G.jokers then
+					if context.discard then
 						if card.ability.extra.quest.action == "use" or card.ability.extra.quest.action == "shot" then
 							card.ability.extra.major = card.ability.extra.major + 1
 							card.ability.extra.quest.check = true
@@ -274,8 +282,7 @@ SMODS.Joker {
 						func = function()
 							play_sound('button')
 							-- Texture: Inactive
-							card.ability.extra.pos_overwrite = SEMBY_quest_pos.base
-							card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+							card.children.center:set_sprite_pos(SEMBY_quest_pos.base)
 							return true
 						end
 					}))
@@ -297,8 +304,7 @@ SMODS.Joker {
 								card:juice_up()
 								play_sound('gold_seal')
 								-- Texture: Active
-								card.ability.extra.pos_overwrite = SEMBY_quest_pos.complete
-								card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+								card.children.center:set_sprite_pos(SEMBY_quest_pos.complete)
 								return true
 							end
 						}))
@@ -377,7 +383,7 @@ SMODS.Joker {
 										card.ability.extra.target
 									}
 								},
-								colour = G.C.ATTENTION
+								colour = G.C.IMPORTANT
 							}
 						elseif card.ability.extra.quest.action == "beat" or card.ability.extra.quest.action == "shot" then
 							return {
@@ -388,7 +394,7 @@ SMODS.Joker {
 										math.max(0, card.ability.extra.target - card.ability.extra.major)
 									}
 								},
-								colour = G.C.ATTENTION
+								colour = G.C.IMPORTANT
 							}
 						end
 					end
