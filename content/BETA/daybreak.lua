@@ -73,6 +73,10 @@ SMODS.Consumable {
             }))
         end
         delay(0.5)
+        -- Achievement
+        if card.ability.extra.mod_conv == 'm_stone' or
+            (G.P_CENTERS[card.ability.extra.mod_conv] and G.P_CENTERS[card.ability.extra.mod_conv].no_rank)
+        then check_for_unlock({ type = 'SEMBY_check', daybreak = true }) end
     end,
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 0

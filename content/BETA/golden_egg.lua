@@ -49,6 +49,6 @@ SMODS.Blind {
         end
     end,
     calc_dollar_bonus = function (self, blind)
-        check_for_unlock({ type = 'SEMBY_hatched', hatched = (G.GAME.blind.dollars == 0) })
+        check_for_unlock({ type = 'SEMBY_check', hatched = (G.GAME.blind.dollars == 0) })
     end
 }

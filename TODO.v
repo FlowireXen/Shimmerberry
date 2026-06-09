@@ -74,15 +74,6 @@ Add Texture files to origin
 ( Generally Update Origin )
 
 
-More Achievements: 1 / 6 done
-2:: "Nobody like me" :: Own 5 copies of the same Joker :: [In Global Joker Added Event, add this Achievement Check]
-3:: "Memory Overflow" :: Fill a Memory with +1000 Chips :: [Global "After" Context]
-4:: "%:1( %=/*+" :: Own 5 TMTRAINER'd Jokers :: [Add a Check to the TMTRAINER Code]
-5:: "Loop Hero" :: Complete 21 Loops in a Row :: [Add a Check to the Oblivion Joker]
-6:: "Flowire Loves You!" :: Beat all Shimmerberry Challenges :: [Add a Check to the Win-Hook]
-
-
-
 
 
 Ideas:

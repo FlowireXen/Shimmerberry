@@ -2073,9 +2073,13 @@ return {
 			ch_m_winning_ante = { "Winning Ante: {C:attention}#1#", },
 		},
 		achievement_names = {
+			ach_SEMBY_001 = 'SCP-001',
+			ach_SEMBY_all_challenge = 'Flowire Loves You!',
 			ach_SEMBY_hatched = 'Coming Out',
 		},
 		achievement_descriptions = {
+			ach_SEMBY_001 = { 'Use Daybreak to remove', 'all playing card ranks' },
+			ach_SEMBY_all_challenge = { 'Complete all', 'Shimmerberry Challenges' },
 			ach_SEMBY_hatched = { 'Earn $0 from the', 'Golden Egg Blind' },
 		},
 	},
