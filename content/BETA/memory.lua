@@ -31,13 +31,12 @@ SMODS.Enhancement {
 	end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
-			local gain = card.ability.extra.memory_gain * (G.GAME.SEMBY_memory_mod or 1)
 			G.E_MANAGER:add_event(Event({
 				trigger = 'after',
 				blocking = false,
 				func = function()
 					attention_text({
-						text = localize{ type = 'variable', key = 'SEMBY_plus', vars = { gain } },
+						text = localize{ type = 'variable', key = 'SEMBY_plus', vars = { card.ability.extra.memory_gain } },
 						backdrop_colour = G.C.CHIPS,
 						scale = 1.0, hold = 0.8, major = card,
 						align = 'cm', offset = { x = 0, y = 0 }
@@ -45,8 +44,7 @@ SMODS.Enhancement {
 					return true
 				end
 			}))
-			local ret_val = SEMBY_memory_update(card.base.suit or 'Empty', gain) * (G.GAME.SEMBY_memory_mod or 1)
-			if G.GAME.SEMBY_memory_mod then return { score = ret_val } else return { chips = ret_val } end
+			return { chips = SEMBY_memory_update(card.base.suit or 'Empty', card.ability.extra.memory_gain) }
         end
     end
 }

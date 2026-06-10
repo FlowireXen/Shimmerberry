@@ -1,7 +1,7 @@
 SMODS.Joker {
-	key = "suit_2_chips",
+	key = "shrewd_joker",
 	loc_txt = {
-		name = "{C:inactive}suit_2_chips",
+		name = "Shrewd Joker",
 		text = {
 			"{C:chips}+#1#{} Chips if poker",
 			"hand contains",

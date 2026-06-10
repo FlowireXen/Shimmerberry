@@ -53,6 +53,9 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
+- [+++]: Add Support for https://github.com/nh6574/JokerDisplay
+
+
 -->
 Uhh hh kit ty — 19:15
 cuckoo and harebrained are ones I purrsonally like for theorhetical mult ones

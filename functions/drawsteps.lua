@@ -10,9 +10,8 @@ local draw_memory = function(card, mem_suit)
 
 	local update_suit = not canvas.cached_suit_text or canvas.cached_suit ~= mem_suit
 	local update_memory = G.GAME.SEMBY_memory and G.GAME.SEMBY_memory[mem_suit] and canvas.cached_memory ~= G.GAME.SEMBY_memory[mem_suit]
-	local update_mod = G.GAME.SEMBY_memory_mod and canvas.cached_mod ~= G.GAME.SEMBY_memory_mod or canvas.cached_mod and not G.GAME.SEMBY_memory_mod
 
-	if update_suit or update_memory or update_mod then
+	if update_suit or update_memory then
 	    love.graphics.push()
 	    love.graphics.origin()
 
@@ -40,15 +39,6 @@ local draw_memory = function(card, mem_suit)
 			canvas.cached_memory_text = nil
 		end
 
-		if update_mod then
-			--print('mod')
-	    	canvas.cached_mod = G.GAME.SEMBY_memory_mod
-	    	canvas.cached_mod_text = canvas.cached_mod and love.graphics.newText(G.FONTS[1].FONT, {
-				G.C.SEMBY_PERCENT,
-				'x'..format_ui_value(canvas.cached_mod)
-			}) or nil
-		end
-
 	    canvas.canvas:renderTo(
 			function()
 	        	love.graphics.clear(0, 0, 0, 0)
@@ -57,9 +47,6 @@ local draw_memory = function(card, mem_suit)
 	        	end
 	        	if canvas.cached_memory_text then
 					love.graphics.draw(canvas.cached_memory_text, 8 * canvas.canvasScale, 13 * canvas.canvasScale, 0, 0.08, 0.08)
-	        	end
-	        	if canvas.cached_mod_text then
-					love.graphics.draw(canvas.cached_mod_text, 8 * canvas.canvasScale, 36.5 * canvas.canvasScale, 0, 0.08, 0.08)
 	        	end
 	    	end
 		)

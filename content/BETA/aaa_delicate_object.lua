@@ -10,6 +10,11 @@ SMODS.Joker {
 			"when selecting",
 			"{C:attention}#1# or more{}",
 			"playing cards",
+
+
+			-- instead of selecting 5 -> when playing or discarding more than 3 cards
+
+
 		}}
 	},
 	SEMBY_art = "placeholder",

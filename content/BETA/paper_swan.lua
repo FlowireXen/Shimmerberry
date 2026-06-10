@@ -42,7 +42,11 @@ SMODS.Joker {
 				card.ability.extra.count = 0;
 				return { xchips = card.ability.extra.xchips }, true
 			end
-			return nil, true
+			return {
+				message = localize { type = 'variable', key = 'SEMBY_out_of', vars = {
+					card.ability.extra.count, card.ability.extra.every
+				} }
+			}, true
 		end
 	end
 }
