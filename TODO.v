@@ -65,6 +65,14 @@ or you could go the way of the suit jokers and do deadly sins...
 
 
 
+"Emergency Button" -> Test & Add Speedup Code if needed
+
+Also remove from Challenge Exceptions + Test Custom Deaths with it
+
+Patch notes & wiki; Mention that "death bug" is fixed
+
+
+
 Don't forget to Ban certain Tags in certain Challenges
 (Generally all Challenges)
 

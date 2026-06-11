@@ -20,6 +20,7 @@ Shimmerberry.compat = {
 	sleeves = (SMODS.Mods['CardSleeves'] or {}).can_load,
 	buffoonery = (SMODS.Mods['Buffoonery'] or {}).can_load,
 	cardpronouns = (SMODS.Mods['cardpronouns'] or {}).can_load,
+	display = (SMODS.Mods['JokerDisplay'] or {}).can_load,
 }
 
 --## Load Content
@@ -78,6 +79,8 @@ local SEMBY_Data = {
 	{ load = true, path = "content/challenges" },
 	--> Vanilla Changes
 	{ load = true, path = "content/vanilla_changes" },
+	--> Other Mods
+	{ load = true, path = "content/crossmod" },
 	--> Debug & Development
 	{ load = Shimmerberry.BETA, path = "content/BETA" },
 	{ load = Shimmerberry.Debug, name = "debug", path = "content/debug" },
