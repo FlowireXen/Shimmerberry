@@ -10,7 +10,7 @@ SMODS.Joker {
 	cost = 8,
 	config = {
 		extra = {
-			percent = 0.08
+			percent = 0.05
 		}
 	},
     attributes = {

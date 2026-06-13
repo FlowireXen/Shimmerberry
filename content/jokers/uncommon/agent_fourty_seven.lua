@@ -21,6 +21,9 @@ SMODS.Joker {
 			card.ability.extra.discard_limit
 		} }
 	end,
+    add_to_deck = function(self, card, from_debuff)
+		if not from_debuff then card.ability.extra.discard_limit = math.floor(card.ability.extra.discard_limit) end
+    end,
 	calculate = function(self, card, context)
 		if context.pre_discard and not (context.blueprint) and #context.full_hand == card.ability.extra.discard_limit then
 			-- Find Target (Duplicate Safe Code)
