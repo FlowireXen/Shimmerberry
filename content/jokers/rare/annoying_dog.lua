@@ -10,8 +10,7 @@ SMODS.Joker {
 	cost = 7,
 	config = {
 		extra = {
-			xmult = 3,
-			slots = 103
+			xmult = 3
 		}
 	},
     attributes = {
