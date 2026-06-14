@@ -1,5 +1,5 @@
 -- hook "JokerDisplay.calculate_card_triggers = function(card, scoring_hand, held_in_hand)"
--- for my retrigger cards: Vintage Edition (maybe)
+-- for my retrigger cards: Vintage Edition --> Hook/Patch "JokerDisplay.calculate_card_triggers = function(card, scoring_hand, held_in_hand)"
 -- also support for "jevil"
 
 -- !!! rework Flowerpot !!!
@@ -343,9 +343,9 @@ jd_def['j_SEMBY_broken_record'] = {
     calc_function = function(card)
         local text, _, scoring_hand = JokerDisplay.evaluate_hand()
         if text ~= 'Unknown' and #scoring_hand ~= 0 then
-            card.joker_display_values.broken_timer = (card.joker_display_values.broken_timer or 0) + 1
-            if card.joker_display_values.broken_timer >= 5 then
-                card.joker_display_values.broken_timer = 0
+            card.joker_display_values.update_timer = (card.joker_display_values.update_timer or 0) + 1
+            if card.joker_display_values.update_timer > 4 then
+                card.joker_display_values.update_timer = 0
                 for _, scoring_card in pairs(scoring_hand) do
                     scoring_card.SEMBY_jdis_record = nil
                 end
@@ -436,68 +436,78 @@ jd_def['j_SEMBY_chrono_break'] = { } -- no info
 jd_def['j_SEMBY_cockroach'] = { } -- no info
 
 jd_def['j_SEMBY_common_denominator'] = {
-    --[[
-    reminder_text = {
-        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "blueprint_compat", colour = G.C.RED }, { text = ")" }
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.35 },
+        { border_nodes = {
+            { ref_table = "card.joker_display_values", ref_value = "localized_text" }
+        }, border_colour = (G.C.RARITY.Common or G.C.BLUE) }
     },
     calc_function = function(card)
-        local copied_joker, copied_debuff = JokerDisplay.calculate_blueprint_copy(card)
-        card.joker_display_values.blueprint_compat = localize('k_incompatible')
-        JokerDisplay.copy_display(card, copied_joker, copied_debuff)
-    end,
-    get_blueprint_joker = function(card)
-		if card.area and not card.area.config.collection then
-			for i = 1, #card.area.cards do
-				if card.area.cards[i] == card then
-					return card.area.cards[i - 1]
-				end
-			end
+		local compatible = 0
+        for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
+            if joker.config.center.blueprint_compat and joker.config.center.rarity == 1 and joker ~= card then
+                compatible = compatible + 1
+            end
         end
-        return nil
+        card.joker_display_values.count = compatible
+        card.joker_display_values.localized_text = localize('k_common')
     end,
-    retrigger_joker_function = function(card, retrigger_joker)
-        if card and card == retrigger_joker then
-            --##TODO## -> Check if correct
-            return 2 --card.ability.extra.repeats - 1
+    retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+        if joker_card then -- Copy from "JokerDisplay/src/api_helper_functions.lua"
+            local joker_trigger = JokerDisplay.calculate_joker_triggers(joker_card) or 0
+            if joker_trigger ~= 0 then
+                if joker_trigger > 1 then joker_trigger = joker_trigger - 1 end
+                local total_retriggers = 0
+                for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
+                    if joker.config.center.blueprint_compat and joker.config.center.rarity == 1 and joker ~= joker_card then
+                        local joker_display_definition = JokerDisplay.Definitions[joker.config.center.key]
+                        local retrigger_function = not joker.debuff and joker.joker_display_values and
+                            ((joker_display_definition and joker_display_definition.retrigger_function) or
+                                (joker.joker_display_values.blueprint_ability_key and
+                                    not joker.joker_display_values.blueprint_debuff and not joker.joker_display_values.blueprint_stop_func and
+                                    JokerDisplay.Definitions[joker.joker_display_values.blueprint_ability_key] and
+                                    JokerDisplay.Definitions[joker.joker_display_values.blueprint_ability_key].retrigger_function))
+                        if retrigger_function then
+                            total_retriggers = total_retriggers +
+                                math.floor(retrigger_function(playing_card, scoring_hand, held_in_hand or false,
+                                    joker.joker_display_values and not joker.joker_display_values.blueprint_stop_func and
+                                    joker.joker_display_values.blueprint_ability_joker or joker) or 0)
+                        end
+                    end
+                end
+                return total_retriggers * joker_trigger
+            end
         end
     end
-    ]]
-
-    --##TODO##
-    -- just show (reminder); "3 Commons", don't even try to combine all values.
-    -- IDK :3
 }
 
-jd_def['j_SEMBY_copy_printer'] = {
-    --##TODO##
-    -- in shop: show conversion? -> can detect challenge stuff!
-    -- in shop reminder: "will break"/"won't break"
-}
+jd_def['j_SEMBY_copy_printer'] = { } -- no info
 
 jd_def['j_SEMBY_coupon'] = { } -- no info
 
 jd_def['j_SEMBY_coupon_booklet'] = {
-    --##TODO##
-    -- show theoretical uses left
-    -- reminder: shows current reduction
+    text = {
+        { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "shop_mod" }, { text = "%" }
+    },
+    text_config = { colour = G.C.MONEY },
+    calc_function = function(card)
+        card.joker_display_values.shop_mod = math.floor(card.ability.extra.shop_mod * 100 + 0.5) * card.ability.extra.state
+    end
 }
 
-jd_def['j_SEMBY_echoing_joker'] = {
-    --##TODO##
-    -- no info
-    -- maybe show info when probability has increased the value
-}
+jd_def['j_SEMBY_echoing_joker'] = { } -- no info
 
 jd_def['j_SEMBY_eden_blessing'] = {
-    --##TODO##
-    -- show "X1.5" in eden colour -> maybe figure out which one would be increased??
+    text = {
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xcom", retrigger_type = "exp" }
+        }, border_colour = SMODS.Gradients.SEMBY_EDEN }
+    }
 }
 
-jd_def['j_SEMBY_emergency_button'] = {
-    --##TODO##
-    -- no info :3
-    -- maybe as reminder: when in challenge show "X excluded"
-}
+jd_def['j_SEMBY_emergency_button'] = { } -- no info
 
 jd_def['j_SEMBY_eternal_fortune'] = { } -- no info
 
@@ -589,10 +599,7 @@ jd_def['j_SEMBY_misery'] = {
     -- show only mult on all other hands
 }
 
-jd_def['j_SEMBY_money_laundering'] = {
-    --##TODO##
-    -- no info, i guess?
-}
+jd_def['j_SEMBY_money_laundering'] = { } -- no info
 
 jd_def['j_SEMBY_nashi_pear'] = {
     --##TODO##
@@ -634,7 +641,7 @@ jd_def['j_SEMBY_pay_two_win'] = {
 jd_def['j_SEMBY_perfect_pitch'] = {
     --##TODO##
     -- xmult
-    -- reminder: Amount of cards
+    -- reminder: Amount of cards -> "3 Cards"
 }
 
 jd_def['j_SEMBY_pet_plastic'] = {
