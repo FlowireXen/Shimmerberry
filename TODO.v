@@ -52,6 +52,8 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+!! Bug Report: Shader Issue
+
 
 - [+++]: Add Support for https://github.com/nh6574/JokerDisplay
 
@@ -138,3 +140,6 @@ Joker Idea:
 
 --G.GAME.SEMBY_last_score = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
 
+"Simon Says" -> Selects (4) Cards in a Order,
+You have to repeat showed order
+Speeds up, also requests unselecting in a different order, increases cards selected & de-selected, mixes operations etc.

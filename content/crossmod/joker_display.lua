@@ -1,7 +1,8 @@
 -- hook "JokerDisplay.calculate_card_triggers = function(card, scoring_hand, held_in_hand)"
 -- for my retrigger cards: Vintage Edition (maybe)
 -- also support for "jevil"
--- rework how Flowerpot is Detected
+
+-- !!! rework Flowerpot !!!
 
 -- Add Editions to this
 -- Add Consumables to this; Especially the Token from Eden Token
@@ -14,17 +15,18 @@
 
 if Shimmerberry.compat.display then
 local jd_def = JokerDisplay.Definitions
-local function SEMBY_Percent(num, triggers)
-    return (1 - (triggers == 1 and num or num ^ triggers)) * 100
-end
+-- SEMBY Percent Support
+G.C.SEMBY_PERCENT_L = lighten(G.C.SEMBY_PERCENT, 0.25)
+local function SEMBY_Reduce(num, triggers)   return (1 - (triggers == 1 and num or num ^ triggers)) * 100  end
+local function SEMBY_Increase(num, triggers) return ((triggers == 1 and num or num ^ triggers) - 1) * 100  end
 
 jd_def['j_SEMBY_abandoned_soul'] = {
-    text = { {
-        border_nodes = {
-            { text = "X" }, { ref_table = "card.ability.extra", ref_value = "xchips", retrigger_type = "exp" }
-        },
-        border_colour = G.C.CHIPS
-    } }
+    text = {
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xchips", retrigger_type = "exp" }
+        }, border_colour = G.C.CHIPS }
+    }
 }
 
 jd_def['j_SEMBY_adblocker'] = {
@@ -129,22 +131,22 @@ jd_def['j_SEMBY_alpha'] = {
 }
 
 jd_def['j_SEMBY_anchor'] = {
-    text = { {
-        border_nodes = {
-            { text = "X" }, { ref_table = "card.ability.extra", ref_value = "xchips", retrigger_type = "exp" }
-        },
-        border_colour = G.C.CHIPS
-    } }
+    text = {
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xchips", retrigger_type = "exp" }
+        }, border_colour = G.C.CHIPS }
+    }
 }
 
 jd_def['j_SEMBY_annoying_dog'] = {
-    text = { {
-        border_nodes = {
-            { text = "X" }, { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" },
+    text = {
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" },
             { ref_table = "card.joker_display_values", ref_value = "tail" } -- "Annoying Dog" Tail! :3c
-        },
-        border_colour = G.C.MULT
-    } },
+        }, border_colour = G.C.MULT }
+    },
     calc_function = function(card)
         card.joker_display_values.tail = (card.ability.extra.xmult % 1 == 0) and '.0' or ''
     end
@@ -152,9 +154,9 @@ jd_def['j_SEMBY_annoying_dog'] = {
 
 jd_def['j_SEMBY_anodized_steel'] = {
     text = {
-        { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Percent }, { text = "%" },
+        { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
     },
-    text_config = { colour = G.C.SEMBY_PERCENT },
+    text_config = { colour = G.C.SEMBY_PERCENT_L },
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.IMPORTANT }, { text = ")" }
     },
@@ -253,9 +255,9 @@ jd_def['j_SEMBY_berry_golden'] = {--> "k_safe_ex"?
 
 jd_def['j_SEMBY_berry_shimmer'] = { --> "k_safe_ex"?
     text = {
-        { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Percent }, { text = "%" },
+        { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
     },
-    text_config = { colour = G.C.SEMBY_PERCENT },
+    text_config = { colour = G.C.SEMBY_PERCENT_L },
     reminder_text = {
         { text = "(" },
         { ref_table = "card.joker_display_values", ref_value = "berry_rank_one", colour = G.C.SEMBY },
@@ -318,32 +320,52 @@ jd_def['j_SEMBY_berry_straw'] = { --> "k_safe_ex"?
 }
 
 jd_def['j_SEMBY_boosterpack_joker'] = {
-    --##TODO##
-    -- reminder: show durability
-    --[[
     reminder_text = {
         { text = "(" },
-        { ref_table = "card.ability.extra", ref_value = "durability", colour = G.C.SEMBY },
+        { ref_table = "card.ability.extra", ref_value = "durability" },
         { text = "/" },
-        { ref_table = "card.ability.extra", ref_value = "durability_max", colour = G.C.IMPORTANT },
+        { ref_table = "card.ability.extra", ref_value = "durability_max" },
         { text = ")" },
     },
-    -- colour? -> use the durability method in calc.
-    ]]
+    calc_function = function(card)
+        card.joker_display_values.colour = card:SEMBY_durability_color(true)
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if reminder_text and reminder_text.children and reminder_text.children[2] then
+            reminder_text.children[2].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE
+        end
+    end
 }
 
-jd_def['j_SEMBY_bound'] = {
-    --##TODO##
-    -- No info
-    -- maybe show what would be destroyed?
-}
+jd_def['j_SEMBY_bound'] = { } -- No Info.
 
 jd_def['j_SEMBY_broken_record'] = {
-    --##TODO##
-    -- add retriggers like hanging chad -> always use the average between both rounded down
-    -- does display "Avg. [...]"
-    --> see bloodstone
-    -- or 3-8 retriggers
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        if text ~= 'Unknown' and #scoring_hand ~= 0 then
+            card.joker_display_values.broken_timer = (card.joker_display_values.broken_timer or 0) + 1
+            if card.joker_display_values.broken_timer >= 5 then
+                card.joker_display_values.broken_timer = 0
+                for _, scoring_card in pairs(scoring_hand) do
+                    scoring_card.SEMBY_jdis_record = nil
+                end
+                local retriggers = (JokerDisplay.calculate_joker_triggers(card) or 0)
+                if retriggers ~= 0 then
+                    retriggers = math.max(1, math.random(card.ability.extra.min * retriggers, card.ability.extra.max * retriggers))
+                    for i = 1, retriggers do
+                        local index = math.random(1, #scoring_hand)
+                        if scoring_hand[index] then scoring_hand[index].SEMBY_jdis_record = (scoring_hand[index].SEMBY_jdis_record or 0) + 1 end
+                    end
+                end
+            end
+        end
+    end,
+    retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+        if not held_in_hand and playing_card.SEMBY_jdis_record then
+            return playing_card.SEMBY_jdis_record
+        end
+        return 0
+    end
 }
 
 jd_def['j_SEMBY_buccaneer'] = {
@@ -388,29 +410,61 @@ jd_def['j_SEMBY_butterfly'] = {
 }
 
 jd_def['j_SEMBY_ceaseless_void'] = {
-    --##TODO##
-    -- show all three values at once?? owo' (just show "+10% X1.05 X1.05" i guess?)
-    -- when selecting a joker maybe show expected stat average?
-    -- needs a custom retrigger
-    --> Repeating Percentages get better
+    text = {
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xchips", retrigger_type = "exp" }
+        }, border_colour = G.C.CHIPS },
+        { text = " " },
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT },
+    },
+    extra = { {
+        { text = "+", colour = G.C.SEMBY_PERCENT_L },
+        { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Increase, colour = G.C.SEMBY_PERCENT_L },
+        { text = "%", colour = G.C.SEMBY_PERCENT_L },
+    } },
+    calc_function = function(card)
+        card.joker_display_values.percent = 1 + card.ability.extra.percent
+    end
 }
 
-jd_def['j_SEMBY_chrono_break'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_chrono_break'] = { } -- no info
 
-jd_def['j_SEMBY_cockroach'] = {
-    --##TODO##
-    -- shows "+1 Ante" when in Boss blind... maybe.
-    -- otherwise: no info
-}
+jd_def['j_SEMBY_cockroach'] = { } -- no info
 
 jd_def['j_SEMBY_common_denominator'] = {
+    --[[
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "blueprint_compat", colour = G.C.RED }, { text = ")" }
+    },
+    calc_function = function(card)
+        local copied_joker, copied_debuff = JokerDisplay.calculate_blueprint_copy(card)
+        card.joker_display_values.blueprint_compat = localize('k_incompatible')
+        JokerDisplay.copy_display(card, copied_joker, copied_debuff)
+    end,
+    get_blueprint_joker = function(card)
+		if card.area and not card.area.config.collection then
+			for i = 1, #card.area.cards do
+				if card.area.cards[i] == card then
+					return card.area.cards[i - 1]
+				end
+			end
+        end
+        return nil
+    end,
+    retrigger_joker_function = function(card, retrigger_joker)
+        if card and card == retrigger_joker then
+            --##TODO## -> Check if correct
+            return 2 --card.ability.extra.repeats - 1
+        end
+    end
+    ]]
+
     --##TODO##
     -- just show (reminder); "3 Commons", don't even try to combine all values.
-    --> baseball card! (basically add 1x retrigger?)
-    --> would be wrong :/
     -- IDK :3
 }
 
@@ -420,10 +474,7 @@ jd_def['j_SEMBY_copy_printer'] = {
     -- in shop reminder: "will break"/"won't break"
 }
 
-jd_def['j_SEMBY_coupon'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_coupon'] = { } -- no info
 
 jd_def['j_SEMBY_coupon_booklet'] = {
     --##TODO##
@@ -448,10 +499,7 @@ jd_def['j_SEMBY_emergency_button'] = {
     -- maybe as reminder: when in challenge show "X excluded"
 }
 
-jd_def['j_SEMBY_eternal_fortune'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_eternal_fortune'] = { } -- no info
 
 jd_def['j_SEMBY_fifty_seven_leaf_clover'] = {
     --##TODO##
@@ -497,10 +545,7 @@ jd_def['j_SEMBY_improv'] = {
     -- reminder: percentage till NEXT hand
 }
 
-jd_def['j_SEMBY_incinerator'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_incinerator'] = { } -- no info
 
 jd_def['j_SEMBY_jevil'] = {
     --##TODO##
@@ -508,10 +553,7 @@ jd_def['j_SEMBY_jevil'] = {
     -- oh dear god this is gonna be horrible
 }
 
-jd_def['j_SEMBY_jokebra'] = {
-    --##TODO##
-    -- NO INFO, THIS ONE MANAGES ITSELF!!!
-}
+jd_def['j_SEMBY_jokebra'] = { } -- manages itself
 
 jd_def['j_SEMBY_lavish_joker'] = {
     --##TODO##
@@ -519,10 +561,7 @@ jd_def['j_SEMBY_lavish_joker'] = {
     -- show next blind size increase
 }
 
-jd_def['j_SEMBY_lost_constellation'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_lost_constellation'] = { } -- no info
 
 jd_def['j_SEMBY_lottery_ticket'] = {
     --##TODO##
@@ -572,10 +611,7 @@ jd_def['j_SEMBY_obscure_ritual'] = {
     -- Active or Inactive
 }
 
-jd_def['j_SEMBY_opulent_skint'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_opulent_skint'] = { } -- no info
 
 jd_def['j_SEMBY_ouroboros'] = {
     --##TODO##
@@ -611,15 +647,9 @@ jd_def['j_SEMBY_piggy_bank'] = {
     -- xmult
 }
 
-jd_def['j_SEMBY_pinata'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_pinata'] = { } -- no info
 
-jd_def['j_SEMBY_plastic_key'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_plastic_key'] = { } -- no info
 
 jd_def['j_SEMBY_pocket_dimension'] = {
     --##TODO##
@@ -671,10 +701,7 @@ jd_def['j_SEMBY_seven_wonders'] = {
     -- percentage chips stuff
 }
 
-jd_def['j_SEMBY_shooting_star'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_shooting_star'] = { } -- no info
 
 jd_def['j_SEMBY_silver_mask'] = {
     --##TODO##
@@ -741,10 +768,7 @@ jd_def['j_SEMBY_TMTRAINER'] = {
     -- X-Change percent
 }
 
-jd_def['j_SEMBY_to_and_fro'] = {
-    --##TODO##
-    -- either try to show switch states or no info
-}
+jd_def['j_SEMBY_to_and_fro'] = { } -- no info
 
 jd_def['j_SEMBY_tool_axe'] = {
     --##TODO##
@@ -785,10 +809,7 @@ jd_def['j_SEMBY_toolkit'] = {
     -- consider durability when showing values
 }
 
-jd_def['j_SEMBY_twenty_to_die_for'] = {
-    --##TODO##
-    -- no info
-}
+jd_def['j_SEMBY_twenty_to_die_for'] = { } -- no info
 
 jd_def['j_SEMBY_unicorn'] = {
     --##TODO##

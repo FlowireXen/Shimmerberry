@@ -31,7 +31,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
         if context.before then --and context.main_eval
 			local selected = {}
-			local repeats = pseudorandom('SEMBY_broken_record', card.ability.extra.min, card.ability.extra.max)
+			local repeats = math.max(1, pseudorandom('SEMBY_broken_record', card.ability.extra.min, card.ability.extra.max))
 			for i = 1, repeats do
 				local ret = pseudorandom_element(context.scoring_hand, pseudoseed('SEMBY_broken_record_'..i))
 				table.insert(selected, ret)
