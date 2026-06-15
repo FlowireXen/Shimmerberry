@@ -13,12 +13,24 @@
 --- Check Github Wiki for API details
 --- https://github.com/nh6574/JokerDisplay/wiki
 
+-- Always use "SMODS.has_enhancement" instead.
+-- Make "j_SEMBY_boosterpack_joker" an extra text! --> durability always "extra" for others!
+
 if Shimmerberry.compat.display then
 local jd_def = JokerDisplay.Definitions
 -- SEMBY Percent Support
 G.C.SEMBY_PERCENT_L = lighten(G.C.SEMBY_PERCENT, 0.25)
 local function SEMBY_Reduce(num, triggers)   return (1 - (triggers == 1 and num or num ^ triggers)) * 100  end
 local function SEMBY_Increase(num, triggers) return ((triggers == 1 and num or num ^ triggers) - 1) * 100  end
+-- SEMBY Jevil Hook
+local trigger_calc_hook = JokerDisplay.calculate_card_triggers
+function JokerDisplay.calculate_card_triggers(card, scoring_hand, held_in_hand)
+    local ret_val = trigger_calc_hook(card, scoring_hand, held_in_hand)
+    if G.GAME and G.GAME.SEMBY_jevil_scoring and scoring_hand then
+        ret_val = ret_val * G.GAME.SEMBY_jevil_scoring
+    end
+    return ret_val
+end
 
 jd_def['j_SEMBY_abandoned_soul'] = {
     text = {
@@ -107,7 +119,7 @@ jd_def['j_SEMBY_alpha'] = {
     text = {
         { text = "+", colour = G.C.BLUE },
         { ref_table = "card.joker_display_values", ref_value = "hands", retrigger_type = "mult", colour = G.C.BLUE },
-        { ref_table = "card.joker_display_values", ref_value = "localized_text", retrigger_type = "mult", scale = 0.35 },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text", scale = 0.35 },
     },
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "localized_reminder", colour = G.C.IMPORTANT }, { text = ")" }
@@ -320,20 +332,21 @@ jd_def['j_SEMBY_berry_straw'] = { --> "k_safe_ex"?
 }
 
 jd_def['j_SEMBY_boosterpack_joker'] = {
-    reminder_text = {
+    --text = { { text = '' } },
+    extra = { {
         { text = "(" },
         { ref_table = "card.ability.extra", ref_value = "durability" },
         { text = "/" },
         { ref_table = "card.ability.extra", ref_value = "durability_max" },
         { text = ")" },
-    },
+    } },
+    extra_config = { colour = G.C.UI.TEXT_INACTIVE, scale = 0.3 },
     calc_function = function(card)
         card.joker_display_values.colour = card:SEMBY_durability_color(true)
     end,
     style_function = function(card, text, reminder_text, extra)
-        if reminder_text and reminder_text.children and reminder_text.children[2] then
-            reminder_text.children[2].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE
-        end
+        if extra and extra.children and extra.children[1] and extra.children[1].children and extra.children[1].children[2]
+        then extra.children[1].children[2].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE end
     end
 }
 
@@ -346,23 +359,22 @@ jd_def['j_SEMBY_broken_record'] = {
             card.joker_display_values.update_timer = (card.joker_display_values.update_timer or 0) + 1
             if card.joker_display_values.update_timer > 4 then
                 card.joker_display_values.update_timer = 0
-                for _, scoring_card in pairs(scoring_hand) do
-                    scoring_card.SEMBY_jdis_record = nil
-                end
+                local id = 'SEMBY_jdis_'..card.sort_id
+                for _, scoring_card in pairs(scoring_hand) do scoring_card[id] = nil end
                 local retriggers = (JokerDisplay.calculate_joker_triggers(card) or 0)
                 if retriggers ~= 0 then
                     retriggers = math.max(1, math.random(card.ability.extra.min * retriggers, card.ability.extra.max * retriggers))
                     for i = 1, retriggers do
                         local index = math.random(1, #scoring_hand)
-                        if scoring_hand[index] then scoring_hand[index].SEMBY_jdis_record = (scoring_hand[index].SEMBY_jdis_record or 0) + 1 end
+                        if scoring_hand[index] then scoring_hand[index][id] = (scoring_hand[index][id] or 0) + 1 end
                     end
                 end
             end
         end
     end,
     retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
-        if not held_in_hand and playing_card.SEMBY_jdis_record then
-            return playing_card.SEMBY_jdis_record
+        if not held_in_hand and joker_card and playing_card['SEMBY_jdis_'..joker_card.sort_id] then
+            return playing_card['SEMBY_jdis_'..joker_card.sort_id]
         end
         return 0
     end
@@ -422,10 +434,11 @@ jd_def['j_SEMBY_ceaseless_void'] = {
         }, border_colour = G.C.MULT },
     },
     extra = { {
-        { text = "+", colour = G.C.SEMBY_PERCENT_L },
-        { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Increase, colour = G.C.SEMBY_PERCENT_L },
-        { text = "%", colour = G.C.SEMBY_PERCENT_L },
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Increase },
+        { text = "%" },
     } },
+    extra_config = { colour = G.C.SEMBY_PERCENT_L },
     calc_function = function(card)
         card.joker_display_values.percent = 1 + card.ability.extra.percent
     end
@@ -512,91 +525,196 @@ jd_def['j_SEMBY_emergency_button'] = { } -- no info
 jd_def['j_SEMBY_eternal_fortune'] = { } -- no info
 
 jd_def['j_SEMBY_fifty_seven_leaf_clover'] = {
-    --##TODO##
-    -- retrigger like hanging chad ya ya ya
+    retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+        return SMODS.has_enhancement(playing_card, 'm_wild') and joker_card.ability.extra.repetitions * JokerDisplay.calculate_joker_triggers(joker_card) or 0
+    end
 }
 
-jd_def['j_SEMBY_fortune_cookie'] = {
-    --##TODO##
-    -- just the usual edition stuff
-}
+jd_def['j_SEMBY_fortune_cookie'] = { } -- no info
 
 jd_def['j_SEMBY_garden_gnome'] = {
-    --##TODO##
-    -- just show mult
+    text = {
+        { text = "+" }, { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.MULT }
 }
 
 jd_def['j_SEMBY_gold_bomb'] = {
-    --##TODO##
-    -- reminder: show active or inactive --> copy dusk
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.is_active = G.GAME.current_round.hands_left <= 1
+        card.joker_display_values.active_text = localize("jdis_"..(card.joker_display_values.is_active and "active" or "inactive"))
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if reminder_text and reminder_text.children and reminder_text.children[2] then
+            reminder_text.children[2].config.colour = card.joker_display_values.is_active and G.C.GREEN or G.C.UI.TEXT_INACTIVE
+        end
+    end
 }
 
 jd_def['j_SEMBY_goobert'] = {
-    --##TODO##
-    -- show durability --> X/10
-    -- consider durability when showing values
+    --text = { { text = '' } },
+    extra = { {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "durability" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "durability_max" },
+        { text = ")" },
+    } },
+    extra_config = { colour = G.C.UI.TEXT_INACTIVE, scale = 0.3 },
+    calc_function = function(card)
+        card.joker_display_values.colour = card:SEMBY_durability_color(true)
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if extra and extra.children and extra.children[1] and extra.children[1].children and extra.children[1].children[2]
+        then extra.children[1].children[2].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE end
+    end
 }
 
-jd_def['j_SEMBY_hemoturgy'] = {
-    --##TODO##
-    -- no info
-    -- reminder: show the amount of cards that would be changed
-}
+jd_def['j_SEMBY_hemoturgy'] = { } -- no info
 
 jd_def['j_SEMBY_hypetrain'] = {
-    --##TODO##
-    -- show mult, and Xmult, maybe how long till upgrade?
-    -- reminder maybe: "Upgrade in X hands"
+    --FIXME: Hide Xmult when "card.ability.waiting == true" or "card.ability.extra.xmult ~= 1.0"
+    text = {
+        { text = "+", colour = G.C.MULT },
+        { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult", colour = G.C.MULT },
+        { text = " " },
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT }
+    }
 }
 
 jd_def['j_SEMBY_improv'] = {
-    --##TODO##
-    -- show stored hands
-    -- reminder: percentage till NEXT hand
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "hands", colour = G.C.BLUE },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text", scale = 0.35 }
+    },
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.hands = math.floor(card.ability.extra.points / card.ability.extra.hand_mod + 0.5)
+        card.joker_display_values.localized_text = ' '..localize("k_hud_hands")
+        card.joker_display_values.is_active = G.GAME.current_round.hands_left <= 1
+        card.joker_display_values.active_text = localize("jdis_"..(card.joker_display_values.is_active and "active" or "inactive"))
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if reminder_text and reminder_text.children and reminder_text.children[2] then
+            reminder_text.children[2].config.colour = card.joker_display_values.is_active and G.C.GREEN or G.C.UI.TEXT_INACTIVE
+        end
+    end
 }
 
 jd_def['j_SEMBY_incinerator'] = { } -- no info
 
-jd_def['j_SEMBY_jevil'] = {
-    --##TODO##
-    -- hanging chad'nt
-    -- oh dear god this is gonna be horrible
-}
+jd_def['j_SEMBY_jevil'] = { } -- special: managed via hook
 
-jd_def['j_SEMBY_jokebra'] = { } -- manages itself
+jd_def['j_SEMBY_jokebra'] = { } -- special: manages itself
 
 jd_def['j_SEMBY_lavish_joker'] = {
-    --##TODO##
-    -- show money store   and
-    -- show next blind size increase
+    text = {
+        { text = "+$", colour = G.C.MONEY }, { ref_table = "card.ability.extra", ref_value = "money_saved", colour = G.C.MONEY },
+        { text = " +" }, { ref_table = "card.joker_display_values", ref_value = "percent" }, { text = "%" }
+    },
+    text_config = { colour = G.C.SEMBY_PERCENT_L },
+    calc_function = function(card)
+        card.joker_display_values.percent = card.ability.extra.money_saved / card.ability.extra.money_mod * card.ability.extra.percent_mod * 100
+    end
 }
 
 jd_def['j_SEMBY_lost_constellation'] = { } -- no info
 
 jd_def['j_SEMBY_lottery_ticket'] = {
-    --##TODO##
-    -- bloodstone joker logic for both
-    -- inverse for chips etc.
-    -- reminder: "(Non-face cards)"
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.3 },
+        { text = "+", colour = G.C.MULT },
+        { ref_table = "card.ability.extra", ref_value = "mult", colour = G.C.MULT },
+        { ref_table = "card.joker_display_values", ref_value = "spacing", scale = 0.3 },
+        { text = "+", colour = G.C.CHIPS },
+        { ref_table = "card.ability.extra", ref_value = "chips", colour = G.C.CHIPS }
+    },
+    text_config = { scale = 0.35 },
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "localized_text" }, { text = ")" }
+    },
+    extra = { {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "odds" }, { text = ")" },
+    } },
+    extra_config = { colour = G.C.GREEN, scale = 0.3 },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local count = 0
+        if text ~= 'Unknown' then
+            for _, scoring_card in pairs(scoring_hand) do
+                if not scoring_card:is_face() then
+                    count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                end
+            end
+        end
+        card.joker_display_values.count = count
+        card.joker_display_values.spacing = localize('k_or')
+        card.joker_display_values.localized_text = localize('SEMBY_non_face')
+        local numerator, denominator = SMODS.get_probability_vars(card,
+            card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_lottery_ticket')
+        card.joker_display_values.odds = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
+    end
 }
 
 jd_def['j_SEMBY_melon'] = {
-    --##TODO##
-    -- either "no info" or "show 50% decrease"
-    -- reminder: about to be destroyed or not
+    text = {
+        { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
+    },
+    text_config = { colour = G.C.SEMBY_PERCENT_L },
+    calc_function = function(card)
+        card.joker_display_values.percent = (1 - card.ability.extra.percent)
+    end
 }
 
 jd_def['j_SEMBY_mineshaft'] = {
-    --##TODO##
-    -- amount till next card / how many cards you'll gain
-    -- durability
-    -- consider durability when showing values
+    text = {
+        { text = "+" },
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.IMPORTANT },
+    },
+    extra = { {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "durability" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "durability_max" },
+        { text = ")" },
+    } },
+    extra_config = { colour = G.C.UI.TEXT_INACTIVE, scale = 0.3 },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local count = card.ability.extra.count; local limited = false
+        if text ~= 'Unknown' then
+            for _, scoring_card in pairs(scoring_hand) do
+                count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+            end
+        end
+        count = math.floor(count / card.ability.extra.every)
+        if count > card.ability.extra.durability then
+            limited = true
+            card.joker_display_values.count = card.ability.extra.durability
+        else card.joker_display_values.count = count end
+        card.joker_display_values.localized_text = ' '..localize('SEMBY_cards')..(limited and '*' or '')
+        card.joker_display_values.colour = card:SEMBY_durability_color(true)
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if extra and extra.children and extra.children[1] and extra.children[1].children and extra.children[1].children[2]
+        then extra.children[1].children[2].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE end
+    end
 }
 
 jd_def['j_SEMBY_misery'] = {
     --##TODO##
-    -- show both Chips and Mult on first hand
-    -- show only mult on all other hands
+    -- First hands: X4.0, X0.5
+    -- Other hands: X1.0, X0.5
 }
 
 jd_def['j_SEMBY_money_laundering'] = { } -- no info
@@ -833,8 +951,5 @@ jd_def['j_SEMBY_watching_forest'] = {
     -- show when it switches
     -- reminder: show sort-order
 }
-
---]]
-
 
 end

@@ -59,7 +59,7 @@ SMODS.Joker {
 				end
 				return nil, false
 			end
-    		if context.starting_shop then
+    		if context.starting_shop and card.ability.extra.money_saved ~= 0 then
 				local ret_val = card.ability.extra.money_saved
 				card.ability.extra.money_saved = 0
 				local lavish_debt = Tag('tag_SEMBY_ngt_lavish')

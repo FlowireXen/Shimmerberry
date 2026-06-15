@@ -54,6 +54,8 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 !! Bug Report: Shader Issue
 
+Optimize "After Image" ; It's so bad for the Performance it's crazy
+
 
 - [+++]: Add Support for https://github.com/nh6574/JokerDisplay
 

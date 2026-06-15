@@ -1929,6 +1929,9 @@ return {
 			SEMBY_TMTRAINER_Y3 = "han!Cedg",
 			SEMBY_unchanged = "Unchanged",
 			SEMBY_value_down = "Value Down!",
+			-- Joker Display:
+			SEMBY_cards = "Cards",
+			SEMBY_non_face = "Non-face",
 			-- Config/System: Eden
 			SEMBY_eden_active = 'Enable "Eden Tokens"',
 			SEMBY_eden_active_desc = { 'Start Runs with a Consumable that', 'uses Tokens to spawn a Joker', },
