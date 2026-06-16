@@ -569,9 +569,9 @@ return {
 				name = "Nashi Pear",
 				text = {
 					"When Blind is selected,",
-					"increase {C:attention}Round score",
-					"by {C:attention}#1#{} and reduce",
-					"this by {C:attention}#2#",
+					"increase {C:attention}Round score{}",
+					"by {C:SEMBY_percent}#1#{} and reduce",
+					"this by {C:SEMBY_percent}#2#{}",
 				}
 			},
 			j_SEMBY_oblivion = {

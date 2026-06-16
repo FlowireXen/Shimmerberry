@@ -712,43 +712,168 @@ jd_def['j_SEMBY_mineshaft'] = {
 }
 
 jd_def['j_SEMBY_misery'] = {
-    --##TODO##
-    -- First hands: X4.0, X0.5
-    -- Other hands: X1.0, X0.5
+    text = {
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+        }, border_colour = G.C.CHIPS },
+        { text = " " },
+        { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT },
+    },
+    calc_function = function(card)
+        card.joker_display_values.xchips = G.GAME.current_round.hands_played == 0 and card.ability.extra.xchips or 1
+    end
 }
 
 jd_def['j_SEMBY_money_laundering'] = { } -- no info
 
 jd_def['j_SEMBY_nashi_pear'] = {
-    --##TODO##
-    -- amount + "hidden" durability
-    -- consider durability when showing values
+    text = {
+        { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "score", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.SEMBY_PERCENT_L },
+    calc_function = function(card)
+        card.joker_display_values.score = math.floor(card.ability.extra.score_base * card.ability.extra.state + 0.5)
+    end
 }
 
 jd_def['j_SEMBY_oblivion'] = {
-    --##TODO##
-    -- money increase, difficulty increase
-    -- reminder: loops done (on that joker)
+    text = {
+        { text = "+$", colour = G.C.MONEY }, { ref_table = "card.joker_display_values", ref_value = "payout", colour = G.C.MONEY },
+        { text = " +" }, { ref_table = "card.joker_display_values", ref_value = "difficulty" }, { text = "%" }
+    },
+    text_config = { colour = G.C.SEMBY_PERCENT_L },
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "ante" }, { text = ")" }
+    },
+    extra = { {
+        { ref_table = "card.joker_display_values", ref_value = "loop" },
+    } },
+    extra_config = { colour = G.C.UI.TEXT_INACTIVE, scale = 0.35 },
+    calc_function = function(card)
+        card.joker_display_values.loop = localize{type = 'variable', key = 'SEMBY_loop', vars = { math.floor(card.ability.extra.loop) }}
+        card.joker_display_values.payout = G.GAME.blind and G.GAME.blind.boss and card.ability.extra.payout or 0
+        card.joker_display_values.difficulty = card.ability.extra.difficulty * 100
+        card.joker_display_values.ante = localize('k_ante')..' '..(card.ability.extra.highest_ante or G.GAME.round_resets.ante or 1)
+    end
 }
 
 jd_def['j_SEMBY_obscure_ritual'] = {
-    --##TODO##
-    -- Active or Inactive
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.active_text = localize("jdis_"..(card.ability.extra.active and "active" or "inactive"))
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if reminder_text and reminder_text.children and reminder_text.children[2] then
+            reminder_text.children[2].config.colour = card.ability.extra.active and G.C.GREEN or G.C.UI.TEXT_INACTIVE
+        end
+    end
 }
 
 jd_def['j_SEMBY_opulent_skint'] = { } -- no info
 
 jd_def['j_SEMBY_ouroboros'] = {
-    --##TODO##
-    -- blind size increase
-    -- hands you would be getting
+    text = {
+        { text = "+", colour = G.C.BLUE },
+        { ref_table = "card.joker_display_values", ref_value = "hands", retrigger_type = "mult", colour = G.C.BLUE },
+        { text = " +" },
+        { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Increase },
+        { text = "%" }
+    },
+    text_config = { colour = G.C.SEMBY_PERCENT_L },
+    --reminder_text = { { text = "( 8 )" } },
+    calc_function = function(card)
+        local count = 0
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        if text ~= 'Unknown' then
+            for _, scoring_card in pairs(scoring_hand) do
+                if scoring_card:get_id() == 8 then
+                    count = count + 1 * JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                end
+            end
+        end
+        card.joker_display_values.hands = count
+        card.joker_display_values.percent = (1 + card.ability.extra.percent) ^ count
+    end
 }
 
+
+--[[
 jd_def['j_SEMBY_parking_disc'] = {
+    --text = {
+    --    { ref_table = "card.joker_display_values", ref_value = "pre" },
+    --    { ref_table = "card.joker_display_values", ref_value = "main", retrigger_type = "mult" },
+    --    { ref_table = "card.joker_display_values", ref_value = "post" },
+    --},
+
+    text = { },
+
+    calc_function = function(card)
+
+
+
+
+        card.joker_display_values.test = 12
+    end,
+
     --##TODO##
     -- ... Yes.
     -- Reminder? Mhm!
+
+    style_function = function(card, text, reminder_text, extra)
+        if text and text.children then
+
+
+        text.children[1] = { border_nodes = {
+            { text = "X" },
+            { ref_table = "card.joker_display_values", ref_value = "test", retrigger_type = "exp" }
+        }, border_colour = G.C.CHIPS }
+
+
+            --text.children[1].config.colour = card.ability.extra.active and G.C.GREEN or G.C.UI.TEXT_INACTIVE
+            --text.children[1].config.retrigger_type = 'exp'
+        end
+    end
 }
+--]]
+--[[
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "blueprint_compat", colour = G.C.RED }, { text = ")" }
+    },
+    calc_function = function(card)
+        local copied_joker, copied_debuff = JokerDisplay.calculate_blueprint_copy(card)
+        card.joker_display_values.blueprint_compat = localize('k_incompatible')
+        JokerDisplay.copy_display(card, copied_joker, copied_debuff)
+    end,
+    get_blueprint_joker = function(card)
+		if card.area and not card.area.config.collection then
+			for i = 1, #card.area.cards do
+				if card.area.cards[i] == card then
+					return card.area.cards[i - 1]
+				end
+			end
+        end
+        return nil
+    end,
+    retrigger_joker_function = function(card, retrigger_joker)
+        if card and card == retrigger_joker then
+            --##TODO## -> Check if correct
+            return 2 --card.ability.extra.repeats - 1
+        end
+    end
+--]]
+
+
+
+
+
+
+
 
 jd_def['j_SEMBY_pay_two_win'] = {
     --##TODO##

@@ -138,7 +138,7 @@ SMODS.current_mod.calculate = function(self, context)
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				local slots_used = 1 + (context.card.ability.extra_slots_used or 0) - (context.card.ability.card_limit or 0)
-				G.GAME.joker_buffer = (G.GAME.joker_buffer or 0) + slots_used
+				G.GAME.joker_buffer = (G.GAME.joker_buffer or 0) --+ slots_used
 				for key, tag in ipairs(G.GAME.tags) do
 					if tag.key == "tag_SEMBY_adt_duplitage" then
 						if #G.jokers.cards + G.GAME.joker_buffer + slots_used <= G.jokers.config.card_limit then

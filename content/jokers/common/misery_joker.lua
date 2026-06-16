@@ -10,8 +10,8 @@ SMODS.Joker {
 	cost = 5,
     config = { 
 		extra = {
-			Xmult = 0.5,
-			Xchip = 4.0
+			xmult = 0.5,
+			xchips = 4.0
 		}
 	},
     attributes = {
@@ -19,8 +19,8 @@ SMODS.Joker {
 	},
 	loc_vars = function(self, info_queue, card)
         return { vars = {
-			card.ability.extra.Xmult,
-			card.ability.extra.Xchip
+			card.ability.extra.xmult,
+			card.ability.extra.xchips
 		} }
     end,
 	calculate = function(self, card, context)
@@ -31,12 +31,12 @@ SMODS.Joker {
 		if context.joker_main then
 			if G.GAME.current_round.hands_played == 0 then
 				return {
-					xmult = card.ability.extra.Xmult,
-					xchips = card.ability.extra.Xchip
+					xmult = card.ability.extra.xmult,
+					xchips = card.ability.extra.xchips
 				}
 			else
 				return {
-					xmult = card.ability.extra.Xmult
+					xmult = card.ability.extra.xmult
 				}
 			end
         end
