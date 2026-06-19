@@ -38,7 +38,7 @@ SMODS.Joker {
 					blocking = false,
 					func = function()
 						card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
-						card:juice_up(0.1)
+						card:juice_up(0.1, 0.2)
 						play_sound('generic1', 1.2, 0.5)
 						attention_text({
 							text = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },

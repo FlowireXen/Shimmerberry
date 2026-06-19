@@ -61,7 +61,7 @@ SMODS.Joker {
 							trigger = 'after',
 							delay = G.GAME.SEMBY_speed,
     					    func = function()
-								card:juice_up(0.1)
+								card:juice_up(0.1, 0.2)
 								play_sound('generic1', 0.8 + math.random()*0.4, 0.8)
 								attention_text({
 									text = localize{ type = 'variable', key = 'SEMBY_up_blind_size', vars = { percent * 100 } },
@@ -78,7 +78,7 @@ SMODS.Joker {
 							trigger = 'after',
 							delay = G.GAME.SEMBY_speed,
     					    func = function()
-								card:juice_up(0.1)
+								card:juice_up(0.1, 0.2)
 								play_sound('generic1', 0.8 + math.random()*0.4, 0.8)
 								attention_text({
 									text = localize{ type = 'variable', key = 'a_xchips', vars = { xchips } },
@@ -95,7 +95,7 @@ SMODS.Joker {
 							trigger = 'after',
 							delay = G.GAME.SEMBY_speed,
     					    func = function()
-								card:juice_up(0.1)
+								card:juice_up(0.1, 0.2)
 								play_sound('generic1', 0.8 + math.random()*0.4, 0.8)
 								attention_text({
 									text = localize{ type = 'variable', key = 'a_xmult', vars = { xmult } },

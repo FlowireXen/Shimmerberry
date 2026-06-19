@@ -51,7 +51,7 @@ SMODS.Joker {
 			end
 			G.E_MANAGER:add_event(Event({
 				func = function()
-					juice_card:juice_up(0.1)
+					juice_card:juice_up(0.1, 0.2)
 					return true
 				end
 			}))

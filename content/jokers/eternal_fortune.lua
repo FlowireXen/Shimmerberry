@@ -28,7 +28,7 @@ SMODS.Joker {
         G.E_MANAGER:add_event(Event({func = function()
 			G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
 			ease_hands_played(card.ability.extra.hands)
-			card:juice_up(0.1)
+			card:juice_up(0.1, 0.2)
 		return true end }))
 		if not from_debuff then
 			G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) +1

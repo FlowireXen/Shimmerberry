@@ -37,7 +37,7 @@ SMODS.Joker {
 				delay = 0.2,
 				func = function()
 					context.other_card:flip()
-					juice_card:juice_up(0.1)
+					juice_card:juice_up(0.1, 0.2)
 					play_sound('card1', math.random()*0.2 + 0.85, 0.5)
 					return true
 				end
@@ -109,7 +109,7 @@ SMODS.Joker {
 						play_sound('cancel', 1.0, 0.8)
 					end
 					context.other_card:juice_up(0.2)
-					juice_card:juice_up(0.1)
+					juice_card:juice_up(0.1, 0.2)
 					attention_text({
 						text = localize(ret_key),
 						backdrop_colour = ret_col,
@@ -128,7 +128,7 @@ SMODS.Joker {
 				delay = 0.4,
 				func = function()
 					context.other_card:flip()
-					juice_card:juice_up(0.1)
+					juice_card:juice_up(0.1, 0.2)
 					play_sound('card1', math.random()*0.2 + 1.05, 0.5)
 					return true
 				end

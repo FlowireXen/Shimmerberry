@@ -36,7 +36,7 @@ SMODS.Joker {
 					trigger = 'after',
 					func = function()
 						card:SEMBY_set_dissolve({G.C.L_BLACK, G.C.BLACK}, 0.4, 0.0, 1.0)
-						card:juice_up(0.1)
+						card:juice_up(0.1, 0.2)
 						return true
 					end
 				}))

@@ -71,7 +71,7 @@ SMODS.Joker {
 						draw_card(G.deck, G.play, i*100/(#G.play.cards+1), 'up', nil, G.deck.cards[#G.deck.cards-i])
         				G.E_MANAGER:add_event(Event({
         				    func = function()
-								juice_card:juice_up(0.1)
+								juice_card:juice_up(0.1, 0.2)
         				        return true
         				    end
         				}))

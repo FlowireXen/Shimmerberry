@@ -84,7 +84,14 @@ jd_def['j_SEMBY_afterimage'] = {
 		if card.area and not card.area.config.collection then
 			for i = 1, #card.area.cards do
 				if card.area.cards[i] == card then
-					return card.area.cards[i - 1]
+                    local other = card.area.cards[i - 1]
+                    if other and card.joker_display_values then
+                        card.joker_display_values.repeats = card.ability.extra.repeats
+                        if other.joker_display_values and other.joker_display_values.repeats then
+                            card.joker_display_values.repeats = card.joker_display_values.repeats * other.joker_display_values.repeats
+                        end
+                    end
+					return other
 				end
 			end
         end
@@ -92,8 +99,7 @@ jd_def['j_SEMBY_afterimage'] = {
     end,
     retrigger_joker_function = function(card, retrigger_joker)
         if card and card == retrigger_joker then
-            --##TODO## -> Check if correct
-            return 2 --card.ability.extra.repeats - 1
+            return math.max(0, (card.joker_display_values and card.joker_display_values.repeats or 0) - 1)
         end
     end
 }
@@ -354,6 +360,8 @@ jd_def['j_SEMBY_bound'] = { } -- No Info.
 
 jd_def['j_SEMBY_broken_record'] = {
     calc_function = function(card)
+        --##TODO## : Slower Check because random calls are very slow
+        -- Add a global "slow_calc" bool, which gets triggered every 4 ticks
         local text, _, scoring_hand = JokerDisplay.evaluate_hand()
         if text ~= 'Unknown' and #scoring_hand ~= 0 then
             card.joker_display_values.update_timer = (card.joker_display_values.update_timer or 0) + 1
@@ -802,99 +810,195 @@ jd_def['j_SEMBY_ouroboros'] = {
     end
 }
 
-
---[[
-jd_def['j_SEMBY_parking_disc'] = {
-    --text = {
-    --    { ref_table = "card.joker_display_values", ref_value = "pre" },
-    --    { ref_table = "card.joker_display_values", ref_value = "main", retrigger_type = "mult" },
-    --    { ref_table = "card.joker_display_values", ref_value = "post" },
-    --},
-
-    text = { },
-
+jd_def['j_SEMBY_parking_disc'] = { --> #ScuffedDisc
+    text = {
+        { border_nodes = {
+            { ref_table = "card.joker_display_values", ref_value = "pre_val" },
+            { ref_table = "card.joker_display_values", ref_value = "main_val", retrigger_type = "mult" },
+            { ref_table = "card.joker_display_values", ref_value = "post_val" },
+        }, border_colour = G.C.CLEAR }
+    },
     calc_function = function(card)
-
-
-
-
-        card.joker_display_values.test = 12
+        local state = card.ability.extra.index.s12 or card.ability.extra.index.main
+        if card.joker_display_values.state and card.joker_display_values.state == state then
+            if state == 3 then
+                local copied_joker
+                if card.area and not card.area.config.collection then
+		            for i = 1, #card.area.cards do
+		            	if card.area.cards[i] == card then
+                            copied_joker = card.area.cards[i - 1]
+                            break
+		            	end
+		            end
+                end
+                if copied_joker and copied_joker.config.center.blueprint_compat then
+                    card.joker_display_values.pre_val = 'X'
+                    card.joker_display_values.main_val = card.ability.extra.value.main
+                    card.joker_display_values.post_val = ' '..localize('k_compatible')
+                    card.joker_display_values.text_colour = G.C.GREEN
+                else
+                    card.joker_display_values.pre_val = ''
+                    card.joker_display_values.main_val = localize('k_incompatible')
+                    card.joker_display_values.post_val = ''
+                    card.joker_display_values.text_colour = G.C.RED
+                end
+            elseif state == 5 then
+                local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+                card.joker_display_values.main_val = scoring_hand and card.ability.extra.value.main * #scoring_hand or 0
+            end
+            if card.joker_display_values.redraw then
+                card.joker_display_values.redraw = false
+                card:update_joker_display(true, true, 'self')
+            end
+        else --print('New State: '..state)
+            local pre_val, main_val, post_val, retrigger_type, text_colour, border_colour
+            if     state ==  0 then -- setup
+                pre_val = '.'; main_val = '.'; post_val = G.GAME.SEMBY_random_parking and '?' or '.'
+                text_colour = G.C.UI.TEXT_INACTIVE
+            elseif state ==  1 then -- handsize
+                pre_val = '+'
+                retrigger_type = 'mult'
+                text_colour = G.C.IMPORTANT
+            elseif state ==  2 then -- xmult
+                pre_val = 'X'
+                retrigger_type = 'exp'
+                border_colour = G.C.MULT
+            elseif state ==  3 then -- blueprint
+                main_val = localize('k_incompatible')
+                retrigger_type = 'mult'
+                text_colour = G.C.RED
+            elseif state ==  4 then -- discards
+                pre_val = '+'
+                retrigger_type = 'mult'
+                text_colour = G.C.RED
+            elseif state ==  5 then -- mult
+                pre_val = '+'
+                main_val = 0
+                retrigger_type = 'mult'
+                text_colour = G.C.RED
+            elseif state ==  6 then -- consumables
+                pre_val = '+'
+                retrigger_type = 'mult'
+                text_colour = G.C.IMPORTANT
+            elseif state ==  7 then -- xchips
+                pre_val = 'X'
+                retrigger_type = 'exp'
+                border_colour = G.C.CHIPS
+            elseif state ==  8 then -- money
+                pre_val = '+$'
+                retrigger_type = 'mult'
+                text_colour = G.C.MONEY
+            elseif state ==  9 then -- percent
+                pre_val = '-'
+                main_val = (1 - card.ability.extra.value.main)
+                post_val = '%'
+                retrigger_type = SEMBY_Reduce
+                text_colour = G.C.SEMBY_PERCENT_L
+            elseif state == 10 then -- chips
+                pre_val = '+'
+                retrigger_type = 'mult'
+                text_colour = G.C.CHIPS
+            elseif state == 11 then -- retrigger
+                pre_val = '+'
+                retrigger_type = 'mult'
+                text_colour = G.C.IMPORTANT
+            elseif state == 12 then -- random + stat_mult
+                pre_val = '?'; main_val = '?'; post_val = '?'
+                text_colour = G.C.UI.TEXT_INACTIVE
+            else-- Fallback/Unknown -- ???
+                main_val = 'ERROR'
+                text_colour = { 1, 0, 1, 1 }
+            end
+            card.joker_display_values.state = state
+            card.joker_display_values.pre_val = pre_val or ''
+            card.joker_display_values.main_val = main_val or card.ability.extra.value.main
+            card.joker_display_values.post_val = post_val or ''
+            card.joker_display_values.retrigger_type = retrigger_type or nil
+            card.joker_display_values.text_colour = text_colour or G.C.UI.TEXT_LIGHT
+            card.joker_display_values.border_colour = border_colour or G.C.CLEAR
+            card.joker_display_values.redraw = true
+        end
     end,
-
-    --##TODO##
-    -- ... Yes.
-    -- Reminder? Mhm!
-
+    retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
+        if not held_in_hand and joker_card and joker_card.joker_display_values
+        and joker_card.joker_display_values.state and joker_card.joker_display_values.state == 11 then
+            return (joker_card.joker_display_values.main_val or 1) * (JokerDisplay.calculate_joker_triggers(joker_card) or 0)
+        end
+    end,
     style_function = function(card, text, reminder_text, extra)
-        if text and text.children then
-
-
-        text.children[1] = { border_nodes = {
-            { text = "X" },
-            { ref_table = "card.joker_display_values", ref_value = "test", retrigger_type = "exp" }
-        }, border_colour = G.C.CHIPS }
-
-
-            --text.children[1].config.colour = card.ability.extra.active and G.C.GREEN or G.C.UI.TEXT_INACTIVE
-            --text.children[1].config.retrigger_type = 'exp'
+        if card and card.joker_display_values and card.joker_display_values.state then
+            if text and text.children and text.children[1] then
+                text.children[1].config.colour = card.joker_display_values.border_colour or G.C.CLEAR
+                if text.children[1].children[1] then -- pre_val
+                    text.children[1].children[1].config.colour = card.joker_display_values.text_colour or G.C.UI.TEXT_LIGHT
+                end
+                if text.children[1].children[2] then -- main_val
+                    text.children[1].children[2].config.colour = card.joker_display_values.text_colour or G.C.UI.TEXT_LIGHT
+                    text.children[1].children[2].config.retrigger_type = card.joker_display_values.retrigger_type or 'mult'
+                end
+                if text.children[1].children[3] then -- post_val
+                    text.children[1].children[3].config.colour = card.joker_display_values.text_colour or G.C.UI.TEXT_LIGHT
+                end
+            end
         end
     end
 }
---]]
---[[
-    reminder_text = {
-        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "blueprint_compat", colour = G.C.RED }, { text = ")" }
-    },
-    calc_function = function(card)
-        local copied_joker, copied_debuff = JokerDisplay.calculate_blueprint_copy(card)
-        card.joker_display_values.blueprint_compat = localize('k_incompatible')
-        JokerDisplay.copy_display(card, copied_joker, copied_debuff)
-    end,
-    get_blueprint_joker = function(card)
-		if card.area and not card.area.config.collection then
-			for i = 1, #card.area.cards do
-				if card.area.cards[i] == card then
-					return card.area.cards[i - 1]
-				end
-			end
-        end
-        return nil
-    end,
-    retrigger_joker_function = function(card, retrigger_joker)
-        if card and card == retrigger_joker then
-            --##TODO## -> Check if correct
-            return 2 --card.ability.extra.repeats - 1
-        end
-    end
---]]
-
-
-
-
-
-
-
 
 jd_def['j_SEMBY_pay_two_win'] = {
-    --##TODO##
-    -- just mult
-    -- reminder -$2 ?
+    text = {
+        { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.MULT },
+    reminder_text = {
+        { text = "(" },
+        { text = "-$", colour = G.C.MONEY },
+        { ref_table = "card.ability.extra", ref_value = "spend", retrigger_type = "mult", colour = G.C.MONEY },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        if G.GAME.dollars - card.ability.extra.spend >= G.GAME.bankrupt_at then
+            card.joker_display_values.mult = card.ability.extra.mult
+        else card.joker_display_values.mult = 0 end
+    end
 }
 
 jd_def['j_SEMBY_perfect_pitch'] = {
-    --##TODO##
-    -- xmult
-    -- reminder: Amount of cards -> "3 Cards"
+    text = {
+        { border_nodes = {
+            { text = "X" }, { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT }
+    },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra.scoring", ref_value = "state", colour = G.C.IMPORTANT },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        if G.GAME.blind and G.GAME.blind.in_blind then
+            local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+            card.joker_display_values.xmult = #scoring_hand == card.ability.extra.scoring.state and card.ability.extra.xmult or 1.0
+        else card.joker_display_values.xmult = 1.0 end
+        card.joker_display_values.localized_text = ' '..localize('SEMBY_cards')
+    end
 }
 
 jd_def['j_SEMBY_pet_plastic'] = {
-    --##TODO##
-    -- mult
+    text = {
+        { text = "+" }, { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.MULT }
 }
 
 jd_def['j_SEMBY_piggy_bank'] = {
-    --##TODO##
-    -- xmult
+    text = {
+        { border_nodes = {
+            { text = "X" }, { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT }
+    },
+    calc_function = function(card)
+        card.joker_display_values.xmult = 1.0 + math.floor(card.sell_cost / card.ability.extra.value_mod) * card.ability.extra.xmult_mod
+    end
 }
 
 jd_def['j_SEMBY_pinata'] = { } -- no info
@@ -902,26 +1006,108 @@ jd_def['j_SEMBY_pinata'] = { } -- no info
 jd_def['j_SEMBY_plastic_key'] = { } -- no info
 
 jd_def['j_SEMBY_pocket_dimension'] = {
-    --##TODO##
-    -- current xmult based on consumables
+    text = {
+        { border_nodes = {
+            { text = "X" }, { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT }
+    },
+    calc_function = function(card)
+        local count = G.consumeables and #G.consumeables.cards or 0
+        card.joker_display_values.xmult = card.ability.extra.xmult ^ count
+    end
 }
 
 jd_def['j_SEMBY_potted_flowers'] = {
-    --##TODO##
-    -- just xchips? (if valid or not!)
-    -- like flower-pot!
-    -- reminder: amount of suits needed; "(4 Suits)"
+    text = {
+        { border_nodes = {
+            { text = "X" }, { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+        }, border_colour = G.C.CHIPS }
+    },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "suits", colour = G.C.IMPORTANT },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        --##TODO## : Slower Check because Counting Suits is very slow
+        -- Add a global "slow_calc" bool, which gets triggered every 4 ticks
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        if text ~= 'Unknown' and #scoring_hand >= card.ability.extra.suits
+        and SEMBY_count_suits(scoring_hand) >= card.ability.extra.suits then
+            card.joker_display_values.xchips = card.ability.extra.xchips
+        else card.joker_display_values.xchips = 1.0 end
+        card.joker_display_values.localized_text = ' '..localize('SEMBY_suits')
+    end
 }
 
 jd_def['j_SEMBY_quest'] = {
-    --##TODO##
-    -- Yes
-    -- Reminder? Mhm!
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "main_text" },
+        { ref_table = "card.joker_display_values", ref_value = "post_text", colour = G.C.UI.TEXT_INACTIVE }
+    },
+    reminder_text = {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" }
+    },
+    calc_function = function(card)
+        if card.ability.extra.quest.complete then
+            card.joker_display_values.main_text = localize('SEMBY_quest_completed')
+            card.joker_display_values.post_text = ''
+            card.joker_display_values.colour = G.C.GREEN
+            card.joker_display_values.active = false
+            card.joker_display_values.active_text = card.ability.extra.major..'/'..card.ability.extra.target
+        else
+            card.joker_display_values.main_text = card.ability.extra.major
+            card.joker_display_values.post_text = '/'..card.ability.extra.target
+            if not card.joker_display_values.colour then
+                local category = card.ability.extra.quest.category
+                if category == "hand" then
+                    card.joker_display_values.colour = G.C.BLUE
+                elseif category == "discard" then
+                    card.joker_display_values.colour = G.C.RED
+                elseif category == "money" then
+                    card.joker_display_values.colour = G.C.MONEY
+                elseif category == "consumable" then
+                    card.joker_display_values.colour = G.C.IMPORTANT
+                elseif category == "joker" then
+                    card.joker_display_values.colour = G.C.IMPORTANT
+                end
+            end
+            card.joker_display_values.active = not card.ability.extra.quest.reset
+            card.joker_display_values.active_text = localize('jdis_'..(card.joker_display_values.active and 'active' or 'inactive'))
+        end
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if card.joker_display_values then
+            if text and text.children and text.children[1] then
+                text.children[1].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE
+            end
+            if reminder_text and reminder_text.children and reminder_text.children[2] then
+                reminder_text.children[2].config.colour = card.joker_display_values.active and G.C.GREEN or G.C.UI.TEXT_INACTIVE
+            end
+        end
+    end
 }
 
 jd_def['j_SEMBY_reagent'] = {
-    --##TODO##
-    -- xmult
+    text = {
+        { border_nodes = {
+            { text = "X" }, { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT }
+    },
+    calc_function = function(card)
+        --##TODO## : Slower Check because checking entire deck is very slow
+        -- Add a global "slow_calc" bool, which gets triggered every 4 ticks
+        local xmult = card.ability.extra.xmult
+        for _, playing_card in ipairs(G.playing_cards or {}) do
+			if xmult > 1.0 then
+				if next(SMODS.get_enhancements(playing_card)) then
+					xmult = xmult - card.ability.extra.xmult_mod
+				end
+			else break end
+        end
+        card.joker_display_values.xmult = xmult
+    end
 }
 
 jd_def['j_SEMBY_red_mask'] = {

@@ -12,7 +12,7 @@ SMODS.Consumable {
             if hand_id and scoring_hand then
                 -- Visual Info:
                 for _, v_card in pairs(scoring_hand) do
-                    v_card:juice_up(0.1)
+                    v_card:juice_up(0.1, 0.2)
                 end
                 -- Text Info:
                 return {

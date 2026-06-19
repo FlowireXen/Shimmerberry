@@ -160,7 +160,7 @@ SMODS.Joker {
 				local mult = 1.0
 				-- Next Effect
 				if G.GAME.SEMBY_random_parking then cref.index.main = pseudorandom(SEED, MAIN_PROPS.min, MAIN_PROPS.max)
-				else cref.index.main = cref.index.s12 and MAIN_PROPS.min or math.min(MAIN_PROPS.min, math.floor(cref.index.main)+1) end
+				else cref.index.main = cref.index.s12 and MAIN_PROPS.min or math.max(MAIN_PROPS.min, math.floor(cref.index.main)+1) end
 				-- EOL: Special 12
 				cref.index.s12 = false
 				if cref.index.main >= MAIN_PROPS.max then

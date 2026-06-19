@@ -1901,7 +1901,7 @@ return {
 			SEMBY_quest_active_beat_reset = "Active next Blind",
 			SEMBY_quest_active_shot = "Active in Blinds",
 			SEMBY_quest_active_use = "Always Active",
-			SEMBY_quest_completed = "Quest Complete!",
+			SEMBY_quest_completed = "Complete!",
 			SEMBY_restocked_ex = "Restocked!",
 			SEMBY_ritual_complete = "Complete!",
 			SEMBY_ritual_inactive = "Inactive...",
@@ -1932,6 +1932,7 @@ return {
 			-- Joker Display:
 			SEMBY_cards = "Cards",
 			SEMBY_non_face = "Non-face",
+			SEMBY_suits = "Suits",
 			-- Config/System: Eden
 			SEMBY_eden_active = 'Enable "Eden Tokens"',
 			SEMBY_eden_active_desc = { 'Start Runs with a Consumable that', 'uses Tokens to spawn a Joker', },
