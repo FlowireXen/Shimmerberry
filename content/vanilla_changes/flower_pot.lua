@@ -2,7 +2,7 @@
 SMODS.Joker:take_ownership( 'flower_pot', {
     config = {
         extra = {
-            xmult = 3,
+            xmult = 4,
 			suits = 4
         }
     },

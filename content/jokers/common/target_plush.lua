@@ -22,9 +22,8 @@ SMODS.Joker {
 		local jokers = 0
 		local joke_limit = 0
 		if G.jokers then
-			jokers = (#G.jokers.cards or 0)
-			joke_limit = (G.jokers.config.card_limit or 0) - jokers
-			if joke_limit < 0 then joke_limit = 0 end
+			jokers = #G.jokers.cards
+			joke_limit = math.max(0, G.jokers.config.card_limit - jokers)
 		end
 		return { vars = {
 			card.ability.extra.chips,

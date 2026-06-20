@@ -46,9 +46,8 @@ function SEMBY_TMTR_Change(card)
 			--end
 			if SEMBY_TMTR_Main(card, changing_sources) then
     	    	-- Unique Effect(s):
-				if card.ability and card.ability.extra
-				and card.ability.extra.SEMBY_corrupt
-				then card.ability.extra.SEMBY_corrupt = 1 end
+				if card.ability and type(card.ability.extra or nil) == "table"
+				and card.ability.extra.SEMBY_corrupt then card.ability.extra.SEMBY_corrupt = 1 end
 			end
     	    -- Flip
 			G.E_MANAGER:add_event(Event({
