@@ -1,20 +1,5 @@
 SMODS.Joker {
 	key = "ghostsalt_contract",
-	loc_txt = {
-		--name = alt and "Evil Deal" or "Gambler's Contract",
-		name = "Gambler's Contract",
-		text = {
-			"Shop Jokers have",
-			"a {C:green}#1# in #2#{} chance to",
-			"become {C:dark_edition}Negative{} and",
-			"a {C:green}#3# in #4#{} chance to",
-			"become {C:SEMBY_possessive,E:2}Possessive{}",
-			"{C:inactive,s:0.9}(Fixed probabilities){}",
-
-			-- ADD INFO THAT THIS IS A PHANTA REFERENCE!!!
-			-- also add "negative" and "possessive" info
-		}
-	},
 	SEMBY_art = "ghostsalt",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 6, y = 7 },

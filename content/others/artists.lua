@@ -38,6 +38,11 @@ G.SEMBY.Artist = {
 		},
 	},
 	-- Guest Artists:
+	debug = {
+		name = "DEBUG",
+		colour = HEX('FF00FF'),
+		guest = true
+	},
 	ghostsalt = {
 		name = "GhostSalt",
 		colour = HEX('FFDDDD'),

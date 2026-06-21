@@ -1,6 +1,11 @@
 
 -- Clear all "##TODO##"s
 -- ##TODO## !!! DON'T FORGET THE BETA JOKERS !!!
+-- ghostsalt_contract
+-- scav_prototype
+-- shrewd_joker
+-- replicator
+-- 
 
 --## CrossMod: JokerDisplay
 -- > https://github.com/nh6574/JokerDisplay/wiki

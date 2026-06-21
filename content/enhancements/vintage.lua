@@ -1,13 +1,5 @@
 SMODS.Enhancement {
     key = 'vintage',
-	loc_txt = {
-		name = "Vintage Card",
-		text = {
-            "Retrigger if played",
-            "{C:attention}poker hand{} is not your",
-            "{C:attention}highest-level{} hand"
-		}
-	},
 	SEMBY_art = "flowire",
 	atlas = "SEMBY_enhancements",
 	pos = { x = 0, y = 0 },

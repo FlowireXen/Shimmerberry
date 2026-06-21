@@ -1,13 +1,5 @@
 SMODS.Joker {
 	key = "shrewd_joker",
-	loc_txt = {
-		name = "Shrewd Joker",
-		text = {
-			"{C:chips}+#1#{} Chips if poker",
-			"hand contains",
-			"{C:attention}#2#{} different suits",
-		}
-	},
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 0, y = 9 },

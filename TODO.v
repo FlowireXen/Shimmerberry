@@ -65,6 +65,10 @@ Vintage Cards: Update the "Upgrade Pokerhand"-Function so it also ups for Vintag
 
 - [+++]: Add Support for https://github.com/nh6574/JokerDisplay
 
+Check  message = '/"  for uncreated translation keys
+
+Annoying Dog: Add Multiple Images, image is random every time (doesn't save form)
+
 
 -->
 Uhh hh kit ty — 19:15

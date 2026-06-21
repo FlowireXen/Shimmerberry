@@ -414,6 +414,17 @@ return {
 					"{s:0.2} {}",
 				}
 			},
+			j_SEMBY_ghostsalt_contract = {
+				name = alt and "Evil Deal" or "Gambler's Contract",
+				text = {
+					"Shop Jokers have",
+					"a {C:green}#1# in #2#{} chance to",
+					"become {C:dark_edition}Negative{} and",
+					"a {C:green}#3# in #4#{} chance to",
+					"become {C:SEMBY_possessive,E:2}Possessive{}",
+					"{C:inactive,s:0.9}(Fixed probabilities){}",
+				}
+			},
 			j_SEMBY_glitched_infoboard = {
 				-- Glitched/TMTRAINER'd Info-Board
 				name = "Info Board",
@@ -899,6 +910,16 @@ return {
 					"{C:inactive}(Currently {}{C:chips}+#2#{}{C:inactive} Chips)",
 				}
 			},
+			j_SEMBY_replicator = {
+				name = "Replicator", 
+				text = {
+					"{C:attention}Destroys{} the next {C:attention}#1#{}",
+					"played cards to {C:attention}Duplicate{}",
+					"the rightmost Joker",
+					"{C:red,E:2}self destructs{}",
+					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#){}",
+				}
+			},
 			j_SEMBY_ripped_joker = {
 				name = "Ripped Joker",
 				text = {
@@ -930,6 +951,17 @@ return {
 					"each {C:blue}Hand{} played",
 				}
 			},
+			j_SEMBY_scav_prototype = {
+				name = "Scav Prototype",
+				text = {{
+					"When {C:attention}Blind{} is selected,",
+					"destroy {C:attention}adjacent{} Jokers",
+				}, {
+					"{C:green}#1# in #2#{} chance to gain",
+					"a {C:attention}Duplitage{} for each",
+					"destroyed Joker",
+				}}
+			},
 			j_SEMBY_seven_wonders = {
 				name = "7 Wonders",
 				text = {
@@ -948,6 +980,14 @@ return {
 					"every {C:legendary,E:1}Poker Hand",
 					"by {C:green}#1#{} level{C:inactive}(s)",
 					"{s:0.8,C:inactive}(Probability affected)",
+				}
+			},
+			j_SEMBY_shrewd_joker = {
+				name = "Shrewd Joker",
+				text = {
+					"{C:chips}+#1#{} Chips if poker",
+					"hand contains",
+					"{C:attention}#2#{} different suits",
 				}
 			},
 			j_SEMBY_silver_mask = {
@@ -1595,6 +1635,14 @@ return {
 					"{C:inactive,s:0.8}[Suit]{} Memories",
 					"gain {C:chips}+#1#{} Chips,",
 					"has no rank",
+				}
+			},
+			m_SEMBY_vintage = {
+				name = "Vintage Card",
+				text = {
+        		    "Retrigger if played",
+        		    "{C:attention}poker hand{} is not your",
+        		    "{C:attention}highest-level{} hand"
 				}
 			},
 		},

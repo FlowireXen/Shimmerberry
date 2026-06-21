@@ -1,6 +1,6 @@
 SMODS.Joker {
 	key = "debugjoker",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "debug",
 	loc_txt = {
 		name = "DEBUG{C:attention}JOKER",
 		text = {

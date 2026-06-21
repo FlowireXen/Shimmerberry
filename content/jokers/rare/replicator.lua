@@ -1,15 +1,5 @@
 SMODS.Joker {
-	key = "replicator",
-	loc_txt = {
-		name = "Replicator", -- indirect ref. to green replicator mod from minecraft
-		text = {
-			"{C:attention}Destroys{} the next {C:attention}#1#{}",
-			"played cards to {C:attention}Duplicate{}",
-			"the rightmost Joker",
-			"{C:red,E:2}self destructs{}",
-			"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#){}",
-		}
-	},
+	key = "replicator", -- indirect ref. to green replicator mod from minecraft
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 4, y = 8 },

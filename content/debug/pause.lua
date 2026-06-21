@@ -1,7 +1,7 @@
 local PAUSE_TIME = 2.0
 SMODS.Joker {
 	key = "debugpause",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "debug",
 	loc_txt = {
 		name = "DEBUG{C:red}PAUSE",
 		text = {

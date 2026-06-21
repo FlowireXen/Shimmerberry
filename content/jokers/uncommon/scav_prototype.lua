@@ -1,16 +1,5 @@
 SMODS.Joker {
-	key = "unknown_prototype", -- Image; "Casualties Unknown" Reference
-	loc_txt = {
-		name = "Unknown Prototype",
-		text = {{
-			"When {C:attention}Blind{} is selected,",
-			"destroy {C:attention}adjacent{} Jokers",
-		}, {
-			"{C:green}#1# in #2#{} chance to gain",
-			"a {C:attention}Duplitage{} for each",
-			"destroyed Joker",
-		}}
-	},
+	key = "scav_prototype", -- "Casualties Unknown" Reference
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 2, y = 8 },
@@ -31,7 +20,7 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { key = 'tag_SEMBY_adt_duplitage', set = 'Tag' }
 		local numerator, denominator = SMODS.get_probability_vars(card,
-			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_unknown_prototype')
+			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_scav_prototype')
 		return { vars = {
 			numerator,
 			denominator
@@ -65,7 +54,7 @@ SMODS.Joker {
 				-- Destroy Cards
 				for i = 1, #scav_cards do
 					if scav_cards[i] and not SMODS.is_eternal(scav_cards[i], card) and not scav_cards[i].getting_sliced then
-						if SMODS.pseudorandom_probability(card, 'SEMBY_unknown_prototype',
+						if SMODS.pseudorandom_probability(card, 'SEMBY_scav_prototype',
 							card.ability.extra.numerator, card.ability.extra.denominator)
 						then duplitages = duplitages + 1 end
 						G.GAME.joker_buffer = G.GAME.joker_buffer - 1
