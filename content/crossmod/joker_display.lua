@@ -1,43 +1,55 @@
--- hook "JokerDisplay.calculate_card_triggers = function(card, scoring_hand, held_in_hand)"
--- for my retrigger cards: Vintage Edition --> Hook/Patch "JokerDisplay.calculate_card_triggers = function(card, scoring_hand, held_in_hand)"
-
--- !!! DON'T FORGET THE BETA JOKERS !!!
-
--- Add Editions to this
--- Add Consumables to this; Especially the Token from Eden Token
 
 -- Clear all "##TODO##"s
+-- ##TODO## !!! DON'T FORGET THE BETA JOKERS !!!
 
---- Joker Display Definitions
---- Check Github Wiki for API details
---- https://github.com/nh6574/JokerDisplay/wiki
-
+--## CrossMod: JokerDisplay
+-- > https://github.com/nh6574/JokerDisplay/wiki
 if Shimmerberry.compat.display then
 local jd_def = JokerDisplay.Definitions
+local jd_e_def = JokerDisplay.Edition_Definitions
+local jd_b_def = JokerDisplay.Blind_Definitions
 -- SEMBY Diff. Update Ticks
-local SLOW_UPDATE = 8
-local NORM_UPDATE = 4
-local FAST_UPDATE = 2
+local SLOW_UPDATE, NORM_UPDATE, FAST_UPDATE = 8, 4, 2
 -- SEMBY Special Colors
 G.C.SEMBY_PERCENT_L = lighten(G.C.SEMBY_PERCENT, 0.25)
 G.C.SEMBY_TMTRAINER_L = lighten(G.C.SEMBY_TMTRAINER, 0.25)
 -- SEMBY Percent Support
 local function SEMBY_Reduce(num, triggers)   return (1 - (triggers == 1 and num or num ^ triggers)) * 100  end
 local function SEMBY_Increase(num, triggers) return ((triggers == 1 and num or num ^ triggers) - 1) * 100  end
--- SEMBY Jevil Hook
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
+-- ## HOOKS & MOD CHANGES                                   ## -- ##  ##  ##  #  #  ##  ##  ##
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###
 local trigger_calc_hook = JokerDisplay.calculate_card_triggers
 function JokerDisplay.calculate_card_triggers(card, scoring_hand, held_in_hand)
     local ret_val = trigger_calc_hook(card, scoring_hand, held_in_hand)
+    -- Vintage Enhancement
+    local hand_info = JokerDisplay.current_hand_info or {}
+    if hand_info.text and hand_info.text ~= 'Unknown' and SMODS.has_enhancement(card, 'm_SEMBY_vintage') then
+        if hand_info.SEMBY_vintage then
+            ret_val = ret_val + 1
+        elseif hand_info.SEMBY_vintage == nil then
+            --print('vintage checked')
+            local _, is_vintage = SEMBY_vintage_hand(hand_info.text)
+            JokerDisplay.current_hand_info.SEMBY_vintage = is_vintage
+            ret_val = ret_val + (is_vintage and 1 or 0)
+        end
+    end
+    -- The Pencil Blind
+    if G.GAME.blind and G.GAME.blind.boss and not G.GAME.blind.disabled
+    and G.GAME.blind.name and G.GAME.blind.name == 'bl_SEMBY_pencil' then
+        local first_card = scoring_hand and JokerDisplay.calculate_leftmost_card(JokerDisplay.current_hand)
+        if first_card and first_card == card then ret_val = 0 end
+    end
+    -- JEV][L Joker
     if G.GAME and G.GAME.SEMBY_jevil_scoring and scoring_hand then
         ret_val = ret_val * G.GAME.SEMBY_jevil_scoring
     end
+    -- Return new Total
     return ret_val
 end
-
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ###  ##  ##  ##
--- ## VANILLA CHANGES                                       ## -- ##  ##  ##  # #  ##  ##  ##
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  #  ####    ###
-
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
+-- ## VANILLA CHANGES                                       ## -- ##  ##  ##  #  #  ##  ##  ##
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###
 jd_def['j_flower_pot'] = {
     text = {
         { border_nodes = {
@@ -63,11 +75,9 @@ jd_def['j_flower_pot'] = {
         end
     end
 }
-
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ###  ##  ##  ##
--- ## JOKERS                                                ## -- ##  ##  ##  # #  ##  ##  ##
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  #  ####    ###
-
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
+-- ## JOKERS                                                ## -- ##  ##  ##  #  #  ##  ##  ##
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###
 jd_def['j_SEMBY_abandoned_soul'] = {
     text = {
         { border_nodes = {
@@ -76,7 +86,6 @@ jd_def['j_SEMBY_abandoned_soul'] = {
         }, border_colour = G.C.CHIPS }
     }
 }
-
 jd_def['j_SEMBY_adblocker'] = {
     text = {
         { text = "+$" }, { ref_table = "card.joker_display_values", ref_value = "dollars", retrigger_type = "mult" }
@@ -104,7 +113,6 @@ jd_def['j_SEMBY_adblocker'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_afterimage'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "blueprint_compat", colour = G.C.RED }, { text = ")" }
@@ -137,7 +145,6 @@ jd_def['j_SEMBY_afterimage'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_agent_fourty_seven'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" }
@@ -154,7 +161,6 @@ jd_def['j_SEMBY_agent_fourty_seven'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_alpha'] = {
     text = {
         { text = "+", colour = G.C.BLUE },
@@ -181,7 +187,6 @@ jd_def['j_SEMBY_alpha'] = {
         card.joker_display_values.localized_reminder = localize{ type = 'name_text', set = 'Enhanced', key = 'm_stone' }
     end
 }
-
 jd_def['j_SEMBY_anchor'] = {
     text = {
         { border_nodes = {
@@ -190,7 +195,6 @@ jd_def['j_SEMBY_anchor'] = {
         }, border_colour = G.C.CHIPS }
     }
 }
-
 jd_def['j_SEMBY_annoying_dog'] = {
     text = {
         { border_nodes = {
@@ -203,7 +207,6 @@ jd_def['j_SEMBY_annoying_dog'] = {
         card.joker_display_values.tail = (card.ability.extra.xmult % 1 == 0) and '.0' or ''
     end
 }
-
 jd_def['j_SEMBY_anodized_steel'] = {
     text = {
         { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
@@ -227,14 +230,12 @@ jd_def['j_SEMBY_anodized_steel'] = {
         card.joker_display_values.localized_text = localize{ type = 'name_text', set = 'Enhanced', key = 'm_steel' }
     end
 }
-
 jd_def['j_SEMBY_benthic_bloom'] = {
     retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
         return next(SMODS.get_enhancements(playing_card)) and JokerDisplay.in_scoring(playing_card, scoring_hand)
             and joker_card.ability.extra.repetitions * JokerDisplay.calculate_joker_triggers(joker_card) or 0
     end
 }
-
 jd_def['j_SEMBY_berry_blue'] = { --> "k_safe_ex"?
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
@@ -267,7 +268,6 @@ jd_def['j_SEMBY_berry_blue'] = { --> "k_safe_ex"?
         card.joker_display_values.berry_rank_two = localize(card_two.rank, 'ranks')
     end
 }
-
 jd_def['j_SEMBY_berry_golden'] = {--> "k_safe_ex"?
     text = {
         { text = "$", colour = G.C.MONEY }, { ref_table = "card.joker_display_values", ref_value = "dollars_1", retrigger_type = "mult", colour = G.C.MONEY },
@@ -304,7 +304,6 @@ jd_def['j_SEMBY_berry_golden'] = {--> "k_safe_ex"?
         card.joker_display_values.berry_rank_two = localize(card_two.rank, 'ranks')
     end
 }
-
 jd_def['j_SEMBY_berry_shimmer'] = { --> "k_safe_ex"?
     text = {
         { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
@@ -337,7 +336,6 @@ jd_def['j_SEMBY_berry_shimmer'] = { --> "k_safe_ex"?
         card.joker_display_values.berry_rank_two = localize(card_two.rank, 'ranks')
     end
 }
-
 jd_def['j_SEMBY_berry_straw'] = { --> "k_safe_ex"?
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
@@ -370,7 +368,6 @@ jd_def['j_SEMBY_berry_straw'] = { --> "k_safe_ex"?
         card.joker_display_values.berry_rank_two = localize(card_two.rank, 'ranks')
     end
 }
-
 jd_def['j_SEMBY_boosterpack_joker'] = {
     --text = { { text = '' } },
     extra = { {
@@ -390,7 +387,6 @@ jd_def['j_SEMBY_boosterpack_joker'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_bound'] = { } -- No Info.
 
 jd_def['j_SEMBY_broken_record'] = {
@@ -420,7 +416,6 @@ jd_def['j_SEMBY_broken_record'] = {
         return 0
     end
 }
-
 jd_def['j_SEMBY_buccaneer'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
@@ -434,7 +429,6 @@ jd_def['j_SEMBY_buccaneer'] = {
         card.joker_display_values.chips = card.ability.extra.chips * sell_cost
     end
 }
-
 jd_def['j_SEMBY_butterfly'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "notation" },
@@ -459,7 +453,6 @@ jd_def['j_SEMBY_butterfly'] = {
         card.joker_display_values.localized_text = localize(card.ability.extra.type, 'poker_hands')
     end
 }
-
 jd_def['j_SEMBY_ceaseless_void'] = {
     text = {
         { border_nodes = {
@@ -482,11 +475,8 @@ jd_def['j_SEMBY_ceaseless_void'] = {
         card.joker_display_values.percent = 1 + card.ability.extra.percent
     end
 }
-
 jd_def['j_SEMBY_chrono_break'] = { } -- no info
-
 jd_def['j_SEMBY_cockroach'] = { } -- no info
-
 jd_def['j_SEMBY_common_denominator'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
@@ -531,11 +521,8 @@ jd_def['j_SEMBY_common_denominator'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_copy_printer'] = { } -- no info
-
 jd_def['j_SEMBY_coupon'] = { } -- no info
-
 jd_def['j_SEMBY_coupon_booklet'] = {
     text = {
         { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "shop_mod" }, { text = "%" }
@@ -545,9 +532,7 @@ jd_def['j_SEMBY_coupon_booklet'] = {
         card.joker_display_values.shop_mod = math.floor(card.ability.extra.shop_mod * 100 + 0.5) * card.ability.extra.state
     end
 }
-
 jd_def['j_SEMBY_echoing_joker'] = { } -- no info
-
 jd_def['j_SEMBY_eden_blessing'] = {
     text = {
         { border_nodes = {
@@ -556,26 +541,20 @@ jd_def['j_SEMBY_eden_blessing'] = {
         }, border_colour = SMODS.Gradients.SEMBY_EDEN }
     }
 }
-
 jd_def['j_SEMBY_emergency_button'] = { } -- no info
-
 jd_def['j_SEMBY_eternal_fortune'] = { } -- no info
-
 jd_def['j_SEMBY_fifty_seven_leaf_clover'] = {
     retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
         return SMODS.has_enhancement(playing_card, 'm_wild') and joker_card.ability.extra.repetitions * JokerDisplay.calculate_joker_triggers(joker_card) or 0
     end
 }
-
 jd_def['j_SEMBY_fortune_cookie'] = { } -- no info
-
 jd_def['j_SEMBY_garden_gnome'] = {
     text = {
         { text = "+" }, { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
     },
     text_config = { colour = G.C.MULT }
 }
-
 jd_def['j_SEMBY_gold_bomb'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" },
@@ -590,7 +569,6 @@ jd_def['j_SEMBY_gold_bomb'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_goobert'] = {
     --text = { { text = '' } },
     extra = { {
@@ -610,9 +588,7 @@ jd_def['j_SEMBY_goobert'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_hemoturgy'] = { } -- no info
-
 jd_def['j_SEMBY_hypetrain'] = {
     --FIXME: Hide Xmult when "card.ability.waiting == true" or "card.ability.extra.xmult ~= 1.0"
     text = {
@@ -625,7 +601,6 @@ jd_def['j_SEMBY_hypetrain'] = {
         }, border_colour = G.C.MULT }
     }
 }
-
 jd_def['j_SEMBY_improv'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "hands", colour = G.C.BLUE },
@@ -646,9 +621,7 @@ jd_def['j_SEMBY_improv'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_incinerator'] = { } -- no info
-
 jd_def['j_SEMBY_jevil'] = { } -- special: managed via hook
 
 jd_def['j_SEMBY_jokebra'] = { } -- special: manages itself
@@ -663,9 +636,7 @@ jd_def['j_SEMBY_lavish_joker'] = {
         card.joker_display_values.percent = card.ability.extra.money_saved / card.ability.extra.money_mod * card.ability.extra.percent_mod * 100
     end
 }
-
 jd_def['j_SEMBY_lost_constellation'] = { } -- no info
-
 jd_def['j_SEMBY_lottery_ticket'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "spacing", scale = 0.35 },
@@ -703,7 +674,6 @@ jd_def['j_SEMBY_lottery_ticket'] = {
         card.joker_display_values.odds = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
     end
 }
-
 jd_def['j_SEMBY_melon'] = {
     text = {
         { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
@@ -713,7 +683,6 @@ jd_def['j_SEMBY_melon'] = {
         card.joker_display_values.percent = (1 - card.ability.extra.percent)
     end
 }
-
 jd_def['j_SEMBY_mineshaft'] = {
     text = {
         { text = "+", colour = G.C.IMPORTANT },
@@ -747,7 +716,6 @@ jd_def['j_SEMBY_mineshaft'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_misery'] = {
     text = {
         { border_nodes = {
@@ -764,9 +732,7 @@ jd_def['j_SEMBY_misery'] = {
         card.joker_display_values.xchips = G.GAME.current_round.hands_played == 0 and card.ability.extra.xchips or 1
     end
 }
-
 jd_def['j_SEMBY_money_laundering'] = { } -- no info
-
 jd_def['j_SEMBY_nashi_pear'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "score", retrigger_type = "mult" }
@@ -776,7 +742,6 @@ jd_def['j_SEMBY_nashi_pear'] = {
         card.joker_display_values.score = math.floor(card.ability.extra.score_base * card.ability.extra.state + 0.5)
     end
 }
-
 jd_def['j_SEMBY_oblivion'] = {
     text = {
         { text = "+$", colour = G.C.MONEY }, { ref_table = "card.joker_display_values", ref_value = "payout", colour = G.C.MONEY },
@@ -797,7 +762,6 @@ jd_def['j_SEMBY_oblivion'] = {
         card.joker_display_values.ante = localize('k_ante')..' '..(card.ability.extra.highest_ante or G.GAME.round_resets.ante or 1)
     end
 }
-
 jd_def['j_SEMBY_obscure_ritual'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" },
@@ -811,9 +775,7 @@ jd_def['j_SEMBY_obscure_ritual'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_opulent_skint'] = { } -- no info
-
 jd_def['j_SEMBY_ouroboros'] = {
     text = {
         { text = "+", colour = G.C.BLUE },
@@ -838,7 +800,6 @@ jd_def['j_SEMBY_ouroboros'] = {
         card.joker_display_values.percent = (1 + card.ability.extra.percent) ^ count
     end
 }
-
 jd_def['j_SEMBY_parking_disc'] = { --> #ScuffedDisc
     text = {
         { border_nodes = {
@@ -972,7 +933,6 @@ jd_def['j_SEMBY_parking_disc'] = { --> #ScuffedDisc
         end
     end
 }
-
 jd_def['j_SEMBY_pay_two_win'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
@@ -990,7 +950,6 @@ jd_def['j_SEMBY_pay_two_win'] = {
         else card.joker_display_values.mult = 0 end
     end
 }
-
 jd_def['j_SEMBY_perfect_pitch'] = {
     text = {
         { border_nodes = {
@@ -1011,14 +970,12 @@ jd_def['j_SEMBY_perfect_pitch'] = {
         card.joker_display_values.localized_text = ' '..localize('SEMBY_cards')
     end
 }
-
 jd_def['j_SEMBY_pet_plastic'] = {
     text = {
         { text = "+" }, { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
     },
     text_config = { colour = G.C.MULT }
 }
-
 jd_def['j_SEMBY_piggy_bank'] = {
     text = {
         { border_nodes = {
@@ -1029,11 +986,8 @@ jd_def['j_SEMBY_piggy_bank'] = {
         card.joker_display_values.xmult = 1.0 + math.floor(card.sell_cost / card.ability.extra.value_mod) * card.ability.extra.xmult_mod
     end
 }
-
 jd_def['j_SEMBY_pinata'] = { } -- no info
-
 jd_def['j_SEMBY_plastic_key'] = { } -- no info
-
 jd_def['j_SEMBY_pocket_dimension'] = {
     text = {
         { border_nodes = {
@@ -1045,7 +999,6 @@ jd_def['j_SEMBY_pocket_dimension'] = {
         card.joker_display_values.xmult = card.ability.extra.xmult ^ count
     end
 }
-
 jd_def['j_SEMBY_potted_flowers'] = {
     text = {
         { border_nodes = {
@@ -1071,7 +1024,6 @@ jd_def['j_SEMBY_potted_flowers'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_quest'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "main_text" },
@@ -1119,7 +1071,6 @@ jd_def['j_SEMBY_quest'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_reagent'] = {
     text = {
         { border_nodes = {
@@ -1142,14 +1093,12 @@ jd_def['j_SEMBY_reagent'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_red_mask'] = {
     text = {
         { text = "+" }, { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" }
     },
     text_config = { colour = G.C.CHIPS }
 }
-
 jd_def['j_SEMBY_ripped_joker'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
@@ -1160,7 +1109,6 @@ jd_def['j_SEMBY_ripped_joker'] = {
         card.joker_display_values.chips = hand and #hand > 0 and #hand <= card.ability.extra.size and card.ability.extra.chips or 0
     end
 }
-
 jd_def['j_SEMBY_risky_joker'] = {
     text = {
         { text = "-", colour = G.C.CHIPS },
@@ -1198,7 +1146,6 @@ jd_def['j_SEMBY_risky_joker'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_scaffolding'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "size" }, { text = ")" },
@@ -1214,7 +1161,6 @@ jd_def['j_SEMBY_scaffolding'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_seven_wonders'] = {
     text = {
         { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
@@ -1232,9 +1178,7 @@ jd_def['j_SEMBY_seven_wonders'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_shooting_star'] = { } -- no info
-
 jd_def['j_SEMBY_silver_mask'] = {
     text = {
         { text = "+$" }, { ref_table = "card.joker_display_values", ref_value = "money" },
@@ -1250,7 +1194,6 @@ jd_def['j_SEMBY_silver_mask'] = {
         card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
     end
 }
-
 jd_def['j_SEMBY_singularity'] = {
     text = {
         { text = "+", colour = G.C.IMPORTANT },
@@ -1287,7 +1230,6 @@ jd_def['j_SEMBY_singularity'] = {
         --end
     end
 }
-
 jd_def['j_SEMBY_stern_teacher'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
@@ -1301,7 +1243,6 @@ jd_def['j_SEMBY_stern_teacher'] = {
         card.joker_display_values.mult = debuffed * card.ability.extra.mult
     end
 }
-
 jd_def['j_SEMBY_stylish_joker'] = {
     text = {
         { text = "+$" }, { ref_table = "card.joker_display_values", ref_value = "money" },
@@ -1315,7 +1256,6 @@ jd_def['j_SEMBY_stylish_joker'] = {
         card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
     end
 }
-
 jd_def['j_SEMBY_stocked_shelves'] = {
     --text = { { text = '' } },
     extra = { {
@@ -1335,7 +1275,6 @@ jd_def['j_SEMBY_stocked_shelves'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_swordswallower'] = {
     text = {
         { border_nodes = {
@@ -1359,7 +1298,6 @@ jd_def['j_SEMBY_swordswallower'] = {
         card.joker_display_values.localized_text = localize('k_common')
     end
 }
-
 jd_def['j_SEMBY_t3mprr'] = {
     text = {
         { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent_reduce", retrigger_type = SEMBY_Reduce }, { text = "%" },
@@ -1381,7 +1319,6 @@ jd_def['j_SEMBY_t3mprr'] = {
         card.joker_display_values.percent_increase = card.ability.extra.clock_up * 100
     end
 }
-
 jd_def['j_SEMBY_target_plush'] = {
     text = {
         { text = "+", colour = G.C.CHIPS },
@@ -1400,7 +1337,6 @@ jd_def['j_SEMBY_target_plush'] = {
         card.joker_display_values.mult = joke_limit * card.ability.extra.mult
     end
 }
-
 jd_def['j_SEMBY_tempered_glass'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "localized_text" }, { text = ")" }
@@ -1409,11 +1345,8 @@ jd_def['j_SEMBY_tempered_glass'] = {
         card.joker_display_values.localized_text = localize{ type = 'name_text', set = 'Enhanced', key = 'm_glass' }
     end
 }
-
 jd_def['j_SEMBY_the_dwarf'] = { } -- no info
-
 jd_def['j_SEMBY_the_giant'] = { } -- no info
-
 jd_def['j_SEMBY_TMTRAINER'] = {   -- fluff info
     text = { { ref_table = "card.joker_display_values", ref_value = "TMTRAINER" }, { text = "%" } },
     text_config = { colour = G.C.SEMBY_TMTRAINER_L },
@@ -1427,9 +1360,7 @@ jd_def['j_SEMBY_TMTRAINER'] = {   -- fluff info
         end
     end
 }
-
 jd_def['j_SEMBY_to_and_fro'] = { } -- no info
-
 jd_def['j_SEMBY_tool_axe'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" }, { text = "x", scale = 0.35 },
@@ -1484,7 +1415,6 @@ jd_def['j_SEMBY_tool_axe'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_tool_hoe'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" },
@@ -1531,7 +1461,6 @@ jd_def['j_SEMBY_tool_hoe'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_tool_pickaxe'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" }, { text = "x", scale = 0.35 },
@@ -1585,7 +1514,6 @@ jd_def['j_SEMBY_tool_pickaxe'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_tool_shovel'] = {
     text = {
         { border_nodes = {
@@ -1633,7 +1561,6 @@ jd_def['j_SEMBY_tool_shovel'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_toolkit'] = {
     extra = { {
         { text = "(" },
@@ -1652,9 +1579,7 @@ jd_def['j_SEMBY_toolkit'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_twenty_to_die_for'] = { } -- no info
-
 jd_def['j_SEMBY_unicorn'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
@@ -1680,9 +1605,7 @@ jd_def['j_SEMBY_unicorn'] = {
         end
     end
 }
-
 jd_def['j_SEMBY_warm_embrace'] = { } -- no info
-
 jd_def['j_SEMBY_watching_forest'] = {
     --text = {
     --    { ref_table = "card.joker_display_values", ref_value = "order_text" }
@@ -1708,19 +1631,9 @@ jd_def['j_SEMBY_watching_forest'] = {
         end
     end
 }
-
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ###  ##  ##  ##
--- ## BLINDS         ## [SPECIAL RULINGS]                   ## -- ##  ##  ##  # #  ##  ##  ##
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  #  ####    ###
-
---##TODO## --> Lovely Patch or SMODS Hook
-
--- The Pencil : Remove first scoring card from calculations
-
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ###  ##  ##  ##
--- ## CONSUMABLES    ## [SPECIAL RULINGS]                   ## -- ##  ##  ##  # #  ##  ##  ##
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  #  ####    ###
-
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
+-- ## CONSUMABLES :: Special Rulings                        ## -- ##  ##  ##  #  #  ##  ##  ##
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###
 jd_def['c_SEMBY_eden_spawner'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "tokens", colour = G.C.UI.TEXT_INACTIVE }
@@ -1746,34 +1659,59 @@ jd_def['c_SEMBY_eden_spawner'] = {
         end
     end
 }
-
-jd_def['c_SEMBY_microcosm'] = {
-    --##TODO## : When selecting a hand, display it below (?)
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
+-- ## EDITIONS :: Lovely Patched -> JokerDisplay.toml       ## -- ##  ##  ##  #  #  ##  ##  ##
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###
+jd_e_def['e_SEMBY_pearlescent'] = {
+    condition_function = function(card)
+        return not card.debuff and (card.edition or {}).percent and card.edition.key == 'e_SEMBY_pearlescent'
+    end,
+    mod_function = function(card)
+        return { SEMBY_percent = -card.edition.percent }
+    end
 }
-
-jd_def['c_SEMBY_soul_gem'] = {
-    --##TODO## : When in Blind + Blind Select, show what Sould you're gonna Capture
+jd_e_def['e_SEMBY_resonance'] = {
+    condition_function = function(card)
+        return not card.debuff and (card.edition or {}).percent and card.edition.key == 'e_SEMBY_resonance'
+    end,
+    mod_function = function(card)
+        return { SEMBY_percent = card.edition.percent }
+    end
 }
-
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ###  ##  ##  ##
--- ## EDITIONS                                              ## -- ##  ##  ##  # #  ##  ##  ##
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  #  ####    ###
-
---##TODO## --> https://github.com/nh6574/JokerDisplay/wiki/03.-Edition-Definitions
---         --> Lovely Patch or SMODS Hook
-
--- Pearlescent : -5%
-
--- Resonance : +5%
-
--- Shiny : +$3
-
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ###  ##  ##  ##
--- ## ENHANCEMENTS                                          ## -- ##  ##  ##  # #  ##  ##  ##
--- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  #  ####    ###
-
---##TODO## --> Lovely Patch or SMODS Hook
-
--- Vintage Card : +1 Retrigger (Special Conditions apply)
-
+jd_e_def['e_SEMBY_shiny'] = {
+    condition_function = function(card)
+        return not card.debuff and (card.edition or {}).base_value and card.edition.key == 'e_SEMBY_shiny'
+    end,
+    mod_function = function(card)
+        return { dollars = card.edition.base_value, SEMBY_round = true }
+    end
+}
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
+-- ## BLINDS (aka "Metador Checks")                         ## -- ##  ##  ##  #  #  ##  ##  ##
+-- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###
+jd_b_def['bl_SEMBY_frog'] = {
+    trigger_function = function(blind, text, poker_hands, scoring_hand, full_hand)
+        return true --> Triggers each Hand
+    end
+}
+jd_b_def['bl_SEMBY_pencil'] = {
+    trigger_function = function(blind, text, poker_hands, scoring_hand, full_hand)
+        return true --> Triggers each Hand
+    end
+}
+jd_b_def['bl_SEMBY_sharp_shooter'] = {
+    trigger_function = function(blind, text, poker_hands, scoring_hand, full_hand)
+        return true --> Triggers each Hand ... for some reason lol
+    end
+}
+jd_b_def['bl_SEMBY_ghost'] = {
+    trigger_function = function(blind, text, poker_hands, scoring_hand, full_hand)
+        return false --> no trigger [start of blind]
+    end
+}
+jd_b_def['bl_SEMBY_golden_egg'] = {
+    trigger_function = function(blind, text, poker_hands, scoring_hand, full_hand)
+        return false --> no trigger [start of blind]
+    end
+}
 end

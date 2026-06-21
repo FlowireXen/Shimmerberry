@@ -97,21 +97,8 @@ end
 SMODS.current_mod.calculate = function(self, context)
     if context.before then
 		G.GAME.SEMBY_suit_count = context.scoring_hand and SEMBY_count_suits(context.scoring_hand) or 0
-		if context.scoring_name and G.GAME.hands[context.scoring_name] then
-			-- Get Highest Hand Level
-			G.GAME.SEMBY_vintage_level = next(G.GAME.hands).level or 1
-			local eqbalance = 0
-        	for handname, _ in pairs(G.GAME.hands) do
-				eqbalance = eqbalance ~= 0 and (eqbalance + G.GAME.hands[handname].level)/2 or G.GAME.hands[handname].level
-        	    if SMODS.is_poker_hand_visible(handname) and G.GAME.hands[handname].level > G.GAME.SEMBY_vintage_level then
-					G.GAME.SEMBY_vintage_level = G.GAME.hands[handname].level
-				end
-        	end
-			-- All Levels are the same; Allow Vintage
-			if G.GAME.SEMBY_vintage_level == eqbalance then
-				G.GAME.SEMBY_vintage_level = G.GAME.SEMBY_vintage_level + 1
-			end
-		end
+		G.GAME.SEMBY_vintage_level, _ = SEMBY_vintage_hand()--context.scoring_name)
+		--print(context.scoring_name..' '..G.GAME.SEMBY_vintage_level)
 		return
     end
     if context.after then

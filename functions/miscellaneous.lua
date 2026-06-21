@@ -30,6 +30,24 @@ function SEMBY_count_suits(cards)
     return ret_val
 end
 
+-- Get Vintage Hand
+function SEMBY_vintage_hand(check_name)
+	-- Get Highest Hand Level
+	local eqbalance, vintage_level = 0, next(G.GAME.hands).level or 1
+    for handname, _ in pairs(G.GAME.hands) do
+		eqbalance = eqbalance ~= 0 and (eqbalance + G.GAME.hands[handname].level)/2 or G.GAME.hands[handname].level
+        if SMODS.is_poker_hand_visible(handname) and G.GAME.hands[handname].level > vintage_level then
+			vintage_level = G.GAME.hands[handname].level
+		end
+    end
+	-- All Levels are the same; Allow Vintage
+	vintage_level = vintage_level + (vintage_level == eqbalance and 1 or 0)
+	-- Is checked hand vintage?
+	local vintage_check = check_name and G.GAME.hands[check_name] and G.GAME.hands[check_name].level < vintage_level
+	-- Return Vintage info
+	return vintage_level, vintage_check
+end
+
 -- Semby Global Revive-Function; Also known as the "Pray that the Timings aren't wrong"-Function
 function SEMBY_revive_list(rev_list, rev_source, rev_type)
     local revives = {}

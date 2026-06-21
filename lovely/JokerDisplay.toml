@@ -1,0 +1,92 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 10
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/api_helper_functions.lua"]'''
+pattern = '''local modifiers = {'''
+position = "after"
+payload = '''
+SEMBY_percent = nil,
+SEMBY_round = nil,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/api_helper_functions.lua"]'''
+pattern = '''edition_mods.e_mult or modifiers.e_mult,'''
+position = "after"
+payload = '''
+SEMBY_percent = (modifiers.SEMBY_percent and edition_mods.SEMBY_percent and modifiers.SEMBY_percent ^ edition_mods.SEMBY_percent)
+    or edition_mods.SEMBY_percent or modifiers.SEMBY_percent,
+SEMBY_round = edition_mods.SEMBY_round or modifiers.SEMBY_round,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/api_helper_functions.lua"]'''
+pattern = '''extra_mods.e_mult or modifiers.e_mult,'''
+position = "after"
+payload = '''
+SEMBY_percent = (modifiers.SEMBY_percent and extra_mods.SEMBY_percent and modifiers.SEMBY_percent ^ extra_mods.SEMBY_percent)
+    or extra_mods.SEMBY_percent or modifiers.SEMBY_percent,
+SEMBY_round = extra_mods.SEMBY_round or modifiers.SEMBY_round,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local new_modifiers = {'''
+position = "after"
+payload = '''
+SEMBY_percent = modifiers.SEMBY_percent,
+SEMBY_round = modifiers.SEMBY_round,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local modifiers_changed = reset or false'''
+position = "before"
+payload = '''
+mod_keys[#mod_keys+1] = "SEMBY_percent"
+mod_keys[#mod_keys+1] = "SEMBY_round"
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local mod_nodes = {}'''
+position = "after"
+payload = '''
+if self.modifiers.SEMBY_percent then
+    local SEMBY_percent_node = {}
+    local sign, amount, colour = self.modifiers.SEMBY_percent >= 0 and '+' or '-', math.abs(self.modifiers.SEMBY_percent)*100, G.C.SEMBY_PERCENT_L
+    table.insert(SEMBY_percent_node, JokerDisplay.create_display_object(self, { text = sign, colour = colour }))
+    table.insert(SEMBY_percent_node, JokerDisplay.create_display_object(self, { text = amount, colour = colour }))
+    table.insert(SEMBY_percent_node, JokerDisplay.create_display_object(self, { text = '%', colour = colour }))
+    table.insert(mod_nodes, SEMBY_percent_node)
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local row_index = 1'''
+position = "before"
+payload = '''
+if self.modifiers.SEMBY_round then
+    local round_node = {}
+    table.insert(round_node, JokerDisplay.create_display_object(self, { text = "(" .. localize("k_round") .. ")", colour = G.C.UI.TEXT_INACTIVE, scale = 0.3 }))
+    table.insert(mod_nodes, round_node)
+end
+'''
+match_indent = true
