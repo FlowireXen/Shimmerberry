@@ -1,18 +1,5 @@
 SMODS.Joker {
-	key = "arcoex",
-	loc_txt = {
-		
-		-- Texture Ideas:
-		-- "Glitched Cat.exe" + "Hypnospace"
-		-- "Junkdata"+Soul, changes every hand
-
-		name = { "A.C.E.", "{C:inactive,s:0.6}Arbitrary Code Execution", },
-		text = {
-			"Add the next {C:attention}#1# to #2#{}",
-			"playing cards from",
-			"Deck to scoring hand",
-		}
-	},
+	key = "arcoex", -- Texture Ideas: -- "Glitched Cat.exe" + "Hypnospace" --or-- "Junkdata"+Soul, changes every hand
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 8, y = 7 },

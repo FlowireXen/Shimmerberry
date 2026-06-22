@@ -1,12 +1,5 @@
 SMODS.Joker {
 	key = "cassette_beast",
-	loc_txt = {
-		name = "Cassette Beast",
-		text = {
-			"Retrigger scoring cards",
-			"for {C:attention}each{} scoring suit"
-		}
-	},
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 9, y = 7 },

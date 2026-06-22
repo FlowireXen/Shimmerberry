@@ -105,6 +105,22 @@ return {
 					"by {C:SEMBY_percent}#1#%{} when scored",
 				}
 			},
+			j_SEMBY_arcoex = {
+				name = { "A.C.E.", "{C:inactive,s:0.6}Arbitrary Code Execution", },
+				text = {
+					"Add the next {C:attention}#1# to #2#{}",
+					"playing cards from",
+					"Deck to scoring hand",
+				}
+			},
+			j_SEMBY_barmy_joker = {
+				name = "Barmy Joker",
+				text = {
+					"{C:mult}+#1#{} Mult if poker",
+					"hand contains",
+					"{C:attention}#2#{} different suits",
+				}
+			},
 			j_SEMBY_benthic_bloom = {
 				name = "Benthic Bloom",
 				text = {
@@ -231,6 +247,13 @@ return {
 					"if it doesn't",
 				}}
 			},
+			j_SEMBY_cassette_beast = {
+				name = "Cassette Beast",
+				text = {
+					"Retrigger scoring cards",
+					"for {C:attention}each{} scoring suit"
+				}
+			},
 			j_SEMBY_ceaseless_void = {
 				name = "Ceaseless Void",
 				text = {{
@@ -305,6 +328,45 @@ return {
 					"on every {C:green}Reroll",
 				}
 			},
+			j_SEMBY_daffy_joker = {
+				name = "Daffy Joker",
+				text = {
+					"{C:mult}+#1#{} Mult if poker",
+					"hand contains",
+					"{C:attention}#2#{} different suits",
+				}
+			},
+			j_SEMBY_DATAMINER = {
+				name = "DATAMINER",
+				text = {
+					"{C:SEMBY_TMTRAINER,E:1}Changes{} most",
+					"{C:enhanced}Numbers{} on newly",
+					"obtained {C:attention}Jokers{}",
+					"by {C:red}X#1#{} or {C:green}X#2#{}",
+				}
+			},
+			j_SEMBY_digitizon = {
+				name = "Digitizon",
+				text = {{
+					"When Blind is selected,",
+					"take {C:money}$#1#{} of {C:attention}sell value{}",
+					"from every {C:attention}Joker{} and",
+					"{C:attention}Consumable{} card",
+				}, {
+					"Create a {C:attention}Memory{} card",
+					"for every {C:money}$#2#{} taken",
+					"{C:inactive}({C:money}$#3#{C:inactive} remaining){}",
+				}}
+			},
+			j_SEMBY_doomsday_device = {
+				name = "Doomsday Device",
+				text = {
+					"{C:attention}Double{} the stored",
+					"{C:chips}Memory Value{} every",
+					"{C:attention}#1#{} scoring {C:enhanced}Memory Cards{}",
+					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#){}",
+				}
+			},
 			j_SEMBY_echoing_joker = {
 				name = "Echoing Joker",
 				text = {
@@ -356,6 +418,17 @@ return {
 					"{C:dark_edition}#1#{} times",
 				}
 			},
+			j_SEMBY_fire_exint = {
+				name = "Fire Exin't",
+				text = {
+					"Reduce Shop prices",
+					"by {C:money}#1#%{} every played",
+					"and {C:attention}unscored{} card,",
+					"resets when {C:attention}Boss{}",
+					"{C:attention}Blind{} is selected",
+					"{C:inactive}(Currently {C:money}#2#%{C:inactive}/#3#%){}",
+				}
+			},
 			j_SEMBY_fortune_cookie = {
 				name = "Fortune Cookie",
 				text = {{
@@ -373,6 +446,17 @@ return {
 				text = {
 					"{C:mult}+#1#{} Mult",
 					"{C:attention}-#2#{} Hand size",
+				}
+			},
+			j_SEMBY_ghostsalt_contract = {
+				name = alt and "Evil Deal" or "Gambler's Contract",
+				text = {
+					"Shop Jokers have",
+					"a {C:green}#1# in #2#{} chance to",
+					"become {C:dark_edition}Negative{} and",
+					"a {C:green}#3# in #4#{} chance to",
+					"become {C:SEMBY_possessive,E:2}Possessive{}",
+					"{C:inactive,s:0.9}(Fixed probabilities){}",
 				}
 			},
 			j_SEMBY_gold_bomb = {
@@ -404,43 +488,29 @@ return {
 					"{C:red}-#1#{} Discard Limit",
 				}
 			},
-			j_SEMBY_infoboard = {
-				-- Initial text for "j_SEMBY_hypetrain"
-				name = "Info Board",
-				text = {
-					"Your {C:attention}Joker{} arrives in:",
-					"{s:0.2} {}",
-					"{C:mult}+#1#{} Mult",
-					"{s:0.2} {}",
-				}
-			},
-			j_SEMBY_ghostsalt_contract = {
-				name = alt and "Evil Deal" or "Gambler's Contract",
-				text = {
-					"Shop Jokers have",
-					"a {C:green}#1# in #2#{} chance to",
-					"become {C:dark_edition}Negative{} and",
-					"a {C:green}#3# in #4#{} chance to",
-					"become {C:SEMBY_possessive,E:2}Possessive{}",
-					"{C:inactive,s:0.9}(Fixed probabilities){}",
-				}
-			},
-			j_SEMBY_glitched_infoboard = {
-				-- Glitched/TMTRAINER'd Info-Board
-				name = "Info Board",
-				text = {
-					"Your {C:attention}Joker{} arrives in:",
-					"{s:0.2} {}",
-					"{C:mult}+#1#{} Mult",
-					"{s:0.2} {}",
-					"{X:SEMBY_TMTRAINER,C:white,s:0.8}X#2#{s:0.8} Mult{C:inactive,s:0.8,E:1}?",
-					"{s:0.2} {}",
-				}
-			},
 			j_SEMBY_hypetrain = {
 				name = alt and "HYPETRAIN" or "Hypetrain",
 				text = {
 					"Level {X:mult,C:white}X#1#{}!",
+					"Next stop in:",
+					"{s:0.2} {}",
+					"{C:mult}+#2#{} Mult",
+					"{s:0.2} {}",
+				}
+			},
+			j_SEMBY_hypetrain_info = {
+				name = "Info Board",
+				text = {
+					"Your {C:attention}Joker{} arrives in:",
+					"{s:0.2} {}",
+					"{C:mult}+#1#{} Mult",
+					"{s:0.2} {}",
+				}
+			},
+			j_SEMBY_hypetrain_info_glitch = {
+				name = "Info Board",
+				text = {
+					"Level {X:SEMBY_TMTRAINER,C:white}X#1#{E:1}?",
 					"Next stop in:",
 					"{s:0.2} {}",
 					"{C:mult}+#2#{} Mult",
@@ -631,6 +701,14 @@ return {
 					"the {C:attention}Blind Size{} by {C:SEMBY_percent}#2#%",
 				}
 			},
+			j_SEMBY_paper_swan = {
+				name = "Paper Swan",
+				text = {
+					"{X:chips,C:white}X#1#{} Chips every",
+					"{C:attention}#2#{} scoring cards",
+					"{C:inactive}(Currently {C:attention}#3#{C:inactive}/#2#)",
+				}
+			},
 			j_SEMBY_parking_disc = {
 				name = "Parking Disc",
 				text = {
@@ -643,6 +721,14 @@ return {
 				text = {
 					"Spend {C:money}$#1#{} to",
 					"gain {C:mult}+#2#{} Mult",
+				}
+			},
+			j_SEMBY_peculiar_joker = {
+				name = "Peculiar Joker",
+				text = {
+					"{C:chips}+#1#{} Chips if poker",
+					"hand contains",
+					"{C:attention}#2#{} different suits",
 				}
 			},
 			j_SEMBY_perfect_pitch = {
@@ -1344,20 +1430,35 @@ return {
 			bl_SEMBY_frog = {
 				name = alt and "Tiny Guy" or "The Frog",
 				text = {
-					'{C:attention}-1{} hand size and',
-					'{C:red}+1{} discard for',
-					'each hand played'
+					"{C:attention}-1{} hand size and",
+					"{C:red}+1{} discard for",
+					"each hand played",
 				},
 			},
-			bl_SEMBY_pencil = {
-				name = 'The Pencil',
+    		bl_SEMBY_ghost = {
+    		    name = alt and "Phanta" or "The Ghost",
+    		    text = {
+    		        "At start of the round,",
+    		        "{C:red}increase{} Blind Size by {C:attention}25%{}", --C:SEMBY_percent
+    		        "for each Joker you own",
+    		    }
+    		},
+			bl_SEMBY_golden_egg = {
+				name = alt and "The Egg" or "Golden Egg",
 				text = {
-					'Debuff {C:attention}first{} played',
-					'card every hand'
+					"Reward loses {C:money}$1{}",
+					"each scoring card",
+				}
+			},
+			bl_SEMBY_pencil = {
+				name = alt and "Ink Scrawl" or "The Pencil",
+				text = {
+					"Debuff {C:attention}first{} played",
+					"card every hand"
 				}
 			},
 			bl_SEMBY_sharp_shooter = {
-				name = alt and 'Justice' or 'Sharp Shooter',
+				name = alt and "Justice" or "Sharp Shooter",
 				text = {
 					"{C:attention}Five{} random Cards",
 					"debuffed every hand",
@@ -1435,6 +1536,14 @@ return {
             },
         },
 		Spectral = {
+			c_SEMBY_daybreak = {
+				name = "Daybreak",
+				text = {
+    		        "Enhances each card",
+    		        "in hand into a",
+    		        "{C:attention}#1#{}",
+				}
+			},
 			c_SEMBY_eden_spawner = {
 				name = "", -- No Name
 				text = {{

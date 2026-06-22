@@ -5,13 +5,6 @@ local function SetEggReward(amount)
 end
 SMODS.Blind {
     key = "golden_egg",
-	loc_txt = {
-		name = "Golden Egg",
-		text = {
-			"Reward loses {C:money}$1{}",
-			"each scoring card",
-		}
-	},
 	SEMBY_art = "flowire",
     atlas = "SEMBY_blinds",
     pos = { x = 0, y = 4},

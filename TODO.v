@@ -54,12 +54,10 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 !! Bug Report: Shader Issue
 
-Optimize "After Image" ; It's so bad for the Performance it's crazy
-
 Joker: "..."information overload" joker that scales with each keyword in other jokers when :3c"
 -> Instead of Keywords, use list of all "attributes" in your jokers :3c
 
-"Quantum Moon" Planet: Upgrades a Random Planet Card
+"Quantum Moon" Planet: Upgrades a Random *Planet Card* -> Doubles Stat gain for a Planet Card
 
 Vintage Cards: Update the "Upgrade Pokerhand"-Function so it also ups for Vintage Cards
 

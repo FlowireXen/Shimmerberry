@@ -4,15 +4,6 @@ local textures = {
 }
 SMODS.Joker {
 	key = "DATAMINER",
-	loc_txt = {
-		name = "DATAMINER",
-		text = {
-			"{C:SEMBY_TMTRAINER,E:1}Changes{} most",
-			"{C:enhanced}Numbers{} on newly",
-			"obtained {C:attention}Jokers{}",
-			"by {C:red}X#1#{} or {C:green}X#2#{}",
-		}
-	},
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_2",
 	pos = textures.base,

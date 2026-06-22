@@ -1,14 +1,5 @@
 SMODS.Joker {
 	key = "doomsday_device",
-	loc_txt = {
-		name = "Doomsday Device",
-		text = {
-			"{C:attention}Doubles{} the stored",
-			"{C:chips}Memory Value{} of every",
-			"{C:attention}#1#th{} scoring {C:enhanced}Memory Card{}",
-			"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#){}",
-		}
-	},
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 7, y = 8 },

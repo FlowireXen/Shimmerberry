@@ -1,13 +1,5 @@
 SMODS.Consumable {
     key = 'daybreak',
-	loc_txt = {
-		name = "Daybreak",
-		text = {
-            "Enhances each card",
-            "in hand into a",
-            "{C:attention}#1#{}",
-		}
-	},
     SEMBY_art = "placeholder",
 	atlas = "SEMBY_consumables",
     pos = { x = 5, y = 0 },

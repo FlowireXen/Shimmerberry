@@ -1,13 +1,5 @@
 SMODS.Joker {
 	key = "paper_swan",
-	loc_txt = {
-		name = "Paper Swan",
-		text = {
-			"{X:chips,C:white}X#1#{} Chips every",
-			"{C:attention}#2#{} scoring cards",
-			"{C:inactive}(Currently {C:attention}#3#{C:inactive}/#2#)",
-		}
-	},
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 3, y = 8 },

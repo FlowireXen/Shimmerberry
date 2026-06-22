@@ -1,18 +1,5 @@
 SMODS.Joker {
-	key = "digitizon",
-	loc_txt = {
-		name = "Digitizon", -- Digitizer + Digimon
-		text = {{
-			"When Blind is selected,",
-			"take {C:money}$#1#{} of {C:attention}sell value{}", -- $1
-			"from every {C:attention}Joker{} and",
-			"{C:attention}Consumable{} card",
-		}, {
-			"Create a {C:attention}Memory{} card",
-			"for every {C:money}$#2#{} taken", -- $3
-			"{C:inactive}({C:money}$#3#{C:inactive} remaining){}", -- "remain"
-		}}
-	},
+	key = "digitizon", -- Digitizer + Digimon
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 0, y = 8 },

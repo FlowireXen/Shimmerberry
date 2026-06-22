@@ -28,13 +28,13 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		if card.ability.extra.waiting then
 			if card.ability.extra.xmult == 1.0 then
-				return { key = "j_SEMBY_infoboard", vars = {
+				return { key = "j_SEMBY_hypetrain_info", vars = {
 					card.ability.extra.mult
 				} }
 			else
-				return { key = "j_SEMBY_glitched_infoboard", vars = {
-					card.ability.extra.mult,
-					card.ability.extra.xmult
+				return { key = "j_SEMBY_hypetrain_info_glitch", vars = {
+					card.ability.extra.xmult,
+					card.ability.extra.mult
 				} }
 			end
 		else

@@ -1,13 +1,5 @@
 SMODS.Blind {
     key = "ghost",
-    loc_txt = {
-        name = "The Ghost", --alt; "The Phanta"
-        text = {
-            "At start of the round,",
-            "{C:red}increase{} Blind Size by {C:attention}25%{}", --C:SEMBY_percent
-            "for each Joker you own",
-        }
-    },
     SEMBY_art = "flowire",
     atlas = "SEMBY_blinds",
     pos = { x = 0, y = 3},

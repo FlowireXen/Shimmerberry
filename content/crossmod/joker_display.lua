@@ -1,11 +1,7 @@
 
 -- Clear all "##TODO##"s
+
 -- ##TODO## !!! DON'T FORGET THE BETA JOKERS !!!
--- ghostsalt_contract
--- scav_prototype
--- shrewd_joker
--- replicator
--- 
 
 --## CrossMod: JokerDisplay
 -- > https://github.com/nh6574/JokerDisplay/wiki
@@ -235,6 +231,33 @@ jd_def['j_SEMBY_anodized_steel'] = {
         card.joker_display_values.localized_text = localize{ type = 'name_text', set = 'Enhanced', key = 'm_steel' }
     end
 }
+jd_def['j_SEMBY_arcoex'] = {
+    text = { { text = "TODO" } } --##TODO## : Changing like TMTRAINER "+X Cards"
+}
+jd_def['j_SEMBY_barmy_joker'] = {
+    text = {
+        { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.MULT },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "suits", colour = G.C.IMPORTANT },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.update_timer = (card.joker_display_values.update_timer or NORM_UPDATE) + 1
+        if card.joker_display_values.update_timer > NORM_UPDATE then
+            card.joker_display_values.update_timer = 0
+            local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+            if text ~= 'Unknown' and #scoring_hand >= card.ability.extra.suits
+            and SEMBY_count_suits(scoring_hand) >= card.ability.extra.suits then
+                card.joker_display_values.mult = card.ability.extra.mult
+            else card.joker_display_values.mult = 0 end
+            card.joker_display_values.localized_text = ' '..localize('SEMBY_suits')
+        end
+    end
+}
 jd_def['j_SEMBY_benthic_bloom'] = {
     retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
         return next(SMODS.get_enhancements(playing_card)) and JokerDisplay.in_scoring(playing_card, scoring_hand)
@@ -392,8 +415,7 @@ jd_def['j_SEMBY_boosterpack_joker'] = {
         end
     end
 }
-jd_def['j_SEMBY_bound'] = { } -- No Info.
-
+jd_def['j_SEMBY_bound'] = { } -- no info
 jd_def['j_SEMBY_broken_record'] = {
     calc_function = function(card)
         local text, _, scoring_hand = JokerDisplay.evaluate_hand()
@@ -457,6 +479,9 @@ jd_def['j_SEMBY_butterfly'] = {
         card.joker_display_values.chips = math.abs(expected)
         card.joker_display_values.localized_text = localize(card.ability.extra.type, 'poker_hands')
     end
+}
+jd_def['j_SEMBY_cassette_beast'] = {
+    text = { { text = "TODO" } } --##TODO## : Doesn't show anything, but adds Retriggers based on Suit-Count
 }
 jd_def['j_SEMBY_ceaseless_void'] = {
     text = {
@@ -537,6 +562,37 @@ jd_def['j_SEMBY_coupon_booklet'] = {
         card.joker_display_values.shop_mod = math.floor(card.ability.extra.shop_mod * 100 + 0.5) * card.ability.extra.state
     end
 }
+jd_def['j_SEMBY_daffy_joker'] = {
+    text = {
+        { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.MULT },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "suits", colour = G.C.IMPORTANT },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.update_timer = (card.joker_display_values.update_timer or NORM_UPDATE) + 1
+        if card.joker_display_values.update_timer > NORM_UPDATE then
+            card.joker_display_values.update_timer = 0
+            local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+            if text ~= 'Unknown' and #scoring_hand >= card.ability.extra.suits
+            and SEMBY_count_suits(scoring_hand) >= card.ability.extra.suits then
+                card.joker_display_values.mult = card.ability.extra.mult
+            else card.joker_display_values.mult = 0 end
+            card.joker_display_values.localized_text = ' '..localize('SEMBY_suits')
+        end
+    end
+}
+jd_def['j_SEMBY_DATAMINER'] = {
+    text = { { text = "TODO" } } --##TODO## : "TMTRAINER"-Clone, only shows A or B (no inbetween)
+}
+jd_def['j_SEMBY_digitizon'] = { } -- no info
+jd_def['j_SEMBY_doomsday_device'] = {
+    text = { { text = "TODO" } } --##TODO## : Show "X/20", When selecting cards "X+Y/20", (and if it activates this hand)?
+}
 jd_def['j_SEMBY_echoing_joker'] = { } -- no info
 jd_def['j_SEMBY_eden_blessing'] = {
     text = {
@@ -553,6 +609,9 @@ jd_def['j_SEMBY_fifty_seven_leaf_clover'] = {
         return SMODS.has_enhancement(playing_card, 'm_wild') and joker_card.ability.extra.repetitions * JokerDisplay.calculate_joker_triggers(joker_card) or 0
     end
 }
+jd_def['j_SEMBY_fire_exint'] = {
+    text = { { text = "TODO" } } --##TODO## : Show "-X%", like Coupon Booklet
+}
 jd_def['j_SEMBY_fortune_cookie'] = { } -- no info
 jd_def['j_SEMBY_garden_gnome'] = {
     text = {
@@ -560,6 +619,7 @@ jd_def['j_SEMBY_garden_gnome'] = {
     },
     text_config = { colour = G.C.MULT }
 }
+jd_def['j_SEMBY_ghostsalt_contract'] = { } -- no info
 jd_def['j_SEMBY_gold_bomb'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "active_text" }, { text = ")" },
@@ -627,10 +687,8 @@ jd_def['j_SEMBY_improv'] = {
     end
 }
 jd_def['j_SEMBY_incinerator'] = { } -- no info
-jd_def['j_SEMBY_jevil'] = { } -- special: managed via hook
-
-jd_def['j_SEMBY_jokebra'] = { } -- special: manages itself
-
+jd_def['j_SEMBY_jevil'] = { } -- no info, special: managed via hook
+jd_def['j_SEMBY_jokebra'] = { } -- no info, special: manages itself
 jd_def['j_SEMBY_lavish_joker'] = {
     text = {
         { text = "+$", colour = G.C.MONEY }, { ref_table = "card.ability.extra", ref_value = "money_saved", colour = G.C.MONEY },
@@ -805,6 +863,9 @@ jd_def['j_SEMBY_ouroboros'] = {
         card.joker_display_values.percent = (1 + card.ability.extra.percent) ^ count
     end
 }
+jd_def['j_SEMBY_paper_swan'] = {
+    text = { { text = "TODO" } } --##TODO## : Reminder is "X/5", Main is X1 Chips or X2+ Chips for each trigger on selected hand (also update reminder)
+}
 jd_def['j_SEMBY_parking_disc'] = { --> #ScuffedDisc
     text = {
         { border_nodes = {
@@ -953,6 +1014,30 @@ jd_def['j_SEMBY_pay_two_win'] = {
         if G.GAME.dollars - card.ability.extra.spend >= G.GAME.bankrupt_at then
             card.joker_display_values.mult = card.ability.extra.mult
         else card.joker_display_values.mult = 0 end
+    end
+}
+jd_def['j_SEMBY_peculiar_joker'] = {
+    text = {
+        { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.CHIPS },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "suits", colour = G.C.IMPORTANT },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.update_timer = (card.joker_display_values.update_timer or NORM_UPDATE) + 1
+        if card.joker_display_values.update_timer > NORM_UPDATE then
+            card.joker_display_values.update_timer = 0
+            local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+            if text ~= 'Unknown' and #scoring_hand >= card.ability.extra.suits
+            and SEMBY_count_suits(scoring_hand) >= card.ability.extra.suits then
+                card.joker_display_values.chips = card.ability.extra.chips
+            else card.joker_display_values.chips = 0 end
+            card.joker_display_values.localized_text = ' '..localize('SEMBY_suits')
+        end
     end
 }
 jd_def['j_SEMBY_perfect_pitch'] = {
@@ -1104,6 +1189,9 @@ jd_def['j_SEMBY_red_mask'] = {
     },
     text_config = { colour = G.C.CHIPS }
 }
+jd_def['j_SEMBY_replicator'] = {
+    text = { { text = "TODO" } } --##TODO## : Show cards left, When selecting hand add to amount left, Reminder "(duplicating_joker_name)"
+}
 jd_def['j_SEMBY_ripped_joker'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
@@ -1166,6 +1254,9 @@ jd_def['j_SEMBY_scaffolding'] = {
         end
     end
 }
+jd_def['j_SEMBY_scav_prototype'] = {
+    text = { { text = "TODO" } } --##TODO## : Extra "1 in 4", Main "0x Duplitage" (based on count of neighbours)
+}
 jd_def['j_SEMBY_seven_wonders'] = {
     text = {
         { text = "-" }, { ref_table = "card.joker_display_values", ref_value = "percent", retrigger_type = SEMBY_Reduce }, { text = "%" },
@@ -1184,6 +1275,30 @@ jd_def['j_SEMBY_seven_wonders'] = {
     end
 }
 jd_def['j_SEMBY_shooting_star'] = { } -- no info
+jd_def['j_SEMBY_shrewd_joker'] = {
+    text = {
+        { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" }
+    },
+    text_config = { colour = G.C.CHIPS },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "suits", colour = G.C.IMPORTANT },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.update_timer = (card.joker_display_values.update_timer or NORM_UPDATE) + 1
+        if card.joker_display_values.update_timer > NORM_UPDATE then
+            card.joker_display_values.update_timer = 0
+            local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+            if text ~= 'Unknown' and #scoring_hand >= card.ability.extra.suits
+            and SEMBY_count_suits(scoring_hand) >= card.ability.extra.suits then
+                card.joker_display_values.chips = card.ability.extra.chips
+            else card.joker_display_values.chips = 0 end
+            card.joker_display_values.localized_text = ' '..localize('SEMBY_suits')
+        end
+    end
+}
 jd_def['j_SEMBY_silver_mask'] = {
     text = {
         { text = "+$" }, { ref_table = "card.joker_display_values", ref_value = "money" },
