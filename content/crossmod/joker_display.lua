@@ -231,9 +231,7 @@ jd_def['j_SEMBY_anodized_steel'] = {
         card.joker_display_values.localized_text = localize{ type = 'name_text', set = 'Enhanced', key = 'm_steel' }
     end
 }
-jd_def['j_SEMBY_arcoex'] = {
-    text = { { text = "TODO" } } --##TODO## : Changing like TMTRAINER "+X Cards"
-}
+jd_def['j_SEMBY_arcoex'] = { } -- no info
 jd_def['j_SEMBY_barmy_joker'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
@@ -587,7 +585,16 @@ jd_def['j_SEMBY_daffy_joker'] = {
     end
 }
 jd_def['j_SEMBY_DATAMINER'] = {
-    text = { { text = "TODO" } } --##TODO## : "TMTRAINER"-Clone, only shows A or B (no inbetween)
+    text = { { ref_table = "card.joker_display_values", ref_value = "DATAMINER" }, { text = "%" } },
+    text_config = { colour = G.C.SEMBY_TMTRAINER_L },
+    calc_function = function(card)
+        card.joker_display_values.update_timer = (card.joker_display_values.update_timer or SLOW_UPDATE) + 1
+        if card.joker_display_values.update_timer > SLOW_UPDATE then
+            card.joker_display_values.update_timer = 0
+            card.joker_display_values.DATAMINER = (math.random() > 0.5 and
+                card.ability.extra.SEMBY_TMTR_MAX or card.ability.extra.SEMBY_TMTR_MIN) * 100
+        end
+    end
 }
 jd_def['j_SEMBY_digitizon'] = { } -- no info
 jd_def['j_SEMBY_doomsday_device'] = {
@@ -1467,7 +1474,7 @@ jd_def['j_SEMBY_tempered_glass'] = {
 }
 jd_def['j_SEMBY_the_dwarf'] = { } -- no info
 jd_def['j_SEMBY_the_giant'] = { } -- no info
-jd_def['j_SEMBY_TMTRAINER'] = {   -- fluff info
+jd_def['j_SEMBY_TMTRAINER'] = {
     text = { { ref_table = "card.joker_display_values", ref_value = "TMTRAINER" }, { text = "%" } },
     text_config = { colour = G.C.SEMBY_TMTRAINER_L },
     calc_function = function(card)

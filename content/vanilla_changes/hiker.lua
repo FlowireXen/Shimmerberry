@@ -1,6 +1,4 @@
---Ownership: Buffs "Hiker"; +5 -> +8
+--Ownership: Changes "Hiker"; Uncommon -> Common
 SMODS.Joker:take_ownership( 'hiker', {
-    config = {
-        extra = 8
-    }
+    rarity = 1
 }, false)
