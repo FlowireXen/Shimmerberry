@@ -125,7 +125,7 @@ SMODS.Challenge {
         -- Skipping = 1/2 Chance for a "Double Tag"
         if (context.skip_blind or context.skipping_booster) and pseudorandom("SEMBY_DELETE_THIS") <= 0.5 then
 			add_tag(Tag('tag_double'))
-			return { message = '+2', colour = G.C.GREEN }
+			return { message = localize{ type = 'variable', key = 'SEMBY_plus', vars = { '2' } }, colour = G.C.GREEN }
         end
         -- Each Reroll generates another Booster
         if context.reroll_shop then

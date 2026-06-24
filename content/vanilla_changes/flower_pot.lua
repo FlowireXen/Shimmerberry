@@ -1,4 +1,4 @@
---Ownership: "Flower Pot" uses a more Mod-Friendly approach
+--Ownership "Flower Pot"; Align with Shimmerberry, X3 -> X4 Mult
 SMODS.Joker:take_ownership( 'flower_pot', {
     config = {
         extra = {

@@ -12,7 +12,7 @@ SMODS.Joker {
 		extra = {
 			shop_mod = 0.0,
 			shop_max = 0.5,
-			value_mod = 0.02
+			value_mod = 0.01
 		}
 	},
     attributes = {

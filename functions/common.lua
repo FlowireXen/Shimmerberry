@@ -156,4 +156,8 @@ SMODS.current_mod.calculate = function(self, context)
 		}))
 		return
     end
+	if context.skipping_booster then
+		G.GAME.SEMBY_red_card = (G.GAME.SEMBY_red_card or 0) + 1
+		return
+	end
 end

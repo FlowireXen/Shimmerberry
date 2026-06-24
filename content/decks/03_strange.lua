@@ -13,7 +13,6 @@ SMODS.Back{
 	},
     loc_vars = function(self, info_queue, card)
 		return {
-			-- TODO: Have a changing Value like "Misprint" in V3.0
 			vars = { 
 				math.random(self.config.extra.desc_min, self.config.extra.desc_max),
 				math.random(1, 5) == 1 and '#' or '%',

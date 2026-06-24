@@ -1,14 +1,5 @@
 SMODS.Joker {
-	key = "shop_1",
-	loc_txt = {
-		name = "{C:inactive}shop_1",
-		text = {
-			"{C:attention}+#1#{} card slots",
-			"available in shop",
-			"every {C:attention}#2#{} shops",
-			"{C:inactive}#3#",
-		}
-	},
+	key = "pygmymall", -- Fantasy Shop
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 9, y = 8 },

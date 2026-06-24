@@ -10,7 +10,7 @@ SMODS.Enhancement {
 	config = {
 		extra = {
 			SEMBY_Graphics = { Memory = true }, --> /functions/drawsteps.lua
-			memory_gain = 3
+			memory_gain = 2
 		}
 	},
 	loc_vars = function(self, info_queue, card)

@@ -10,7 +10,7 @@ SMODS.Edition {
 	SEMBY_art = "flowire",
     shader = "shiny",
     config = {
-		base_value = 3.0,
+		base_value = 2.0,
 		card_value = 1.0
 	},
     in_shop = true,

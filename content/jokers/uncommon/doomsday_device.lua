@@ -15,7 +15,7 @@ SMODS.Joker {
 		}
 	},
     attributes = {
-		'enhancements', 'modify_card', 'TODO_TODO_TODO_TODO_TODO_TODO_TODO_TODO_TODO'
+		'enhancements', 'modify_card', 'chips'
 	},
 	enhancement_gate = 'm_SEMBY_memory',
 	loc_vars = function(self, info_queue, card)
@@ -35,6 +35,8 @@ SMODS.Joker {
 				local ret_val = SEMBY_memory_update(suit, 0)
 				SEMBY_memory_update(suit, ret_val)
 				return {
+					chips = ret_val,
+					remove_default_message = true,
 					message = localize{ type = 'variable', key = 'SEMBY_plus', vars = { ret_val } },
 					colour = G.C.CHIPS,
 					sound = 'xchips'

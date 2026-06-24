@@ -1,13 +1,5 @@
 SMODS.Joker {
-	key = "bonus_1",
-	loc_txt = {
-		name = "{C:inactive}bonus_1",
-		text = {
-			"{C:enhanced}Bonus Cards{} always",
-			"shuffle to the top",
-			"of the {C:attention}Deck{}",
-		}
-	},
+	key = "vip_ticket",
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 5, y = 8 },

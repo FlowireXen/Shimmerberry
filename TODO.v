@@ -1,11 +1,10 @@
 # TODO's:
 
 > List of Known Bugs:
-- [MAJOR][Won't Fix]: Talisman crashes the Game, use Amulet instead.
-- [MINOR][ Planned ]: "Afterimage" doesn't apply "context.modify_ante" correctly.
+- [MAJOR][Won't Fix]: "Talisman" crashes the Game -> Use "Amulet" instead.
+- [MINOR][Can't Fix]: "Afterimage" doesn't apply "context.modify_ante" correctly.
 
 > Future WiPs:
-- [+++]: Add Support for https://github.com/nh6574/JokerDisplay
 - [ ++]: "Winning Ante: 99" should be "Winning Ante: None/-" (Requires patching UI)
 - [  +]: Add Unlock requirements to some Jokers
 - [   ]: Give all Jokers pronouns
@@ -54,30 +53,14 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 !! Bug Report: Shader Issue
 
-Joker: "..."information overload" joker that scales with each keyword in other jokers when :3c"
--> Instead of Keywords, use list of all "attributes" in your jokers :3c
-
-"Quantum Moon" Planet: Upgrades a Random *Planet Card* -> Doubles Stat gain for a Planet Card
-
-Vintage Cards: Update the "Upgrade Pokerhand"-Function so it also ups for Vintage Cards
-
-- [+++]: Add Support for https://github.com/nh6574/JokerDisplay
-
-Check  message = '/"  for uncreated translation keys
+Target Plush -> Rename & New Texture
 
 Annoying Dog: Add Multiple Images, image is random every time (doesn't save form)
 
 
--->
-Uhh hh kit ty — 19:15
-cuckoo and harebrained are ones I purrsonally like for theorhetical mult ones
-or you could go the way of the suit jokers and do deadly sins...
---<
-((kitty: of course mew could also instead of harebrained you could do birdbrain but then you'd have to make that one kasane teto))
 
 
-
-"Emergency Button" -> Test & Add Speedup Code if needed
+"Emergency Button" -> Test in Challenges
 
 Also remove from Challenge Exceptions + Test Custom Deaths with it
 
@@ -89,9 +72,6 @@ Don't forget to Ban certain Tags in certain Challenges
 (Generally all Challenges)
 
 
-Make sure no joker has :: loc_txt
-
-
 Add sound sources to origin
 Add Texture files to origin
 ( Generally Update Origin )
@@ -99,7 +79,9 @@ Add Texture files to origin
 
 
 
-Ideas:
+
+
+> Next Update [Sketch]:
 
 [IDEA] Deck:
 - Replaces Money with Time
@@ -110,13 +92,6 @@ Ideas:
 Sticker: "Temporary Copy"
 Effect:  "Doesn't take up Space, Destroyed at the End of Shop"
 --> set one to "-1" and the other to "0" (so negative doesn't apply either)
-
-Joker Idea:
-"{C:green}Reduce{} Blind Size by {C:SEMBY_percent}10%{}",
-"for each unscoring card",
-
-
-> Next Update [Sketch]:
 
 > Challenger Approaching [SPOILER][Sketch]:
 

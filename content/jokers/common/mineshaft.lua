@@ -38,9 +38,21 @@ SMODS.Joker {
 	end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-			card.ability.extra.count = card.ability.extra.count + 1
-			if card.ability.extra.count >= card.ability.extra.every then
-				card.ability.extra.count = 0
+			local mine_a_card = false
+			if context.blueprint_card then
+				context.blueprint_card.ability.SEMBY_mineshaft = context.blueprint_card.ability.SEMBY_mineshaft + 1
+				if context.blueprint_card.ability.SEMBY_mineshaft >= card.ability.extra.every then
+					context.blueprint_card.ability.SEMBY_mineshaft = 0
+					mine_a_card = true
+				end
+			else
+				card.ability.extra.count = card.ability.extra.count + 1
+				if card.ability.extra.count >= card.ability.extra.every then
+					card.ability.extra.count = 0
+					mine_a_card = true
+				end
+			end
+			if mine_a_card then
 				if context.blueprint or card:SEMBY_durability_use() then
 					-- Create Card:
 					local minecard = SMODS.create_card{ set = "Base", enhancement = SMODS.poll_enhancement({ guaranteed = true, options = { 'm_stone', 'm_steel', 'm_gold' } }) }
@@ -100,6 +112,10 @@ SMODS.Joker {
 			end
 			if mined then G.deck:shuffle() end
 			card:SEMBY_durability_check()
+		end
+		if context.blueprint_card then
+			if context.before then context.blueprint_card.ability.SEMBY_mineshaft = card.ability.extra.count end
+			if context.after then context.blueprint_card.ability.SEMBY_mineshaft = nil end
 		end
     end
 }

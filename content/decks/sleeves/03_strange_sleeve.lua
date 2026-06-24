@@ -22,7 +22,6 @@ CardSleeves.Sleeve {
 			ret_key = "sleeve_SEMBY_strange_sl_alt"
         end
 		return { key = ret_key,
-			-- TODO: Have a changing Value like "Misprint" in V3.0
 			vars = { 
 				math.random(self.config.extra.desc_min, self.config.extra.desc_max),
 				math.random(1, 5) == 1 and '#' or '%',

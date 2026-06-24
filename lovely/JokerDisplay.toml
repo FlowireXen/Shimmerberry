@@ -90,3 +90,28 @@ if self.modifiers.SEMBY_round then
 end
 '''
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''if self.ability.rental then'''
+position = "before"
+payload = '''
+-- Hijacking "Perishable" for "Degrading"
+if self.ability.SEMBY_degrading_tally then
+    self.joker_display_values.perishable = (self.ability.SEMBY_degrading_tally or 5).."/"..(G.GAME.perishable_rounds or 5)
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''local should_display_perishable = self.ability.perishable'''
+position = "after"
+payload = '''
+-- Hijacking "Perishable" for "Degrading"
+or self.ability.SEMBY_degrading
+should_display_perishable = should_display_perishable
+'''
+match_indent = true

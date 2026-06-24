@@ -56,6 +56,6 @@ SMODS.Joker {
     end,
 	in_pool = function(self, args)
 		-- Doesn't (usually) spawn in the Shop!
-		return G.GAME.SEMBY_TMTRAINER or (not args or (args.source ~= "sho" and args.source ~= "uta"))
+		return G.GAME.SEMBY_TMTRAINER_SPAWN or (not args or (args.source ~= "sho" and args.source ~= "uta"))
 	end
 }

@@ -82,7 +82,7 @@ SMODS.Joker {
 				if neg_trigger and pos_trigger then
 					return { message = localize('SEMBY_ghostract_3'), colour = G.C.ETERNAL }
 				elseif pos_trigger then
-					return { message = localize('SEMBY_ghostract_2'), colour = G.C.SEMBY_DEGRADING }
+					return { message = localize('SEMBY_ghostract_2'), colour = G.C.SEMBY_POSSESSIVE }
 				else
 					return { message = localize('SEMBY_ghostract_1'), colour = G.C.DARK_EDITION }
 				end

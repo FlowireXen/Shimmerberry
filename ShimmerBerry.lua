@@ -3,7 +3,6 @@ print("Loading: 'Shimmerberry'")
 ------------MOD CODE -------------------------
 Shimmerberry = SMODS.current_mod
 Shimmerberry.Debug = true
-Shimmerberry.BETA = true
 
 --## Mod Integrity
 SMODS.Atlas({ key = "modicon", path = "modicon.png", px = 64, py = 64 })
@@ -34,7 +33,7 @@ G.C.SEMBY_DEBUFF = G.C.PERISHABLE; loc_ref.SEMBY_debuff = G.C.SEMBY_DEBUFF
 G.C.SEMBY_DEGRADING = HEX('B659C7'); loc_ref.SEMBY_degrading = G.C.SEMBY_DEGRADING
 G.C.SEMBY_MEMORY = HEX('8D989A')--; loc_ref.SEMBY_memory = G.C.SEMBY_MEMORY
 G.C.SEMBY_PERCENT = HEX('743AE9'); loc_ref.SEMBY_percent = G.C.SEMBY_PERCENT
-G.C.SEMBY_POSSESSIVE = HEX('743AE9'); loc_ref.SEMBY_possessive = G.C.SEMBY_POSSESSIVE
+G.C.SEMBY_POSSESSIVE = HEX('BE3740'); loc_ref.SEMBY_possessive = G.C.SEMBY_POSSESSIVE
 G.C.SEMBY_TMTRAINER = HEX('119933'); loc_ref.SEMBY_TMTRAINER = G.C.SEMBY_TMTRAINER
 G.C.SEMBY_VINTAGE = HEX('C4AC6A')--; loc_ref.SEMBY_vintage = G.C.SEMBY_VINTAGE
 --> Animated
@@ -82,7 +81,6 @@ local SEMBY_Data = {
 	--> Other Mods
 	{ load = true, path = "content/crossmod" },
 	--> Debug & Development
-	{ load = Shimmerberry.BETA, path = "content/BETA" },
 	{ load = Shimmerberry.Debug, name = "debug", path = "content/debug" },
 }
 

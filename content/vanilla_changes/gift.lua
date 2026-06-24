@@ -1,9 +1,6 @@
---Ownership: Buffs "Gift Card"; +$1 -> +$2, Blueprint Compat.
+--Ownership "Gift Card"; Adds Blueprint Compat.
 SMODS.Joker:take_ownership( 'gift', {
     blueprint_compat = true,
-    config = {
-        extra = 2
-    },
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval then
             for _, area in ipairs({ G.jokers, G.consumeables }) do

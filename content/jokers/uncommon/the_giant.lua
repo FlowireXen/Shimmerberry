@@ -13,9 +13,6 @@ SMODS.Joker {
 	},
 	calculate = function(self, card, context)
 		if context.setting_blind and not (context.blueprint_card or self).getting_sliced then
-			-- I wanted to make this Work with The Dwarf and Other Discard-Giving Effects...
-			-- But in the end, I think I'll keep it a lil different.
-			-- (I could use The Dwarf's Implementation, but EH.)
 			local discards = math.max(0, G.GAME.current_round.discards_left)
 			if discards ~= 0 then
 				G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + discards

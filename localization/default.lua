@@ -1,5 +1,5 @@
 local alt = math.random() < 0.1 --> Alt. Descriptions
---## Normal Translations:
+--## Translations:
 return {
 	descriptions = {
         Mod = {
@@ -112,6 +112,24 @@ return {
 					"playing cards from",
 					"Deck to scoring hand",
 				}
+			},
+			j_SEMBY_baking_yesteryear = {
+				name = "Baking Yesteryear",
+				text = {
+					"{C:enhanced}Vintage Cards{} have a",
+					"{C:green}#1# in #2#{} chance to upgrade",
+					"the played poker hand",
+				}
+			},
+			j_SEMBY_balloon = {
+				name = "Balloon",
+				text = {{
+					"{X:mult,C:white}X#1#{} Mult",
+				}, {
+					"{C:red,E:2}Self destructs{}",
+					"when highlighting",
+					"{C:attention}#2# or more{} cards",
+				}}
 			},
 			j_SEMBY_barmy_joker = {
 				name = "Barmy Joker",
@@ -233,6 +251,14 @@ return {
 					"value of all other",
 					"owned {C:attention}Jokers{} to {C:chips}Chips",
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+				}
+			},
+			j_SEMBY_bunburrow = {
+				name = "Bunburrow",
+				text = {
+					"Gain {C:money}$#1#{} every",
+					"{C:attention}#2# {C:green}Rerolls{}",
+					"{C:inactive}(#3# remaining){}",
 				}
 			},
 			j_SEMBY_butterfly = {
@@ -362,8 +388,8 @@ return {
 				name = "Doomsday Device",
 				text = {
 					"{C:attention}Double{} the stored",
-					"{C:chips}Memory Value{} every",
-					"{C:attention}#1#{} scoring {C:enhanced}Memory Cards{}",
+					"{C:chips}Memory Value{} every {C:attention}#1#{}",
+					"scoring {C:enhanced}Memory Cards{}",
 					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#){}",
 				}
 			},
@@ -807,6 +833,15 @@ return {
 					"{X:chips,C:white}X#1#{} Chips if poker",
 					"hand contains",
 					"{C:attention}#2#{} different suits",
+				}
+			},
+			j_SEMBY_pygmymall = {
+				name = "Pygmymall",
+				text = {
+					"{C:attention}+#1#{} card slots",
+					"available in shop",
+					"every {C:attention}#2#{} shops",
+					"{C:inactive}#3#",
 				}
 			},
 			j_SEMBY_quest = {
@@ -1304,6 +1339,14 @@ return {
 					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
 				}
 			},
+			j_SEMBY_vip_ticket = {
+				name = "V.I.P. Ticket",
+				text = {
+					"{C:enhanced}Bonus Cards{} always",
+					"shuffle to the top",
+					"of the {C:attention}Deck{}",
+				}
+			},
 			j_SEMBY_warm_embrace = {
 				name = "Warm Embrace",
 				text = {
@@ -1508,7 +1551,7 @@ return {
 		},
         Planet = {
             c_SEMBY_microcosm = {
-                name = 'Microcosm',
+                name = "Microcosm",
                 text = {{
             		"Level {E:2}down{}",
             		"a selected",
@@ -1521,7 +1564,7 @@ return {
                 }}
             },
             c_SEMBY_microcosm_highlighted = {
-                name = 'Microcosm',
+                name = "Microcosm",
                 text = {{
                     "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level {E:2}down{}",
                     "{C:attention}#2#{}",
@@ -1602,6 +1645,14 @@ return {
 			},
 		},
 		Tarot = {
+			c_SEMBY_ibm_7094 = {
+				name = alt and "Daisy Bell" or "IBM 7094", --> Don't Translate!
+				text = {
+        		    "Enhances {C:attention}#1#{}",
+        		    "selected cards to",
+        		    "{C:attention}Memory Cards{}",
+				}
+			},
 			c_SEMBY_ocean = {
 				name = "The Ocean",
 				text = {
@@ -1997,7 +2048,7 @@ return {
 			SEMBY_desc_ignore_eternal = "(Can change Eternal Cards)",
 			SEMBY_desc_maintained = "(Maintained after use)",
 			SEMBY_destroyed_ex = "Destroyed!",
-			SEMBY_dog_overflow = 'Too many dogs!',
+			SEMBY_dog_overflow = "Too many dogs!",
 			SEMBY_downgrade_ex = "Downgrade!",
 			SEMBY_durability_destroy = "Used up!",
 			SEMBY_echoed_ex = "Echoed!",
@@ -2037,6 +2088,7 @@ return {
 			SEMBY_lose_12_gaokao = "Test Failed",
 			SEMBY_lose_14_uses = "OUT OF FUEL",
 			SEMBY_lose_xx_DELETE = "ERROR",
+			SEMBY_lost_ex = "Lost!",
 			SEMBY_miss_ex = "Miss!",
 			SEMBY_money_clean = "All Clean",
 			SEMBY_money_dirty = "NOT CLEAN!!",
@@ -2094,9 +2146,9 @@ return {
 			SEMBY_tokens = "Tokens",
 			-- Config/System: Eden
 			SEMBY_eden_active = 'Enable "Eden Tokens"',
-			SEMBY_eden_active_desc = { 'Start Runs with a Consumable that', 'uses Tokens to spawn a Joker', },
-			SEMBY_eden_amount = 'Current Tokens', -- ex.: "Current Tokens (P1):"
-			SEMBY_eden_infinite = 'Infinite Tokens',
+			SEMBY_eden_active_desc = { "Start Runs with a Consumable that", "uses Tokens to spawn a Joker", },
+			SEMBY_eden_amount = "Current Tokens", -- ex.: "Current Tokens (P1):"
+			SEMBY_eden_infinite = "Infinite Tokens",
 			SEMBY_eden_empty = "No Tokens!",
 			SEMBY_eden_token = "Eden Token",
 			-- Config: Generic
@@ -2236,14 +2288,14 @@ return {
 			ch_m_winning_ante = { "Winning Ante: {C:attention}#1#", },
 		},
 		achievement_names = {
-			ach_SEMBY_001 = 'SCP-001',
-			ach_SEMBY_all_challenge = 'Flowire Loves You!',
-			ach_SEMBY_hatched = 'Coming Out',
+			ach_SEMBY_001 = "SCP-001",
+			ach_SEMBY_all_challenge = "Flowire Loves You!",
+			ach_SEMBY_hatched = "Coming Out",
 		},
 		achievement_descriptions = {
-			ach_SEMBY_001 = { 'Use Daybreak to remove', 'all playing card ranks' },
-			ach_SEMBY_all_challenge = { 'Complete all', 'Shimmerberry Challenges' },
-			ach_SEMBY_hatched = { 'Earn $0 from the', 'Golden Egg Blind' },
+			ach_SEMBY_001 = { "Use Daybreak to remove", "all playing card ranks" },
+			ach_SEMBY_all_challenge = { "Complete all", "Shimmerberry Challenges" },
+			ach_SEMBY_hatched = { "Earn $0 from the", "Golden Egg Blind" },
 		},
 	},
 }

@@ -20,7 +20,6 @@ SMODS.Joker {
     attributes = {
 		'economy', 'xblindsize', 'tag'
 	},
-	pronouns = "SEMBY_chad",
 	pools = {
 		["Chad"] = true,
     },

@@ -1,13 +1,5 @@
 SMODS.Joker {
-	key = "vintage_joker",
-	loc_txt = {
-		name = "{C:inactive}vintage_joker", -- telescope?
-		text = {
-			"{C:enhanced}Vintage Cards{} have a",
-			"{C:green}#1# in #2#{} chance to upgrade",
-			"the played poker hand",
-		}
-	},
+	key = "baking_yesteryear",
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 4, y = 9 },
@@ -19,7 +11,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			numerator = 1,
-			denominator = 4
+			denominator = 8
 		}
 	},
     attributes = {

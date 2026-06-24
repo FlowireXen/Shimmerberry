@@ -1,13 +1,5 @@
 SMODS.Joker {
-	key = "reroll_1",
-	loc_txt = {
-		name = "{C:inactive}reroll_1",
-		text = {
-			"Gain {C:money}$#1#{} every",
-			"{C:attention}#2# {C:green}Rerolls{}",
-			"{C:inactive}(#3# remaining){}",
-		}
-	},
+	key = "bunburrow", -- Reference: Paquerette Down the Bunburrows
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 8, y = 8 },
@@ -18,7 +10,7 @@ SMODS.Joker {
 	cost = 4,
 	config = {
 		extra = {
-			money = 10,
+			money = 12,
 			every = 4,
 			count = 4,
 		}
