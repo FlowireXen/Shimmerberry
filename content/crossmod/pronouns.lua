@@ -28,7 +28,8 @@ G.P_CENTERS.j_misprint.pronouns = "SEMBY_error"
   "she_they"
   "he_they"
 --]]
-local SEMBY_Pronouns = {
+--> !! Also Add Consumables, Vouchers, Enhancements, Editions, Sleeves, Stickers and Tags to "SEMBY_Other_Pronouns" (below)
+local SEMBY_Joker_Pronouns = {
   abandoned_soul = nil,
   adblocker = nil,
   afterimage = "she_her",
@@ -140,13 +141,19 @@ local SEMBY_Pronouns = {
   warm_embrace = nil,
   watching_forest = "she_they",
 }
+--local SEMBY_Other_Pronouns = {
+--
+--}
 -- Apply Pronouns:
 G.E_MANAGER:add_event(Event({
 	func = function()
         local ModKey = 'j_SEMBY_'
-        for key, value in pairs(SEMBY_Pronouns) do
+        for key, value in pairs(SEMBY_Joker_Pronouns) do
             if value then G.P_CENTERS[ModKey..key].pronouns = value end
         end
+--        for key, value in pairs(SEMBY_Other_Pronouns) do
+--            if value then G.P_CENTERS[key].pronouns = value end
+--        end
 		return true
 	end
 }))

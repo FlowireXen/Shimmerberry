@@ -49,7 +49,7 @@ SMODS.Joker {
 					trigger = 'after',
 					delay = 0.2,
 					func = function()
-						juice_card:juice_up(0.2)
+						juice_card:juice_up(0.2, 0.2)
 						play_sound('cancel')
 						return true
 					end

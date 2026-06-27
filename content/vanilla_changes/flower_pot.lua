@@ -1,9 +1,9 @@
---Ownership "Flower Pot"; Align with Shimmerberry, X3 -> X4 Mult
+--Ownership "Flower Pot"
 SMODS.Joker:take_ownership( 'flower_pot', {
     config = {
         extra = {
-            xmult = 4,
-			suits = 4
+            xmult = 4, --> X3 -> X4 Mult
+			suits = 4  --> Align with Shimmerberry
         }
     },
     loc_vars = function(self, info_queue, card)

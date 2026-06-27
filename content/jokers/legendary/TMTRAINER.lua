@@ -13,8 +13,6 @@ SMODS.Joker {
 	rarity = 3, --> "Legendary"
 	cost = 9,
 	config = {
-		SEMBY_tmtrainer_sticker = true,
-		SEMBY_tmtrainer_value = '404',
 		extra = {
 			SEMBY_TMTR = "RNG+",
 			SEMBY_TMTR_MIN = 1.15,
@@ -34,6 +32,12 @@ SMODS.Joker {
 			math.floor(card.ability.extra.SEMBY_TMTR_MAX*100+0.5),
 			card.ability.card_limit
 		} }
+	end,
+	set_ability = function(self, card, initial, delay_sprites)
+		if card.config.center.discovered and initial then
+			card.ability.SEMBY_tmtrainer_sticker = true
+			card.ability.SEMBY_tmtrainer_value = '*404'
+		end
 	end,
 	load = function(self, card, card_table, other_card)
 		G.E_MANAGER:add_event(Event({

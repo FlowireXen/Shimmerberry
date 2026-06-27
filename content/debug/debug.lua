@@ -37,7 +37,7 @@ SMODS.Joker {
 				trigger = 'after',
 				blocking = false,
 				func = function()
-					(context.blueprint_card or card):juice_up(0.2)
+					(context.blueprint_card or card):juice_up(0.2, 0.2)
 					attention_text({
 						text = 'Hand', backdrop_colour = G.C.BLUE, scale = 0.8, hold = 1.0,
 						major = (context.blueprint_card or card), align = 'bm', offset = { x = 0, y = 0 }
@@ -53,7 +53,7 @@ SMODS.Joker {
 				trigger = 'after',
 				blocking = false,
 				func = function()
-					(context.blueprint_card or card):juice_up(0.2)
+					(context.blueprint_card or card):juice_up(0.2, 0.2)
 					attention_text({
 						text = 'Discard', backdrop_colour = G.C.RED, scale = 0.8, hold = 1.0,
 						major = (context.blueprint_card or card), align = 'bm', offset = { x = 0, y = 0 }
@@ -69,7 +69,7 @@ SMODS.Joker {
 				trigger = 'after',
 				blocking = false,
 				func = function()
-					(context.blueprint_card or card):juice_up(0.2)
+					(context.blueprint_card or card):juice_up(0.2, 0.2)
 					play_sound('generic1', 1.2, 0.5)
 					attention_text({
 						text = 'Reroll', backdrop_colour = G.C.GREEN, scale = 0.8, hold = 1.0,

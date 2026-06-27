@@ -96,7 +96,8 @@ SMODS.Joker {
             			}))
 						-- Remove "selected_card"
 						selected_card.getting_sliced = true
-						selected_card.SEMBY_skip_and_shut_up = true
+						selected_card.skip_destroy_animation = true
+						selected_card.SEMBY_shut_up = true
 						selected_card:start_dissolve()
 						-- Create Replacement (in Shop)
 						local replacement = copy_card(card)

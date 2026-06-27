@@ -42,7 +42,7 @@ SMODS.Challenge {
         },
     },
     jokers = {
-        { id = 'j_SEMBY_lavish_joker', pinned = true, eternal = true },
+        { id = 'j_SEMBY_lavish_joker', pinned = true, eternal = true, SEMBY_lavish = true },
         { id = 'j_SEMBY_lavish_joker' },
         { id = 'j_SEMBY_pay_two_win', SEMBY_glitched = 0.5, SEMBY_perishable = true },
     },
@@ -73,16 +73,10 @@ SMODS.Challenge {
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
-                        local buffed = false
 						for i = 1, #G.jokers.cards do
 							if G.jokers.cards[i].config.center_key == 'j_SEMBY_pay_two_win' then
 								G.jokers.cards[i].ability.extra.spend = math.floor(G.jokers.cards[i].ability.extra.spend * 0.5)
 								G.jokers.cards[i].ability.extra.mult = G.jokers.cards[i].ability.extra.mult * 0.5
-							end
-							if G.jokers.cards[i].config.center_key == 'j_SEMBY_lavish_joker' and not buffed then
-                                buffed = true
-								G.jokers.cards[i].ability.extra.lavish_buff = true
-								SMODS.debuff_card(G.jokers.cards[i], 'prevent_debuff', 'SEMBY_lavish_joker')
 							end
 						end
 						save_run()

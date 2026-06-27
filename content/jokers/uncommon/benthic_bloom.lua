@@ -9,7 +9,6 @@ SMODS.Joker {
 	rarity = 2,
 	cost = 6,
 	config = {
-		SEMBY_possessive = true,
 		extra = {
 			repetitions = 1
 		}
@@ -25,6 +24,11 @@ SMODS.Joker {
 			numerator,
 			denominator
 		} }
+	end,
+	set_ability = function(self, card, initial, delay_sprites)
+		if card.config.center.discovered and initial then
+			card:add_sticker('SEMBY_possessive', true)
+		end
 	end,
 	calculate = function(self, card, context)
 		if context.repetition then

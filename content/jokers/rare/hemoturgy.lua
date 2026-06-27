@@ -108,7 +108,7 @@ SMODS.Joker {
 						ret_col = G.C.UI.TEXT_INACTIVE
 						play_sound('cancel', 1.0, 0.8)
 					end
-					context.other_card:juice_up(0.2)
+					context.other_card:juice_up(0.2, 0.2)
 					juice_card:juice_up(0.1, 0.2)
 					attention_text({
 						text = localize(ret_key),

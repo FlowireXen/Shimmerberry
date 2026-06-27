@@ -5,19 +5,6 @@ SMODS.Consumable {
 	pos = { x = 1, y = 0 },
     set = "Spectral",
     loc_vars = function(self, info_queue, card)
-		local main_challenge_info = nil
-		if G.GAME.challenge then
-			main_challenge_info = { {
-				n = G.UIT.C,
-				config = { align = "bm", minh = 0.2 },
-				nodes = { { n = G.UIT.C, config = { ref_table = card, align = "m" },
-					nodes = { { n = G.UIT.T, config = {
-						text = localize('SEMBY_desc_challenge'),
-						colour = G.C.UI.TEXT_INACTIVE, scale = 0.32 * 0.8
-					} } }
-				} }
-			} }
-		end
         local main_eternal_info = nil
 		if G.jokers and #G.jokers.cards > 0 then
 			for i = 1, #G.jokers.cards do
@@ -40,7 +27,6 @@ SMODS.Consumable {
 			end
 		end
 		return {
-			main_start = main_challenge_info,
 			main_end = main_eternal_info
 		}
     end,
@@ -69,7 +55,7 @@ SMODS.Consumable {
 				delay = 0.15,
 				func = function()
 					-- Actual Logic
-					if G.jokers.cards[i].ability.SEMBY_ChallengeImmunity then
+					if G.jokers.cards[i].ability.SEMBY_shimmer_immune then
 						attention_text({
 							text = localize('SEMBY_immune_ex'),
 							backdrop_colour = G.C.RED,

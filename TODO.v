@@ -3,11 +3,11 @@
 > List of Known Bugs:
 - [MAJOR][Won't Fix]: "Talisman" crashes the Game -> Use "Amulet" instead.
 - [MINOR][Can't Fix]: "Afterimage" doesn't apply "context.modify_ante" correctly.
+- [MINOR][Can't Fix]: "Parking Disc: 3" doesn't apply "context.modify_ante" correctly.
 
 > Future WiPs:
-- [ ++]: "Winning Ante: 99" should be "Winning Ante: None/-" (Requires patching UI)
-- [  +]: Add Unlock requirements to some Jokers
-- [   ]: Give all Jokers pronouns
+- [++ ]: "Winning Ante: 99" should be "Winning Ante: None/-" (Requires patching UI)
+- [  -]: Add Unlock requirements to some Jokers
 
 > Each Release:
 - Update: README.md, Version Number ("Year"."Month"."Day""Minor"), Create *Latest GitHub Release*
@@ -52,24 +52,22 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 !! Bug Report: Shader Issue
+-> Fixed: Shoutout to "thewhiteoctavia"
+
+Currently: Give all Jokers (& others) Pronouns
 
 Target Plush -> Rename & New Texture
+"Foxie (Plush)" -> My Fox Plush :3c
 
 Annoying Dog: Add Multiple Images, image is random every time (doesn't save form)
 
-
-
-
-"Emergency Button" -> Test in Challenges
-
-Also remove from Challenge Exceptions + Test Custom Deaths with it
+TODO: Update Challenge Bans
+- Don't forget to Ban certain Tags in certain Challenges
 
 Patch notes & wiki; Mention that "death bug" is fixed
 
 
 
-Don't forget to Ban certain Tags in certain Challenges
-(Generally all Challenges)
 
 
 Add sound sources to origin

@@ -48,7 +48,7 @@ SMODS.Consumable {
                     }))
                     -- Animate
                     play_sound('tarot1')
-                    card:juice_up(0.2)
+                    card:juice_up(0.2, 0.2)
                     -- Draw!
                     SMODS.draw_cards(G.hand.config.card_limit)
                 end

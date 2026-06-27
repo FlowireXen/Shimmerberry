@@ -20,7 +20,7 @@ SMODS.Edition {
     sound = { sound = "SEMBY_resonance", per = 1.2, vol = 1.1 },
 	badge_colour = SMODS.Gradients.SEMBY_RESONANCE,
     loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] = { key = "debuffed_default", set = "Other" }
+		--info_queue[#info_queue + 1] = { key = "debuffed_default", set = "Other" }
         return { vars = {
 			((card.edition or {}).percent or self.config.percent) * 100
 		} }

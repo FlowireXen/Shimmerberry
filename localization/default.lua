@@ -227,13 +227,10 @@ return {
 			j_SEMBY_bound = {
 				name = "Bound Joker",
 				text = {
-					"{C:red}Debuff{} and {C:red}Destroy",
-					"{C:attention}leftmost{} joker that",
-					"isn't {C:red}Debuffed{} at",
-					"beginning of round",
-					"{s:0.2} {}",
-					"{C:attention}+#1#{} Joker slots",
-					"{s:0.2} {}",
+					"When obtaining or",
+					"destroying this card,",
+					"apply {C:SEMBY_debuff}Bound{} to",
+					"{C:attention}#1#{} random Jokers",
 				}
 			},
 			j_SEMBY_broken_record = {
@@ -1141,6 +1138,7 @@ return {
 				text = {{
 					"When {C:attention}Blind{} is selected,",
 					"{C:SEMBY_debuff}Debuff{} adjacent Jokers",
+					"for the current round",
 				}, {
 					"{C:mult}+#1#{} Mult for each",
 					"{C:SEMBY_debuff}Debuffed{} Joker",
@@ -1807,13 +1805,6 @@ return {
 			},
 		},
 		Other = {
-			-- Artists:
-			art_flowire = {
-				name = "Art by",
-				text = {
-					"{C:SEMBY_flowire}Flowire",
-				}
-			},
 			-- Inspirations:
 			inspired_buffoonery = {
 				-- https://github.com/pinkmaggit-hub/Buffoonery
@@ -1849,6 +1840,17 @@ return {
 				}
 			},
 			-- SEMBY:
+			SEMBY_bound = {
+				name = "Bound",
+				text = {
+					"{C:attention}+#1#{} Joker slot",
+					"{s:0.2} {}",
+					"{C:green}#2# in #3#{} chance to",
+					"{C:red}Debuff and Destroy{}",
+					"this card at the",
+					"end of the round",
+				}
+			},
 			SEMBY_event_horizon = {
 				name = "Event Horizon",
 				text = {
@@ -1884,6 +1886,14 @@ return {
 				name = "Possessive",
 				text = {
 					"Can't be sold",
+				}
+			},
+			SEMBY_shimmer_immune = {
+				name = "Shimmer Immune",
+				text = {
+					"Can't be transformed",
+					"by most other Jokers",
+					"and Consumables",
 				}
 			},
 			SEMBY_tmtrainer_sticker = {
@@ -2018,11 +2028,14 @@ return {
 	},
 	misc = {
 		labels = {
+			SEMBY_bound = "Bound",
 			SEMBY_event_horizon = "Event Horizon",
 			SEMBY_degrading = "Degrading",
+			SEMBY_lavish_buff = "Lavish",
 			SEMBY_pearlescent = "Pearlescent",
 			SEMBY_possessive = "Possessive",
 			SEMBY_resonance = "Resonance",
+			SEMBY_shimmer_immune = "Shimmer Immune",
 			SEMBY_shiny = "Shiny",
 			SEMBY_tmtrainer_sticker = "TMTRAINER'd",
 		},
@@ -2043,7 +2056,6 @@ return {
 			SEMBY_captured = "Captured!",
 			SEMBY_card_mined_ex = "Card Mined!",
 			SEMBY_collapsed_ex = "Collapsed!",
-			SEMBY_desc_challenge = "Challenge-Jokers excluded!",
 			SEMBY_desc_destroyed = "(Destroyed after use)",
 			SEMBY_desc_ignore_eternal = "(Can change Eternal Cards)",
 			SEMBY_desc_maintained = "(Maintained after use)",

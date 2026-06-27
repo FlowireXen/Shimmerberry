@@ -9,7 +9,6 @@ SMODS.Joker {
 	rarity = 2,
 	cost = 6,
 	config = {
-		SEMBY_possessive = true,
 		extra = {
 			ante_mod = 1.0
 		}
@@ -24,6 +23,11 @@ SMODS.Joker {
 			card.ability.extra.ante_mod
 		} }
 	end,
+	set_ability = function(self, card, initial, delay_sprites)
+		if card.config.center.discovered and initial then
+			card:add_sticker('SEMBY_possessive', true)
+		end
+	end,
 	calculate = function(self, card, context)
 		if context.modify_ante and context.ante_end then
 			-- Quick-Message
@@ -32,7 +36,7 @@ SMODS.Joker {
 				trigger = 'after',
 				blocking = false,
 				func = function()
-					juice_card:juice_up(0.2)
+					juice_card:juice_up(0.2, 0.2)
 					play_sound('generic1', 1.2, 0.5)
 					attention_text({
 						text = localize('SEMBY_eval_cockroach'),

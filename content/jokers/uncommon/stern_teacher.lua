@@ -26,7 +26,7 @@ SMODS.Joker {
 				end
             end
 		end
-		info_queue[#info_queue + 1] = { key = "debuffed_default", set = "Other" }
+		--info_queue[#info_queue + 1] = { key = "debuffed_default", set = "Other" }
 		return { vars = {
 			card.ability.extra.mult,
 			card.ability.extra.mult * debuffed

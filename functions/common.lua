@@ -63,8 +63,7 @@ end
 function SMODS.current_mod.reset_game_globals(run_start)
 	if run_start then
 		if G.GAME.challenge then
-			SEMBY_Challenge_Generic()
-			SEMBY_Challenge_Vanilla()
+			SEMBY_Challenge_Start()
 		end
 		G.GAME.SEMBY_memory = { Buffer = {} }
 		SEMBY_Global_BlindMod_Calculate()
@@ -156,8 +155,4 @@ SMODS.current_mod.calculate = function(self, context)
 		}))
 		return
     end
-	if context.skipping_booster then
-		G.GAME.SEMBY_red_card = (G.GAME.SEMBY_red_card or 0) + 1
-		return
-	end
 end

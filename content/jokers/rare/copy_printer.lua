@@ -12,19 +12,6 @@ SMODS.Joker {
 		'generation', 'destroy_card'
 	},
     loc_vars = function(self, info_queue, card)
-		local main_challenge_info = nil
-		if G.GAME.challenge then
-			main_challenge_info = { {
-				n = G.UIT.C,
-				config = { align = "bm", minh = 0.2 },
-				nodes = { { n = G.UIT.C, config = { ref_table = card, align = "m" },
-					nodes = { { n = G.UIT.T, config = {
-						text = localize('SEMBY_desc_challenge'),
-						colour = G.C.UI.TEXT_INACTIVE, scale = 0.32 * 0.8
-					} } }
-				} }
-			} }
-		end
 		local alt_end
 		if SMODS.is_eternal(card, 'SEMBY_copy_printer') then
 			alt_end = localize('SEMBY_desc_maintained')
@@ -40,7 +27,6 @@ SMODS.Joker {
             end
         end
         return {
-			main_start = main_challenge_info,
 			vars = { alt_end },
 			main_end = main_end and main_end[1]
 		}
@@ -91,8 +77,8 @@ SMODS.Joker {
 					trigger = 'after',
 					delay = 0.15,
 					func = function()
-						if left_joker.ability.SEMBY_ChallengeImmunity then
-							left_joker:juice_up(0.2)
+						if left_joker.ability.SEMBY_shimmer_immune then
+							left_joker:juice_up(0.2, 0.2)
 							play_sound('gong', 2.0, 0.7)
 							attention_text({
 								text = localize('SEMBY_immune_ex'),
@@ -131,7 +117,7 @@ SMODS.Joker {
 				-- Finale
 				local extra = {}
 				if not SMODS.is_eternal(card, 'SEMBY_copy_printer') then
-					if left_joker.ability.SEMBY_ChallengeImmunity then
+					if left_joker.ability.SEMBY_shimmer_immune then
 						extra = {
 							message = localize('k_saved_ex'),
 							colour = G.C.GREEN

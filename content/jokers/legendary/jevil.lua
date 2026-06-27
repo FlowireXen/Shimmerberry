@@ -47,7 +47,7 @@ function SMODS.calculate_main_scoring(context, scoring_hand)
 						hold = 1.2, major = G.play,
 						align = 'cm', offset = { x = 0, y = -0.5 }
 					})
-					G.play:juice_up(0.2)
+					G.play:juice_up(0.2, 0.2)
 					return true
 				end
 			}))

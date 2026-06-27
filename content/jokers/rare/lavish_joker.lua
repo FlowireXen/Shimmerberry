@@ -12,8 +12,7 @@ SMODS.Joker {
 		extra = {
 			money_saved = 0,
 			money_mod = 1,
-			percent_mod = 0.05,
-			lavish_buff = false
+			percent_mod = 0.05
 		},
 		SEMBY_price_mod = -1
 	},
@@ -24,9 +23,6 @@ SMODS.Joker {
 		["Chad"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		if card.ability.extra.lavish_buff then -- Challenge Modifier:
-			info_queue[#info_queue + 1] = { key = "SEMBY_lavish_buff", set = "Other" }
-		end
 		return { vars = {
 			card.ability.extra.money_saved,
 			card.ability.extra.money_mod,
@@ -45,7 +41,7 @@ SMODS.Joker {
 						trigger = 'after',
 						blocking = false,
 						func = function()
-							card:juice_up(0.2)
+							card:juice_up(0.2, 0.2)
 							play_sound('generic1', 0.9 + math.random()*0.2, 0.8)
 							attention_text({
 								text = localize{ type = 'variable', key = 'SEMBY_money_plus', vars = { ret_amount } },

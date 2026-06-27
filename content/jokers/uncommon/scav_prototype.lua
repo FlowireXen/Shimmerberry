@@ -59,7 +59,8 @@ SMODS.Joker {
 						then duplitages = duplitages + 1 end
 						G.GAME.joker_buffer = G.GAME.joker_buffer - 1
 						scav_cards[i].getting_sliced = true
-						scav_cards[i].SEMBY_skip_and_shut_up = true
+						scav_cards[i].skip_destroy_animation = true
+						scav_cards[i].SEMBY_shut_up = true
             		    G.E_MANAGER:add_event(Event({
             		        func = function()
             		            G.GAME.joker_buffer = 0

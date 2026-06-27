@@ -98,7 +98,7 @@ SMODS.Challenge {
 			        	trigger = 'after',
 			        	blocking = false,
 			        	func = function()
-                            G.deck:juice_up(0.2)
+                            G.deck:juice_up(0.2, 0.2)
 			        		play_sound('generic1', 1.0, 0.8)
 			                attention_text({
 			                	text = '+2', backdrop_colour = G.C.GREEN,

@@ -5,7 +5,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 8 },
     eternal_compat = true,
     perishable_compat = true,
-    blueprint_compat = true,
+    blueprint_compat = false,
 	rarity = 2,
 	cost = 6,
 	config = {
@@ -28,7 +28,8 @@ SMODS.Joker {
 		} }
 	end,
 	calculate = function(self, card, context)
-		if context.setting_blind and not (context.blueprint_card or self).getting_sliced then
+		if context.setting_blind and not (self.getting_sliced or context.blueprint) then
+		--if context.setting_blind and not (context.blueprint_card or self).getting_sliced then
 			-- Vars
 			local juice_card = (context.blueprint_card or card)
 			local memories = {}
@@ -68,7 +69,7 @@ SMODS.Joker {
 							delay = G.GAME.SEMBY_speed,
     					    func = function()
 								-- Main
-								juice_card:juice_up(0.2)
+								juice_card:juice_up(0.2, 0.2)
 								-- Other
 								other_card:juice_up(0.4)
 								play_sound('generic1', 0.9 + math.random()*0.2)

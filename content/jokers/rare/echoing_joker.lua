@@ -45,7 +45,7 @@ SMODS.Joker{
 						echo:add_to_deck()
 						echo:start_materialize({{1, 1, 1, 1}, {0.8, 0.8, 0.8, 0.8}}, true, 0.5)
 						G.consumeables:emplace(echo)
-						juice_card:juice_up(0.2)
+						juice_card:juice_up(0.2, 0.2)
 						play_sound('tarot'..math.random(1, 2), math.random() + 0.8, 0.5)
 						return true;
 					end

@@ -3,6 +3,7 @@ version = "1.0.0"
 dump_lua = true
 priority = 10
 
+## START : Editions
 [[patches]]
 [patches.pattern]
 target = '''=[SMODS JokerDisplay "src/api_helper_functions.lua"]'''
@@ -90,7 +91,9 @@ if self.modifiers.SEMBY_round then
 end
 '''
 match_indent = true
+## END: Editions
 
+## START : Degrading Sticker
 [[patches]]
 [patches.pattern]
 target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
@@ -115,3 +118,80 @@ or self.ability.SEMBY_degrading
 should_display_perishable = should_display_perishable
 '''
 match_indent = true
+## END: Degrading Sticker
+
+## START : Bound Sticker
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/config_tab.lua"]'''
+pattern = '''card:set_perishable(true)'''
+position = "before"
+payload = '''card:add_sticker('SEMBY_bound', true)'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''if self.ability.perish_tally then'''
+position = "before"
+payload = '''
+self.joker_display_values.SEMBY_bound = ''
+if self.ability.SEMBY_bound then
+    local numerator, denominator = SMODS.get_probability_vars(self,
+        self.ability.SEMBY_bound.numerator or 0, self.ability.SEMBY_bound.denominator or 0, 'SEMBY_jdis_bound')
+    --self.joker_display_values.SEMBY_bound = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
+    self.joker_display_values.SEMBY_bound = math.min(100, math.floor((numerator/denominator)*100+0.5))..'%'
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''local should_display_perishable = self.ability.perishable'''
+position = "before"
+payload = '''
+local should_display_bound = self.ability.SEMBY_bound
+    and self.facing ~= 'back'
+    and JokerDisplay.config.enabled
+    and not (self.joker_display_values or {}).disabled
+    and not JokerDisplay.config.disable_perishable --> Perishable Toggles Bound
+if should_display_bound and not self.children.joker_display_SEMBY_bound then
+    self.children.joker_display_SEMBY_bound = UIBox {
+        definition = {
+            n = G.UIT.ROOT,
+            config = {
+                minh = 0.5,
+                maxh = 0.5,
+                minw = 0.75,
+                maxw = 0.75,
+                r = 0.001,
+                padding = 0.1,
+                align = 'cm',
+                colour = adjust_alpha(darken(G.C.BLACK, 0.2), 0.8),
+                shadow = false,
+                ref_table = self
+            },
+            nodes = {
+                JokerDisplay.create_display_text_object({
+                    ref_table = self.joker_display_values, ref_value = "SEMBY_bound",
+                    colour = G.C.GREEN, scale = 0.35
+                })
+            }
+        },
+        config = {
+            align = "tm",
+            bond = 'Strong',
+            parent = self,
+            offset = { x = 0.0, y = 0 },
+        },
+    }
+    self.children.joker_display_SEMBY_bound.states.collide.can = true
+    self.children.joker_display_SEMBY_bound.name = "JokerDisplay"
+elseif not should_display_bound and self.children.joker_display_SEMBY_bound then
+    self.children.joker_display_SEMBY_bound:remove()
+    self.children.joker_display_SEMBY_bound = nil
+end
+'''
+match_indent = true
+## END: Bound Sticker

@@ -43,6 +43,7 @@ payload = '''
 		card.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
 		card:add_sticker('SEMBY_tmtrainer_sticker', true)
 	end
+	if v.SEMBY_lavish then card:add_sticker('SEMBY_lavish_buff', true) end
 '''
 match_indent = true
 # ], [
@@ -60,6 +61,7 @@ payload = '''
 		_joker.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
 		_joker:add_sticker('SEMBY_tmtrainer_sticker', true)
 	end
+	if v.SEMBY_lavish then _joker:add_sticker('SEMBY_lavish_buff', true) end
 '''
 match_indent = true
 # ]

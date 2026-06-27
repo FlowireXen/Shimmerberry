@@ -57,7 +57,7 @@ SMODS.Joker {
 					trigger = 'after',
 					func = function()
 						-- Effects
-						card:juice_up(0.2)
+						card:juice_up(0.2, 0.2)
 						play_sound('generic1')
 						-- Infobox Below Joker:
 						SEMBY_jokebra_infobox(card)
@@ -83,7 +83,7 @@ SMODS.Joker {
 					trigger = 'after',
 					func = function()
 						-- Effects
-						card:juice_up(0.2)
+						card:juice_up(0.2, 0.2)
 						play_sound('generic1')
 						-- Infobox Below Joker:
 						SEMBY_jokebra_infobox(card)

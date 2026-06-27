@@ -82,7 +82,7 @@ SMODS.Joker {
 				delay = 0.2,
 				func = function()
 					-- Juice!
-					card:juice_up(0.2)
+					card:juice_up(0.2, 0.2)
 					if card.ability.extra.remaining == card.ability.extra.every then
 						play_sound('gong', 1.2, 0.8)
 					else play_sound('tarot1', 1.0, 0.8) end

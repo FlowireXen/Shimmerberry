@@ -21,16 +21,15 @@ SMODS.Joker {
 			card.ability.extra_slots_used + 1
 		} }
 	end,
-    add_to_deck = function(self, card, from_debuff)
-		if not from_debuff then
-			SMODS.debuff_card(card, 'prevent_debuff', 'SEMBY_singularity')
+	set_ability = function(self, card, initial, delay_sprites)
+		if card.config.center.discovered and initial then
+			if G.GAME.blind then
+				SMODS.debuff_card(card, 'prevent_debuff', 'SEMBY_singularity')
+			end
 		end
-    end,
+	end,
     remove_from_deck = function(self, card, from_debuff)
-		if from_debuff then
-			card:set_debuff(false)
-			card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('SEMBY_blocked_ex'), colour = G.C.SEMBY_DEBUFF})
-		else
+		if not from_debuff then
 			-- Select Cards:
 			local removed_hand = 0
 			local removed_deck = {}

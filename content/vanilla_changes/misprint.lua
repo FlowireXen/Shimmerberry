@@ -1,9 +1,10 @@
---Ownership "Misprint"; Allows TMTRAINER in Shop
+--Ownership "Misprint"
 SMODS.Joker:take_ownership( 'misprint', {
+	--> Allows TMTRAINER in Shop
 	set_ability = function(self, card, initial, delay_sprites)
-		if card.config.center.discovered and initial and not card.ability.SEMBY_tmtrainer_sticker then
+		if card.config.center.discovered and initial then
 			card.ability.SEMBY_tmtrainer_sticker = true
-			card.ability.SEMBY_tmtrainer_value = '418'
+			card.ability.SEMBY_tmtrainer_value = '*418'
 		end
 	end,
     add_to_deck = function(self, card, from_debuff)
@@ -12,4 +13,4 @@ SMODS.Joker:take_ownership( 'misprint', {
     remove_from_deck = function(self, card, from_debuff)
 		SEMBY_TMTR_Spawn(false)
     end
-}, false)
+}, true)

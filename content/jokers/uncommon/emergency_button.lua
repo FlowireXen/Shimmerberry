@@ -12,24 +12,6 @@ SMODS.Joker {
 		'prevents_death', 'joker', 'generation', 'destroy_card',
 		'consumable'
 	},
-	loc_vars = function(self, info_queue, card)
-		local main_challenge_info = nil
-		if G.GAME.challenge then
-			main_challenge_info = { {
-				n = G.UIT.C,
-				config = { align = "bm", minh = 0.2 },
-				nodes = { { n = G.UIT.C, config = { ref_table = card, align = "m" },
-					nodes = { { n = G.UIT.T, config = {
-						text = localize('SEMBY_desc_challenge'),
-						colour = G.C.UI.TEXT_INACTIVE, scale = 0.32 * 0.8
-					} } }
-				} }
-			} }
-		end
-		return {
-			main_start = main_challenge_info
-		}
-	end,
 	calculate = function(self, card, context)
         if context.end_of_round and context.game_over and context.main_eval and not context.blueprint then
 			-- Announce
@@ -52,9 +34,9 @@ SMODS.Joker {
 					delay = 0.8,
 					func = function()
 						if SMODS.is_eternal(G.consumeables.cards[i], card)
-						or G.consumeables.cards[i].ability.SEMBY_ChallengeImmunity
+						or G.consumeables.cards[i].ability.SEMBY_shimmer_immune
 						then
-							G.consumeables.cards[i]:juice_up(0.2)
+							G.consumeables.cards[i]:juice_up(0.2, 0.2)
 							play_sound('tarot'..math.random(1, 2))
 							attention_text({
 								text = localize('SEMBY_immune_ex'),
@@ -100,9 +82,9 @@ SMODS.Joker {
 					delay = 0.8,
 					func = function()
 						if SMODS.is_eternal(G.jokers.cards[i], card)
-						or G.jokers.cards[i].ability.SEMBY_ChallengeImmunity
+						or G.jokers.cards[i].ability.SEMBY_shimmer_immune
 						then
-							G.jokers.cards[i]:juice_up(0.2)
+							G.jokers.cards[i]:juice_up(0.2, 0.2)
 							play_sound('tarot'..math.random(1, 2))
 							attention_text({
 								text = localize('SEMBY_immune_ex'),

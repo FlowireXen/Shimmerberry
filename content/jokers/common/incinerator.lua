@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "incinerator",
+	key = "incinerator", -- furnace
 	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 7, y = 3 },
