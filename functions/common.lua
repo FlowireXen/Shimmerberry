@@ -137,6 +137,7 @@ SMODS.current_mod.calculate = function(self, context)
 									copied_card:add_to_deck()
 									G.jokers:emplace(copied_card)
 									copied_card:start_materialize()
+									copied_card:set_cost()
 									G.E_MANAGER:add_event(Event({
 										func = function()
 											copied_card.SEMBY_duplitage = nil

@@ -51,22 +51,16 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-!! Bug Report: Shader Issue
--> Fixed: Shoutout to "thewhiteoctavia"
+!! Bug Report: Shader Issue !! -> Fixed: Shoutout to "thewhiteoctavia"
 
 Currently: Give all Jokers (& others) Pronouns
 
-Target Plush -> Rename & New Texture
-"Foxie (Plush)" -> My Fox Plush :3c
-
-Annoying Dog: Add Multiple Images, image is random every time (doesn't save form)
+Target Plush -> Rename & New Texture -> "Foxie (Plush)" -> My Fox Plush :3c
 
 TODO: Update Challenge Bans
 - Don't forget to Ban certain Tags in certain Challenges
 
 Patch notes & wiki; Mention that "death bug" is fixed
-
-
 
 
 
