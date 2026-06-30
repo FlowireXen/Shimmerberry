@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "baking_yesteryear",
+	key = "inventation",
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 4, y = 9 },

@@ -113,14 +113,6 @@ return {
 					"Deck to scoring hand",
 				}
 			},
-			j_SEMBY_baking_yesteryear = {
-				name = "Baking Yesteryear",
-				text = {
-					"{C:enhanced}Vintage Cards{} have a",
-					"{C:green}#1# in #2#{} chance to upgrade",
-					"the played poker hand",
-				}
-			},
 			j_SEMBY_balloon = {
 				name = "Balloon",
 				text = {{
@@ -464,6 +456,16 @@ return {
 					"a random Joker",
 				}}
 			},
+			j_SEMBY_foxie_plush = {
+				name = "Fox Plush",
+				text = {
+					"{C:chips}+#1#{} Chips for",
+					"each {C:attention}Joker{} and",
+					"{C:mult}+#2#{} Mult for each",
+					"empty {C:attention}Joker{} slot",
+					"{C:inactive}({C:chips}+#3#{}{C:inactive} Chips, {}{C:mult}+#4#{}{C:inactive} Mult)",
+				}
+			},
 			j_SEMBY_garden_gnome = {
 				name = "Garden Gnome",
 				text = {
@@ -559,6 +561,14 @@ return {
 				name = "Incinerator",
 				text = {
 					"{C:green}+#1#{} Discard Limit",
+				}
+			},
+			j_SEMBY_inventation = {
+				name = "Inven-Tation", -- Invent + Invite
+				text = {
+					"{C:enhanced}Vintage Cards{} have a",
+					"{C:green}#1# in #2#{} chance to upgrade",
+					"the played poker hand",
 				}
 			},
 			j_SEMBY_jevil = {
@@ -1070,7 +1080,7 @@ return {
 				}
 			},
 			j_SEMBY_scav_prototype = {
-				name = "Scav Prototype",
+				name = "Scav. Prototype",
 				text = {{
 					"When {C:attention}Blind{} is selected,",
 					"destroy {C:attention}adjacent{} Jokers",
@@ -1183,16 +1193,6 @@ return {
 					"{C:attention,E:2}CARD {E:2,u:inactive}PLAYED{E:2},",
 					"{C:green,E:2}PUSH IT DOWN {C:SEMBY_percent,E:2}#2#%",
 				}}
-			},
-			j_SEMBY_target_plush = {
-				name = "Target Plush",
-				text = {
-					"{C:chips}+#1#{} Chips for",
-					"each {C:attention}Joker{} and",
-					"{C:mult}+#2#{} Mult for each",
-					"empty {C:attention}Joker{} slot",
-					"{C:inactive}({C:chips}+#3#{}{C:inactive} Chips, {}{C:mult}+#4#{}{C:inactive} Mult)",
-				}
 			},
 			j_SEMBY_tempered_glass = {
 				name = "Tempered Glass",
@@ -1643,8 +1643,8 @@ return {
 			},
 		},
 		Tarot = {
-			c_SEMBY_ibm_7094 = {
-				name = alt and "Daisy Bell" or "IBM 7094", --> Don't Translate!
+			c_SEMBY_backup = {
+				name = "The Backup",
 				text = {
         		    "Enhances {C:attention}#1#{}",
         		    "selected cards to",
@@ -1664,7 +1664,7 @@ return {
 		},
 		Tag = {
 			tag_SEMBY_adt_duplitage = {
-				name = "Duplitage", --or "Duplicate/Duplicating Tag"
+				name = "Duplitage", --or "Dupli-Tag", like "Duplication Tag"
 				text = {
         		    "Gives a copy of the",
         		    "next obtained {C:attention}Joker{}",

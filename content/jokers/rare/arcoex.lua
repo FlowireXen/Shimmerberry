@@ -1,12 +1,12 @@
 SMODS.Joker {
-	key = "arcoex", -- Texture Ideas: -- "Glitched Cat.exe" + "Hypnospace" --or-- "Junkdata"+Soul, changes every hand
+	key = "arcoex",
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 8, y = 7 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
-	rarity = 2,
+	rarity = 3,
 	cost = 7,
 	config = {
 		extra = {

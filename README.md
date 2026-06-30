@@ -73,7 +73,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Risky Joker | Scoring cards take<br>5 Chips and 1 Mult<br>and increase the<br>Blind Payout by $1<br>(Next payout +$0) | $6 | Common | - |
 | Silver Mask | Earn $20 at the<br>end of the round<br>Earn $2 less for<br>each Hand size | $6 | Common | - |
 | Stocked Shelves | +1 Booster pack,<br>Card and Voucher<br>slot in Shop | $5 | Common | - |
-| Target Plush | +12 Chips for<br>each Joker and<br>+5 Mult for each<br>empty Joker slot<br>(+0 Chips, +0 Mult) | $6 | Common | - |
+| Fox Plush | +12 Chips for<br>each Joker and<br>+5 Mult for each<br>empty Joker slot<br>(+0 Chips, +0 Mult) | $6 | Common | - |
 | Tempered Glass | 50% chance to<br>Revive destroyed<br>Glass Cards<br>(Fixed probability) | $4 | Common | - |
 | To n' Fro | Played cards swap<br>Chips and Mult<br>before scoring | $5 | Common | - |
 | Axe | Each Spade card<br>held in hand has<br>a 20% chance to<br>be destroyed<br>Suit changes<br>every round<br>80/100 uses left | $6 | Common | Tool, Repairable |

@@ -227,17 +227,6 @@ jd_def['j_SEMBY_anodized_steel'] = {
     end
 }
 jd_def['j_SEMBY_arcoex'] = { } -- no info
-jd_def['j_SEMBY_baking_yesteryear'] = {
-    extra = { {
-        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "odds" }, { text = ")" },
-    } },
-    extra_config = { colour = G.C.GREEN, scale = 0.3 },
-    calc_function = function(card)
-        local numerator, denominator = SMODS.get_probability_vars(card,
-            card.ability.extra.numerator, card.ability.extra.denominator, 'JokerDisplay')
-        card.joker_display_values.odds = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
-    end
-}
 jd_def['j_SEMBY_balloon'] = {
     text = {
         { border_nodes = {
@@ -765,6 +754,24 @@ jd_def['j_SEMBY_fire_exint'] = {
     end
 }
 jd_def['j_SEMBY_fortune_cookie'] = { } -- no info
+jd_def['j_SEMBY_foxie_plush'] = {
+    text = {
+        { text = "+", colour = G.C.CHIPS },
+        { ref_table = "card.joker_display_values", ref_value = "chips", colour = G.C.CHIPS, retrigger_type = "mult" },
+        { text = " +", colour = G.C.MULT },
+        { ref_table = "card.joker_display_values", ref_value = "mult",  colour = G.C.MULT,  retrigger_type = "mult" },
+    },
+    calc_function = function(card)
+		local jokers = 0
+		local joke_limit = 0
+		if G.jokers then
+			jokers = #G.jokers.cards
+			joke_limit = math.max(0, G.jokers.config.card_limit - jokers)
+		end
+        card.joker_display_values.chips = jokers * card.ability.extra.chips
+        card.joker_display_values.mult = joke_limit * card.ability.extra.mult
+    end
+}
 jd_def['j_SEMBY_garden_gnome'] = {
     text = {
         { text = "+" }, { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult" }
@@ -854,6 +861,17 @@ jd_def['j_SEMBY_improv'] = {
     end
 }
 jd_def['j_SEMBY_incinerator'] = { } -- no info
+jd_def['j_SEMBY_inventation'] = {
+    extra = { {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "odds" }, { text = ")" },
+    } },
+    extra_config = { colour = G.C.GREEN, scale = 0.3 },
+    calc_function = function(card)
+        local numerator, denominator = SMODS.get_probability_vars(card,
+            card.ability.extra.numerator, card.ability.extra.denominator, 'JokerDisplay')
+        card.joker_display_values.odds = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
+    end
+}
 jd_def['j_SEMBY_jevil'] = { } -- no info, special: managed via hook
 jd_def['j_SEMBY_jokebra'] = { } -- no info, special: manages itself
 jd_def['j_SEMBY_lavish_joker'] = {
@@ -1715,24 +1733,6 @@ jd_def['j_SEMBY_t3mprr'] = {
         end
         card.joker_display_values.percent_reduce = (1 - card.ability.extra.push_down) ^ percent
         card.joker_display_values.percent_increase = card.ability.extra.clock_up * 100
-    end
-}
-jd_def['j_SEMBY_target_plush'] = {
-    text = {
-        { text = "+", colour = G.C.CHIPS },
-        { ref_table = "card.joker_display_values", ref_value = "chips", colour = G.C.CHIPS, retrigger_type = "mult" },
-        { text = " +", colour = G.C.MULT },
-        { ref_table = "card.joker_display_values", ref_value = "mult",  colour = G.C.MULT,  retrigger_type = "mult" },
-    },
-    calc_function = function(card)
-		local jokers = 0
-		local joke_limit = 0
-		if G.jokers then
-			jokers = #G.jokers.cards
-			joke_limit = math.max(0, G.jokers.config.card_limit - jokers)
-		end
-        card.joker_display_values.chips = jokers * card.ability.extra.chips
-        card.joker_display_values.mult = joke_limit * card.ability.extra.mult
     end
 }
 jd_def['j_SEMBY_tempered_glass'] = {

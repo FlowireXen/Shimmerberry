@@ -1,10 +1,16 @@
 SMODS.Consumable {
     key = 'eden_spawner',
-    SEMBY_art = "placeholder",
+    SEMBY_art = "lizrushpy",
 	atlas = "SEMBY_consumables",
-    pos = { x = 0, y = 0 },
-    set = "Spectral",
+    pos = { x = 6, y = 0 },
+	soul_pos = { x = 6, y = 1 },
 	disable_shine = true,
+    draw = function(self, card, layer)
+        if card.config.center.discovered or card.bypass_discovery_center then
+            card.children.center:draw_shader('SEMBY_pearlescent', nil, card.ARGS.send_to_shader)
+        end
+    end,
+    set = "Spectral",
 	set_card_type_badge = function(self, card, badges)
  		badges[#badges+1] = create_badge(localize('SEMBY_eden_token'), SMODS.Gradients.SEMBY_EDEN, G.C.WHITE, 1.2)
 	end,

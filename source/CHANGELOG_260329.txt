@@ -29,7 +29,7 @@ Bugfixes, challange updates and preperations for "Challenger Approaching".
 - Ceaseless Void: Removed "Payout" Stat, Stat-Gain reworked to be more random, Buffed Gains, Reduced Negative Effects
 - Opulent Skint: Easier rarity conditions but only triggers when entering a shop
 - Singularity: Can't copy cards created by a Singularity, copied steel-cards trigger immidiatly now
-- Target Plush: 15 -> 12 Chips, 4 -> 5 Mult
+- Fox Plush: 15 -> 12 Chips, 4 -> 5 Mult
 ### Reworks:
 - JEV][L: Destroyes a consumable to generate 2 consumables, increases blind size for each created consumable
 - Oblivion: Resets you back to Ante 1, Slowly increases Ante condition, Each Reset rewards you with more money, Progrress-System has been deleted

@@ -59,7 +59,7 @@ SMODS.Joker{
     cost = 6,
 	config = {
 		extra = {
-			count = 3,
+			count = 2,
 			reward = true
 		}
 	},

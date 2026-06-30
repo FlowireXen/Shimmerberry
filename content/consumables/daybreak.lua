@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = 'daybreak',
     SEMBY_art = "placeholder",
 	atlas = "SEMBY_consumables",
-    pos = { x = 5, y = 0 },
+    pos = { x = 4, y = 0 },
     set = "Spectral",
     config = {
 		extra = {

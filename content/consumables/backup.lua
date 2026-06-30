@@ -1,8 +1,8 @@
 SMODS.Consumable {
-    key = 'ibm_7094', -- Texture: Computer in Tarot Colors
+    key = 'backup', -- Texture: Computer in Tarot Colors
     SEMBY_art = "placeholder",
 	atlas = "SEMBY_consumables",
-    pos = { x = 4, y = 0 },
+    pos = { x = 3, y = 0 },
     set = "Tarot",
     config = {
         max_highlighted = 2,

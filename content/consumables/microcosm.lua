@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = 'microcosm',
     SEMBY_art = "lizrushpy",
 	atlas = "SEMBY_consumables",
-    pos = { x = 3, y = 0 },
+    pos = { x = 2, y = 0 },
     set = "Planet",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_SEMBY_vintage

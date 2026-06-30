@@ -28,7 +28,6 @@ G.P_CENTERS.j_misprint.pronouns = "SEMBY_error"
   "she_they"
   "he_they"
 --]]
---> !! Also Add Consumables, Vouchers, Enhancements, Editions, Sleeves, Stickers and Tags to "SEMBY_Other_Pronouns" (below)
 local SEMBY_Joker_Pronouns = {
   abandoned_soul = nil,
   adblocker = nil,
@@ -39,7 +38,6 @@ local SEMBY_Joker_Pronouns = {
   annoying_dog = "it_its",
   anodized_steel = nil,
   arcoex = nil,
-  baking_yesteryear = nil,
   balloon = nil,
   barmy_joker = nil,
   benthic_bloom = nil,
@@ -72,6 +70,7 @@ local SEMBY_Joker_Pronouns = {
   fifty_seven_leaf_clover = nil,
   fire_exint = nil,
   fortune_cookie = nil,
+  foxie_plush = "she_her",
   garden_gnome = nil,
   ghostsalt_contract = nil,
   gold_bomb = nil,
@@ -80,6 +79,7 @@ local SEMBY_Joker_Pronouns = {
   hypetrain = nil,
   improv = nil,
   incinerator = nil,
+  inventation = nil,
   jevil = "he_him",
   jokebra = nil,
   lavish_joker = "SEMBY_chad",
@@ -124,7 +124,6 @@ local SEMBY_Joker_Pronouns = {
   stocked_shelves = "they_them",
   swordswallower = "she_they",
   t3mprr = "she_her",
-  target_plush = "she_her",
   tempered_glass = "any_all",
   the_dwarf = "she_they",
   the_giant = "he_they",
@@ -141,19 +140,55 @@ local SEMBY_Joker_Pronouns = {
   warm_embrace = nil,
   watching_forest = "she_they",
 }
---local SEMBY_Other_Pronouns = {
---
---}
+local SEMBY_Other_Pronouns = { --Can't do: Blinds, Decks, Stickers
+  -- Consumables
+  c_SEMBY_backup = nil,
+  c_SEMBY_daybreak = nil,
+  c_SEMBY_eden_spawner = nil,
+  c_SEMBY_microcosm = nil,
+  c_SEMBY_ocean = nil,
+  c_SEMBY_order_shrine = nil,
+  c_SEMBY_soul_gem = nil,
+  -- Vouchers
+  v_SEMBY_mask_comedy = nil,
+  v_SEMBY_mask_tragedy = nil,
+  v_SEMBY_urn_old = nil,
+  v_SEMBY_urn_cursed = nil,
+  -- Enhancements
+  m_SEMBY_memory = nil,
+  m_SEMBY_vintage = nil,
+  -- Editions
+  e_SEMBY_pearlescent = nil,
+  e_SEMBY_resonance = nil,
+  e_SEMBY_shiny = nil,
+  -- Sleeves
+  sleeve_SEMBY_burning_sl = nil,
+  sleeve_SEMBY_hopeless_sl = nil,
+  sleeve_SEMBY_scartare_sl = nil,
+  sleeve_SEMBY_strange_sl = nil,
+  -- Tags
+  tag_SEMBY_adt_duplitage = nil,
+  tag_SEMBY_adt_intimidating = nil,
+  tag_SEMBY_bnt_discards = nil,
+  tag_SEMBY_bnt_hands = nil,
+  tag_SEMBY_bnt_reroll = nil,
+  tag_SEMBY_bnt_shop = nil,
+  tag_SEMBY_bnt_vouch_down = nil,
+  tag_SEMBY_edt_pearlescent = nil,
+  tag_SEMBY_edt_shiny = nil,
+  tag_SEMBY_ngt_doom = nil,
+  tag_SEMBY_ngt_lavish = nil,
+}
 -- Apply Pronouns:
 G.E_MANAGER:add_event(Event({
 	func = function()
-        local ModKey = 'j_SEMBY_'
         for key, value in pairs(SEMBY_Joker_Pronouns) do
-            if value then G.P_CENTERS[ModKey..key].pronouns = value end
+            local jKey = 'j_SEMBY_'..key
+            if value and G.P_CENTERS[jKey] then G.P_CENTERS[jKey].pronouns = value end
         end
---        for key, value in pairs(SEMBY_Other_Pronouns) do
---            if value then G.P_CENTERS[key].pronouns = value end
---        end
+        for key, value in pairs(SEMBY_Other_Pronouns) do
+            if value and G.P_CENTERS[key] then G.P_CENTERS[key].pronouns = value end
+        end
 		return true
 	end
 }))

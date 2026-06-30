@@ -55,13 +55,12 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 Currently: Give all Jokers (& others) Pronouns
 
-Target Plush -> Rename & New Texture -> "Foxie (Plush)" -> My Fox Plush :3c
-
 TODO: Update Challenge Bans
 - Don't forget to Ban certain Tags in certain Challenges
 
 Patch notes & wiki; Mention that "death bug" is fixed
 
+Artists: Add "Guest Links" section
 
 
 Add sound sources to origin

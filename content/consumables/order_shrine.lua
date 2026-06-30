@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "order_shrine",
 	SEMBY_art = "flowire",
 	atlas = "SEMBY_consumables",
-	pos = { x = 1, y = 0 },
+	pos = { x = 0, y = 0 },
     set = "Spectral",
     loc_vars = function(self, info_queue, card)
         local main_eternal_info = nil

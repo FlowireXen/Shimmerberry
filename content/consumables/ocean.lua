@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "ocean",
     SEMBY_art = "lizrushpy",
 	atlas = "SEMBY_consumables",
-    pos = { x = 2, y = 0 },
+    pos = { x = 1, y = 0 },
     set = "Tarot",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.e_SEMBY_pearlescent
