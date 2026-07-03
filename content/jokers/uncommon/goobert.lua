@@ -28,7 +28,7 @@ SMODS.Joker {
 		'durability'
 	},
 	pools = {
-        ["Repairable"] = true,
+        ["Durability"] = true,
     },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {

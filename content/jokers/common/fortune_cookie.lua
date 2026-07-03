@@ -8,13 +8,13 @@ SMODS.Joker {
     blueprint_compat = false,
 	rarity = 1,
 	cost = 6,
-	pools = {
-        ["Food"] = true,
-    },
     attributes = {
 		'editions', 'food', 'on_sell',
 		'changing_effects'
 	},
+	pools = {
+        ["Food"] = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		if card.edition and card.edition.key then
 			local loc_key = G.localization.descriptions.Edition[card.edition.key]

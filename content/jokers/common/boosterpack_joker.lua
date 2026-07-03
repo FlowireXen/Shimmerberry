@@ -24,10 +24,10 @@ SMODS.Joker {
 	},
     attributes = {
 		'passive',
-		'shop'
+		'shop', 'durability'
 	},
 	pools = {
-        ["Repairable"] = true,
+        ["Durability"] = true,
     },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {

@@ -6,6 +6,10 @@ SMODS.Joker:take_ownership( 'flower_pot', {
 			suits = 4  --> Align with Shimmerberry
         }
     },
+    attributes = {
+		'xmult', 'suit',
+		'nature'
+	},
     loc_vars = function(self, info_queue, card)
         return { key = 'j_SEMBY_flower_pot', vars = {
             card.ability.extra.xmult,

@@ -17,7 +17,7 @@ SMODS.Joker {
 	},
     attributes = {
 		'reroll', 'economy',
-		'shop'
+		'shop', 'animal'
 	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = {

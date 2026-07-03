@@ -10,10 +10,11 @@ SMODS.Joker {
 	cost = 8,
     attributes = {
 		'retrigger', 'suit',
-		'music'
+		'music', 'animal'
 	},
 	pools = {
 		["Music"] = true,
+		["Numetal_Special"] = true,
     },
 	calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and G.GAME.SEMBY_suit_count then

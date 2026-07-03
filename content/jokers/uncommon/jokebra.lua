@@ -13,7 +13,7 @@ SMODS.Joker {
 			active = false,
 			failed = false,
 			range_min = 100,
-			range_max = 1100,
+			range_max = 1000,
 			target = 0
 		}
 	},

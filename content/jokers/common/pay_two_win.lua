@@ -10,8 +10,6 @@ SMODS.Joker {
 	cost = 4,
 	config = {
 		extra = {
-			-- Consider Challenge:
-			-- > Lavish Dreams
 			spend = 2,
 			mult = 30
 		}

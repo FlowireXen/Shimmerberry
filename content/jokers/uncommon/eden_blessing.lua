@@ -14,7 +14,8 @@ SMODS.Joker {
 		}
 	},
     attributes = {
-		'xchips', 'xmult'
+		'xchips', 'xmult',
+		'nature',
 	},
 	loc_vars = function(self, info_queue, card)
 		return {

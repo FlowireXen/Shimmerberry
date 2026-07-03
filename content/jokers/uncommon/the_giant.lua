@@ -9,7 +9,8 @@ SMODS.Joker {
 	rarity = 2,
 	cost = 6,
     attributes = {
-		'discard', 'hand_size'
+		'discard', 'hand_size',
+		'animal'
 	},
 	calculate = function(self, card, context)
 		if context.setting_blind and not (context.blueprint_card or self).getting_sliced then

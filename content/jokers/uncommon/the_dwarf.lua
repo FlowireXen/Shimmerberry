@@ -14,7 +14,8 @@ SMODS.Joker {
 		}
 	},
     attributes = {
-		'hand_size', 'discard'
+		'hand_size', 'discard',
+		'animal'
 	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = {

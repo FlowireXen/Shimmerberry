@@ -61,13 +61,27 @@ TODO: Update Challenge Bans
 Patch notes & wiki; Mention that "death bug" is fixed
 
 Artists: Add "Guest Links" section
-
+-> Add "guest_link" code!
 
 Add sound sources to origin
 Add Texture files to origin
 ( Generally Update Origin )
 
+.md file
+-> Add Images to every single Content Section!
+-> Collection View -> Replace Some Jokers with new Stuff (there's PINK Placeholders)
 
+Fortune Cookie; Rework:
+Make a list of all Editions and pull from that list (pulls a random edition without weight)
+
+Add Burning Sleeve as Deck,
+Combo also destroys leftmost discarded card each discard
+
+
+For the other Artist:
+"Memory Tarot"/IBM/Floppy Disc -> Floppy Disc (by IBM(™-Logo here))
+Daybreak -> Chapter 5 Sunset
+Annoying Dog -> Is a Toby Fox reference, but instead of his usual Pixel Dog, do something more smooth -> 4 Different Textures needed here
 
 
 

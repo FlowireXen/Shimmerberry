@@ -24,8 +24,7 @@ SMODS.Joker {
 		'durability'
 	},
 	pools = {
-		["Tool"] = true,
-        ["Repairable"] = true,
+        ["Durability"] = true,
     },
 	loc_vars = function(self, info_queue, card)
         local suit = (G.GAME.current_round.SEMBY_tool_suit or {}).suit or 'Spades'

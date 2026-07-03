@@ -46,11 +46,23 @@ G.SEMBY.Artist = {
 	ghostsalt = {
 		name = "GhostSalt",
 		colour = HEX('FFDDDD'),
+		links = {
+			guest_page = {
+				name = "Mod: Phanta",
+				link = "https://balatromods.miraheze.org/wiki/Phanta",
+			},
+		},
 		guest = true
 	},
 	lizrushpy = {
 		name = "lanedarushpy",
 		colour = HEX('D9BAEE'),
+		links = {
+			guest_page = {
+				name = "Mod: BalaCats",
+				link = "https://git.gay/hazelpy/BalaCats",
+			},
+		},
 		guest = true
 	},
 }

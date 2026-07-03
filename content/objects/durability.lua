@@ -1,7 +1,7 @@
--- Repairable pool
+-- Durability pool
 SMODS.ObjectType({
-	key = "Repairable",
-	default = "j_SEMBY_toolkit", --> Ironic...
+	key = "Durability",
+	default = "j_SEMBY_toolkit",
 	cards = {
 		["j_selzer"] = true,
 		["j_popcorn"] = true,

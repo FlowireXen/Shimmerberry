@@ -15,7 +15,8 @@ SMODS.Joker {
 		}
 	},
     attributes = {
-		'destroy_card', 'tag'
+		'destroy_card', 'tag',
+		'animal'
 	},
 	loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { key = 'tag_SEMBY_adt_duplitage', set = 'Tag' }

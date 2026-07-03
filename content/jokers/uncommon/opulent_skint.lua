@@ -16,7 +16,7 @@ SMODS.Joker {
 	},
     attributes = {
 		'generation', 'destroy_card',
-		'shop'
+		'shop', 'animal'
 	},
 	loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card,

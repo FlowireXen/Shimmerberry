@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "replicator", -- indirect ref. to green replicator mod from minecraft
+	key = "replicator",
 	SEMBY_art = "placeholder",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 4, y = 8 },

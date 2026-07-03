@@ -1,4 +1,4 @@
--- Other Repairables:
+-- Other Durabilities:
 local SEMBY_durable_jokers = {
 	["j_selzer"]      = { edit_key = "extra",  durability_max = 10, durability_other = { direct = true, refill = true } },
 	["j_popcorn"]     = { edit_key = "mult",   durability_max = 20, durability_other = { direct = true, refill = true } },
@@ -35,7 +35,7 @@ SMODS.Joker {
 		'durability'
 	},
 	pools = {
-		["Tool"] = true,
+        ["Durability"] = true,
     },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {
@@ -137,7 +137,7 @@ SMODS.Joker {
     in_pool = function(self, args)
 		if G.jokers then
 			for _, joker in pairs(G.jokers.cards) do
-				if (joker.config.center.pools and joker.config.center.pools.Repairable)
+				if (joker.config.center.pools and joker.config.center.pools.Durability)
 				or joker.ability.perishable or joker.ability.SEMBY_degrading
 				then return true end
 			end
