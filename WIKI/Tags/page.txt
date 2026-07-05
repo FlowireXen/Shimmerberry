@@ -1,0 +1,70 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Tags
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+New or Update:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+'''[[Shimmerberry]]''' currently adds '''6 [[v:Tags|Skip-Tags]]''' to the game, including '''2''' [[Shimmerberry/Tags#Debts|{{Ct|red|Debt-Tags}}]].
+
+== Tags ==
+
+{| class="sortable wikitable" style="image-rendering:pixelated"
+!Skip-Tag
+!Description
+!First Ante
+!Info
+
+|-
+| style="text-align:center;" | [[File:Intimidating_Tag_(Shimmerberry).png|68px]]<br>'''Intimidating''' Tag
+| {{ct|purple|-10%}} {{ct|orange|Blind Size}} next round.
+| 1
+| {{ct|grey|-}} <!--Info-->
+
+|-
+| style="text-align:center;" | [[File:Pearlescent_Tag_(Shimmerberry).png|68px]]<br>'''Pearlescent''' Tag
+| Next base edition shop '''Joker''' is<br>free and becomes [[Shimmerberry/Editions|{{Ct|spectral|Pearlescent}}]].
+| 1
+| {{ct|grey|-}} <!--Info-->
+
+|-
+| style="text-align:center;" | [[File:Shiny_Tag_(Shimmerberry).png|68px]]<br>'''Shiny''' Tag
+| Next base edition shop {{ct|orange|Consumable}}<br>is free and becomes [[Shimmerberry/Editions|{{Ct|spectral|Shiny}}]].
+| 1
+| {{ct|grey|-}} <!--Info-->
+
+|-
+| style="text-align:center;" | [[File:Vouch_down_Tag_(Shimmerberry).png|68px]]<br>'''Vouch-down''' Tag
+| Reduce the cost of a random<br>{{ct|orange|Voucher}} by {{ct|money|$5}} next shop.
+| 2
+| Won't trigger if<br>all Vouchers<br>cost {{ct|money|$0}} or less.
+
+|}
+
+== Debts ==
+
+{{Ct|red|Debt-Tags}} don't spawn naturally and can't be copied by [[v:Double_Tag|Double Tag]].
+
+{| class="sortable wikitable" style="image-rendering:pixelated"
+!Debt-Tag
+!Description
+!Source
+!Info
+
+|-
+| style="text-align:center;" | [[File:Lavish_Debt_Tag_(Shimmerberry).png|68px]]<br>'''Lavish''' Debt
+| {{ct|purple|+50%}}<small><sup>'''1'''</sup></small> {{ct|orange|Blind Size}} next round.
+| Created by [[Shimmerberry/Jokers|{{ct|orange|Lavish Joker}}]]<br>after being sold or destroyed.
+| <small><sup>'''1'''</sup></small>Percentage depends on stored<br>​ Size-Increase in '''Lavish Joker'''.
+
+|-
+| style="text-align:center;" | [[File:Resonance_Debt_Tag_(Shimmerberry).png|68px]]<br>'''Resonance''' Debt
+| {{ct|purple|+25%}}<small><sup>'''2'''</sup></small> {{ct|orange|Blind Size}} next round.
+| Created by [[Shimmerberry/Editions|{{ct|spectral|Resonance Edition}}]]<br>at the end of each round.
+| <small><sup>'''2'''</sup></small>Percentage depends on how many<br>​ '''Resonance Edition''' cards you own.
+
+|}
+
+[[Category:Tags]]

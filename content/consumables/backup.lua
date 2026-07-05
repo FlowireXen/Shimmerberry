@@ -1,5 +1,5 @@
 SMODS.Consumable {
-    key = 'backup', -- Texture: Computer in Tarot Colors
+    key = 'backup',
     SEMBY_art = "placeholder",
 	atlas = "SEMBY_consumables",
     pos = { x = 3, y = 0 },

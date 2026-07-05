@@ -1,0 +1,67 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Sleeves
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+New or Update:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+{{cross-mod content|CardSleeves}}
+
+'''[[Shimmerberry]]''' currently adds '''4''' Sleeves to the game.<br>
+Sleeves have an unique effect when combined with their corresponding deck (e.g. {{ct|red|<u>Scartare Deck</u>}} + {{ct|red|<u>Scartare Sleeve</u>}}).
+
+{| class="sortable wikitable" style="image-rendering:pixelated"
+!Sleeve<br>Art & Name
+!Effect & Infos
+!Combination & Infos
+!Unlock
+!Artist &<br>Reference
+
+|-
+| style="text-align:center;" | [[File:Scartare_Sleeve_(Shimmerberry).png|146px]]<br>'''Scartare Sleeve'''
+| Remove all Ranks below {{ct|orange|7}}, {{ct|blue|+2}} Hand size, {{ct|red|-3}} Discards.<br>Discard {{ct|red|2}} random cards with each hand played.
+----
+Also known as "Skat"{{ct|grey|(ska:t)}} Sleeve.
+| An additional {{ct|blue|+2}} Hand Size and {{ct|red|+2}} random<br>cards discarded with each hand played.
+----
+-
+| Win a run with {{ct|red|Scartare Deck}}<br>on {{ct|green|Green Stake}} difficulty.
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Hopeless_Sleeve_(Shimmerberry).png|146px]]<br>'''Hopeless Sleeve'''
+| {{Ct|spectral|Unknown}}<sup>1</sup> Winning Ante.<br>Gain {{ct|orange|+1}} Joker Slot every {{ct|orange|4}} Boss Blinds defeated.
+----
+<sup>1 </sup>{{whiteout|Winning Ante lies between {{ct|orange|6}} and {{ct|orange|14}}}}
+| Increases {{Ct|spectral|Unknown}}<sup>2</sup> Winning Ante by {{ct|orange|+2}} and<br> {{ct|orange|+1}} Joker Slot every {{ct|orange|3}} Boss Blinds instead.
+----
+<sup>2 </sup>{{whiteout|New Winning Ante lies between {{ct|orange|8}} and {{ct|orange|16}}}}
+| Win a run with {{ct|yellow|Hopeless Deck}}<br>on '''Black Stake''' difficulty.
+| '''Flowire'''
+----
+Reference:<br>
+'''The Backrooms''' {{ct|grey|Fiction}}
+
+|-
+| style="text-align:center;" | [[File:Strange_Sleeve_(Shimmerberry).png|146px]]<br>'''Strange Sleeve'''
+| {{ct|grey|Generating Sleeve...}}<br>Randomized Deck<sup>3</sup>, Cards change when scored.
+----
+<sup>3 </sup>Randomized with <u>heavy</u> bias.
+| {{ct|red|Corrupt Data Segment.}}<br>Blind Sizes<sup>4</sup> and Shop Prices<sup>5</sup> get<br>randomized after each Blind.
+----
+<sup>4 </sup>Size Multiplier: {{whiteout|Between {{ct|green|-100%}} & {{ct|red|+100%}}}}<br>
+<sup>5 </sup>Price Multiplier: {{whiteout|Between {{ct|green|-50%}} & {{ct|red|+50%}}}}
+| Win a run with '''Strange Deck'''<br>on '''Black Stake''' difficulty.
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Burned_Sleeve_(Shimmerberry).png|146px]]<br>'''Burned Sleeve'''
+| {{ct|red|Destroy}} the first drawn hand every {{ct|orange|Boss Blind}}.
+| <small>{{ct|grey|Has no matching Deck.}}</small>
+| Win a run with {{ct|red|Scartare Deck}}<br>on {{ct|purple|Purple Stake}} difficulty.
+| '''Flowire'''
+
+|}
+
+[[Category:Sleeves]]

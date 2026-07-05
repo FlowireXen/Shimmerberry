@@ -8,25 +8,15 @@ ___
 Shimmerberry adds Custom, Fluffy and Vanilla-Like content:
 
 - 110 Jokers
-  > 42 Common<br> 43 Uncommon<br> 22 Rare<br> 3 Legendary<br> 1 Change
 - 20 Challenges
-  > Including 4 Tutorials<br> and 2 Menageries
 - 11 Skip-Tags
-  > 2 Edition-Tags<br> 7 Effect-Tags<br> 2 Debt-Tags
 - 7 Consumables
-  > 1 Planet<br> 2 Tarot<br> 3 Spectrals<br> 1 Other
 - 7 Stickers
-  > 4 found in Gameplay<br> 3 found in Challenges
 - 5 Boss Blinds
-  > Including 1 Showdown Blind
-- 4 Decks
-  > With <b>4</b> respective [Card Sleeves](https://github.com/larswijn/CardSleeves)
+- 4 Decks (And <b>4</b> [Card Sleeves](https://github.com/larswijn/CardSleeves))
 - 2 Vouchers
-  > With 2 Upgrades
 - 3 Editions
-  > For both Jokers and Cards
 - 2 Enhancements
-  > With respective Consumables
 - Custom Achievements
 
 Programming by <ins>Flowire</ins>.<br>
@@ -42,9 +32,11 @@ Shimmerberry requires [Lovely](https://github.com/ethangreen-dev/lovely-injector
 visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn how to setup & install mods.
 
 # Content
-#### Check out the [Shimmerberry Wiki](https://balatromods.miraheze.org/wiki/Shimmerberry) for detailed information!
 
-![Shimmerberry Collection](repo/Collection.png)
+#### Check out the [Shimmerberry Wiki](https://balatromods.miraheze.org/wiki/Shimmerberry) for detailed information,
+
+<details>
+<summary><b>or Click here to read up on all the avaliable Content!</b></summary>
 
 ## Jokers
 <!-- Why did I decide to do this again? ;w; -->
@@ -140,7 +132,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Red Mask | This Joker gains +10 Chips<br>when adding or removing<br>a playing card<br>(Currently +0 Chips) | $6 | Uncommon | -- |
 | Replicator  | Destroys the next 20<br>played cards to Duplicate<br>the rightmost Joker<br>self destructs<br>(Currently 0/20) | $6 | Rare | -- |
 | Ripped Joker | +200 Chips if played<br>hand contains<br>3 or fewer cards | $5 | Common | -- |
-| Risky Joker | Scoring cards take<br>6 Chips and 1 Mult<br>and increase the<br>Blind Payout by $1<br>(Next payout +$0) | $6 | Common | -- |
+| Risky Joker | Scoring cards take<br>6 Chips and 2 Mult<br>and increase the<br>Blind Payout by $1<br>(Next payout +$0) | $6 | Common | -- |
 | Scaffolding | +0 Hand size<br>When Blind is selected<br>gain 1 Hand size for<br>every other Joker<br>Lose 3 Hand size<br>each Hand played | $5 | Uncommon | -- |
 | Scav. Prototype | When Blind is selected,<br>destroy adjacent Jokers<br>1 in 4 chance to gain<br>a Duplitage for each<br>destroyed Joker | $5 | Uncommon | Animal |
 | 7 Wonders | When Blind is selected<br>reduce the Blind Size<br>by 2% for each 7 in<br>your full deck<br>(Currently 0%/50%) | $7 | Uncommon | -- |
@@ -368,6 +360,16 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Flowire Loves You! | Complete **all**<br>Shimmerberry Challenges |
 | SCP-001 | Use Daybreak to remove<br>all playing card ranks |
 </details>
+
+## Other Notes
+Shimmerberry fixes the glitched state that can be achieved by<br>
+[running out of cards with 2x"Mr. Bones"](https://balatrowiki.org/w/Mr._Bones#Trivia) in possession.<br>
+It also allows "Mr. Bones" to save you, if you run out of cards.
+
+___
+</details>
+
+![Shimmerberry Collection](repo/Collection.png)
 
 # Cross-Mod Support
 Shimmerberry has Cross-Mod Support for the following Mods:

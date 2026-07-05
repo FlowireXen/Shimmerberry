@@ -1,0 +1,41 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Vouchers
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+New or Update:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+'''[[Shimmerberry]]''' currently adds '''2''' Vouchers with '''2''' respective upgrades to the game.
+
+{| class="sortable wikitable" style="image-rendering:pixelated"
+! colspan="2" | Base Voucher
+! colspan="3" | Upgraded Voucher
+! Combined Bonus
+|-
+!Base
+!Effect
+!Upgrade
+!Effect
+!Unlock
+!Total
+
+|-
+| style="text-align:center;" | [[File:Comedy_Mask_(Shimmerberry).png|142px]]<br>'''Comedy Mask'''
+| {{ct|green|Reduce}} all Blind Sizes by {{ct|purple|10%}}.<br>{{ct|red|-1}} Hand size.
+| style="text-align:center;" | [[File:Tragedy_Mask_(Shimmerberry).png|142px]]<br>'''Tragedy Mask'''
+| {{ct|green|Reduce}} all Blind Sizes by {{ct|purple|15%}}.<br>{{ct|red|-1}} Hand size.
+| Discover {{ct|orange|10}} Blinds.
+| {{ct|green|Reduce}} all Blind Sizes by {{ct|purple|25%}}.<br>{{ct|red|-2}} Hand size.
+
+|-
+| style="text-align:center;" | [[File:Old_Urn_(Shimmerberry).png|142px]]<br>'''Old Urn'''
+| Permanently {{ct|green|increase}} amount<br>of Discardable cards by {{ct|red|1}}.
+| style="text-align:center;" | [[File:Cursed_Urn_(Shimmerberry).png|142px]]<br>'''Cursed Urn'''
+| Permanently {{ct|green|increase}} amount<br>of Discardable cards by {{ct|red|2}},<br>but {{ct|red|lose}} {{ct|orange|1}} Discard each round.
+| Discard a total of {{ct|orange|1250}} cards.
+| Permanently {{ct|green|increase}} amount<br>of Discardable cards by {{ct|red|3}},<br>but {{ct|red|lose}} {{ct|orange|1}} Discard each round.
+
+|}
+
+[[Category:Vouchers]]

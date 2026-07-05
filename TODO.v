@@ -51,38 +51,37 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+Check for ##TODO##'s
+
+????CAN I PAY SOMEONE TO DO THE WIKI????
+--> https://balatromods.miraheze.org/wiki/Modded_Balatro_Wiki:Balatro_localization_transcriber
+Wiki Inspo: https://balatromods.miraheze.org/wiki/Phanta
+
+
 !! Bug Report: Shader Issue !! -> Fixed: Shoutout to "thewhiteoctavia"
 
 Currently: Give all Jokers (& others) Pronouns
 
-TODO: Update Challenge Bans
-- Don't forget to Ban certain Tags in certain Challenges
-
-Patch notes & wiki; Mention that "death bug" is fixed
+Rework:
+Scaffolding : "0/10 (+0), 8/10 (+8), 422/10 (+10), -2/10 (-2), -13/10 (-10)", "Joker Sold, +1 Handsize for each $1 of sell value", "Hand Played, -2 Handsize"
+Tempered Glass : Every played Glass Card permanently decreases the chance of breaking by 2 when scored (eg. 1 in 4 -> 1 in 6)  (Test if this gets saved!)
 
 Artists: Add "Guest Links" section
 -> Add "guest_link" code!
-
-Add sound sources to origin
-Add Texture files to origin
-( Generally Update Origin )
-
-.md file
--> Add Images to every single Content Section!
--> Collection View -> Replace Some Jokers with new Stuff (there's PINK Placeholders)
-
-Fortune Cookie; Rework:
-Make a list of all Editions and pull from that list (pulls a random edition without weight)
-
-Add Burning Sleeve as Deck,
-Combo also destroys leftmost discarded card each discard
-
 
 For the other Artist:
 "Memory Tarot"/IBM/Floppy Disc -> Floppy Disc (by IBM(™-Logo here))
 Daybreak -> Chapter 5 Sunset
 Annoying Dog -> Is a Toby Fox reference, but instead of his usual Pixel Dog, do something more smooth -> 4 Different Textures needed here
+Also Give: Lost Constellation
 
+.md file
+-> Collection View -> Replace Some Jokers with new Stuff (there's PINK Placeholders)
+---> Switch Scartere and Memory on the Preview
+
+Add sound sources to origin
+Add Texture files to origin
+( Generally Update Origin )
 
 
 

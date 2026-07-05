@@ -53,7 +53,7 @@ local SEMBY_Data = {
 	{ load = true, path = "content/others" },
 	--> Decks & Sleeves
 	{ load = true, name = "decks", path = "content/decks" },
-	{ load = Shimmerberry.compat.sleeves, name = "sleeves", config = { px = 73, py = 95 }, path = "content/decks/sleeves" },
+	{ load = Shimmerberry.compat.sleeves, name = "sleeves", config = { px = 73, py = 95 } },
 	--> Blinds
 	{ load = true, name = "blinds", config = { px = 34, py = 34, atlas_table = "ANIMATION_ATLAS", frames = 21 }, path = "content/blinds" },
 	-- Skip-Tags

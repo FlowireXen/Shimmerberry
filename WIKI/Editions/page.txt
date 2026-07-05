@@ -1,0 +1,41 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Editions
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+New or Update:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+'''[[Shimmerberry]]''' currently adds '''3''' Editions to the game.
+
+{| class="sortable wikitable" style="image-rendering:pixelated"
+!Edition
+!Normal<br>Description
+!Playing Card<br>Description
+!Info
+!Shader<br>Description
+
+|-
+| style="text-align:center;" | [[File:Pearlescent_(Shimmerberry).png|142px]]<br>'''Pearlescent'''
+| {{ct|green|Reduce}} Blind Size by {{ct|purple|5%}}
+| <small>{{ct|grey|No difference}}</small>
+| {{ct|grey|-}} <!--Info-->
+| style="text-align:center;" | Animated, slow,<br>zooming in, twisting,<br>iridescent spiral.
+
+|-
+| style="text-align:center;" | [[File:Shiny_(Shimmerberry).png|142px]]<br>'''Shiny'''
+| Gains {{ct|money|$3}} of {{ct|orange|sell value}}<br>at end of round.
+| Grant {{ct|money|$1}} of {{ct|orange|sell value}}<br>to a random {{ct|orange|Joker}}.
+| {{ct|grey|-}} <!--Info-->
+| style="text-align:center;" | Animated, random,<br>yellow stars.
+
+|-
+| style="text-align:center;" | [[File:Resonance_(Shimmerberry).png|142px]]<br>'''Resonance'''
+| {{Ct|spectral|+1}} Area slot.<br>Can't be {{ct|orange|Debuffed}}.<br>Each {{Ct|spectral|Resonance}} {{Ct|red|increases}}<br>next Blind Size by {{Ct|purple|25%}}.
+| <small>{{ct|grey|No difference}}</small>
+| Spawns a {{Ct|orange|Resonance Debt Tag}}<br>at the end of each round<br>when owning a {{Ct|spectral|Resonance}} card.
+| style="text-align:center;" | Animated, splitting,<br>card texture.
+
+|}
+
+[[Category:Card Modifiers]]

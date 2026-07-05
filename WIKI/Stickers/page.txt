@@ -1,0 +1,45 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Stickers
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+New or Update:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+'''[[Shimmerberry]]''' currently adds '''4''' Stickers to the game.
+
+Unlike Vanilla-Balatro, these Stickers don't spawn naturally, they're<br>instead applied by other Cards or are just naturally part of certain Jokers.
+
+{| class="sortable wikitable" style="image-rendering:pixelated"
+!Sticker
+!Description
+!Source
+!Info
+
+|-
+| style="text-align:center;" | [[File:Event_Horizon_Sticker_(Shimmerberry).png|142px]]<br>'''Event Horizon'''
+| {{ct|red|Destroyed}} when it's corresponding<br>{{ct|orange|Singularity-Joker}} is removed.
+| Applied to copies created<br>by {{ct|orange|Singularity-Joker}}.
+| Targets: Playing Cards.
+
+|-
+| style="text-align:center;" | [[File:Degrading_Sticker_(Shimmerberry).png|142px]]<br>'''Degrading'''
+| {{ct|red|Destroyed}} after {{ct|orange|5}} rounds.
+| Applied by {{ct|orange|JEVIL-Joker}},<br>or found in Challenges.<br><small>Some Jokers are naturally {{ct|purple|Degrading}}.</small>
+| Targets: Jokers and Consumables.
+
+|-
+| style="text-align:center;" | [[File:Possessive_Sticker_(Shimmerberry).png|142px]]<br>'''Possessive'''
+| Can't be sold.<br><small>{{ct|grey|Similiar to "Eternal-Tag".}}</small>
+| Applied by {{ct|orange|Echoing Joker}},<br>or found in Challenges.<br><small>Some Jokers are naturally {{ct|purple|Possessive}}.</small>
+| Targets: Jokers and Consumables.
+
+|-
+| style="text-align:center;" | [[File:TMTRAINER'd_Sticker_(Shimmerberry).png|142px]]<br>'''TMTRAINER'd'''
+| Marks Cards changed by the {{ct|orange|TMTRAINER-Joker}}<br>and shows the overall {{ct|green|Stat-Change}} multiplier.
+| Applied by {{ct|orange|TMTRAINER-Joker}},<br>or found in Challenges.
+| Targets: Jokers.
+
+|}
+
+[[Category:Card Modifiers]]

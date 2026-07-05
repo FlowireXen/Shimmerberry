@@ -1377,6 +1377,14 @@ return {
 			},
 		},
 		Back = {
+			b_SEMBY_burning = {
+				name = "Burned Deck",
+				text = {
+					"{C:red,E:2}Destroy{} the",
+					"{C:attention}first{} scoring card",
+					"every {C:blue}Hand{}",
+				}
+			},
 			b_SEMBY_hopeless = {
 				name = "Hopeless Deck",
 				text = {
@@ -1408,10 +1416,17 @@ return {
 			sleeve_SEMBY_burning_sl = {
 				name = "Burned Sleeve",
 				text = {
-					--"{C:legendary}Challenge Sleeve!", "{s:0.2} {}",
-					"{C:red}Destroy{} the",
+					"{C:red,E:2}Destroy{} the",
 					"{C:attention}first{} scoring card",
-					"every {C:blue}Hand",
+					"every {C:blue}Hand{}",
+				}
+			},
+			sleeve_SEMBY_burning_sl_alt = {
+				name = "Burned Sleeve",
+				text = {
+					"{C:red,E:2}Destroy{} the",
+					"{C:attention}leftmost{} discarded",
+					"card every {C:red}Discard{}",
 				}
 			},
 			sleeve_SEMBY_hopeless_sl = {
@@ -2052,7 +2067,15 @@ return {
 			SEMBY_bonus_hand = "Bonus Hand",
 			SEMBY_bound_ex = "Bound!",
 			SEMBY_broken_ex = "Broken!",
-			SEMBY_burn = "BURN",
+			SEMBY_burn_1 = "Burned",
+			SEMBY_burn_2 = "Cinders",
+			SEMBY_burn_3 = "Kindled",
+			SEMBY_burn_4 = "Ignited",
+			SEMBY_burn_5 = "Scorched",
+			SEMBY_burn_6 = "Roasted",
+			SEMBY_burn_7 = "Singed",
+			SEMBY_burn_8 = "Charred",
+			SEMBY_burn_9 = "Seared",
 			SEMBY_captured = "Captured!",
 			SEMBY_card_mined_ex = "Card Mined!",
 			SEMBY_collapsed_ex = "Collapsed!",

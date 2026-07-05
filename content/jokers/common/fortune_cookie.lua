@@ -32,7 +32,7 @@ SMODS.Joker {
 		if card.config.center.discovered and initial then
 			G.E_MANAGER:add_event(Event({
 				func = function()
-					card:set_edition(poll_edition(nil, nil, nil, true))
+					card:set_edition(poll_edition('SEMBY_fortune_cookie', nil, nil, true))
 					return true
 				end
 			}))
@@ -53,7 +53,7 @@ SMODS.Joker {
 				trigger = 'after',
 				delay = 0.2,
 				func = function()
-					card:set_edition(poll_edition(nil, nil, nil, true))
+					card:set_edition(poll_edition('SEMBY_fortune_cookie', nil, nil, true))
 					card:flip()
 					play_sound('card1')
 					return true

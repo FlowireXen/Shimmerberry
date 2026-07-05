@@ -1,0 +1,46 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Decks
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+New or Update:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+'''[[Shimmerberry]]''' currently adds '''3''' Decks to the game.
+
+{| class="sortable wikitable" style="image-rendering:pixelated"
+!Deck<br>Art & Name
+!Effect & Infos
+!Unlock
+!Artist &<br>Reference
+
+|-
+| {{captimg||Scartare Deck|imgsize=142px}}
+| Remove all Ranks below {{ct|orange|7}}, {{ct|blue|+2}} Hand size, {{ct|red|-3}} Discards.<br>Discard {{ct|red|2}} random cards with each hand played.
+----
+Also known as "Skat"{{ct|grey|(ska:t)}} Deck.
+| Win a run with {{ct|red|Red Deck}}.
+| '''Flowire'''
+
+|-
+| {{captimg||Hopeless Deck|imgsize=142px}}
+| {{Ct|spectral|Unknown}}<sup>1</sup> Winning Ante.<br>Gain {{ct|orange|+1}} Joker Slot every {{ct|orange|4}} Boss Blinds defeated.
+----
+<sup>1 </sup>{{whiteout|Winning Ante lies between {{ct|orange|6}} and {{ct|orange|14}}}}
+| Win a run with {{ct|yellow|Abandoned Deck}}.
+| '''Flowire'''
+----
+Reference:<br>
+'''The Backrooms''' {{ct|grey|Fiction}}
+
+|-
+| {{captimg||Strange Deck|imgsize=142px}}
+| {{ct|grey|Generating Deck...}}<br>Randomized Deck<sup>2</sup>, Cards change when scored.
+----
+<sup>2 </sup>Randomized with <u>heavy</u> bias.
+| Win a run with '''Erratic Deck'''.
+| '''Flowire'''
+
+|}
+
+[[Category:Decks]]

@@ -239,7 +239,7 @@ function G.FUNCS.SEMBY_Sound_Credits()
 							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Modified from it's original state.", scale = 0.3, colour = G.C.UI.TEXT_INACTIVE }}, }},
 						}}, {n=G.UIT.R, config={ align = "cm", padding = 0.1 }},
 						{n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.BLACK }, nodes={
-							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = 'Unknown Prototype Joker:', scale = 0.4, colour = G.C.IMPORTANT }}, }},
+							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = 'Scav. Prototype Joker:', scale = 0.4, colour = G.C.IMPORTANT }}, }},
 							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = '"Magic - Finger snap" by Vrymaa', scale = 0.4, colour = G.C.UI.TEXT_LIGHT }}, }},
 							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "CC0: https://freesound.org/s/807391", scale = 0.4, colour = G.C.BLUE, button = "SEMBY_Open_Website", web_link = "https://freesound.org/s/807391" }}, }},
 							{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={ {n=G.UIT.T, config={ text = "Modified from it's original state.", scale = 0.3, colour = G.C.UI.TEXT_INACTIVE }}, }},

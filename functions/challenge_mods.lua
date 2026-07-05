@@ -26,6 +26,7 @@ function SEMBY_Challenge_Start()
 		-- Useless
 		G.GAME.banned_keys['c_SEMBY_order_shrine'] = true
 		G.GAME.banned_keys['tag_SEMBY_edt_pearlescent'] = true
+		G.GAME.banned_keys['tag_SEMBY_adt_duplitage'] = true
 		-- Too Difficult
 		G.GAME.banned_keys['bl_SEMBY_sharp_shooter'] = true
 		return
@@ -57,16 +58,25 @@ function SEMBY_Challenge_Start()
 	end
 	if G.GAME.challenge == 'c_fragile_1'
 	then -- Remove Enhancements-Changes and Card-Generation:
+		G.GAME.banned_keys['c_SEMBY_backup'] = true
+		G.GAME.banned_keys['c_SEMBY_daybreak'] = true
+		G.GAME.banned_keys['j_SEMBY_digitizon'] = true
 		G.GAME.banned_keys['j_SEMBY_goobert'] = true
 		G.GAME.banned_keys['j_SEMBY_hemoturgy'] = true
+		G.GAME.banned_keys['c_SEMBY_microcosm'] = true
 		G.GAME.banned_keys['j_SEMBY_mineshaft'] = true
 		-- Useless and not fun to find
 		G.GAME.banned_keys['j_SEMBY_alpha'] = true
 		G.GAME.banned_keys['j_SEMBY_anodized_steel'] = true
+		G.GAME.banned_keys['j_SEMBY_doomsday_device'] = true
 		G.GAME.banned_keys['j_SEMBY_fifty_seven_leaf_clover'] = true
+		G.GAME.banned_keys['j_SEMBY_inventation'] = true
 		G.GAME.banned_keys['j_SEMBY_reagent'] = true
+		G.GAME.banned_keys['j_SEMBY_vip_ticket'] = true
 		-- Overpowered
+		G.GAME.banned_keys['j_SEMBY_benthic_bloom'] = true
 		G.GAME.banned_keys['j_SEMBY_chrono_break'] = true
+		G.GAME.banned_keys['j_SEMBY_singularity'] = true
 		G.GAME.banned_keys['j_SEMBY_tempered_glass'] = true
 		return
 	end
@@ -78,6 +88,7 @@ function SEMBY_Challenge_Start()
 		G.GAME.banned_keys['j_SEMBY_improv'] = true
 		G.GAME.banned_keys['j_SEMBY_money_laundering'] = true
 		G.GAME.banned_keys['j_SEMBY_ouroboros'] = true
+		G.GAME.banned_keys['tag_SEMBY_bnt_hands'] = true
 		-- Early Exit;
 		if G.GAME.challenge == 'c_blast_off_1' then return end
 	end
@@ -90,16 +101,20 @@ function SEMBY_Challenge_Start()
 		G.GAME.banned_keys['e_SEMBY_shiny'] = true
 		G.GAME.banned_keys['j_SEMBY_adblocker'] = true
 		G.GAME.banned_keys['j_SEMBY_berry_golden'] = true
-		--G.GAME.banned_keys['j_SEMBY_piggy_bank'] = true
+		G.GAME.banned_keys['j_SEMBY_bunburrow'] = true
+		G.GAME.banned_keys['j_SEMBY_fire_exint'] = true
+		G.GAME.banned_keys['j_SEMBY_lavish_joker'] = true
+		G.GAME.banned_keys['j_SEMBY_oblivion'] = true
 		G.GAME.banned_keys['j_SEMBY_risky_joker'] = true
 		G.GAME.banned_keys['j_SEMBY_silver_mask'] = true
 		G.GAME.banned_keys['j_SEMBY_stylish_joker'] = true
 		G.GAME.banned_keys['j_SEMBY_tool_pickaxe'] = true
 		G.GAME.banned_keys['tag_SEMBY_edt_shiny'] = true
-		G.GAME.banned_keys['tag_SEMBY_bnt_vouch_down'] = true
 		-- Other Shop Modifier:
-		--G.GAME.banned_keys['j_SEMBY_coupon'] = true
+		G.GAME.banned_keys['j_SEMBY_coupon'] = true
 		G.GAME.banned_keys['j_SEMBY_coupon_booklet'] = true
+		G.GAME.banned_keys['tag_SEMBY_bnt_reroll'] = true
+		G.GAME.banned_keys['tag_SEMBY_bnt_vouch_down'] = true
 		return
 	end
 end

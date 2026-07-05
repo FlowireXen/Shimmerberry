@@ -29,7 +29,12 @@ SMODS.Joker {
 		SMODS.change_discard_limit(card.ability.extra.discard_limit)
     end,
     calculate = function(self, card, context)
-        if context.discard then
+        if context.discard and not (
+			context.other_card.SEMBY_removed or
+			context.other_card.getting_sliced or
+			context.other_card.shattered or
+			context.other_card.destroyed
+		) then
 			local juice_card = (context.blueprint_card or card)
 			-- Initial Visuals
 			G.E_MANAGER:add_event(Event({
