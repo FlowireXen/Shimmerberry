@@ -10,35 +10,33 @@ SMODS.Joker {
     end,
     eternal_compat = true,
     perishable_compat = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
 	rarity = 1,
 	cost = 4,
 	config = {
 		extra = {
-			numerator = 1,
-			denominator = 2
+			buff = 2
 		}
 	},
     attributes = {
-		'chance', 'generation', 'enhancements'
+		'chance', 'modify_card', 'enhancements'
 	},
 	enhancement_gate = 'm_glass',
 	loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_glass
-		local numerator, denominator = SMODS.get_probability_vars(card,
-			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_tempered_glass', nil, true)
-		local percentage = math.floor((numerator / denominator) * 100 + 0.5)
-		return { vars = { math.min(100, percentage) } }
+		local glass = G.P_CENTERS.m_glass.config.extra or 4
+		return { vars = {
+			card.ability.extra.buff,
+			glass, glass + card.ability.extra.buff
+		} }
 	end,
     calculate = function(self, card, context)
-        if context.remove_playing_cards and not context.blueprint then
-	    	G.E_MANAGER:add_event(Event({
-	    		func = function()
-			        SEMBY_revive_list(context.removed, card, "tempered_glass")
-	    			return true
-	    		end
-	    	}))
-			return nil, true
+        if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, 'm_glass') then
+			context.other_card.ability.extra = (context.other_card.ability.extra or 4) + card.ability.extra.buff
+            return {
+                message = localize('k_upgrade_ex'),
+                colour = G.C.GREEN
+            }
         end
     end
 }

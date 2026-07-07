@@ -1069,13 +1069,13 @@ return {
 			j_SEMBY_scaffolding = {
 				name = "Scaffolding",
 				text = {
-					"{V:1}#3#{} Hand size",
+					"{V:1}#1#{C:inactive}/#2#{} Hand size",
 					"{s:0.2} {}",
-					"When {C:attention}Blind{} is selected",
-					"{C:green}gain {C:attention}#1#{} Hand size for",
-					"every other {C:attention}Joker",
+					"When a {C:attention}Joker{} is {C:attention}sold{},",
+					"gain {C:attention}+#3#{} Hand size for",
+					"each {C:money}$#4#{} of sell value",
 					"{s:0.2} {}",
-					"{C:red}Lose {C:attention}#2#{} Hand size",
+					"{C:red}Lose {C:attention}#5#{} Hand size",
 					"each {C:blue}Hand{} played",
 				}
 			},
@@ -1197,10 +1197,11 @@ return {
 			j_SEMBY_tempered_glass = {
 				name = "Tempered Glass",
                 text = {
-					"{C:green}#1#%{} chance to",
-					"{C:legendary,E:1}Revive{} destroyed",
-					"{C:enhanced}Glass Cards{}",
-					"{C:inactive,s:0.9}(Fixed probability)",
+					"Every played {C:enhanced}Glass Card{}",
+					"permanently decreases",
+					"the chance of breaking",
+					"by {C:attention}#1#{} when scored",
+					"{C:inactive,s:0.9}(ex: {C:green,s:0.9}1 in #2#{C:inactive,s:0.9} -> {C:green,s:0.9}1 in #3#{C:inactive,s:0.9}){}",
 				}
 			},
 			j_SEMBY_the_dwarf = {

@@ -1508,11 +1508,15 @@ jd_def['j_SEMBY_risky_joker'] = {
 }
 jd_def['j_SEMBY_scaffolding'] = {
     reminder_text = {
-        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "size" }, { text = ")" },
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "size" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "hand_max" },
+        { text = ")" },
     },
     calc_function = function(card)
-        local csize = card.ability.extra.current
-        card.joker_display_values.size = (csize >= 0 and '+' or '')..csize
+        local csize = card.ability.extra.hand_size
+        card.joker_display_values.size = (csize > 0 and '+' or '')..csize
         card.joker_display_values.colour = csize > 0 and G.C.GREEN or csize == 0 and G.C.IMPORTANT or G.C.RED
     end,
     style_function = function(card, text, reminder_text, extra)
@@ -1739,14 +1743,7 @@ jd_def['j_SEMBY_tempered_glass'] = {
     reminder_text = {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "localized_text" }, { text = ")" }
     },
-    extra = { {
-        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "odds" }, { text = ")" },
-    } },
-    extra_config = { colour = G.C.GREEN, scale = 0.3 },
     calc_function = function(card)
-		local numerator, denominator = SMODS.get_probability_vars(card,
-			card.ability.extra.numerator, card.ability.extra.denominator, 'JokerDisplay', nil, true)
-        card.joker_display_values.odds = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
         card.joker_display_values.localized_text = localize{ type = 'name_text', set = 'Enhanced', key = 'm_glass' }
     end
 }

@@ -62,10 +62,6 @@ Wiki Inspo: https://balatromods.miraheze.org/wiki/Phanta
 
 Currently: Give all Jokers (& others) Pronouns
 
-Rework:
-Scaffolding : "0/10 (+0), 8/10 (+8), 422/10 (+10), -2/10 (-2), -13/10 (-10)", "Joker Sold, +1 Handsize for each $1 of sell value", "Hand Played, -2 Handsize"
-Tempered Glass : Every played Glass Card permanently decreases the chance of breaking by 2 when scored (eg. 1 in 4 -> 1 in 6)  (Test if this gets saved!)
-
 Artists: Add "Guest Links" section
 -> Add "guest_link" code!
 

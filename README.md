@@ -133,7 +133,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Replicator  | Destroys the next 20<br>played cards to Duplicate<br>the rightmost Joker<br>self destructs<br>(Currently 0/20) | $6 | Rare | -- |
 | Ripped Joker | +200 Chips if played<br>hand contains<br>3 or fewer cards | $5 | Common | -- |
 | Risky Joker | Scoring cards take<br>6 Chips and 2 Mult<br>and increase the<br>Blind Payout by $1<br>(Next payout +$0) | $6 | Common | -- |
-| Scaffolding | +0 Hand size<br>When Blind is selected<br>gain 1 Hand size for<br>every other Joker<br>Lose 3 Hand size<br>each Hand played | $5 | Uncommon | -- |
+| Scaffolding | 0/5 Hand size<br>When a Joker is sold,<br>gain +1 Hand size for<br>each $1 of sell value<br>Lose 2 Hand size<br>each Hand played | $5 | Uncommon | -- |
 | Scav. Prototype | When Blind is selected,<br>destroy adjacent Jokers<br>1 in 4 chance to gain<br>a Duplitage for each<br>destroyed Joker | $5 | Uncommon | Animal |
 | 7 Wonders | When Blind is selected<br>reduce the Blind Size<br>by 2% for each 7 in<br>your full deck<br>(Currently 0%/50%) | $7 | Uncommon | -- |
 | Shimmerberry | Each scored<br>[King] or [Queen]<br>reduces Blind<br>Size by 5%<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $6 | Rare | Berry, Food |
@@ -147,7 +147,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Strawberry | Each scored<br>[King] or [Queen]<br>gives +8 Mult<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $5 | Uncommon | Berry, Food |
 | Stylish Joker | Earn $1 for every<br>Consumable you keep<br>at the end of round<br>+2 consumable slots<br>and -1 hand size | $5 | Uncommon | -- |
 | Sword Swallower | X1 Mult for each<br>Common Joker<br>(Currently X1 Mult) | $8 | Rare | -- |
-| Tempered Glass | 50% chance to<br>Revive destroyed<br>Glass Cards<br>(Fixed probability) | $4 | Common | -- |
+| Tempered Glass | Every played Glass Card<br>permanently decreases<br>the chance of breaking<br>by 2 when scored<br>(ex: 1 in 4 -> 1 in 6) | $4 | Common | -- |
 | The Dwarf | When Blind is selected,<br>set hand size to 5 and<br>add the difference<br>to the Discards | $6 | Uncommon | Animal |
 | The Giant | When Blind is selected,<br>lose all discards and<br>gain as much hand size | $6 | Uncommon | Animal |
 | TMTRAINER | Randomizes most<br>Numbers on newly<br>obtained Jokers<br>Range: -15%-255%<br>+1 Joker slot | $9 | Rare | -- |

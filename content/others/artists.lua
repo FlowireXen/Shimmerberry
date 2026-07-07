@@ -65,6 +65,17 @@ G.SEMBY.Artist = {
 		},
 		guest = true
 	},
+	just_smolchild = {
+		name = "Gappie",
+		colour = HEX('FFE82E'),
+		links = {
+			guest_page = {
+				name = "Twitter/X",
+				link = "https://x.com/just_smol_child",
+			},
+		},
+		guest = true
+	},
 }
 -- Artists (Colours):
 G.ARGS.LOC_COLOURS.SEMBY_flowire = G.SEMBY.Artist.flowire.colour
