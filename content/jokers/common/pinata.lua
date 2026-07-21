@@ -84,7 +84,7 @@ SMODS.Joker {
 				end
 			end
 			if context.after and card.ability.extra.breaks then
-        		G.GAME.SEMBY_pinata_hits = (G.GAME.SEMBY_pinata_hits or 0) + 1
+        		G.GAME.SEMBY_used_pinata = (G.GAME.SEMBY_used_pinata or 0) + 1
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()
@@ -97,6 +97,6 @@ SMODS.Joker {
 		end
 	end,
 	in_pool = function(self, args)
-		return ((G.GAME.SEMBY_pinata_hits or 0) < 5)
+		return not G.GAME.SEMBY_used_pinata
 	end
 }

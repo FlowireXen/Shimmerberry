@@ -1,8 +1,8 @@
 SMODS.Joker {
 	key = "doomsday_device",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
-	pos = { x = 7, y = 8 },
+	pos = { x = 5, y = 8 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,

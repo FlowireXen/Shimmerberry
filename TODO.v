@@ -17,6 +17,7 @@
 
 > Next TODO's:
 - Upload to: https://thunderstore.io/c/balatro
+- Shimmerberry Lite :: Only the Challenges (and needed Patches), Any Jokers will be reproduced in the Challenge Code - If the Challenge is interesting, Shimmerberry Lite -> SEMBL
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -79,6 +80,17 @@ Add sound sources to origin
 Add Texture files to origin
 ( Generally Update Origin )
 
+Rework Countdown Challenge again?; Patch the thing that Resets hands and discards... Easy :>
+Otherwise; Make sure Burglar works ;3 
+
+Add Delayed Gratification to the Banned Jokers for Countdown
+
+Black hole.. Remove the Sticker on destroy
+
+Add "Eden"-Sticker, reduces money of Item to 0
+
+Butterfly; Inverse Logic (Gain is slow, loss is fast)
+
 
 
 > Next Update [Sketch]:
@@ -128,3 +140,23 @@ Effect:  "Doesn't take up Space, Destroyed at the End of Shop"
 "Simon Says" -> Selects (4) Cards in a Order,
 You have to repeat showed order
 Speeds up, also requests unselecting in a different order, increases cards selected & de-selected, mixes operations etc.
+
+Challenge: "Binary Soul"
+Selling Joker to the Left; Invert All Bits
+Selling Joker to Right: Shift all bits to the Left, Overflow gets destroyed, Push 0 into queue
+Win by fulfilling a random Sequence 0000 0000
+Instead; Show a Number and a Target Number (0-255)
+Also has a random starting number
+Math to make sure the numbers are apart and not easy to get
+
+Doomed Voucher; First Level just adds Doom, second Level gives +1 Hand Size for every 50% Doom
+
+Every Consumable can be flipped once, revealing a random planet card
+
+Skip Tag: "New Discovery"
+Generates a random Planet Card at the start of the Blind (3 rounds left)
+(Secret extension; Last turn always pulls a modded planet?)
+
+Idea, Joker: Scale - "X2 Mult" when having the same amount of Jokers on both sides
+
+Phanta Compat.: Chloroform; Next 2 Shop Jokers are free and Sleepy

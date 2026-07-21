@@ -1,6 +1,6 @@
 local textures = {
-	base = { x = 8, y = 4 },
-	corrupt = { x = 9, y = 4 }
+	base = { x = 8, y = 3 },
+	corrupt = { x = 9, y = 3 }
 }
 SMODS.Joker {
 	key = "DATAMINER",

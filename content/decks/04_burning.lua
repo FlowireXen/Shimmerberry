@@ -52,6 +52,7 @@ if Shimmerberry.compat.sleeves then CardSleeves.Sleeve {
 			end
 			if context.discard and context.other_card.SEMBY_removed
 			and context.other_card.SEMBY_removed == 'Burned' then
+				context.other_card.SEMBY_removed = nil
 				SEMBY_Announce(context.other_card or G.deck)
 				return { remove = true }
 			end

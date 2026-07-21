@@ -1,8 +1,8 @@
 SMODS.Joker {
 	key = "replicator",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
-	pos = { x = 4, y = 8 },
+	pos = { x = 3, y = 8 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = false,
@@ -10,7 +10,7 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			max_amount = 20,
+			max_amount = 10,
 			amount = 0
 		}
 	},
@@ -55,6 +55,7 @@ SMODS.Joker {
 			end
 			-- Copy
 			if context.after and card.ability.extra.amount >= card.ability.extra.max_amount then
+        		G.GAME.SEMBY_used_replicator = (G.GAME.SEMBY_used_replicator or 0) + 1
 				-- Create & Add Copy
                 local replicated_joker = copy_card(G.jokers.cards[#G.jokers.cards])
                 replicated_joker:add_to_deck()
@@ -77,5 +78,8 @@ SMODS.Joker {
                 return { message = localize('k_duplicated_ex') }
 			end
 		end
+	end,
+	in_pool = function(self, args)
+		return not G.GAME.SEMBY_used_replicator
 	end
 }

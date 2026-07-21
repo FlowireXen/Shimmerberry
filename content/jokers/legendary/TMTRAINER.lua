@@ -1,6 +1,6 @@
 local textures = {
-	base = { x = 8, y = 3 },
-	corrupt = { x = 9, y = 3 }
+	base = { x = 8, y = 2 },
+	corrupt = { x = 9, y = 2 }
 }
 SMODS.Joker {
 	key = "TMTRAINER",

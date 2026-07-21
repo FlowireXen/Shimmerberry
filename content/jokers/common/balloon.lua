@@ -1,8 +1,8 @@
 SMODS.Joker {
 	key = "balloon",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
-	pos = { x = 6, y = 8 },
+	pos = { x = 4, y = 8 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,

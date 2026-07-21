@@ -1,9 +1,9 @@
 SMODS.Joker {
 	key = "t3mprr",
 	SEMBY_art = "flowire",
-	atlas = "SEMBY_jokers_2",
-	pos = { x = 8, y = 0 },
-	soul_pos = { x = 9, y = 0 },
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 6, y = 8 },
+	soul_pos = { x = 6, y = 9 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,

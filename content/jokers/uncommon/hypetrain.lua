@@ -1,6 +1,6 @@
 local textures = {
-	wait = { x = 0, y = 4 },
-	hype = { x = 1, y = 4 }
+	wait = { x = 8, y = 0 },
+	hype = { x = 9, y = 0 }
 }
 SMODS.Joker {
 	key = "hypetrain",

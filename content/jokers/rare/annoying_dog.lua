@@ -1,6 +1,5 @@
-local OFFSET, AMOUNT = 3, 4
 local function get_texture()
-	return { x = math.random(1, AMOUNT) + OFFSET, y = 4 }
+	return { x = math.random(0, 3), y = 4 }
 end
 SMODS.Joker {
 	key = "annoying_dog",

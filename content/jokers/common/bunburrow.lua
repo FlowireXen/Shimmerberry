@@ -1,8 +1,8 @@
 SMODS.Joker {
 	key = "bunburrow", -- Reference: Paquerette Down the Bunburrows
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
-	pos = { x = 8, y = 8 },
+	pos = { x = 9, y = 7 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,

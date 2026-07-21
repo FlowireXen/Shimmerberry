@@ -571,6 +571,7 @@ return {
 -- ##TODO## REMOVE : "{{captimg||Target Plush|imgsize=142px}}" -> Target Plush is out of Date, remove/rename Page
 
 -- ##TODO## : __TYPE__ --> https://balatromods.miraheze.org/wiki/Compendium/Joker_types
+-- Add {{jtype|???}} to Jokers that have certain spawn conditions or unique spawn blocks (pinata)
 
 -- ##TODO## DEFINE : Define in Header of Table that everything needs to be centered
 
@@ -598,7 +599,7 @@ return {
 | Add the next {{ct|attention|1 to 5}}<br>playing cards from<br>Deck to scoring hand
 | $7
 | {{rarity|rare}}
-| {{jtype|__TYPE__}} --> P!
+| {{jtype|P!}}
 | '''unkokat'''
 
 |-
@@ -670,7 +671,7 @@ return {
 | {{ct|xmult|X2}} Mult<br>{{ct|red|Self destructs}}<br>when highlighting<br>{{ct|attention|4 or more}} cards
 | $4
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|Xm}}
 | '''unkokat'''
 
 |-
@@ -678,7 +679,7 @@ return {
 | {{ct|mult|+12}} Mult if poker<br>hand contains<br>{{ct|attention|3}} different suits
 | $5
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|+m}}
 | '''unkokat'''
 
 |-
@@ -702,7 +703,7 @@ return {
 | {{ct|attention|3}} additional<br>{{ct|attention|Booster Packs}}<br>in each {{ct|money|Shop}}<br>{{ct|green|3}}{{ct|inactive|/3}} uses left
 | $5
 | {{rarity|common}}
-| {{jtype|#!}}<br>{{jtype|__TYPE__}}
+| {{jtype|#!}}
 | '''Flowire'''
 
 |-
@@ -710,7 +711,7 @@ return {
 | When obtaining or<br>destroying this card,<br>apply {{ct|perishable|Bound}} to<br>{{ct|attention|3}} random Jokers
 | $6
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|[!]}}
 | '''Flowire'''
 
 |-
@@ -734,7 +735,7 @@ return {
 | Bunburrow<br>Gain {{ct|money|$12}} every<br>{{ct|attention|4}} {{ct|green|Rerolls}}<br>{{ct|inactive|(4 remaining)}}
 | $4
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|+$}}
 | '''unkokat'''
 
 |-
@@ -750,7 +751,7 @@ return {
 | Retrigger scoring cards<br>for {{ct|attention|each}} scoring suit
 | $8
 | {{rarity|rare}}
-| {{jtype|__TYPE__}}
+| {{jtype|...}}
 | '''unkokat'''
 
 |-
@@ -758,7 +759,7 @@ return {
 | When a Card is {{ct|attention|sold}}, gain<br>{{ct|darkpurple|+3%}} Blind Size, {{ct|xmult|X0.02}} Mult<br>or {{ct|xchips|X0.02}} Chips for each<br>{{ct|money|$1}} of sell value<br>When {{ct|attention|Blind}} is selected<br>{{ct|red|increase}} Blind Size by {{ct|darkpurple|0%}}<br>{{ct|xchips|X1}} Chips, {{ct|xmult|X1}} Mult
 | $8
 | {{rarity|rare}}
-| {{jtype|__TYPE__}} --> "XB"
+| {{jtype|XB}}<br>{{jtype|Xc}}<br>{{jtype|Xm}}
 | '''unkokat'''
 
 |-
@@ -766,7 +767,7 @@ return {
 | {{ct|legendary|Revive}} shattered<br>{{ct|attention|playing cards}}<br>{{ct|attention|Shatter}} all<br>scoring cards<br>each hand
 | $7
 | {{rarity|rare}}
-| {{jtype|!!}}<br>{{jtype|[+]}}<br>{{jtype|[X]}}
+| {{jtype|[+]}}<br>{{jtype|[X]}}
 | '''Flowire'''
 
 |-
@@ -790,7 +791,7 @@ return {
 | At the end of the {{ct|attention|Shop}}<br>convert the {{ct|attention|Joker}} to the {{ct|attention|left}}<br>into the {{ct|attention|Joker}} to the {{ct|attention|right}}<br>{{ct|inactive|(Destroyed/Maintained after use)}}
 | $12
 | {{rarity|rare}}
-| {{jtype|[!]}}<br>({{jtype|[+]}} {{jtype|[X]}})
+| {{jtype|!!}}
 | '''unkokat'''
 
 |-
@@ -814,7 +815,7 @@ return {
 | {{ct|mult|+8}} Mult if poker<br>hand contains<br>{{ct|attention|2}} different suits
 | $5
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|+m}}
 | '''unkokat'''
 
 |-
@@ -822,7 +823,7 @@ return {
 | {{ct|codegreen|Changes}} most<br>{{ct|enhanced|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>by {{ct|red|X0.5}} or {{ct|green|X2}}
 | $7
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|[!]}}
 | '''unkokat'''
 
 |-
@@ -830,7 +831,7 @@ return {
 | When Blind is selected,<br>take {{ct|money|$1}} of {{ct|attention|sell value}}<br>from every {{ct|attention|Joker}} and<br>{{ct|attention|Consumable}} card<br>Create a {{ct|attention|Memory}} card<br>for every {{ct|money|$3}} taken<br>{{ct|inactive|({{ct|money|$3}} remaining)}}
 | $6
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|~$}}<br>{{jtype|[+]}}
 | '''unkokat'''
 
 |-
@@ -838,7 +839,7 @@ return {
 | {{ct|attention|Double}} the stored<br>{{ct|chips|Memory Value}} every {{ct|attention|20}}<br>scoring {{ct|enhanced|Memory Cards}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/20)}}
 | $6
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|[!]}}
 | '''unkokat'''
 
 |-
@@ -854,7 +855,7 @@ return {
 | {{ct|xmultchips|X1.5}} Chips or Mult,<br>favours the small<br>Grants a<br>{{ct|xmultchips|Brighter Future}}<br>when {{ct|attention|Boss Blind}}<br>is defeated
 | $4
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}<br>{{jtype|__TYPE__}}
+| {{jtype|Xc}}<br>{{jtype|Xm}}
 | '''lanedarushpy'''
 
 |-
@@ -886,7 +887,7 @@ return {
 | Reduce Shop prices<br>by {{ct|money|1%}} every played<br>and {{ct|attention|unscored}} card,<br>resets when {{ct|attention|Boss}}<br>{{ct|attention|Blind}} is selected<br>{{ct|inactive|(Currently {{ct|money|0%}}/50%)}}
 | $6
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|~$}}<br>{{jtype|???}}
 | '''unkokat'''
 
 |-
@@ -910,7 +911,7 @@ return {
 | Shop Jokers have<br>a {{ct|green|1 in 13}} chance to<br>become {{ct|darkedition|Negative}} and<br>a {{ct|green|2 in 13}} chance to<br>become {{ct|burgundy|Possessive}}<br><small>{{ct|inactive|(Fixed probabilities)}}</small>
 | $7
 | {{rarity|rare}}
-| {{jtype|__TYPE__}}
+| {{jtype|[!]}}
 | '''GhostSalt'''
 
 |-
@@ -982,7 +983,7 @@ return {
 | Converts unused<br>{{ct|blue|Hands}} into {{ct|green|Points}}<br>at end of round<br>When playing your<br>{{ct|attention|final hand}}, convert<br>{{ct|attention|1}} {{ct|green|Point}} into {{ct|attention|1}} {{ct|blue|Hand}}<br>Stored: {{ct|attention|0}} {{ct|green|Points}}<br>{{ct|inactive|(Next point: 0%)}}
 | $8
 | {{rarity|rare}}
-| {{jtype|__TYPE__}}
+| {{jtype|#!}}
 | '''unkokat'''
 
 |-
@@ -998,7 +999,7 @@ return {
 | {{ct|enhanced|Vintage Cards}} have a<br>{{ct|green|1 in 8}} chance to upgrade<br>the played poker hand
 | $5
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|!!}}
 | '''unkokat'''
 
 |-
@@ -1022,7 +1023,7 @@ return {
 | Regain lost {{ct|money|Money}}<br>at start of {{ct|attention|shop}}<br>{{ct|inactive|(Currently {{ct|money|$0}})}}<br>Each {{ct|money|$1}} regained<br>{{ct|red|increases}} the next<br>{{ct|attention|Blind Size}} by {{ct|darkpurple|5%}}<br>{{ct|inactive|(Currently {{ct|darkpurple|+0%}})}}
 | $0
 | {{rarity|rare}}
-| {{jtype|__TYPE__}} --> XB
+| {{jtype|+$}}<br>({{jtype|XB}})
 | '''unkokat'''
 
 |-
@@ -1062,7 +1063,7 @@ return {
 | {{ct|xmult|X0.5}} Mult<br>{{ct|xchips|X4.0}} Chips for {{ct|attention|first}}<br>{{ct|attention|hand}} of round
 | $5
 | {{rarity|common}}
-| {{jtype|Xc}}<br>{{jtype|Xm}}<br>{{jtype|XX}}
+| {{jtype|Xc}}<br>{{jtype|Xm}}
 | '''Flowire'''
 
 |-
@@ -1070,7 +1071,7 @@ return {
 | When {{ct|attention|Blind}} is selected,<br>gain {{ct|blue|+2}} Hands and<br>{{ct|red|+2}} Discards<br>{{ct|red|Increase}} shop<br>prices by {{ct|money|100%}}
 | $9
 | {{rarity|uncommon}}
-| {{jtype|#!}}<br>{{jtype|~$}}<br>{{jtype|XX}}
+| {{jtype|#!}}<br>{{jtype|~$}}
 | '''unkokat'''
 
 |-
@@ -1086,7 +1087,7 @@ return {
 | When beating Ante {{ct|attention|1+}}<br>Loop back to Ante {{ct|attention|1}}<br>Every Loop {{ct|red|increases}}<br>all {{ct|attention|Blind Sizes}} by {{ct|darkpurple|50%}}<br>{{ct|inactive|(Currently {{ct|darkpurple|+0%}})}}<br>Every Loop {{ct|green|increases}}<br>{{ct|attention|Boss}} payouts by {{ct|money|$3}}<br>{{ct|inactive|(Currently {{ct|money|$0}})}}
 | $20
 | {{rarity|legendary}}
-| {{jtype|__TYPE__}} --> O!
+| {{jtype|O!}}<br>{{jtype|+$}}
 | '''Flowire'''
 
 |-
@@ -1102,7 +1103,7 @@ return {
 | Sell this card to<br>{{ct|attention|replace}} a random<br>card in the Shop<br>with this {{ct|attention|Joker}}<br>{{ct|green|1 in 256}} chance<br>to transform into<br>a {{ct|legendary|Legendary}} Joker<br>when {{ct|attention|Bought}}
 | $10
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|[!]}}<br>{{jtype|[+]}}
 | '''unkokat'''
 
 |-
@@ -1118,12 +1119,12 @@ return {
 | {{ct|xchips|X2}} Chips every<br>{{ct|attention|5}} scoring cards<br>{{ct|inactive|(Currently {{ct|attention|0}}/5)}}
 | $5
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|Xc}}
 | '''unkokat'''
 
 |-
 | {{captimg||P2W|imgsize=142px}}
-| Spend {{ct|money|$2}} to<br>gain {{ct|mult|+30}} Mult
+| Spend {{ct|money|$2}} to<br>gain {{ct|mult|+30}} Mult<br>each Hand
 | $4
 | {{rarity|common}}
 | {{jtype|+m}}<br>{{jtype|~$}}
@@ -1134,7 +1135,7 @@ return {
 | {{ct|chips|+100}} Chips if poker<br>hand contains<br>{{ct|attention|3}} different suits
 | $5
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|+c}}
 | '''unkokat'''
 
 |-
@@ -1171,10 +1172,10 @@ return {
 
 |-
 | {{captimg||Piñata|imgsize=142px}} {{ct|grey|Quick Brown Fox}}
-| {{ct|green|1 in 5}} chance to<br>break open {{ct|attention|each}}<br>{{ct|attention|hand}} played<br>Gain {{ct|attention|+1}} and fill<br>all {{ct|attention|Consumable}}<br>slots when Joker<br>gets destroyed
+| {{ct|green|1 in 5}} chance to<br>break open {{ct|attention|each}}<br>{{ct|attention|hand}} played<br>Gain {{ct|attention|+1}} permanent<br>{{ct|attention|Consumable}} slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed
 | $6
 | {{rarity|common}}
-| {{jtype|#!}}<br>{{jtype|[+]}}
+| {{jtype|#!}}<br>{{jtype|[+]}}<br>{{jtype|???}}
 | '''unkokat'''
 
 |-
@@ -1182,7 +1183,7 @@ return {
 | {{ct|attention|Destroy}} this card and<br>create {{ct|attention|2}} {{ct|spectral|Spectral}} cards<br>when {{ct|attention|Boss Blind}} is defeated<br>{{ct|inactive|(Must have room)}}
 | $6
 | {{rarity|uncommon}}
-| {{jtype|[+]}}<br>{{jtype|[X]}}
+| {{jtype|[+]}}
 | '''unkokat'''
 
 |-
@@ -1203,10 +1204,10 @@ return {
 
 |-
 | {{captimg||Pygmymall|imgsize=142px}}
-| {{ct|attention|+2}} card slots<br>available in shop<br>every {{ct|attention|3}} shops<br>{{ct|inactive|In 3 shops", -- "Next Shop", "This Shop!}}
+| {{ct|attention|+2}} card slots<br>available in shop<br>every {{ct|attention|3}} shops<br>{{ct|inactive|In 3 shops}}
 | $6
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|#!}}
 | '''unkokat'''
 
 |-
@@ -1227,15 +1228,15 @@ return {
 
 |-
 | {{captimg||Replicator|imgsize=142px}}
-| {{ct|attention|Destroys}} the next {{ct|attention|20}}<br>played cards to {{ct|attention|Duplicate}}<br>the rightmost Joker<br>{{ct|red|self destructs}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/20)}}
+| {{ct|attention|Destroys}} the next {{ct|attention|10}}<br>played cards to {{ct|attention|Duplicate}}<br>the rightmost Joker<br>{{ct|red|self destructs}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/20)}}
 | $6
 | {{rarity|rare}}
-| {{jtype|__TYPE__}}
+| {{jtype|[X]}}<br>{{jtype|[+]}}<br>{{jtype|???}}
 | '''unkokat'''
 
 |-
 | {{captimg||Ripped Joker|imgsize=142px}}
-| {{ct|chips|+200}} Chips if played<br>hand contains<br>{{ct|attention|3}} or fewer cards
+| {{ct|chips|+100}} Chips if played<br>hand contains<br>{{ct|attention|3}} or fewer cards
 | $5
 | {{rarity|common}}
 | {{jtype|+c}}
@@ -1254,7 +1255,7 @@ return {
 | {{ct|inactive|{{ct|attention|0}}/5}} Hand size<br>When a {{ct|attention|Joker}} is {{ct|attention|sold}},<br>gain {{ct|attention|+1}} Hand size for<br>each {{ct|money|$1}} of sell value<br>{{ct|red|Lose}} {{ct|attention|2}} Hand size<br>each {{ct|blue|Hand}} played
 | $5
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|#!}}
 | '''unkokat'''
 
 |-
@@ -1262,7 +1263,7 @@ return {
 | When {{ct|attention|Blind}} is selected,<br>destroy {{ct|attention|adjacent}} Jokers<br>{{ct|green|1 in 4}} chance to gain<br>a {{ct|attention|Duplitage}} for each<br>destroyed Joker
 | $5
 | {{rarity|uncommon}}
-| {{jtype|__TYPE__}}
+| {{jtype|[X]}}<br>{{jtype|!!}}
 | '''unkokat'''
 
 |-
@@ -1294,12 +1295,12 @@ return {
 | {{ct|chips|+50}} Chips if poker<br>hand contains<br>{{ct|attention|2}} different suits
 | $5
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|+c}}
 | '''unkokat'''
 
 |-
 | {{captimg||Silver Mask|imgsize=142px}}
-| Earn {{ct|money|$20}} at the<br>end of the round<br>Earn {{ct|money|$2}} {{ct|attention|less}} for<br>each Hand size
+| Earn {{ct|money|$2}} each {{ct|attention|missing}}<br>Hand size below {{ct|attention|10}} at<br>the end of the round<br>{{ct|inactive|(Currently {{ct|money|+$20}})}}
 | $6
 | {{rarity|common}}
 | {{jtype|+$}}
@@ -1342,7 +1343,7 @@ return {
 | {{ct|attention|Restocks}} bought<br>Booster Packs, Cards<br>and Vouchers in {{ct|money|Shop}}<br>{{ct|green|8}}{{ct|inactive|/8}} uses left
 | $4
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|[+]}}
 | '''unkokat'''
 
 |-
@@ -1390,7 +1391,7 @@ return {
 | {{ct|codegreen|Randomizes}} most<br>{{ct|enhanced|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>Range: {{ct|red|-15%}}-{{ct|green|255%}}<br>{{ct|attention|+1}} Joker slot
 | $9
 | {{rarity|rare}}
-| {{jtype|[!]}}<br>{{jtype|#!}}
+| {{jtype|[!]}}<br>{{jtype|#!}}<br>{{jtype|???}}
 | '''Flowire'''
 
 |-
@@ -1422,7 +1423,7 @@ return {
 | Quadruples all {{ct|attention|listed}}<br><big>{{ct|green|probabilities}}</big><br>{{ct|inactive|(ex: {{ct|green|1 in 3 -> 4 in 3}})}}
 | $6
 | {{rarity|rare}}
-| {{jtype|__TYPE__}}
+| {{jtype|%!}}
 | '''unkokat'''
 
 |-
@@ -1438,7 +1439,7 @@ return {
 | {{ct|enhanced|Bonus Cards}} always<br>shuffle to the top<br>of the {{ct|attention|Deck}}
 | $5
 | {{rarity|common}}
-| {{jtype|__TYPE__}}
+| {{jtype|!!}}
 | '''unkokat'''
 
 |-
@@ -1451,10 +1452,10 @@ return {
 
 |-
 | {{captimg||Watching Forest|imgsize=142px}}
-| Sort the Deck<br>{{ct|attention|lowest to highest}}<br>after drawing the<br>first hand each round<br>Change sort order<br>every {{ct|attention|3}} hands played<br>{{ct|inactive|2 remaining", -- "Active!}}
+| Sort the Deck<br>{{ct|attention|lowest to highest}}<br>after drawing the<br>first hand each round<br>Change sort order<br>every {{ct|attention|3}} hands played<br>{{ct|inactive|2 remaining}}
 | $6
 | {{rarity|rare}}
-| {{jtype|!!}}<br>{{jtype|__TYPE__}}
+| {{jtype|!!}}
 | '''unkokat'''
 
 |}

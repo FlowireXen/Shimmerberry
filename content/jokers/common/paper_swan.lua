@@ -1,8 +1,8 @@
 SMODS.Joker {
 	key = "paper_swan",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
-	pos = { x = 3, y = 8 },
+	pos = { x = 2, y = 8 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,

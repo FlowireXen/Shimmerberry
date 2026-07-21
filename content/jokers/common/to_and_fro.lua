@@ -1,6 +1,6 @@
 local textures = {
-	base = { x = 2, y = 4 },
-	switch = { x = 3, y = 4 }
+	base = { x = 8, y = 1 },
+	switch = { x = 9, y = 1 }
 }
 SMODS.Joker {
 	key = "to_and_fro",

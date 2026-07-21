@@ -120,18 +120,18 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | P.E.T. | This Joker gains<br>+2 Mult for every card<br>discarded this round<br>(Currently +0 Mult) | $5 | Common | -- |
 | Pickaxe | Each [Suit] card<br>held in hand has<br>a 40% chance<br>to give $2<br>Suit changes<br>every round<br>200/200 uses left | $5 | Common | Durability |
 | Piggy Bank | When Blind is selected<br>or skipped, spend $2 to<br>add $1 of sell value<br>Starts with $2<br>extra sell value<br>X0.2 Mult for every<br>$4 of sell value<br>(Currently X1 Mult) | $5 | Common | Animal |
-| Piñata | 1 in 5 chance to<br>break open each<br>hand played<br>Gain +1 and fill<br>all Consumable<br>slots when Joker<br>gets destroyed | $6 | Common | Animal, Food |
+| Piñata | 1 in 5 chance to<br>break open each<br>hand played<br>Gain +1 permanent<br>Consumable slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed | $6 | Common | Animal, Food |
 | Plastic Key | Destroy this card and<br>create 2 Spectral cards<br>when Boss Blind is defeated<br>(Must have room) | $6 | Uncommon | -- |
 | Pocket Dimension | Cards in your<br>Consumable area<br>give X1.5 Mult<br>+3 Consumable slots | $8 | Rare | Magic, Space |
 | Potted Flower | X4 Chips if poker<br>hand contains<br>4 different suits | $6 | Uncommon | Nature |
-| P2W | Spend $2 to<br>gain +30 Mult | $4 | Common | -- |
+| P2W | Spend $2 to<br>gain +30 Mult<br>each Hand | $4 | Common | -- |
 | PUSH UR T3MPRR | BLIND SELECTED,<br>CLOCK IT UP 200%<br>CARD PLAYED,<br>PUSH IT DOWN 6% | $5 | Uncommon | Animal, Music |
 | Pygmymall | +2 card slots<br>available in shop<br>every 3 shops<br>In 3 shops | $6 | Uncommon | -- |
 | Quest? | Start a Quest!<br>Complete it to<br>Win the Game and<br>obtain a random<br>Legendary Joker | $7 | Uncommon | Multistage* |
 | Red Lion | X2.5 Mult<br>Loses X0.1 Mult<br>for each Enhanced<br>card in your deck | $6 | Uncommon | -- |
 | Red Mask | This Joker gains +10 Chips<br>when adding or removing<br>a playing card<br>(Currently +0 Chips) | $6 | Uncommon | -- |
 | Replicator  | Destroys the next 20<br>played cards to Duplicate<br>the rightmost Joker<br>self destructs<br>(Currently 0/20) | $6 | Rare | -- |
-| Ripped Joker | +200 Chips if played<br>hand contains<br>3 or fewer cards | $5 | Common | -- |
+| Ripped Joker | +100 Chips if played<br>hand contains<br>3 or fewer cards | $5 | Common | -- |
 | Risky Joker | Scoring cards take<br>6 Chips and 2 Mult<br>and increase the<br>Blind Payout by $1<br>(Next payout +$0) | $6 | Common | -- |
 | Scaffolding | 0/5 Hand size<br>When a Joker is sold,<br>gain +1 Hand size for<br>each $1 of sell value<br>Lose 2 Hand size<br>each Hand played | $5 | Uncommon | -- |
 | Scav. Prototype | When Blind is selected,<br>destroy adjacent Jokers<br>1 in 4 chance to gain<br>a Duplitage for each<br>destroyed Joker | $5 | Uncommon | Animal |
@@ -140,7 +140,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Shooting Star | When Boss Blind is<br>defeated, upgrade<br>every Poker Hand<br>by 1 level(s)<br>(Probability affected) | $7 | Uncommon | Space |
 | Shovel | Each [Suit] card<br>held in hand<br>gives X1.2 Mult<br>Suit changes<br>every round<br>200/200 uses left | $6 | Common | Durability |
 | Shrewd Joker | +50 Chips if poker<br>hand contains<br>2 different suits | $5 | Common | -- |
-| Silver Mask | Earn $20 at the<br>end of the round<br>Earn $2 less for<br>each Hand size | $6 | Common | -- |
+| Silver Mask | Earn $2 each missing<br>Hand size below 10 at<br>the end of the round<br>(Currently +$20) | $6 | Common | -- |
 | Singularity | Create a copy of every<br>scoring card without an<br>Event Horizon sticker<br>When this Joker gets<br>removed, Destroy all<br>cards it has created<br>(Can't be Debuffed)<br>Occupies 3 Joker slots | $10 | Rare | Space |
 | Stern Teacher | When Blind is selected,<br>Debuff adjacent Jokers<br>for the current round<br>+25 Mult for each<br>Debuffed Joker<br>(Currently +0 Mult) | $5 | Uncommon | -- |
 | Stocked Shelves | Restocks bought<br>Booster Packs, Cards<br>and Vouchers in Shop<br>8/8 uses left | $4 | Common | Durability |

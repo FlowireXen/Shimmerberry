@@ -43,6 +43,7 @@ SMODS.Joker {
 		end
         if context.discard and not (context.blueprint) and #context.full_hand == card.ability.extra.discard_limit
 		and context.other_card.SEMBY_removed and context.other_card.SEMBY_removed == card.sort_id then
+			context.other_card.SEMBY_removed = nil
 			attention_text({
 				text = localize('SEMBY_target'),
 				scale = 0.8, hold = 1.0,

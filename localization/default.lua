@@ -754,6 +754,7 @@ return {
 				text = {
 					"Spend {C:money}$#1#{} to",
 					"gain {C:mult}+#2#{} Mult",
+					"each Hand"
 				}
 			},
 			j_SEMBY_peculiar_joker = {
@@ -808,8 +809,9 @@ return {
 					"break open {C:attention}each",
 					"{C:attention}hand{} played",
 				}, {
-					"Gain {C:attention}+#3#{} and fill",
-					"all {C:attention}Consumable",
+					"Gain {C:attention}+#1#{} permanent",
+					"{C:attention}Consumable{} slot and",
+					"fill all Consumable",
 					"slots when Joker",
 					"gets destroyed",
 				}}
@@ -1121,11 +1123,10 @@ return {
 			j_SEMBY_silver_mask = {
 				name = "Silver Mask",
 				text = {
-					"Earn {C:money}$#1#{} at the",
-					"end of the round",
-					"{s:0.2} {}",
-					"Earn {C:money}$#2# {C:attention}less{} for",
-					"each Hand size",
+					"Earn {C:money}$#1#{} each {C:attention}missing{}",
+					"Hand size below {C:attention}#2#{} at",
+					"the end of the round",
+					"{C:inactive}(Currently {C:money}+$#3#{C:inactive}){}",
 				}
 			},
 			j_SEMBY_singularity = {

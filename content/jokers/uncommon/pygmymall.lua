@@ -1,8 +1,8 @@
 SMODS.Joker {
 	key = "pygmymall", -- Fantasy Shop
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
-	pos = { x = 9, y = 8 },
+	pos = { x = 5, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,

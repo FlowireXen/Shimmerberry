@@ -1,8 +1,9 @@
 SMODS.Joker {
 	key = "cassette_beast",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
-	pos = { x = 9, y = 7 },
+	pos = { x = 9, y = 8 },
+	soul_pos = { x = 9, y = 9 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,

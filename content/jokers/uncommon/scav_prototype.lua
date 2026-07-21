@@ -1,8 +1,11 @@
+local function get_texture()
+	return { x = math.random(0, 9) == 0 and 9 or 8, y = 4 }
+end
 SMODS.Joker {
 	key = "scav_prototype", -- "Casualties Unknown" Reference
 	SEMBY_art = "placeholder",
-	atlas = "SEMBY_jokers_1",
-	pos = { x = 2, y = 8 },
+	atlas = "SEMBY_jokers_2",
+	pos = get_texture(), --> Changes each Game-Session
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = false,
