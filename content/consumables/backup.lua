@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = 'backup',
-    SEMBY_art = "placeholder",
+    SEMBY_art = "flowire",--"placeholder",
 	atlas = "SEMBY_consumables",
     pos = { x = 3, y = 0 },
     set = "Tarot",

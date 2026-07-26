@@ -1,6 +1,6 @@
 SMODS.Joker {
 	key = "fire_exint", -- COD:Zombies, "Fire Sale"
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 1, y = 8 },
     eternal_compat = true,

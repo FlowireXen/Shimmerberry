@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = "ocean",
-    SEMBY_art = "lizrushpy",
+    SEMBY_art = "lanedarushpy",
 	atlas = "SEMBY_consumables",
     pos = { x = 1, y = 0 },
     set = "Tarot",

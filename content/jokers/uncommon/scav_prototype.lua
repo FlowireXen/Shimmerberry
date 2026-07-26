@@ -3,7 +3,7 @@ local function get_texture()
 end
 SMODS.Joker {
 	key = "scav_prototype", -- "Casualties Unknown" Reference
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_2",
 	pos = get_texture(), --> Changes each Game-Session
     eternal_compat = false,

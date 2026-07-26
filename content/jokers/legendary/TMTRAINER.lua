@@ -11,7 +11,7 @@ SMODS.Joker {
     perishable_compat = false,
     blueprint_compat = false,
 	rarity = 3, --> "Legendary"
-	cost = 9,
+	cost = 8,
 	config = {
 		extra = {
 			SEMBY_TMTR = "RNG+",

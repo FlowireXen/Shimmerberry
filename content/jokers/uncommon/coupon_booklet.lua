@@ -10,8 +10,8 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			shop_mod = 0.1,
-			state = 5
+			shop_mod = 0.05,
+			state = 10
 		}
 	},
     attributes = {

@@ -322,9 +322,7 @@ jd_def['j_SEMBY_berry_blue'] = { --> "k_safe_ex"?
 }
 jd_def['j_SEMBY_berry_golden'] = {--> "k_safe_ex"?
     text = {
-        { text = "$", colour = G.C.MONEY }, { ref_table = "card.joker_display_values", ref_value = "dollars_1", retrigger_type = "mult", colour = G.C.MONEY },
-        { text = "-" },
-        { text = "$", colour = G.C.MONEY }, { ref_table = "card.joker_display_values", ref_value = "dollars_2", retrigger_type = "mult", colour = G.C.MONEY }
+        { text = "$", colour = G.C.MONEY }, { ref_table = "card.joker_display_values", ref_value = "dollars", retrigger_type = "mult", colour = G.C.MONEY }
     },
     reminder_text = {
         { text = "(" },
@@ -338,20 +336,17 @@ jd_def['j_SEMBY_berry_golden'] = {--> "k_safe_ex"?
 		local card_one = G.GAME.current_round.SEMBY_berry_rank_one or { rank = 'King'  }
 		local card_two = G.GAME.current_round.SEMBY_berry_rank_two or { rank = 'Queen' }
         -- Get Values
-        local dollars_1 = 0
-        local dollars_2 = 0
+        local dollars = 0
         local text, _, scoring_hand = JokerDisplay.evaluate_hand()
         if text ~= 'Unknown' then
             for _, scoring_card in pairs(scoring_hand) do
                 if scoring_card:get_id() and (scoring_card:get_id() == card_one.id or scoring_card:get_id() == card_two.id) then
-                    dollars_1 = dollars_1 + card.ability.extra.dollars_min * JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
-                    dollars_2 = dollars_2 + card.ability.extra.dollars_max * JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+                    dollars = dollars + card.ability.extra.dollars * JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
                 end
             end
         end
         -- Set Values
-        card.joker_display_values.dollars_1 = dollars_1
-        card.joker_display_values.dollars_2 = dollars_2
+        card.joker_display_values.dollars = dollars
         card.joker_display_values.berry_rank_one = localize(card_one.rank, 'ranks')
         card.joker_display_values.berry_rank_two = localize(card_two.rank, 'ranks')
     end
@@ -574,7 +569,17 @@ jd_def['j_SEMBY_ceaseless_void'] = {
         card.joker_display_values.percent = 1 + card.ability.extra.percent
     end
 }
-jd_def['j_SEMBY_chrono_break'] = { } -- no info
+jd_def['j_SEMBY_chrono_break'] = {
+    extra = { {
+        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "odds" }, { text = ")" },
+    } },
+    extra_config = { colour = G.C.GREEN, scale = 0.3 },
+    calc_function = function(card)
+        local numerator, denominator = SMODS.get_probability_vars(card,
+            card.ability.extra.numerator, card.ability.extra.denominator, 'JokerDisplay')
+        card.joker_display_values.odds = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
+    end
+}
 jd_def['j_SEMBY_cockroach'] = { } -- no info
 jd_def['j_SEMBY_common_denominator'] = {
     text = {
@@ -667,7 +672,7 @@ jd_def['j_SEMBY_DATAMINER'] = {
         end
     end
 }
-jd_def['j_SEMBY_digitizon'] = { } -- no info
+jd_def['j_SEMBY_nostalgia'] = { } -- no info
 jd_def['j_SEMBY_doomsday_device'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "count", colour = G.C.IMPORTANT },
@@ -1466,7 +1471,7 @@ jd_def['j_SEMBY_ripped_joker'] = {
     text_config = { colour = G.C.CHIPS },
     calc_function = function(card)
         local hand = JokerDisplay.current_hand
-        card.joker_display_values.chips = hand and #hand > 0 and #hand <= card.ability.extra.size and card.ability.extra.chips or 0
+        card.joker_display_values.chips = hand and #hand == card.ability.extra.size and card.ability.extra.chips or 0
     end
 }
 jd_def['j_SEMBY_risky_joker'] = {
@@ -1608,9 +1613,8 @@ jd_def['j_SEMBY_silver_mask'] = {
         { ref_table = "card.joker_display_values", ref_value = "localized_text" },
     },
     calc_function = function(card)
-        card.joker_display_values.money =
-            G.hand and math.max(0, card.ability.extra.gold - (G.hand.config.card_limit * card.ability.extra.goldmod))
-            or card.ability.extra.gold
+        card.joker_display_values.money = math.floor(
+            card.ability.extra.money * math.max(0, card.ability.extra.handsize - (G.hand and G.hand.config.card_limit or 0)) + 0.5)
         card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
     end
 }

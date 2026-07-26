@@ -18,8 +18,11 @@ SMODS.Joker {
 		'animal'
 	},
 	loc_vars = function(self, info_queue, card)
+		local current = G.hand and (G.hand.config.card_limit or G.hand.config.real_card_limit) - math.floor(card.ability.extra.handsize) or 0
+		current = (current >= 0 and '+' or '')..current
 		return { vars = {
-			card.ability.extra.handsize
+			card.ability.extra.handsize,
+			current
 		} }
 	end,
 	calculate = function(self, card, context)

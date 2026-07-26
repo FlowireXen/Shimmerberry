@@ -1,6 +1,6 @@
 SMODS.Joker {
 	key = "peculiar_joker",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 2, y = 9 },
     eternal_compat = true,

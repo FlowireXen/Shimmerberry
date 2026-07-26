@@ -8,6 +8,12 @@ SMODS.Joker {
     blueprint_compat = true,
 	rarity = 3,
 	cost = 7,
+	config = {
+		extra = {
+			numerator = 1,
+			denominator = 4
+		}
+	},
     attributes = {
 		'generation', 'destroy_card',
 		'music', 'magic'
@@ -20,6 +26,12 @@ SMODS.Joker {
 		if Shimmerberry.compat.buffoonery and Buffoonery.config.show_info then
 			info_queue[#info_queue+1] = {set = 'Other', key = 'nu_metal_info'}
 		end
+		local numerator, denominator = SMODS.get_probability_vars(card,
+			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_chrono_break')
+		return { vars = {
+			numerator,
+			denominator
+		} }
 	end,
     calculate = function(self, card, context)
 		--## Revive Logic
@@ -33,31 +45,29 @@ SMODS.Joker {
 			return nil, true
         end
 		--## Shatter Logic
-		if context.before then
-			local juice_card = (context.blueprint_card or card)
-			for _, playing_card in ipairs(context.scoring_hand) do
-				if not playing_card.SEMBY_chrono_break then
-					playing_card.SEMBY_chrono_break = true
-					G.E_MANAGER:add_event(Event({
-		    			trigger = 'after',
-		    			delay = 0.1,
-						blocking = false,
-						func = function()
-							playing_card:SEMBY_set_dissolve({{1, 1, 1, 1}, {0.8, 0.8, 0.8, 0.8}}, 0.0, 0.1, 1.0)
-							return true
-						end
-					}))
-				end
+		if context.individual and context.cardarea == G.play then
+			if not context.other_card.SEMBY_chrono_break
+			and SMODS.pseudorandom_probability(card, 'SEMBY_chrono_break',
+				card.ability.extra.numerator, card.ability.extra.denominator)
+			then
+				context.other_card.SEMBY_chrono_break = true
+				local juice_card = (context.blueprint_card or card)
+				local playing_card = context.other_card
+				G.E_MANAGER:add_event(Event({
+		    		trigger = 'after',
+		    		delay = 0.1,
+					blocking = false,
+					func = function()
+						juice_card:juice_up(0.1, 0.2)
+						playing_card:SEMBY_set_dissolve({{1, 1, 1, 1}, {0.8, 0.8, 0.8, 0.8}}, 0.0, 0.1, 1.0)
+						return true
+					end
+				}))
 			end
-			G.E_MANAGER:add_event(Event({
-				func = function()
-					juice_card:juice_up(0.1, 0.2)
-					return true
-				end
-			}))
 		end
         if context.destroy_card and context.cardarea == G.play then
             if context.destroy_card.SEMBY_chrono_break then
+				context.destroy_card.SEMBY_chrono_break = nil
 				context.destroy_card.shattered = true
                 return { remove = true }
             end

@@ -10,7 +10,7 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			every = 20,
+			every = 12,
 			count = 0
 		}
 	},

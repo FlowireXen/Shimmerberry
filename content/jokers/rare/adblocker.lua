@@ -11,7 +11,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			debuffed = false,
-			dollars = 2
+			dollars = 1
 		}
 	},
     attributes = {

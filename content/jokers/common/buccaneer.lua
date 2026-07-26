@@ -24,6 +24,7 @@ SMODS.Joker {
             end
         end
 		return { vars = {
+            card.ability.extra.chips,
 			card.ability.extra.chips * sell_cost
 		} }
 	end,

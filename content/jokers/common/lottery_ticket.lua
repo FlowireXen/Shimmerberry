@@ -12,8 +12,8 @@ SMODS.Joker {
 		extra = {
 			numerator = 1,
 			denominator = 4,
-			mult = 2.5,
-			chips = 12
+			mult = 3,
+			chips = 8
 		}
 	},
     attributes = {

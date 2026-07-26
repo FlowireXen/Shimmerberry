@@ -588,7 +588,7 @@ return {
 
 |-
 | {{captimg||Abandoned Soul|imgsize=142px}}
-| Gains {{ct|xchips|X0.2}} Chips<br>when a {{ct|attention|face}} card<br>is destroyed<br>{{ct|inactive|(Currently {{ct|xchips|X1}} Chips)}}
+| Gains {{ct|xchips|X0.1}} Chips<br>when a {{ct|attention|face}} card<br>is destroyed<br>{{ct|inactive|(Currently {{ct|xchips|X1}} Chips)}}
 | $6
 | {{rarity|uncommon}}
 | {{jtype|Xc}}
@@ -596,7 +596,7 @@ return {
 
 |-
 | {{captimg||A.C.E.|imgsize=142px}} <small>{{ct|grey|Arbitrary Code Execution}}</small>
-| Add the next {{ct|attention|1 to 5}}<br>playing cards from<br>Deck to scoring hand
+| Add the next {{ct|attention|2 to 4}}<br>playing cards from<br>Deck to scoring hand
 | $7
 | {{rarity|rare}}
 | {{jtype|P!}}
@@ -604,7 +604,7 @@ return {
 
 |-
 | {{captimg||Adblocker|imgsize=142px}}
-| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} a random suit<br>in your deck<br>{{ct|inactive|(Debuffed: Nothing}}{{ct|inactive|)}}<br>Played debuffed cards<br>give {{ct|money|$2}} before scoring
+| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} a random suit<br>in your deck<br>{{ct|inactive|(Debuffed: Nothing}}{{ct|inactive|)}}<br>Played debuffed cards<br>give {{ct|money|$1}} before scoring
 | $8
 | {{rarity|rare}}
 | {{jtype|+$}}<br>{{jtype|XX}}
@@ -724,7 +724,7 @@ return {
 
 |-
 | {{captimg||Buccaneer|imgsize=142px}}
-| Adds {{ct|attention|thrice}} the sell<br>value of all other<br>owned {{ct|attention|Jokers}} to {{ct|chips|Chips}}<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
+| Adds {{ct|attention|3}} times the sell<br>value of all other<br>owned {{ct|attention|Jokers}} to {{ct|chips|Chips}}<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
 | $4
 | {{rarity|common}}
 | {{jtype|+c}}
@@ -740,7 +740,7 @@ return {
 
 |-
 | {{captimg||Butterfly|imgsize=142px}}
-| {{ct|chips|0}} Chips<br>{{ct|green|Gains}} {{ct|chips|+8}} Chips<br>if played hand<br>contains a {{ct|attention|Pair}},<br>{{ct|red|Loses}} {{ct|chips|4}} Chips<br>if it doesn't
+| {{ct|chips|0}} Chips<br>{{ct|green|Gains}} {{ct|chips|+2}} Chips<br>if played hand<br>contains a {{ct|attention|Pair}},<br>{{ct|red|Loses}} {{ct|chips|4}} Chips<br>if it doesn't
 | $6
 | {{rarity|common}}
 | {{jtype|+c}}<br>{{jtype|~c}}
@@ -764,7 +764,7 @@ return {
 
 |-
 | {{captimg||Chrono Break|imgsize=142px}}
-| {{ct|legendary|Revive}} shattered<br>{{ct|attention|playing cards}}<br>{{ct|attention|Shatter}} all<br>scoring cards<br>each hand
+| {{ct|legendary|Revive}} shattered<br>{{ct|attention|playing cards}}<br>{{ct|attention|Shatter}} {{ct|green|1 in 4}}<br>scoring cards
 | $7
 | {{rarity|rare}}
 | {{jtype|[+]}}<br>{{jtype|[X]}}
@@ -804,7 +804,7 @@ return {
 
 |-
 | {{captimg||Coupon Booklet|imgsize=142px}}
-| Shops are {{ct|money|50%}} cheaper<br>Raise prices by {{ct|red|10%}}<br>on every {{ct|green|Reroll}}
+| Shops are {{ct|money|50%}} cheaper<br>Raise prices by {{ct|red|5%}}<br>on every {{ct|green|Reroll}}
 | $6
 | {{rarity|uncommon}}
 | {{jtype|!!}}<br>{{jtype|~$}}
@@ -827,16 +827,8 @@ return {
 | '''unkokat'''
 
 |-
-| {{captimg||Digitizon|imgsize=142px}}
-| When Blind is selected,<br>take {{ct|money|$1}} of {{ct|attention|sell value}}<br>from every {{ct|attention|Joker}} and<br>{{ct|attention|Consumable}} card<br>Create a {{ct|attention|Memory}} card<br>for every {{ct|money|$3}} taken<br>{{ct|inactive|({{ct|money|$3}} remaining)}}
-| $6
-| {{rarity|uncommon}}
-| {{jtype|~$}}<br>{{jtype|[+]}}
-| '''unkokat'''
-
-|-
 | {{captimg||Doomsday Device|imgsize=142px}}
-| {{ct|attention|Double}} the stored<br>{{ct|chips|Memory Value}} every {{ct|attention|20}}<br>scoring {{ct|enhanced|Memory Cards}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/20)}}
+| {{ct|attention|Double}} the stored<br>{{ct|chips|Memory Value}} every {{ct|attention|12}}<br>scoring {{ct|enhanced|Memory Cards}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/12)}}
 | $6
 | {{rarity|uncommon}}
 | {{jtype|[!]}}
@@ -844,8 +836,8 @@ return {
 
 |-
 | {{captimg||Echoing Joker|imgsize=142px}}
-| Create {{ct|green|2}} {{ct|darkedition|Negative}}<br>copies of the {{ct|attention|next}}<br>used {{ct|attention|Consumable}}<br><small>{{ct|inactive|(Probability affected)}}</small><br>{{ct|red|self destructs}}
-| $8
+| Creates {{ct|attention|2}} {{ct|darkedition|Negative}}<br>copies of the next<br>used {{ct|attention|Consumable}},<br>{{ct|red|self destructs}}
+| $7
 | {{rarity|rare}}
 | {{jtype|[+]}}
 | '''Flowire'''
@@ -932,7 +924,7 @@ return {
 
 |-
 | {{captimg||Goldenberry|imgsize=142px}}
-| Each scored<br>{{ct|attention|[King]}} or {{ct|attention|[Queen]}}<br>earns {{ct|money|$1}}-{{ct|money|$2}}<br>{{ct|inactive|[Ranks] change}}<br>{{ct|inactive|every round}}<br><small>Gets {{ct|red|Eaten}} when</small><br><small>no {{ct|attention|[King]}} or {{ct|attention|[Queen]}}</small><br><small>scored this round</small>
+| Each scored<br>{{ct|attention|[King]}} or {{ct|attention|[Queen]}}<br>earns {{ct|money|$2}}<br>{{ct|inactive|[Ranks] change}}<br>{{ct|inactive|every round}}<br><small>Gets {{ct|red|Eaten}} when</small><br><small>no {{ct|attention|[King]}} or {{ct|attention|[Queen]}}</small><br><small>scored this round</small>
 | $5
 | {{rarity|uncommon}}
 | {{jtype|+$}}
@@ -1036,7 +1028,7 @@ return {
 
 |-
 | {{captimg||Lottery Ticket|imgsize=142px}}
-| Scoring {{ct|attention|non-face}} cards<br>have a {{ct|green|1 in 4}} chance<br>to give {{ct|mult|+2.5}} Mult or<br>{{ct|chips|+12}} Chips otherwise
+| Scoring {{ct|attention|non-face}} cards<br>have a {{ct|green|1 in 4}} chance<br>to give {{ct|mult|+3}} Mult or<br>{{ct|chips|+8}} Chips otherwise
 | $5
 | {{rarity|common}}
 | {{jtype|+c}}<br>{{jtype|+m}}
@@ -1052,7 +1044,7 @@ return {
 
 |-
 | {{captimg||Mineshaft|imgsize=142px}}
-| Every {{ct|attention|3}} scoring<br>cards, add a {{ct|enhanced|Stone}},<br>{{ct|enhanced|Steel}} or {{ct|enhanced|Gold}} card<br>to the deck<br>{{ct|inactive|(Currently {{ct|attention|0}}/3)}}<br>{{ct|green|50}}{{ct|inactive|/50}} uses left
+| Every {{ct|attention|3}} scoring<br>cards, add a {{ct|enhanced|Stone}},<br>{{ct|enhanced|Steel}} or {{ct|enhanced|Gold}} card<br>to the deck<br>{{ct|inactive|(Currently {{ct|attention|0}}/3)}}<br>{{ct|green|25}}{{ct|inactive|/25}} uses left
 | $6
 | {{rarity|common}}
 | {{jtype|[+]}}
@@ -1068,8 +1060,8 @@ return {
 
 |-
 | {{captimg||Money Laundering|imgsize=142px}}
-| When {{ct|attention|Blind}} is selected,<br>gain {{ct|blue|+2}} Hands and<br>{{ct|red|+2}} Discards<br>{{ct|red|Increase}} shop<br>prices by {{ct|money|100%}}
-| $9
+| When {{ct|attention|Blind}} is selected,<br>gain {{ct|blue|+2}} Hands and<br>{{ct|red|+2}} Discards<br>{{ct|red|Increase}} shop<br>prices by {{ct|money|200%}}
+| $8
 | {{rarity|uncommon}}
 | {{jtype|#!}}<br>{{jtype|~$}}
 | '''unkokat'''
@@ -1083,6 +1075,14 @@ return {
 | '''unkokat'''
 
 |-
+| {{captimg||Nostalgia|imgsize=142px}}
+| When Blind is selected,<br>take {{ct|money|$1}} of {{ct|attention|sell value}}<br>from every {{ct|attention|Joker}} and<br>{{ct|attention|Consumable}} card<br>Create a {{ct|attention|Memory}} card<br>for every {{ct|money|$3}} taken<br>{{ct|inactive|({{ct|money|$3}} remaining)}}
+| $6
+| {{rarity|uncommon}}
+| {{jtype|~$}}<br>{{jtype|[+]}}
+| '''unkokat'''
+
+|-
 | {{captimg||Oblivion|imgsize=142px}}
 | When beating Ante {{ct|attention|1+}}<br>Loop back to Ante {{ct|attention|1}}<br>Every Loop {{ct|red|increases}}<br>all {{ct|attention|Blind Sizes}} by {{ct|darkpurple|50%}}<br>{{ct|inactive|(Currently {{ct|darkpurple|+0%}})}}<br>Every Loop {{ct|green|increases}}<br>{{ct|attention|Boss}} payouts by {{ct|money|$3}}<br>{{ct|inactive|(Currently {{ct|money|$0}})}}
 | $20
@@ -1092,7 +1092,7 @@ return {
 
 |-
 | {{captimg||Obscure Ritual|imgsize=142px}}
-| {{ct|green|Reduce}} {{ct|attention|Blind Size}}<br>by {{ct|darkpurple|66.6}} when drawing<br>the {{ct|attention|last}} card
+| {{ct|green|Reduce}} {{ct|attention|Blind Size}}<br>by {{ct|darkpurple|66.6%}} when drawing<br>the {{ct|attention|last}} card
 | $5
 | {{rarity|uncommon}}
 | {{jtype|~B}}
@@ -1172,7 +1172,7 @@ return {
 
 |-
 | {{captimg||Piñata|imgsize=142px}} {{ct|grey|Quick Brown Fox}}
-| {{ct|green|1 in 5}} chance to<br>break open {{ct|attention|each}}<br>{{ct|attention|hand}} played<br>Gain {{ct|attention|+1}} permanent<br>{{ct|attention|Consumable}} slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed
+| {{ct|green|1 in 5}} chance to<br>break open {{ct|attention|each}}<br>{{ct|attention|hand}} played<br>Gain {{ct|attention|+1}} permanent<br>{{ct|attention|Consumable}} slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed
 | $6
 | {{rarity|common}}
 | {{jtype|#!}}<br>{{jtype|[+]}}<br>{{jtype|???}}
@@ -1204,7 +1204,7 @@ return {
 
 |-
 | {{captimg||Pygmymall|imgsize=142px}}
-| {{ct|attention|+2}} card slots<br>available in shop<br>every {{ct|attention|3}} shops<br>{{ct|inactive|In 3 shops}}
+| {{ct|attention|+2}} card slots<br>available in shop<br>every {{ct|attention|3}} shops<br>{{ct|inactive|[In 3 shops]}}
 | $6
 | {{rarity|uncommon}}
 | {{jtype|#!}}
@@ -1220,7 +1220,7 @@ return {
 
 |-
 | {{captimg||Red Mask|imgsize=142px}}
-| This Joker gains {{ct|chips|+10}} Chips<br>when adding or removing<br>a {{ct|attention|playing card}}<br>{{ct|inactive|(Currently}} {{ct|chips|+0}} {{ct|inactive|Chips)}}
+| This Joker gains {{ct|chips|+8}} Chips<br>when adding or removing<br>a {{ct|attention|playing card}}<br>{{ct|inactive|(Currently}} {{ct|chips|+0}} {{ct|inactive|Chips)}}
 | $6
 | {{rarity|uncommon}}
 | {{jtype|+c}}
@@ -1236,7 +1236,7 @@ return {
 
 |-
 | {{captimg||Ripped Joker|imgsize=142px}}
-| {{ct|chips|+100}} Chips if played<br>hand contains<br>{{ct|attention|3}} or fewer cards
+| {{ct|chips|+90}} Chips if played<br>hand contains<br>exactly {{ct|attention|3}} cards
 | $5
 | {{rarity|common}}
 | {{jtype|+c}}
@@ -1300,7 +1300,7 @@ return {
 
 |-
 | {{captimg||Silver Mask|imgsize=142px}}
-| Earn {{ct|money|$2}} each {{ct|attention|missing}}<br>Hand size below {{ct|attention|10}} at<br>the end of the round<br>{{ct|inactive|(Currently {{ct|money|+$20}})}}
+| {{ct|money|+$2}} for each {{ct|attention|missing}}<br>Hand size below {{ct|attention|10}} at<br>the end of the round<br>{{ct|inactive|(Currently {{ct|money|$20}})}}
 | $6
 | {{rarity|common}}
 | {{jtype|+$}}
@@ -1316,7 +1316,7 @@ return {
 
 |-
 | {{captimg||Stern Teacher|imgsize=142px}}
-| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} adjacent Jokers<br>for the current round<br>{{ct|mult|+25}} Mult for each<br>{{ct|perishable|Debuffed}} Joker<br>{{ct|inactive|(Currently {{ct|mult|+0}} Mult)}}
+| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} adjacent Jokers<br>for the current round<br>{{ct|mult|+20}} Mult for each<br>{{ct|perishable|Debuffed}} Joker<br>{{ct|inactive|(Currently {{ct|mult|+0}} Mult)}}
 | $5
 | {{rarity|uncommon}}
 | {{jtype|+m}}<br>{{jtype|XX}}
@@ -1364,7 +1364,7 @@ return {
 
 |-
 | {{captimg||Tempered Glass|imgsize=142px}}
-| Every played {{ct|enhanced|Glass Card}}<br>permanently decreases<br>the chance of breaking<br>by {{ct|attention|2}} when scored<br><small>{{ct|inactive|(ex:}} {{ct|green|1 in 4}} {{ct|inactive|->}} {{ct|green|1 in 6}}{{ct|inactive|)}}</small>
+| Every played {{ct|enhanced|Glass Card}}<br>permanently decreases<br>the chance of breaking<br>by {{ct|attention|1}} when scored<br><small>{{ct|inactive|(ex:}} {{ct|green|1 in 4}} {{ct|inactive|->}} {{ct|green|1 in 5}}{{ct|inactive|)}}</small>
 | $4
 | {{rarity|common}}
 | {{jtype|[!]}}
@@ -1372,7 +1372,7 @@ return {
 
 |-
 | {{captimg||The Dwarf|imgsize=142px}}
-| When {{ct|attention|Blind}} is selected,<br>set hand size to {{ct|attention|5}} and<br>add the {{ct|attention|difference}}<br>to the {{ct|red|Discards}}
+| When {{ct|attention|Blind}} is selected,<br>set hand size to {{ct|attention|5}} and<br>add the {{ct|attention|difference}}<br>to the {{ct|red|Discards}} {{ct|inactive|({{ct|red|+0}})}}
 | $6
 | {{rarity|uncommon}}
 | {{jtype|#!}}
@@ -1389,7 +1389,7 @@ return {
 |-
 | {{captimg||TMTRAINER|imgsize=142px}}
 | {{ct|codegreen|Randomizes}} most<br>{{ct|enhanced|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>Range: {{ct|red|-15%}}-{{ct|green|255%}}<br>{{ct|attention|+1}} Joker slot
-| $9
+| $8
 | {{rarity|rare}}
 | {{jtype|[!]}}<br>{{jtype|#!}}<br>{{jtype|???}}
 | '''Flowire'''
@@ -1428,7 +1428,7 @@ return {
 
 |-
 | {{captimg||Unicorn|imgsize=142px}}
-| {{ct|chips|+20}} Chips for each unique<br>{{ct|darkedition|Edition}}, {{ct|enhanced|Enhancement}} or<br>{{ct|attention|Seal}} in your full deck<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
+| {{ct|chips|+12}} Chips for each unique<br>{{ct|darkedition|Edition}}, {{ct|enhanced|Enhancement}} or<br>{{ct|attention|Seal}} in your full deck<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
 | $6
 | {{rarity|common}}
 | {{jtype|+c}}

@@ -60,11 +60,11 @@ function SEMBY_Challenge_Start()
 	then -- Remove Enhancements-Changes and Card-Generation:
 		G.GAME.banned_keys['c_SEMBY_backup'] = true
 		G.GAME.banned_keys['c_SEMBY_daybreak'] = true
-		G.GAME.banned_keys['j_SEMBY_digitizon'] = true
 		G.GAME.banned_keys['j_SEMBY_goobert'] = true
 		G.GAME.banned_keys['j_SEMBY_hemoturgy'] = true
 		G.GAME.banned_keys['c_SEMBY_microcosm'] = true
 		G.GAME.banned_keys['j_SEMBY_mineshaft'] = true
+		G.GAME.banned_keys['j_SEMBY_nostalgia'] = true
 		-- Useless and not fun to find
 		G.GAME.banned_keys['j_SEMBY_alpha'] = true
 		G.GAME.banned_keys['j_SEMBY_anodized_steel'] = true

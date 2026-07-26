@@ -11,7 +11,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			chips = 0,
-			chip_gain = 8,
+			chip_gain = 2,
 			chip_loss = 4,
 			type = 'Pair'
 		}

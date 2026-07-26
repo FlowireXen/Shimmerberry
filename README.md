@@ -48,9 +48,9 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Name | Effect | Cost | Rarity | Properties |
 | ---- |:------:|:----:| ------ | ---------- |
 | Flower Pot | X4 Mult if poker<br>hand contains<br>4 different suits | $6 | Rare | Nature, Vanilla |
-| Abandoned Soul | Gains X0.2 Chips<br>when a face card<br>is destroyed<br>(Currently X1 Chips) | $6 | Uncommon | -- |
-| A.C.E. | Add the next 1 to 5<br>playing cards from<br>Deck to scoring hand | $7 | Rare | -- |
-| Adblocker | When Blind is selected,<br>Debuff a random suit<br>in your deck<br>(Debuffed: [Suit])<br>Played debuffed cards<br>give $2 before scoring | $8 | Rare | -- |
+| Abandoned Soul | Gains X0.1 Chips<br>when a face card<br>is destroyed<br>(Currently X1 Chips) | $6 | Uncommon | -- |
+| A.C.E. | Add the next 2 to 4<br>playing cards from<br>Deck to scoring hand | $7 | Rare | -- |
+| Adblocker | When Blind is selected,<br>Debuff a random suit<br>in your deck<br>(Debuffed: [Suit])<br>Played debuffed cards<br>give $1 before scoring | $8 | Rare | -- |
 | Afterimage | Copies ability of<br>Joker to the left<br>3 times | $20 | Legendary | -- |
 | Agent 47 | When discarding<br>exactly 3 cards,<br>eliminate one<br>at random | $6 | Uncommon | -- |
 | Alpha | +1 Hand for<br>first scoring<br>Stone Card | $6 | Common | Magic |
@@ -65,22 +65,21 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Booster Pack | 3 additional<br>Booster Packs<br>in each Shop<br>3/3 uses left | $5 | Common | Durability |
 | Bound Joker | When obtaining or<br>destroying this card,<br>apply Bound to<br>3 random Jokers | $6 | Uncommon | -- |
 | Broken Record | Randomly add 2 to 3<br>retriggers to any<br>scoring cards | $4 | Common | Music |
-| Buccaneer | Adds thrice the sell<br>value of all other<br>owned Jokers to Chips<br>(Currently +0 Chips) | $4 | Common | -- |
+| Buccaneer | Adds 3 times the sell<br>value of all other<br>owned Jokers to Chips<br>(Currently +0 Chips) | $4 | Common | -- |
 | Bunburrow | Gain $12 every<br>4 Rerolls<br>(4 remaining) | $4 | Common | Animal |
-| Butterfly | 0 Chips<br>Gains +8 Chips<br>if played hand<br>contains a Pair,<br>Loses 4 Chips<br>if it doesn't | $6 | Common | Animal |
+| Butterfly | 0 Chips<br>Gains +2 Chips<br>if played hand<br>contains a Pair,<br>Loses 4 Chips<br>if it doesn't | $6 | Common | Animal |
 | Cassette Beast | Retrigger scoring cards<br>for each scoring suit | $8 | Rare | Animal, Music |
 | Ceaseless Void | When a Card is sold, gain<br>+3% Blind Size, X0.02 Mult<br>or X0.02 Chips for each<br>$1 of sell value<br>When Blind is selected<br>increase Blind Size by 0%<br>X1 Chips, X1 Mult | $8 | Rare | Animal, Space |
-| Chrono Break | Revive shattered<br>playing cards<br>Shatter all<br>scoring cards<br>each hand | $7 | Rare | Magic, Music |
+| Chrono Break | Revive shattered<br>playing cards<br>Shatter 1 in 4<br>scoring cards | $7 | Rare | Magic, Music |
 | Cockroach | +1 Ante when<br>Boss Blind<br>is defeated<br>Possessive | $6 | Uncommon | Animal |
 | Common Denominator | Copies abilities of<br>all Common Jokers<br>Commons: 0<br>Compatible: 0<br>Incompatible: 0 | $10 | Rare | -- |
 | Copy Printer | At the end of the Shop<br>convert the Joker to the left<br>into the Joker to the right<br>(Conditional self destruct) | $12 | Rare | -- |
 | Coupon | Shops are<br>20% cheaper | $6 | Common | -- |
-| Coupon Booklet | Shops are 50% cheaper<br>Raise prices by 10%<br>on every Reroll | $6 | Uncommon | -- |
+| Coupon Booklet | Shops are 50% cheaper<br>Raise prices by 5%<br>on every Reroll | $6 | Uncommon | -- |
 | Daffy Joker | +8 Mult if poker<br>hand contains<br>2 different suits | $5 | Common | -- |
 | DATAMINER | Changes most<br>Numbers on newly<br>obtained Jokers<br>by X0.5 or X2 | $7 | Uncommon | -- |
-| Digitizon | When Blind is selected,<br>take $1 of sell value<br>from every Joker and<br>Consumable card<br>Create a Memory card<br>for every $3 taken<br>($3 remaining) | $6 | Uncommon | Animal |
-| Doomsday Device | Double the stored<br>Memory Value every 20<br>scoring Memory Cards<br>(Currently 0/20) | $6 | Uncommon | -- |
-| Echoing Joker | Create 2 Negative<br>copies of the next<br>used Consumable<br>(Probability affected)<br>self destructs | $8 | Rare | -- |
+| Doomsday Device | Double the stored<br>Memory Value every 12<br>scoring Memory Cards<br>(Currently 0/12) | $6 | Uncommon | -- |
+| Echoing Joker | Creates 2 Negative<br>copies of the next<br>used Consumable,<br>self destructs | $7 | Rare | -- |
 | Eden's Blessing | X1.5 Chips or Mult,<br>favours the small<br>Grants a<br>Brighter Future<br>when Boss Blind<br>is defeated | $4 | Uncommon | Nature |
 | Emergency Button | Prevents Death and<br>Rerolls all Jokers<br>and Consumables | $6 | Uncommon | -- |
 | Eternal Fortune | +1 Hand, +1 Luck | $4 | Common | Nature |
@@ -91,7 +90,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Gambler's Contract | Shop Jokers have<br>a 1 in 13 chance to<br>become Negative and<br>a 2 in 13 chance to<br>become Possessive<br>(Fixed probabilities) | $7 | Rare | -- |
 | Garden Gnome | +30 Mult<br>-2 Hand size | $5 | Common | -- |
 | Gold Bomb | Destroy all<br>played cards<br>in final hand<br>of round | $5 | Uncommon | -- |
-| Goldenberry | Each scored<br>[King] or [Queen]<br>earns $1-$2<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $5 | Uncommon | Berry, Food |
+| Goldenberry | Each scored<br>[King] or [Queen]<br>earns $2<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $5 | Uncommon | Berry, Food |
 | Goobert | Creates imperfect<br>copies of playing cards<br>added to your deck<br>10/10 uses left | $8 | Uncommon | Durability |
 | Hemoturgy | Discarded cards gain<br>a random Edition,<br>Enhancement or Seal<br>-2 Discard Limit | $7 | Rare | Magic |
 | Hoe | Each [Suit] card<br>held in hand<br>gives +25 Chips<br>Suit changes<br>every round<br>250/250 uses left | $5 | Common | Durability |
@@ -103,14 +102,15 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Jokebra | When Blind is selected,<br>set an additional Target<br>(Between 100 and 1000)<br>Beat the Blind when<br>the Round score<br>matches the Target | $8 | Uncommon | -- |
 | Lavish Joker | Regain lost Money<br>at start of shop<br>(Currently $0)<br>Each $1 regained<br>increases the next<br>Blind Size by 5%<br>(Currently +0%) | $0 | Rare | -- |
 | Lost Constellation | 1 in 3 Planet cards<br>upgrade poker hand<br>2 additional times | $6 | Uncommon | Space |
-| Lottery Ticket | Scoring non-face cards<br>have a 1 in 4 chance<br>to give +2.5 Mult or<br>+12 Chips otherwise | $5 | Common | -- |
+| Lottery Ticket | Scoring non-face cards<br>have a 1 in 4 chance<br>to give +3 Mult or<br>+8 Chips otherwise | $5 | Common | -- |
 | Melon | When Blind is selected,<br>reduce Blind Size by 50%<br>Destroyed when<br>Boss Blind is defeated | $6 | Uncommon | Food |
-| Mineshaft | Every 3 scoring<br>cards, add a Stone,<br>Steel or Gold card<br>to the deck<br>(Currently 0/3)<br>50/50 uses left | $6 | Common | Durability |
+| Mineshaft | Every 3 scoring<br>cards, add a Stone,<br>Steel or Gold card<br>to the deck<br>(Currently 0/3)<br>25/25 uses left | $6 | Common | Durability |
 | Misery | X0.5 Mult<br>X4.0 Chips for first<br>hand of round | $5 | Common | -- |
-| Money Laundering | When Blind is selected,<br>gain +2 Hands and<br>+2 Discards<br>Increase shop<br>prices by 100% | $9 | Uncommon | -- |
+| Money Laundering | When Blind is selected,<br>gain +2 Hands and<br>+2 Discards<br>Increase shop<br>prices by 200% | $8 | Uncommon | -- |
 | Nashi Pear | When Blind is selected,<br>increase Round score<br>by 10.000 and reduce<br>this by 2000 | $3 | Common | Food |
+| Nostalgia | When Blind is selected,<br>take $1 of sell value<br>from every Joker and<br>Consumable card<br>Create a Memory card<br>for every $3 taken<br>($3 remaining) | $6 | Uncommon | -- |
 | Oblivion | When beating Ante 1+<br>Loop back to Ante 1<br>Every Loop increases<br>all Blind Sizes by 50%<br>(Currently +0%)<br>Every Loop increases<br>Boss payouts by $3<br>(Currently $0) | $20 | Legendary | -- |
-| Obscure Ritual | Reduce Blind Size<br>by 66.6 when drawing<br>the last card | $5 | Uncommon | Magic |
+| Obscure Ritual | Reduce Blind Size<br>by 66.6% when drawing<br>the last card | $5 | Uncommon | Magic |
 | Opulent Skint | Sell this card to<br>replace a random<br>card in the Shop<br>with this Joker<br>1 in 256 chance<br>to transform into<br>a Legendary Joker<br>when Bought | $10 | Uncommon | Animal |
 | Ouroboros | Each scored 8 gives<br>+1 Hand and increases<br>the Blind Size by 8% | $8 | Rare | Animal |
 | Paper Swan | X2 Chips every<br>5 scoring cards<br>(Currently 0/5) | $5 | Common | Animal |
@@ -120,18 +120,18 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | P.E.T. | This Joker gains<br>+2 Mult for every card<br>discarded this round<br>(Currently +0 Mult) | $5 | Common | -- |
 | Pickaxe | Each [Suit] card<br>held in hand has<br>a 40% chance<br>to give $2<br>Suit changes<br>every round<br>200/200 uses left | $5 | Common | Durability |
 | Piggy Bank | When Blind is selected<br>or skipped, spend $2 to<br>add $1 of sell value<br>Starts with $2<br>extra sell value<br>X0.2 Mult for every<br>$4 of sell value<br>(Currently X1 Mult) | $5 | Common | Animal |
-| Piñata | 1 in 5 chance to<br>break open each<br>hand played<br>Gain +1 permanent<br>Consumable slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed | $6 | Common | Animal, Food |
+| Piñata | 1 in 5 chance to<br>break open each<br>hand played<br>Gain +1 permanent<br>Consumable slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed | $6 | Common | Animal, Food |
 | Plastic Key | Destroy this card and<br>create 2 Spectral cards<br>when Boss Blind is defeated<br>(Must have room) | $6 | Uncommon | -- |
 | Pocket Dimension | Cards in your<br>Consumable area<br>give X1.5 Mult<br>+3 Consumable slots | $8 | Rare | Magic, Space |
 | Potted Flower | X4 Chips if poker<br>hand contains<br>4 different suits | $6 | Uncommon | Nature |
 | P2W | Spend $2 to<br>gain +30 Mult<br>each Hand | $4 | Common | -- |
 | PUSH UR T3MPRR | BLIND SELECTED,<br>CLOCK IT UP 200%<br>CARD PLAYED,<br>PUSH IT DOWN 6% | $5 | Uncommon | Animal, Music |
-| Pygmymall | +2 card slots<br>available in shop<br>every 3 shops<br>In 3 shops | $6 | Uncommon | -- |
+| Pygmymall | +2 card slots<br>available in shop<br>every 3 shops<br>[In 3 shops] | $6 | Uncommon | -- |
 | Quest? | Start a Quest!<br>Complete it to<br>Win the Game and<br>obtain a random<br>Legendary Joker | $7 | Uncommon | Multistage* |
 | Red Lion | X2.5 Mult<br>Loses X0.1 Mult<br>for each Enhanced<br>card in your deck | $6 | Uncommon | -- |
-| Red Mask | This Joker gains +10 Chips<br>when adding or removing<br>a playing card<br>(Currently +0 Chips) | $6 | Uncommon | -- |
+| Red Mask | This Joker gains +8 Chips<br>when adding or removing<br>a playing card<br>(Currently +0 Chips) | $6 | Uncommon | -- |
 | Replicator  | Destroys the next 20<br>played cards to Duplicate<br>the rightmost Joker<br>self destructs<br>(Currently 0/20) | $6 | Rare | -- |
-| Ripped Joker | +100 Chips if played<br>hand contains<br>3 or fewer cards | $5 | Common | -- |
+| Ripped Joker | +90 Chips if played<br>hand contains<br>exactly 3 cards | $5 | Common | -- |
 | Risky Joker | Scoring cards take<br>6 Chips and 2 Mult<br>and increase the<br>Blind Payout by $1<br>(Next payout +$0) | $6 | Common | -- |
 | Scaffolding | 0/5 Hand size<br>When a Joker is sold,<br>gain +1 Hand size for<br>each $1 of sell value<br>Lose 2 Hand size<br>each Hand played | $5 | Uncommon | -- |
 | Scav. Prototype | When Blind is selected,<br>destroy adjacent Jokers<br>1 in 4 chance to gain<br>a Duplitage for each<br>destroyed Joker | $5 | Uncommon | Animal |
@@ -140,21 +140,21 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Shooting Star | When Boss Blind is<br>defeated, upgrade<br>every Poker Hand<br>by 1 level(s)<br>(Probability affected) | $7 | Uncommon | Space |
 | Shovel | Each [Suit] card<br>held in hand<br>gives X1.2 Mult<br>Suit changes<br>every round<br>200/200 uses left | $6 | Common | Durability |
 | Shrewd Joker | +50 Chips if poker<br>hand contains<br>2 different suits | $5 | Common | -- |
-| Silver Mask | Earn $2 each missing<br>Hand size below 10 at<br>the end of the round<br>(Currently +$20) | $6 | Common | -- |
+| Silver Mask | +$2 for each missing<br>Hand size below 10 at<br>the end of the round<br>(Currently $20) | $6 | Common | -- |
 | Singularity | Create a copy of every<br>scoring card without an<br>Event Horizon sticker<br>When this Joker gets<br>removed, Destroy all<br>cards it has created<br>(Can't be Debuffed)<br>Occupies 3 Joker slots | $10 | Rare | Space |
-| Stern Teacher | When Blind is selected,<br>Debuff adjacent Jokers<br>for the current round<br>+25 Mult for each<br>Debuffed Joker<br>(Currently +0 Mult) | $5 | Uncommon | -- |
+| Stern Teacher | When Blind is selected,<br>Debuff adjacent Jokers<br>for the current round<br>+20 Mult for each<br>Debuffed Joker<br>(Currently +0 Mult) | $5 | Uncommon | -- |
 | Stocked Shelves | Restocks bought<br>Booster Packs, Cards<br>and Vouchers in Shop<br>8/8 uses left | $4 | Common | Durability |
 | Strawberry | Each scored<br>[King] or [Queen]<br>gives +8 Mult<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $5 | Uncommon | Berry, Food |
 | Stylish Joker | Earn $1 for every<br>Consumable you keep<br>at the end of round<br>+2 consumable slots<br>and -1 hand size | $5 | Uncommon | -- |
 | Sword Swallower | X1 Mult for each<br>Common Joker<br>(Currently X1 Mult) | $8 | Rare | -- |
-| Tempered Glass | Every played Glass Card<br>permanently decreases<br>the chance of breaking<br>by 2 when scored<br>(ex: 1 in 4 -> 1 in 6) | $4 | Common | -- |
-| The Dwarf | When Blind is selected,<br>set hand size to 5 and<br>add the difference<br>to the Discards | $6 | Uncommon | Animal |
+| Tempered Glass | Every played Glass Card<br>permanently decreases<br>the chance of breaking<br>by 1 when scored<br>(ex: 1 in 4 -> 1 in 5) | $4 | Common | -- |
+| The Dwarf | When Blind is selected,<br>set hand size to 5 and<br>add the difference<br>to the Discards (+0) | $6 | Uncommon | Animal |
 | The Giant | When Blind is selected,<br>lose all discards and<br>gain as much hand size | $6 | Uncommon | Animal |
-| TMTRAINER | Randomizes most<br>Numbers on newly<br>obtained Jokers<br>Range: -15%-255%<br>+1 Joker slot | $9 | Rare | -- |
+| TMTRAINER | Randomizes most<br>Numbers on newly<br>obtained Jokers<br>Range: -15%-255%<br>+1 Joker slot | $8 | Rare | -- |
 | To n' Fro | Played cards swap<br>Chips and Mult<br>before scoring | $5 | Common | -- |
 | Toolkit | All Jokers to the left,<br>that have a limited<br>number of uses, are<br>repaired and regain<br>up to 5 uses at the<br>end of the round<br>200/200 uses left<br>Can't be repaired | $4 | Common | Durability |
 | 20 to Die for | Quadruples all listed<br>probabilities<br>(ex: 1 in 3 -> 4 in 3) | $6 | Rare | Magic |
-| Unicorn | +20 Chips for each unique<br>Edition, Enhancement or<br>Seal in your full deck<br>(Currently +0 Chips) | $6 | Common | Animal, Magic |
+| Unicorn | +12 Chips for each unique<br>Edition, Enhancement or<br>Seal in your full deck<br>(Currently +0 Chips) | $6 | Common | Animal, Magic |
 | V.I.P. Ticket | Bonus Cards always<br>shuffle to the top<br>of the Deck | $5 | Common | -- |
 | Warm Embrace | Chips and Mult are<br>rounded up to the<br>next multiple of 10 | $5 | Common | Animal |
 | Watching Forest | Sort the Deck<br>lowest to highest<br>after drawing the<br>first hand each round<br>Change sort order<br>every 3 hands played<br>2 remaining | $6 | Rare | Nature |
@@ -287,11 +287,11 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | ---- |:------------:|:-----------:|:-------:| ------ |
 | Bound | +1 Joker slot<br>1 in 10 chance to<br>Debuff and Destroy<br>this card at the<br>end of the round | Technically identical,<br>just unintended. | No | "Bound Joker" |
 | Event Horizon | No Effect | Destroyed when<br>it's Singularity<br>is removed | No | "Singularity" |
-| Degrading | Destroyed<br>after 5 rounds<br>(5 remaining) | Destroyed if this<br>card is held in hand<br>at end of round | No | Challenges |
-| Lavish | Can't be<br>debuffed | Can't be<br>debuffed | No | Challenges |
-| Possessive | Can't be sold | No Effect | No | "Gambler's Contract"<br>"Echoing Joker",<br>Inherent &<br>Challenges |
-| Shimmer Immune | Can't be transformed<br>by most other Jokers<br>and Consumables | No Effect | No | Challenges |
-| TMTRAINER'd | Marks changed<br>Jokers and shows<br>Stat-Change multiplier | No Effect | No | "DATAMINER",<br>"TMTRAINER",<br>Inherent &<br>Challenges |
+| Degrading | Destroyed<br>after 5 rounds<br>(5 remaining) | Destroyed if this<br>card is held in hand<br>at end of round | No | In Challenges |
+| Lavish | Can't be<br>debuffed | Can't be<br>debuffed | No | In Challenges |
+| Possessive | Can't be sold | No Effect | No | "Gambler's Contract",<br>Inherent &<br>in Challenges |
+| Shimmer Immune | Can't be transformed<br>by most other Jokers<br>and Consumables | No Effect | No | In Challenges |
+| TMTRAINER'd | Marks changed<br>Jokers and shows<br>Stat-Change multiplier | No Effect | No | "DATAMINER",<br>"TMTRAINER",<br>Inherent &<br>in Challenges |
 </details>
 
 ## Boss Blinds

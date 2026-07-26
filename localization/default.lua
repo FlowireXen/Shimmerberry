@@ -165,7 +165,7 @@ return {
 				text = {{
 					"Each scored",
 					"{C:attention}#1#{} or {C:attention}#2#",
-					"earns {C:money}$#3#{}-{C:money}$#4#",
+					"earns {C:money}$#3#{}",
 					"{s:0.1} ",
 					"{C:inactive}Ranks change",
 					"{C:inactive}every round",
@@ -236,10 +236,10 @@ return {
 			j_SEMBY_buccaneer = {
 				name = "Buccaneer",
 				text = {
-					"Adds {C:attention}thrice{} the sell",
+					"Adds {C:attention}#1#{} times the sell",
 					"value of all other",
 					"owned {C:attention}Jokers{} to {C:chips}Chips",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
 				}
 			},
 			j_SEMBY_bunburrow = {
@@ -288,9 +288,8 @@ return {
 					"{C:legendary,E:1}Revive{} shattered",
 					"{C:attention}playing cards",
 				}, {
-					"{C:attention}Shatter{} all",
+					"{C:attention}Shatter{C:green} #1# in #2#{}",
 					"scoring cards",
-					"each hand",
 				}}
 			},
 			j_SEMBY_cockroach = {
@@ -360,19 +359,6 @@ return {
 					"by {C:red}X#1#{} or {C:green}X#2#{}",
 				}
 			},
-			j_SEMBY_digitizon = {
-				name = "Digitizon",
-				text = {{
-					"When Blind is selected,",
-					"take {C:money}$#1#{} of {C:attention}sell value{}",
-					"from every {C:attention}Joker{} and",
-					"{C:attention}Consumable{} card",
-				}, {
-					"Create a {C:attention}Memory{} card",
-					"for every {C:money}$#2#{} taken",
-					"{C:inactive}({C:money}$#3#{C:inactive} remaining){}",
-				}}
-			},
 			j_SEMBY_doomsday_device = {
 				name = "Doomsday Device",
 				text = {
@@ -385,10 +371,9 @@ return {
 			j_SEMBY_echoing_joker = {
 				name = "Echoing Joker",
 				text = {
-					"Create {C:green}#1#{} {C:dark_edition}Negative{}",
-					"copies of the {C:attention}next{}",
-					"used {C:attention}Consumable{}",
-					"{s:0.8,C:inactive}(Probability affected)",
+					"Creates {C:attention}#1#{} {C:dark_edition}Negative{}",
+					"copies of the next",
+					"used {C:attention}Consumable{},",
 					"{C:red,E:2}self destructs{}"
 				}
 			},
@@ -688,6 +673,19 @@ return {
 					"this by {C:SEMBY_percent}#2#{}",
 				}
 			},
+			j_SEMBY_nostalgia = {
+				name = "Nostalgia",
+				text = {{
+					"When Blind is selected,",
+					"take {C:money}$#1#{} of {C:attention}sell value{}",
+					"from every {C:attention}Joker{} and",
+					"{C:attention}Consumable{} card",
+				}, {
+					"Create a {C:attention}Memory{} card",
+					"for every {C:money}$#2#{} taken",
+					"{C:inactive}({C:money}$#3#{C:inactive} remaining){}",
+				}}
+			},
 			j_SEMBY_oblivion = {
 				name = "Oblivion",
 				text = {{
@@ -814,6 +812,9 @@ return {
 					"fill all Consumable",
 					"slots when Joker",
 					"gets destroyed",
+				}, {
+					"Won't appear again",
+					"when destroyed",
 				}}
 			},
 			j_SEMBY_plastic_key = {
@@ -1055,7 +1056,7 @@ return {
 				text = {
 					"{C:chips}+#1#{} Chips if played",
 					"hand contains",
-					"{C:attention}#2#{} or fewer cards",
+					"exactly {C:attention}#2#{} cards",
 				}
 			},
 			j_SEMBY_risky_joker = {
@@ -1123,10 +1124,10 @@ return {
 			j_SEMBY_silver_mask = {
 				name = "Silver Mask",
 				text = {
-					"Earn {C:money}$#1#{} each {C:attention}missing{}",
+					"{C:money}+$#1#{} for each {C:attention}missing{}",
 					"Hand size below {C:attention}#2#{} at",
 					"the end of the round",
-					"{C:inactive}(Currently {C:money}+$#3#{C:inactive}){}",
+					"{C:inactive}(Currently {C:money}$#3#{C:inactive}){}",
 				}
 			},
 			j_SEMBY_singularity = {
@@ -1211,7 +1212,7 @@ return {
 					"When {C:attention}Blind{} is selected,",
 					"set hand size to {C:attention}#1#{} and",
 					"add the {C:attention}difference",
-					"to the {C:red}Discards",
+					"to the {C:red}Discards {C:inactive}({C:red}#2#{C:inactive}){}",
 				}
 			},
 			j_SEMBY_the_giant = {
@@ -1816,7 +1817,7 @@ return {
 				name = "Vintage Card",
 				text = {
         		    "Retrigger if played",
-        		    "{C:attention}poker hand{} is not your",
+        		    "{C:attention}poker hand{} is {C:attention}not{} your",
         		    "{C:attention}highest-level{} hand"
 				}
 			},

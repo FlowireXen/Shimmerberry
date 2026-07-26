@@ -15,7 +15,7 @@ SMODS.Joker {
 	cost = 4,
 	config = {
 		extra = {
-			buff = 2
+			buff = 1
 		}
 	},
     attributes = {

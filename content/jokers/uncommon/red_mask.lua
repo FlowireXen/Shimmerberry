@@ -11,7 +11,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			chips = 0,
-			chip_mod = 10
+			chip_mod = 8
 		}
 	},
     attributes = {

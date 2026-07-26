@@ -1,6 +1,6 @@
 SMODS.Joker {
 	key = "arcoex",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 8, y = 7 },
     eternal_compat = true,
@@ -10,8 +10,8 @@ SMODS.Joker {
 	cost = 7,
 	config = {
 		extra = {
-			min = 1,
-			max = 5
+			min = 2,
+			max = 4
 		}
 	},
     attributes = {

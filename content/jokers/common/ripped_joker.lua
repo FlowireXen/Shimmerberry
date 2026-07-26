@@ -11,7 +11,7 @@ SMODS.Joker {
 	cost = 5,
 	config = {
 		extra = {
-			chips = 100,
+			chips = 90,
 			size = 3
 		}
 	},
@@ -25,7 +25,7 @@ SMODS.Joker {
 		} }
 	end,
     calculate = function(self, card, context)
-        if context.joker_main and #context.full_hand <= card.ability.extra.size then
+        if context.joker_main and #context.full_hand == card.ability.extra.size then
             return {
                 chips = card.ability.extra.chips
             }

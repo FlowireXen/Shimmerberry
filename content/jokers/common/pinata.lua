@@ -40,6 +40,7 @@ SMODS.Joker {
 	end,
     remove_from_deck = function(self, card, from_debuff)
 		if card.ability.extra.reward and not from_debuff then
+        	G.GAME.SEMBY_used_pinata = (G.GAME.SEMBY_used_pinata or 0) + 1
 			G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.slots
 			G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) +1
             for i = 0, G.consumeables.config.card_limit do
@@ -84,7 +85,6 @@ SMODS.Joker {
 				end
 			end
 			if context.after and card.ability.extra.breaks then
-        		G.GAME.SEMBY_used_pinata = (G.GAME.SEMBY_used_pinata or 0) + 1
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					func = function()

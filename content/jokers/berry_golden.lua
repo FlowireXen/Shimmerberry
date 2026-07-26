@@ -12,8 +12,7 @@ SMODS.Joker {
 	config = {
 		activated = false,
 		extra = {
-			dollars_min = 1,
-			dollars_max = 2
+			dollars = 2
 		}
 	},
     attributes = {
@@ -29,8 +28,7 @@ SMODS.Joker {
 		return { vars = {
 			localize(card_one.rank, 'ranks'),
 			localize(card_two.rank, 'ranks'),
-			card.ability.extra.dollars_min,
-			card.ability.extra.dollars_max
+			card.ability.extra.dollars
 		} }
 	end,
 	calculate = function(self, card, context)
@@ -42,7 +40,7 @@ SMODS.Joker {
 			or context.other_card:get_id() == G.GAME.current_round.SEMBY_berry_rank_two.id then
 				card.ability.activated = true
 				--> This is too slow: Card scores, and when the NEXT card scores you get the Money.
-				return { dollars = pseudorandom('SEMBY_berry_golden') > 0.5 and card.ability.extra.dollars_max or card.ability.extra.dollars_min }
+				return { dollars = card.ability.extra.dollars }
 			end
 		end
 		if context.end_of_round and context.main_eval and not context.blueprint then

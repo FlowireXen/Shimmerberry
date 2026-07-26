@@ -52,12 +52,56 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+Nerfs/Buffs/Changes
+
+Cassette Beast -> Retrigger scoring cards <br> for each scoring suit <br> beyond the first suit -> math.max(0, Suit-Count - 1) -> Jokerdisplay!
+Cockroach -> -25% Blind Size (like Oblivion)
+Replicator -> Add "Won't appear again when destroyed." -> Add 10 cards, then destroy 15 random cards in deck and duplicate joker
+
+Hemoturgy -> Leftmost Discarded card gains... -> -1 Limit
+Oblivion -> +50 to +100, +$3 to +$1, "Increases Blind Payouts" (not Boss)
+Singularity -> Creates copies of the next 12 scoring cards (12 remaining). Occupies 2 Joker slots.
+Stocked Shelves -> 10 uses, Restocking Vouchers<br>costs 8 uses (and cannot happen if not enough uses exist!)
+
+Check JokerDisplay + Desc. + Wiki:
+Goldenberry
+barmy, daffy, peculiar, shrewd, .. joker
+buccaneer
+Butterfly
+foxie plush
+lottery
+mineshaft
+pinata
+ripped
+tempered glass
+unicorn
+TMTR
+adblocker
+A,C,E,
+Chrono
+echo
+coupon booklet
+digitizon/nostalgia
+doomsday
+fire exin't
+money launder
+red_mask
+scav
+stern teacher
+the dwarf
+
+
+
+
 Check for ##TODO##'s
 
 ????CAN I PAY SOMEONE TO DO THE WIKI????
 --> https://balatromods.miraheze.org/wiki/Modded_Balatro_Wiki:Balatro_localization_transcriber
 Wiki Inspo: https://balatromods.miraheze.org/wiki/Phanta
 
+V.I.P. (Very Intense Poison):
+Start with Eternal VIP-Joker, 13 random cards in your Deck are Bonus cards and permanently debuffed
+(Bonus cards are permanently debuffed)
 
 !! Bug Report: Shader Issue !! -> Fixed: Shoutout to "thewhiteoctavia"
 

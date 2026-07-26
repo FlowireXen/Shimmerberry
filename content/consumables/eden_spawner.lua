@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = 'eden_spawner',
-    SEMBY_art = "lizrushpy",
+    SEMBY_art = "lanedarushpy",
 	atlas = "SEMBY_consumables",
     pos = { x = 6, y = 0 },
 	soul_pos = { x = 6, y = 1 },

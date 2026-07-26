@@ -3,11 +3,6 @@
 
 -- Artists:
 G.SEMBY.Artist = {
-	-- Technical:
-	placeholder = {
-		name = "ERROR",
-		colour = HEX('FF00FF')
-	},
 	-- Main Artists:
 	flowire = {
 		name = "Flowire",
@@ -38,33 +33,29 @@ G.SEMBY.Artist = {
 		},
 	},
 	-- Guest Artists:
-	debug = {
-		name = "DEBUG",
-		colour = HEX('FF00FF'),
-		guest = true
-	},
 	ghostsalt = {
 		name = "GhostSalt",
 		colour = HEX('FFDDDD'),
 		links = {
 			guest_page = {
-				name = "Mod: Phanta",
+				name = "Phanta",
 				link = "https://balatromods.miraheze.org/wiki/Phanta",
 			},
 		},
 		guest = true
 	},
-	lizrushpy = {
+	lanedarushpy = {
 		name = "lanedarushpy",
 		colour = HEX('D9BAEE'),
 		links = {
 			guest_page = {
-				name = "Mod: BalaCats",
+				name = "BalaCats",
 				link = "https://git.gay/hazelpy/BalaCats",
 			},
 		},
 		guest = true
 	},
+	--[[
 	just_smolchild = {
 		name = "Gappie",
 		colour = HEX('FFE82E'),
@@ -76,6 +67,10 @@ G.SEMBY.Artist = {
 		},
 		guest = true
 	},
+	--]]
+	-- Technical:
+	placeholder = { name = "ERROR", colour = HEX('FF00FF') },
+	debug = { name = "DEBUG", colour = HEX('FF00FF') },
 }
 -- Artists (Colours):
 G.ARGS.LOC_COLOURS.SEMBY_flowire = G.SEMBY.Artist.flowire.colour
@@ -271,6 +266,57 @@ function G.FUNCS.SEMBY_Sound_Credits()
     }
 end
 
+-- Guest-Credits:
+function G.FUNCS.SEMBY_Guest_Credits()
+	local guest_nodes = { }
+	for id, artist in pairs(G.SEMBY.Artist) do
+		if artist.guest then
+			guest_nodes[#guest_nodes+1] = {n=G.UIT.R, config={ align = "cm", padding = 0.2, r = 0.1, colour = G.C.BLACK }, nodes={
+				{n=G.UIT.R, config={ align = "cm", padding = 0.01 }, nodes={
+					{n=G.UIT.T, config={ text = artist.name, scale = 0.4, colour = artist.colour }},
+					{n=G.UIT.T, config={ text = ':', scale = 0.4, colour = G.C.UI.TEXT_LIGHT }},
+					{n=G.UIT.C, config={ align = "cm", padding = 0.1 }, nodes=
+						artist.links and artist.links.guest_page and {
+							{n=G.UIT.C, config={
+								button = "SEMBY_Open_Website",
+								web_link = artist.links.guest_page.link,
+								colour = darken(artist.colour, 0.25),
+								hover = true, minw = G.ROOM.T.w * 0.095,
+								padding = 0.1, r = 0.1, shadow = true,
+								align = "cm", -- minh = G.ROOM.T.h * 0.1,
+							}, nodes = {{n=G.UIT.T, config={
+								text = artist.links.guest_page.name,
+								scale = 0.4, colour = G.C.UI.TEXT_LIGHT,
+							}}}}
+						} or {
+							{n=G.UIT.C, config={
+								colour = G.C.L_BLACK, minw = G.ROOM.T.w * 0.095,
+								padding = 0.1, r = 0.1, shadow = true, align = "cm",
+							}, nodes = {{n=G.UIT.T, config={
+								text = "--", scale = 0.4, colour = G.C.UI.TEXT_LIGHT,
+							}}}}
+						}
+					},
+				}},
+			}}
+			guest_nodes[#guest_nodes+1] = {n=G.UIT.R, config={ align = "cm", padding = 0.1 }}
+		end
+	end
+    G.FUNCS.overlay_menu {
+		definition = create_UIBox_generic_options({
+			colour = G.ACTIVE_MOD_UI and ((G.ACTIVE_MOD_UI.ui_config or {}).collection_colour or (G.ACTIVE_MOD_UI.ui_config or {}).colour),
+			bg_colour = G.ACTIVE_MOD_UI and ((G.ACTIVE_MOD_UI.ui_config or {}).collection_bg_colour or (G.ACTIVE_MOD_UI.ui_config or {}).bg_colour),
+			back_colour = G.ACTIVE_MOD_UI and ((G.ACTIVE_MOD_UI.ui_config or {}).collection_back_colour or (G.ACTIVE_MOD_UI.ui_config or {}).back_colour),
+			outline_colour = G.ACTIVE_MOD_UI and ((G.ACTIVE_MOD_UI.ui_config or {}).collection_outline_colour or (G.ACTIVE_MOD_UI.ui_config or {}).outline_colour),
+			back_func = "openModUI_"..G.ACTIVE_MOD_UI.id, contents = {
+                {n=G.UIT.R, config={ align = "cm" }, nodes={
+                    {n=G.UIT.T, config={ text = "Our lovely Guests:", scale = 0.6, shadow = true, colour = G.C.UI.TEXT_LIGHT }},
+                }}, { n=G.UIT.R, config={ align = "cm" }, nodes = guest_nodes }
+			}
+		})
+    }
+end
+
 -- Create Credits-Tab [Not Translated]
 SMODS.current_mod.extra_tabs = function()
 	return {{
@@ -393,11 +439,27 @@ SMODS.current_mod.extra_tabs = function()
 								button = "SEMBY_Artist_Collection",
 								view_key = "placeholder", view_guests = true,
 								colour = G.C.CHANCE,
-								hover = true, minw = G.ROOM.T.w * 0.2,
+								hover = true, minw = G.ROOM.T.w * 0.14,
 								padding = 0.2, r = 0.1, shadow = true,
 								align = "cm", -- minh = G.ROOM.T.h * 0.1,
 							}, nodes = {{n=G.UIT.T, config={
-								text = "Guest Artists",
+								text = "Guest Art",
+								scale = 0.4, colour = G.C.UI.TEXT_LIGHT,
+							}}}}
+						}},
+					}},
+					{n=G.UIT.C, config={ align = "cm", padding = 0.05 }},
+					{n=G.UIT.C, config={ align = "cm" }, nodes={
+						{n=G.UIT.R, config={ align = "cm", padding = 0.2 }},
+						{n=G.UIT.R, config={ align = "cm" }, nodes={
+							{n=G.UIT.C, config={
+								button = "SEMBY_Guest_Credits",
+								colour = G.C.CHANCE,
+								hover = true, minw = G.ROOM.T.w * 0.05,
+								padding = 0.2, r = 0.1, shadow = true,
+								align = "cm", -- minh = G.ROOM.T.h * 0.1,
+							}, nodes = {{n=G.UIT.T, config={
+								text = "Links",
 								scale = 0.4, colour = G.C.UI.TEXT_LIGHT,
 							}}}}
 						}},

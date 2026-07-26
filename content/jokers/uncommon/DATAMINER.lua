@@ -4,7 +4,7 @@ local textures = {
 }
 SMODS.Joker {
 	key = "DATAMINER",
-	SEMBY_art = "placeholder",
+	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_2",
 	pos = textures.base,
     eternal_compat = true,

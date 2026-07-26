@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = 'microcosm',
-    SEMBY_art = "lizrushpy",
+    SEMBY_art = "lanedarushpy",
 	atlas = "SEMBY_consumables",
     pos = { x = 2, y = 0 },
     set = "Planet",
