@@ -68,7 +68,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Buccaneer | Adds 3 times the sell<br>value of all other<br>owned Jokers to Chips<br>(Currently +0 Chips) | $4 | Common | -- |
 | Bunburrow | Gain $12 every<br>4 Rerolls<br>(4 remaining) | $4 | Common | Animal |
 | Butterfly | 0 Chips<br>Gains +2 Chips<br>if played hand<br>contains a Pair,<br>Loses 4 Chips<br>if it doesn't | $6 | Common | Animal |
-| Cassette Beast | Retrigger scoring cards<br>for each scoring suit | $8 | Rare | Animal, Music |
+| Cassette Beast | Retrigger scoring cards<br>for each scoring suit<br>beyond the first suit | $8 | Rare | Animal, Music |
 | Ceaseless Void | When a Card is sold, gain<br>+3% Blind Size, X0.02 Mult<br>or X0.02 Chips for each<br>$1 of sell value<br>When Blind is selected<br>increase Blind Size by 0%<br>X1 Chips, X1 Mult | $8 | Rare | Animal, Space |
 | Chrono Break | Revive shattered<br>playing cards<br>Shatter 1 in 4<br>scoring cards | $7 | Rare | Magic, Music |
 | Cockroach | +1 Ante when<br>Boss Blind<br>is defeated<br>Possessive | $6 | Uncommon | Animal |
@@ -109,7 +109,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Money Laundering | When Blind is selected,<br>gain +2 Hands and<br>+2 Discards<br>Increase shop<br>prices by 200% | $8 | Uncommon | -- |
 | Nashi Pear | When Blind is selected,<br>increase Round score<br>by 10.000 and reduce<br>this by 2000 | $3 | Common | Food |
 | Nostalgia | When Blind is selected,<br>take $1 of sell value<br>from every Joker and<br>Consumable card<br>Create a Memory card<br>for every $3 taken<br>($3 remaining) | $6 | Uncommon | -- |
-| Oblivion | When beating Ante 1+<br>Loop back to Ante 1<br>Every Loop increases<br>all Blind Sizes by 50%<br>(Currently +0%)<br>Every Loop increases<br>Boss payouts by $3<br>(Currently $0) | $20 | Legendary | -- |
+| Oblivion | When beating an Ante<br>you may choose to<br>Loop back to Ante 1<br>Gain X1 Mult each<br>Ante looped back<br>(Currently X1 Mult)<br>When looping back,<br>permanently increase<br>all Blind Sizes by 100% | $20 | Legendary | -- |
 | Obscure Ritual | Reduce Blind Size<br>by 66.6% when drawing<br>the last card | $5 | Uncommon | Magic |
 | Opulent Skint | Sell this card to<br>replace a random<br>card in the Shop<br>with this Joker<br>1 in 256 chance<br>to transform into<br>a Legendary Joker<br>when Bought | $10 | Uncommon | Animal |
 | Ouroboros | Each scored 8 gives<br>+1 Hand and increases<br>the Blind Size by 8% | $8 | Rare | Animal |
@@ -130,7 +130,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Quest? | Start a Quest!<br>Complete it to<br>Win the Game and<br>obtain a random<br>Legendary Joker | $7 | Uncommon | Multistage* |
 | Red Lion | X2.5 Mult<br>Loses X0.1 Mult<br>for each Enhanced<br>card in your deck | $6 | Uncommon | -- |
 | Red Mask | This Joker gains +8 Chips<br>when adding or removing<br>a playing card<br>(Currently +0 Chips) | $6 | Uncommon | -- |
-| Replicator  | Destroys the next 20<br>played cards to Duplicate<br>the rightmost Joker<br>self destructs<br>(Currently 0/20) | $6 | Rare | -- |
+| Replicator | Destroys the next 10<br>playing cards added to<br>the deck to Duplicate<br>the rightmost Joker<br>self destructs<br>(Currently 0/10) | $5 | Rare | -- |
 | Ripped Joker | +90 Chips if played<br>hand contains<br>exactly 3 cards | $5 | Common | -- |
 | Risky Joker | Scoring cards take<br>6 Chips and 2 Mult<br>and increase the<br>Blind Payout by $1<br>(Next payout +$0) | $6 | Common | -- |
 | Scaffolding | 0/5 Hand size<br>When a Joker is sold,<br>gain +1 Hand size for<br>each $1 of sell value<br>Lose 2 Hand size<br>each Hand played | $5 | Uncommon | -- |

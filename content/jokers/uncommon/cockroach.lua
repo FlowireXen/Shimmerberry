@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "cockroach", --> The Roach that Kills you
+	key = "cockroach", --> The Roach that Kills ~~you~~ Blinds
 	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_1",
 	pos = { x = 7, y = 2 },
@@ -10,16 +10,18 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
+			percent = 0.2,
 			ante_mod = 1.0
 		}
 	},
     attributes = {
-		'boss_blind',
+		'boss_blind', 'xblindsize',
 		'ante', 'animal'
 	},
 	loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { key = "SEMBY_skip_info", set = "Other" }
 		return { vars = {
+			card.ability.extra.percent * 100,
 			card.ability.extra.ante_mod
 		} }
 	end,
@@ -27,6 +29,20 @@ SMODS.Joker {
 		if card.config.center.discovered and initial then
 			card:add_sticker('SEMBY_possessive', true)
 		end
+	end,
+    add_to_deck = function(self, card, from_debuff)
+        SEMBY_Global_BlindMod_Add('cockroach'..card.sort_id, -card.ability.extra.percent)
+		SEMBY_Update_Blind_Select(true)
+	end,
+    remove_from_deck = function(self, card, from_debuff)
+		SEMBY_Global_BlindMod_Remove('cockroach'..card.sort_id)
+		if not from_debuff then
+			card_eval_status_text(card, 'extra', nil, nil, nil, {
+				message = localize('SEMBY_escaped'),
+				colour = G.C.DARK_EDITION
+			})
+		end
+		SEMBY_Update_Blind_Select()
 	end,
 	calculate = function(self, card, context)
 		if context.modify_ante and context.ante_end then

@@ -142,7 +142,6 @@ return {
 					"shatter like {C:attention}Glass",
 					"{s:0.2} {}",
 					"{C:SEMBY_possessive,E:2}Possessive",
-					"{s:0.2} {}",
 				}
 			},
 			j_SEMBY_berry_blue = {
@@ -266,7 +265,8 @@ return {
 				name = "Cassette Beast",
 				text = {
 					"Retrigger scoring cards",
-					"for {C:attention}each{} scoring suit"
+					"for {C:attention}each{} scoring suit",
+					"beyond the first suit",
 				}
 			},
 			j_SEMBY_ceaseless_void = {
@@ -295,12 +295,14 @@ return {
 			j_SEMBY_cockroach = {
 				name = "Cockroach",
 				text = {
-					"{C:attention}+#1#{} Ante when",
-					"{C:attention}Boss Blind",
+					"{C:green}Reduces{} Blind",
+					"Sizes by {C:SEMBY_percent}#1#%{}",
+					"{s:0.2} {}",
+					"{C:attention}+#2#{} Ante when",
+					"{C:attention}Boss Blind{}",
 					"is defeated",
 					"{s:0.2} {}",
-					"{C:SEMBY_possessive,E:2}Possessive",
-					"{s:0.2} {}",
+					"{C:SEMBY_possessive,E:2}Possessive{}",
 				}
 			},
 			j_SEMBY_common_denominator = {
@@ -689,17 +691,17 @@ return {
 			j_SEMBY_oblivion = {
 				name = "Oblivion",
 				text = {{
-					"When beating Ante {C:attention}#1#",
-					"{E:2}Loop{} back to Ante {C:attention}#2#",
-					--"Loop: {C:attention}#7#{}",
+					"When beating an {C:attention}Ante{}",
+					"you may choose to",
+					"{E:2}Loop back{} to Ante {C:attention}#1#{}",
 				}, {
-					"Every {E:2}Loop{} {C:red}increases",
-					"all {C:attention}Blind Sizes{} by {C:SEMBY_percent}#3#%",
-					"{C:inactive}(Currently {C:SEMBY_percent}+#4#%{C:inactive})",
+					"Gain {X:mult,C:white}X#2#{} Mult each",
+					"Ante looped back",
+					"{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult){}",
 				}, {
-					"Every {E:2}Loop{} {C:green}increases",
-					"{C:attention}Boss{} payouts by {C:money}$#5#",
-					"{C:inactive}(Currently {C:money}$#6#{C:inactive})",
+					"When looping back,",
+					"{E:2}permanently{C:red} increase{}",
+					"all {C:attention}Blind Sizes{} by {C:SEMBY_percent}#4#%{}",
 				}}
 			},
 			j_SEMBY_obscure_ritual = {
@@ -1042,10 +1044,11 @@ return {
 				}
 			},
 			j_SEMBY_replicator = {
-				name = "Replicator", 
+				name = "Replicator",
 				text = {
 					"{C:attention}Destroys{} the next {C:attention}#1#{}",
-					"played cards to {C:attention}Duplicate{}",
+					"playing cards added to",
+					"the deck to {C:attention}Duplicate{}",
 					"the rightmost Joker",
 					"{C:red,E:2}self destructs{}",
 					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#){}",
@@ -1174,6 +1177,7 @@ return {
 					"{C:attention}Restocks{} bought",
 					"Booster Packs, Cards",
 					"and Vouchers in {C:money}Shop{}",
+					"{C:inactive,s:0.9}({C:attention,s:0.9}#1#{C:inactive,s:0.9} uses for Vouchers){}",
 				}, {
 					"{V:1}#2#{} uses left",
 				}}
@@ -1183,7 +1187,7 @@ return {
 				text = {
 					"{X:mult,C:white}X#1#{} Mult for each",
 					"{X:common,C:white}Common{} Joker",
-					"{C:inactive}(Currently {}{X:mult,C:white}X#2#{}{C:inactive} Mult)",
+					"{C:inactive}(Currently {}{X:mult,C:white}X#2#{C:inactive} Mult){}",
 				}
 			},
 			j_SEMBY_t3mprr = {
@@ -1684,9 +1688,10 @@ return {
 			tag_SEMBY_adt_duplitage = {
 				name = "Duplitage", --or "Dupli-Tag", like "Duplication Tag"
 				text = {
-        		    "Gives a copy of the",
-        		    "next obtained {C:attention}Joker{}",
-        		    "{C:inactive}(Must have room){}",
+        		    "Creates a copy",
+					"of the next",
+        		    "obtained {C:attention}Joker{}",
+        		    "{C:inactive,s:0.9}(Must have room){}",
 				}
 			},
 			tag_SEMBY_adt_intimidating = {
@@ -2097,6 +2102,7 @@ return {
 			SEMBY_emergency_meeting = "EMERGENCY MEETING",
 			SEMBY_empty_memory = "Empty",
 			SEMBY_enhancement = "Enhancement",
+			SEMBY_escaped = "Escaped...",
 			SEMBY_eternal_cleared = "Eternal Cleared",
 			SEMBY_eval_cockroach = "Skitters",
 			SEMBY_explode_1 = "BOOM!",
@@ -2121,6 +2127,9 @@ return {
 			SEMBY_joker_slot_plus = "+1 Joker Slot",
 			SEMBY_lavish_debt = "You owe me..",
 			SEMBY_level_up_ex = "Level Up!",
+			SEMBY_loop_back = { "Loop back", "Antes" }, -- "Loop back [X] Antes"
+			SEMBY_loop_blind = { "Permanent", "Blind Sizes" }, -- "Permanent", "+[X]% Blind Sizes"
+			SEMBY_loop_dont = { "Don't", "Loop back" }, --> Each entry is a new line
 			SEMBY_lose_01_berry = "Out of Berries",
 			SEMBY_lose_07_hunted = "Target Eliminated.",
 			SEMBY_lose_12_gaokao = "Test Failed",
@@ -2132,7 +2141,6 @@ return {
 			SEMBY_money_dirty = "NOT CLEAN!!",
 			SEMBY_NaN = "NaN", --> Not a Number
 			SEMBY_nothing = "Nothing",
-			SEMBY_oblivion_removed = "Escaped...",
 			SEMBY_overshot_ex = "Overshot!",
 			SEMBY_parking_disc_free = "Free Parking!",
 			SEMBY_parking_disc_boss_2 = "Additional Hands",

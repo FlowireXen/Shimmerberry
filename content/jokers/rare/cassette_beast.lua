@@ -19,9 +19,8 @@ SMODS.Joker {
     },
 	calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play and G.GAME.SEMBY_suit_count then
-			return {
-				repetitions = G.GAME.SEMBY_suit_count
-			}, true
+			local repeats = math.max(0, G.GAME.SEMBY_suit_count - 1)
+			if repeats ~= 0 then return { repetitions = repeats }, true end
         end
 	end
 }

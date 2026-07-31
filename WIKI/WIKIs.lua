@@ -748,7 +748,7 @@ return {
 
 |-
 | {{captimg||Cassette Beast|imgsize=142px}}
-| Retrigger scoring cards<br>for {{ct|attention|each}} scoring suit
+| Retrigger scoring cards<br>for {{ct|attention|each}} scoring suit<br>beyond the first suit
 | $8
 | {{rarity|rare}}
 | {{jtype|...}}
@@ -1084,10 +1084,10 @@ return {
 
 |-
 | {{captimg||Oblivion|imgsize=142px}}
-| When beating Ante {{ct|attention|1+}}<br>Loop back to Ante {{ct|attention|1}}<br>Every Loop {{ct|red|increases}}<br>all {{ct|attention|Blind Sizes}} by {{ct|darkpurple|50%}}<br>{{ct|inactive|(Currently {{ct|darkpurple|+0%}})}}<br>Every Loop {{ct|green|increases}}<br>{{ct|attention|Boss}} payouts by {{ct|money|$3}}<br>{{ct|inactive|(Currently {{ct|money|$0}})}}
+| When beating an {{ct|attention|Ante}}<br>you may choose to<br>Loop back to Ante {{ct|attention|1}}<br>Gain {{ct|xmult|X1}} Mult each<br>Ante looped back<br>{{ct|inactive|(Currently {{ct|xmult|X1}} Mult)}}<br>When looping back,<br>permanently {{ct|red|increase}}<br>all {{ct|attention|Blind Sizes}} by {{ct|darkpurple|100%}}
 | $20
 | {{rarity|legendary}}
-| {{jtype|O!}}<br>{{jtype|+$}}
+| {{jtype|Xm}}<br>{{jtype|O!}}
 | '''Flowire'''
 
 |-
@@ -1228,8 +1228,8 @@ return {
 
 |-
 | {{captimg||Replicator|imgsize=142px}}
-| {{ct|attention|Destroys}} the next {{ct|attention|10}}<br>played cards to {{ct|attention|Duplicate}}<br>the rightmost Joker<br>{{ct|red|self destructs}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/20)}}
-| $6
+| {{ct|attention|Destroys}} the next {{ct|attention|10}}<br>playing cards added to<br>the deck to {{ct|attention|Duplicate}}<br>the rightmost Joker<br>{{ct|red|self destructs}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/10)}}
+| $5
 | {{rarity|rare}}
 | {{jtype|[X]}}<br>{{jtype|[+]}}<br>{{jtype|???}}
 | '''unkokat'''

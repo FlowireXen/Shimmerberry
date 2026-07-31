@@ -7,7 +7,7 @@ SMODS.Joker {
     perishable_compat = true,
     blueprint_compat = false,
 	rarity = 3,
-	cost = 6,
+	cost = 5,
 	config = {
 		extra = {
 			max_amount = 10,
@@ -39,47 +39,47 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if not context.blueprint_card then
-			-- Destroy
-			if context.individual and (context.cardarea == G.play or context.cardarea == "unscored")
-			and card.ability.extra.amount < card.ability.extra.max_amount then
-				context.other_card.ability.SEMBY_replicated = true
-				card.ability.extra.amount = card.ability.extra.amount + 1
-				return { message = localize { type = 'variable', key = 'SEMBY_out_of', vars = {
-					card.ability.extra.amount, card.ability.extra.max_amount
-				} } }
-			end
-			if context.destroy_card and (context.cardarea == G.play or context.cardarea == 'unscored')
-			and context.destroy_card.ability.SEMBY_replicated then
-				context.destroy_card.ability.SEMBY_replicated = nil
-				return { remove = true }
-			end
-			-- Copy
-			if context.after and card.ability.extra.amount >= card.ability.extra.max_amount then
-        		G.GAME.SEMBY_used_replicator = (G.GAME.SEMBY_used_replicator or 0) + 1
-				-- Create & Add Copy
-                local replicated_joker = copy_card(G.jokers.cards[#G.jokers.cards])
-                replicated_joker:add_to_deck()
-				replicated_joker.states.visible = nil
-                G.jokers:emplace(replicated_joker)
-            	G.E_MANAGER:add_event(Event({
-            	    func = function()
-						replicated_joker:SEMBY_revive_animation()
-            	        return true
-            	    end
-            	}))
-				-- Destroy Replicator
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-						card.shattered = true
-                        SMODS.destroy_cards(card, nil, true)
-                        return true
-                    end
-                }))
-                return { message = localize('k_duplicated_ex') }
+			if context.playing_card_added and context.cards then
+				local amount = math.min(#context.cards, card.ability.extra.max_amount - card.ability.extra.amount)
+				if amount > 0 then
+					local destroy = {}
+					for i = 1, amount do
+						if not context.cards[i].SEMBY_replicated then
+							context.cards[i].SEMBY_replicated = true
+							destroy[#destroy+1] = context.cards[i]
+						end
+					end
+					if #destroy > 0 then
+						delay(0.2)
+						SMODS.destroy_cards(destroy)
+						card.ability.extra.amount = card.ability.extra.amount + #destroy
+						if card.ability.extra.amount >= card.ability.extra.max_amount then
+                			local replicated_joker = copy_card(G.jokers.cards[#G.jokers.cards])
+                			replicated_joker:add_to_deck()
+							replicated_joker.states.visible = nil
+                			G.jokers:emplace(replicated_joker)
+            				G.E_MANAGER:add_event(Event({
+            				    func = function()
+									replicated_joker:SEMBY_revive_animation()
+            				        return true
+            				    end
+            				}))
+                			G.E_MANAGER:add_event(Event({
+                			    func = function()
+									card.shattered = true
+                			        SMODS.destroy_cards(card, nil, true)
+                			        return true
+                			    end
+                			}))
+                			return { message = localize('k_duplicated_ex'), message_card = replicated_joker }
+						else
+							return { message = localize { type = 'variable', key = 'SEMBY_out_of', vars = {
+								card.ability.extra.amount, card.ability.extra.max_amount
+							}}}
+						end
+					end
+				end
 			end
 		end
-	end,
-	in_pool = function(self, args)
-		return not G.GAME.SEMBY_used_replicator
 	end
 }

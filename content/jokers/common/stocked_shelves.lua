@@ -11,8 +11,10 @@ SMODS.Joker {
 	config = {
 		extra = {
 			-- Durability
-			durability = 8,
-			durability_max = 8
+			durability = 10,
+			durability_max = 10,
+			-- Joker
+			penalty = 4
 		}
 	},
     attributes = {
@@ -21,23 +23,26 @@ SMODS.Joker {
 	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = {
-			'NaN',
+			card.ability.extra.penalty,
 			card:SEMBY_durability_amount(),
 			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
 	calculate = function(self, card, context)
-        if not context.blueprint then--and not G.GAME.SEMBY_restocked then
-            local ret_state
+        if not context.blueprint then
+            local ret_state, ret_uses
             if context.buying_card and not context.buying_self then
                 ret_state = context.card == card and 1 or 0
                 if context.card.ability.set == "Voucher" then
-			        G.E_MANAGER:add_event(Event({
-			        	func = function()
-			        		SMODS.add_voucher_to_shop()--(nil, true)
-			        		return true
-			        	end
-			        }))
+					if card.ability.extra.durability - card.ability.extra.penalty > 0 then
+						ret_uses = card.ability.extra.penalty
+			        	G.E_MANAGER:add_event(Event({
+			        		func = function()
+			        			SMODS.add_voucher_to_shop()--(nil, true)
+			        			return true
+			        		end
+			        	}))
+					else return end
                 else
 			        G.E_MANAGER:add_event(Event({
 			        	func = function()
@@ -57,19 +62,12 @@ SMODS.Joker {
 			    }))
             end
             if ret_state then
-                --G.GAME.SEMBY_restocked = true
-			    --G.E_MANAGER:add_event(Event({
-			    --	func = function()
-			    --		G.GAME.SEMBY_restocked = false
-			    --		return true
-			    --	end
-			    --}))
                 return {
                     message = localize('SEMBY_restocked_ex'),
                     colour = G.C.GREEN,
 					func = function()
                         if ret_state == 0 then
-                            card:SEMBY_durability_use()
+                            card:SEMBY_durability_use(ret_uses)
 		    	            card:SEMBY_durability_check()
                         end
 						return true

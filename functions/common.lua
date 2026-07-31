@@ -112,6 +112,9 @@ SMODS.current_mod.calculate = function(self, context)
 		Shimmerberry.config.eden_checksum = math.random()
 		G.GAME.SEMBY_eden_checksum = Shimmerberry.config.eden_checksum
 	end
+	if context.ante_change and context.ante_end and G.GAME.SEMBY_oblivion then
+		G.GAME.SEMBY_oblivion_state = 0
+	end
     if context.starting_shop then
 		G.GAME.SEMBY_shop_active = true
 		return

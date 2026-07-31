@@ -535,7 +535,7 @@ jd_def['j_SEMBY_cassette_beast'] = {
         if card.joker_display_values.update_timer > NORM_UPDATE then
             card.joker_display_values.update_timer = 0
             local text, _, scoring_hand = JokerDisplay.evaluate_hand()
-            local retriggers = text ~= 'Unknown' and SEMBY_count_suits(scoring_hand) or 0
+            local retriggers = text ~= 'Unknown' and math.max(0, SEMBY_count_suits(scoring_hand) - 1) or 0
             card.joker_display_values.retriggers = retriggers ~= 0 and retriggers * (JokerDisplay.calculate_joker_triggers(card) or 0) or 0
             card.joker_display_values.suits = retriggers
             card.joker_display_values.localized_text = ' '..localize('SEMBY_suits')
@@ -1009,23 +1009,17 @@ jd_def['j_SEMBY_nashi_pear'] = {
 }
 jd_def['j_SEMBY_oblivion'] = {
     text = {
-        { text = "+$", colour = G.C.MONEY }, { ref_table = "card.joker_display_values", ref_value = "payout", colour = G.C.MONEY },
-        { text = " +" }, { ref_table = "card.joker_display_values", ref_value = "difficulty" }, { text = "%" }
-    },
-    text_config = { colour = G.C.SEMBY_PERCENT_L },
-    reminder_text = {
-        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "ante" }, { text = ")" }
-    },
+        { border_nodes = {
+            { text = "X" }, { ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" }
+        }, border_colour = G.C.MULT }
+    },--[[
     extra = { {
         { ref_table = "card.joker_display_values", ref_value = "loop" },
     } },
     extra_config = { colour = G.C.UI.TEXT_INACTIVE, scale = 0.35 },
     calc_function = function(card)
         card.joker_display_values.loop = localize{type = 'variable', key = 'SEMBY_loop', vars = { math.floor(card.ability.extra.loop) }}
-        card.joker_display_values.payout = G.GAME.blind and G.GAME.blind.boss and card.ability.extra.payout or 0
-        card.joker_display_values.difficulty = card.ability.extra.difficulty * 100
-        card.joker_display_values.ante = localize('k_ante')..' '..(card.ability.extra.highest_ante or G.GAME.round_resets.ante or 1)
-    end
+    end]]
 }
 jd_def['j_SEMBY_obscure_ritual'] = {
     reminder_text = {
@@ -1446,23 +1440,10 @@ jd_def['j_SEMBY_red_mask'] = {
 }
 jd_def['j_SEMBY_replicator'] = {
     text = {
-        { ref_table = "card.joker_display_values", ref_value = "amount", colour = G.C.IMPORTANT },
-        { text = "/" },
-        { ref_table = "card.ability.extra", ref_value = "max_amount" }
+        { ref_table = "card.ability.extra", ref_value = "amount", colour = G.C.IMPORTANT },
+        { text = "/" }, { ref_table = "card.ability.extra", ref_value = "max_amount" }
     },
-    text_config = { colour = G.C.UI.TEXT_INACTIVE },
-    calc_function = function(card)
-        local amount = G.STATE == G.STATES.HAND_PLAYED and card.joker_display_values.prev or card.ability.extra.amount
-        card.joker_display_values.prev = amount
-        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
-        local triggers = JokerDisplay.calculate_joker_triggers(card) or 0
-        if triggers ~= 0 and text ~= 'Unknown' then
-            for _, scoring_card in pairs(scoring_hand) do
-                amount = amount + triggers * JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
-            end
-        end
-        card.joker_display_values.amount = math.min(card.ability.extra.max_amount, amount)
-    end
+    text_config = { colour = G.C.UI.TEXT_INACTIVE }
 }
 jd_def['j_SEMBY_ripped_joker'] = {
     text = {
