@@ -54,8 +54,6 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 Nerfs/Buffs/Changes
 
-Hemoturgy -> Leftmost Discarded card gains... -> -1 Limit
-Singularity -> Creates copies of the next 12 scoring cards (12 remaining). Occupies 2 Joker slots.
 
 
 Check JokerDisplay + Desc. + Wiki:
@@ -85,9 +83,15 @@ red_mask
 scav
 stern teacher
 the dwarf
+stocked shelves
+hemoturgy (durability, show how much it would change based on selected hand)
+singularity (also jokerdisplay)
+watching forst
 
 
 
+
+Change "s:0.8" in translation files to "s:0.9" where applicable
 
 Quest Challenge: Limit to getting the Harder Quests only
 
@@ -96,7 +100,7 @@ Hopeless Deck: (Figure out) do two rolls and always take the higher one? (Or alw
 
 
 All joker that use Durability should also have the Tag, so Toolkit can spawn for them!
---> "SEMBY_durability_use"/"SEMBY_durability_check"
+--> look for "SEMBY_durability_use"/"SEMBY_durability_check"
 
 
 Check for ##TODO##'s

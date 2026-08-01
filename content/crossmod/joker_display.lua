@@ -1994,31 +1994,7 @@ jd_def['j_SEMBY_unicorn'] = {
 }
 jd_def['j_SEMBY_vip_ticket'] = { } -- no info
 jd_def['j_SEMBY_warm_embrace'] = { } -- no info
-jd_def['j_SEMBY_watching_forest'] = {
-    --text = {
-    --    { ref_table = "card.joker_display_values", ref_value = "order_text" }
-    --},
-    --text_config = { colour = G.C.UI.TEXT_INACTIVE, scale = 0.35 },
-    reminder_text = {
-        { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "remaining" }, { text = ")" },
-    },
-    calc_function = function(card)
-        local remaining = card.ability.extra.remaining + (next(G.play.cards) and 1 or 0)
-        local active = remaining % (card.ability.extra.every + 1) == 0
-        card.joker_display_values.remaining = localize {
-			type = 'variable',
-			key = (active and 'loyalty_active' or 'loyalty_inactive'),
-			vars = { remaining }
-		}
-        card.joker_display_values.colour = active and G.C.GREEN or nil
-        --card.joker_display_values.order_text = localize('SEMBY_sort_'..card.ability.extra.order)
-    end,
-    style_function = function(card, text, reminder_text, extra)
-        if reminder_text and reminder_text.children and reminder_text.children[2] and card.joker_display_values then
-            reminder_text.children[2].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE
-        end
-    end
-}
+jd_def['j_SEMBY_watching_forest'] = { } -- no info
 -- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
 -- ## CONSUMABLES :: Special Rulings                        ## -- ##  ##  ##  #  #  ##  ##  ##
 -- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###

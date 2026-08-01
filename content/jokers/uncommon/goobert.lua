@@ -60,12 +60,12 @@ SMODS.Joker {
 			-- Get & Create new Cards:
 			local slimed_cards = {}
 			for _, playing_card in ipairs(context.cards) do
-				if not playing_card.ability.SEMBY_goobert then
+				if not playing_card.ability.SEMBY_copy then
 					if context.blueprint or card:SEMBY_durability_use() then
 						-- Create Copy
 						G.playing_card = (G.playing_card and G.playing_card + 1) or 1
 						local slime_card = copy_card(playing_card, nil, nil, G.playing_card)
-						slime_card.ability.SEMBY_goobert = true
+						slime_card.ability.SEMBY_copy = true
 						slime_card.states.visible = nil --> Visual Stuff;
 						-- Modify Copy
 						local slime_mod = pseudorandom("SEMBY_goobert")
@@ -85,6 +85,7 @@ SMODS.Joker {
 						G.deck.config.card_limit = G.deck.config.card_limit + 1
 						table.insert(G.playing_cards, slime_card)
 						-- Setup for Visuals and correct Emplace!
+						slime_card.SEMBY_keep_area = playing_card.area == G.hand
 						slimed_cards[#slimed_cards + 1] = slime_card
 					end
 				end
@@ -157,23 +158,26 @@ SMODS.Joker {
 						return true
 					end
 				}))
-				-- Shuffle Cards into Deck (if needed)
-				if not G.GAME.blind.in_blind then
-					G.E_MANAGER:add_event(Event({
-						trigger = 'after',
-						delay = 0.4,
-						func = function()
-							-- Add to Deck instead:
-							for i = 1, #slimed_cards do
+				-- Update Area
+				local wait_before = true
+				for i = 1, #slimed_cards do
+					if not slimed_cards[i].SEMBY_keep_area then
+						if wait_before then wait_before = false; delay(1.0) end
+						G.E_MANAGER:add_event(Event({
+							trigger = 'after',
+							delay = 0.2,
+							func = function()
+								play_sound('cardSlide1', math.random()*0.2 + 0.9, 0.8)
 								slimed_cards[i].area:remove_card(slimed_cards[i])
 								G.deck:emplace(slimed_cards[i])
+								return true
 							end
-							return true
-						end
-					}))
-				else
-					delay(0.4)
+						}))
+					end
+					slimed_cards[i].SEMBY_keep_area = nil
 				end
+				if wait_before then delay(0.2) end
+				-- Remove "Copy"-Tag
 				local alive = card:SEMBY_durability_check()
 				return {
 					message = localize('SEMBY_goobert_'..(alive and math.random(1, 4) or 'X')),
@@ -183,7 +187,7 @@ SMODS.Joker {
 							func = function()
 								SMODS.calculate_context({ playing_card_added = true, cards = slimed_cards })
 								for i = 1, #slimed_cards do
-									slimed_cards[i].ability.SEMBY_goobert = nil
+									slimed_cards[i].ability.SEMBY_copy = nil
 								end
 								return true
 							end
@@ -191,7 +195,7 @@ SMODS.Joker {
 					end
 				}
 			end
-            return nil, true
+			return
 		end
 	end
 }

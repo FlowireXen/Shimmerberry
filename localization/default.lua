@@ -492,13 +492,15 @@ return {
 			},
 			j_SEMBY_hemoturgy = {
 				name = "Hemoturgy",
-				text = {
+				text = {{
 					"Discarded cards gain",
 					"a random {C:dark_edition}Edition{},",
-					"{C:enhanced}Enhancement{} or {C:attention}Seal",
-					"{s:0.2} {}",
-					"{C:red}-#1#{} Discard Limit",
-				}
+					"{C:enhanced}Enhancement{} or {C:attention}Seal{}",
+				}, {
+					"{V:1}#1#{} uses left",
+					"{C:attention,s:0.9}-#2#{C:inactive,s:0.9} for first {C:attention,s:0.9}#3#{}",
+					"{C:inactive,s:0.9}cards each discard{}",
+				}}
 			},
 			j_SEMBY_hypetrain = {
 				name = alt and "HYPETRAIN" or "Hypetrain",
@@ -1136,16 +1138,19 @@ return {
 			j_SEMBY_singularity = {
 				name = "Singularity",
 				text = {{
-					"Create a copy of {E:1}every",
-					"{C:attention}scoring card{} without an",
-					"{C:purple,E:2}Event Horizon{} sticker",
+
+					"Creates {C:attention}#1#{} copies",
+					"of {C:attention}playing cards{}",
+					"added to your deck",
+
+					--Whenever you add a Playing Card to your Deck, add 2 additional copies.
+
 				}, {
 					"When this {C:attention}Joker{} gets",
 					"removed, {C:red}Destroy{} all",
 					"cards it has created",
-					"{C:inactive}(Can't be {C:SEMBY_debuff}Debuffed{C:inactive})",
 				}, {
-					"Occupies {C:attention}#1#{} Joker slots",
+					"Occupies {C:attention}#2#{} Joker slots",
 				}}
 			},
 			j_SEMBY_stern_teacher = {
@@ -1177,9 +1182,9 @@ return {
 					"{C:attention}Restocks{} bought",
 					"Booster Packs, Cards",
 					"and Vouchers in {C:money}Shop{}",
-					"{C:inactive,s:0.9}({C:attention,s:0.9}#1#{C:inactive,s:0.9} uses for Vouchers){}",
 				}, {
-					"{V:1}#2#{} uses left",
+					"{V:1}#1#{} uses left",
+					"{C:attention,s:0.9}-#2#{C:inactive,s:0.9} for Vouchers{}",
 				}}
 			},
 			j_SEMBY_swordswallower = {
@@ -1324,7 +1329,7 @@ return {
 					"end of the round",
 				}, {
 					"{V:1}#2#{} uses left",
-					"{C:inactive,s:0.8}Can't be repaired",
+					"{C:inactive,s:0.9}Can't be repaired{}",
 				}}
 			},
 			j_SEMBY_twenty_to_die_for = {
@@ -1364,13 +1369,12 @@ return {
 				name = "Watching Forest",
 				text = {{
 					"Sort the Deck",
-					"{C:attention,E:1}#1#{}",
+					"{C:attention,E:1}lowest to highest{}",
 					"after drawing the",
 					"first hand each round",
 				}, {
-					"Change sort order",
-					"every {C:attention}#2#{} hands played",
-					"{C:inactive}#3#",
+					"Shuffles the Deck",
+					"when using a {C:attention}Discard{}",
 				}}
 			},
 			-- Vanilla Rework:
@@ -2163,11 +2167,11 @@ return {
 			SEMBY_seal = "Seal",
 			SEMBY_shop_next = "Next shop",
 			SEMBY_shop_this = "This shop!",
+			SEMBY_shuffled_ex = "Shuffled!",
 			SEMBY_smoll = "Tiny",
-			SEMBY_sort_asc = "highest to lowest",
-			SEMBY_sort_desc = "lowest to highest",
+			--SEMBY_sort_asc = "highest to lowest",
+			--SEMBY_sort_desc = "lowest to highest",
 			SEMBY_sorted_ex = "Sorted!",
-			SEMBY_switch_ex = "Switched!",
 			SEMBY_T3MPRR_1 = "FEELN GREAT",
 			SEMBY_T3MPRR_2 = "DW C UR FACE",
 			SEMBY_T3MPRR_3 = "MISS UR TASTE",
@@ -2182,7 +2186,6 @@ return {
 			SEMBY_TMTRAINER_Y1 = "Changed!",
 			SEMBY_TMTRAINER_Y2 = "Changed?",
 			SEMBY_TMTRAINER_Y3 = "han!Cedg",
-			SEMBY_unchanged = "Unchanged",
 			SEMBY_value_down = "Value Down!",
 			-- Joker Display:
 			SEMBY_axed = "Axed",

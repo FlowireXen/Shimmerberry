@@ -14,7 +14,7 @@ SMODS.Joker {
 			durability = 10,
 			durability_max = 10,
 			-- Joker
-			penalty = 4
+			durability_diff = 4
 		}
 	},
     attributes = {
@@ -23,8 +23,8 @@ SMODS.Joker {
 	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = {
-			card.ability.extra.penalty,
 			card:SEMBY_durability_amount(),
+			card.ability.extra.durability_diff,
 			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
@@ -34,8 +34,8 @@ SMODS.Joker {
             if context.buying_card and not context.buying_self then
                 ret_state = context.card == card and 1 or 0
                 if context.card.ability.set == "Voucher" then
-					if card.ability.extra.durability - card.ability.extra.penalty > 0 then
-						ret_uses = card.ability.extra.penalty
+					if card.ability.extra.durability - card.ability.extra.durability_diff > 0 then
+						ret_uses = card.ability.extra.durability_diff
 			        	G.E_MANAGER:add_event(Event({
 			        		func = function()
 			        			SMODS.add_voucher_to_shop()--(nil, true)
