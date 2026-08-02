@@ -13,7 +13,7 @@ return {
 					"{C:legendary}Fluffy{} and {C:attention}Vanilla-Like{} content:",
 					"{s:0.2} {}",
 					"{C:attention}90{} Jokers, {C:blue}20{} Challenges, {C:tarot}4{} Vouchers,",
-					"{C:red}3{} Decks {C:inactive,s:0.8}(& Sleeves){}, {C:spectral}3{} Consumables",
+					"{C:red}3{} Decks {C:inactive,s:0.9}(& Sleeves){}, {C:spectral}3{} Consumables",
 					"and {C:dark_edition,E:1}more{}!",
                     " ",
                     "Programming by {C:SEMBY_flowire}Flowire{}.",
@@ -1115,7 +1115,7 @@ return {
 					"defeated, upgrade",
 					"every {C:legendary,E:1}Poker Hand",
 					"by {C:green}#1#{} level{C:inactive}(s)",
-					"{s:0.8,C:inactive}(Probability affected)",
+					"{s:0.9,C:inactive}(Probability affected)",
 				}
 			},
 			j_SEMBY_shrewd_joker = {
@@ -1138,13 +1138,9 @@ return {
 			j_SEMBY_singularity = {
 				name = "Singularity",
 				text = {{
-
 					"Creates {C:attention}#1#{} copies",
 					"of {C:attention}playing cards{}",
-					"added to your deck",
-
-					--Whenever you add a Playing Card to your Deck, add 2 additional copies.
-
+					"added to the deck",
 				}, {
 					"When this {C:attention}Joker{} gets",
 					"removed, {C:red}Destroy{} all",

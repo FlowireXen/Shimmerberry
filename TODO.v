@@ -52,55 +52,19 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Nerfs/Buffs/Changes
-
-
-
-Check JokerDisplay + Desc. + Wiki:
-Cockroach
-Goldenberry
-barmy, daffy, peculiar, shrewd, .. joker
-buccaneer
-Butterfly
-foxie plush
-lottery
-mineshaft
-pinata
-ripped
-tempered glass
-unicorn
-TMTR
-adblocker
-A,C,E,
-Chrono
-echo
-coupon booklet
-digitizon/nostalgia
-doomsday
-fire exin't
-money launder
-red_mask
-scav
-stern teacher
-the dwarf
-stocked shelves
-hemoturgy (durability, show how much it would change based on selected hand)
-singularity (also jokerdisplay)
-watching forst
-
-
-
-
-Change "s:0.8" in translation files to "s:0.9" where applicable
 
 Quest Challenge: Limit to getting the Harder Quests only
 
 Hopeless Deck: (Figure out) do two rolls and always take the higher one? (Or always choose the extremes)
 
+Add Foxie Plush as extra card to Title screen when 10% secret chance is active!
+(Also make sure the secret chance can't happen on first start-up, secret config!)
 
+stern teacher: only show "reset" when t actually does something! :3
 
 All joker that use Durability should also have the Tag, so Toolkit can spawn for them!
 --> look for "SEMBY_durability_use"/"SEMBY_durability_check"
+--> Also reflect in Wiki/Readme + Jokerdisplay !!
 
 
 Check for ##TODO##'s

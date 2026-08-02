@@ -71,7 +71,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Cassette Beast | Retrigger scoring cards<br>for each scoring suit<br>beyond the first suit | $8 | Rare | Animal, Music |
 | Ceaseless Void | When a Card is sold, gain<br>+3% Blind Size, X0.02 Mult<br>or X0.02 Chips for each<br>$1 of sell value<br>When Blind is selected<br>increase Blind Size by 0%<br>X1 Chips, X1 Mult | $8 | Rare | Animal, Space |
 | Chrono Break | Revive shattered<br>playing cards<br>Shatter 1 in 4<br>scoring cards | $7 | Rare | Magic, Music |
-| Cockroach | +1 Ante when<br>Boss Blind<br>is defeated<br>Possessive | $6 | Uncommon | Animal |
+| Cockroach | Reduces Blind<br>Sizes by 20%<br>+1 Ante when<br>Boss Blind<br>is defeated<br>Possessive | $6 | Uncommon | Animal |
 | Common Denominator | Copies abilities of<br>all Common Jokers<br>Commons: 0<br>Compatible: 0<br>Incompatible: 0 | $10 | Rare | -- |
 | Copy Printer | At the end of the Shop<br>convert the Joker to the left<br>into the Joker to the right<br>(Conditional self destruct) | $12 | Rare | -- |
 | Coupon | Shops are<br>20% cheaper | $6 | Common | -- |
@@ -92,7 +92,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Gold Bomb | Destroy all<br>played cards<br>in final hand<br>of round | $5 | Uncommon | -- |
 | Goldenberry | Each scored<br>[King] or [Queen]<br>earns $2<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $5 | Uncommon | Berry, Food |
 | Goobert | Creates imperfect<br>copies of playing cards<br>added to your deck<br>10/10 uses left | $8 | Uncommon | Durability |
-| Hemoturgy | Discarded cards gain<br>a random Edition,<br>Enhancement or Seal<br>-2 Discard Limit | $7 | Rare | Magic |
+| Hemoturgy | Discarded cards gain<br>a random Edition,<br>Enhancement or Seal<br>10/10 uses left<br>-0.5 for first 2<br>cards each discard | $7 | Rare | Magic |
 | Hoe | Each [Suit] card<br>held in hand<br>gives +25 Chips<br>Suit changes<br>every round<br>250/250 uses left | $5 | Common | Durability |
 | Hypetrain<br>(Info Board) | Level X1!<br>Next stop in:<br>+20 Mult | $7 | Uncommon | -- |
 | Improv Show | Converts unused<br>Hands into Points<br>at end of round<br>When playing your<br>final hand, convert<br>1 Point into 1 Hand<br>Stored: 0 Points<br>(Next point: 0%) | $8 | Rare | -- |
@@ -141,9 +141,9 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Shovel | Each [Suit] card<br>held in hand<br>gives X1.2 Mult<br>Suit changes<br>every round<br>200/200 uses left | $6 | Common | Durability |
 | Shrewd Joker | +50 Chips if poker<br>hand contains<br>2 different suits | $5 | Common | -- |
 | Silver Mask | +$2 for each missing<br>Hand size below 10 at<br>the end of the round<br>(Currently $20) | $6 | Common | -- |
-| Singularity | Create a copy of every<br>scoring card without an<br>Event Horizon sticker<br>When this Joker gets<br>removed, Destroy all<br>cards it has created<br>(Can't be Debuffed)<br>Occupies 3 Joker slots | $10 | Rare | Space |
+| Singularity | Creates 2 copies<br>of playing cards<br>added to the deck<br>When this Joker gets<br>removed, Destroy all<br>cards it has created<br>Occupies 2 Joker slots | $10 | Rare | Space |
 | Stern Teacher | When Blind is selected,<br>Debuff adjacent Jokers<br>for the current round<br>+20 Mult for each<br>Debuffed Joker<br>(Currently +0 Mult) | $5 | Uncommon | -- |
-| Stocked Shelves | Restocks bought<br>Booster Packs, Cards<br>and Vouchers in Shop<br>8/8 uses left | $4 | Common | Durability |
+| Stocked Shelves | Restocks bought<br>Booster Packs, Cards<br>and Vouchers in Shop<br>10/10 uses left<br>-4 for Vouchers | $4 | Common | Durability |
 | Strawberry | Each scored<br>[King] or [Queen]<br>gives +8 Mult<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $5 | Uncommon | Berry, Food |
 | Stylish Joker | Earn $1 for every<br>Consumable you keep<br>at the end of round<br>+2 consumable slots<br>and -1 hand size | $5 | Uncommon | -- |
 | Sword Swallower | X1 Mult for each<br>Common Joker<br>(Currently X1 Mult) | $8 | Rare | -- |
@@ -157,7 +157,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Unicorn | +12 Chips for each unique<br>Edition, Enhancement or<br>Seal in your full deck<br>(Currently +0 Chips) | $6 | Common | Animal, Magic |
 | V.I.P. Ticket | Bonus Cards always<br>shuffle to the top<br>of the Deck | $5 | Common | -- |
 | Warm Embrace | Chips and Mult are<br>rounded up to the<br>next multiple of 10 | $5 | Common | Animal |
-| Watching Forest | Sort the Deck<br>lowest to highest<br>after drawing the<br>first hand each round<br>Change sort order<br>every 3 hands played<br>2 remaining | $6 | Rare | Nature |
+| Watching Forest | Sort the Deck<br>lowest to highest<br>after drawing the<br>first hand each round<br>Shuffles the Deck<br>when using a Discard | $6 | Rare | Nature |
 
 ### Parking Disc
 #### Main States

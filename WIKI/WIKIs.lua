@@ -772,7 +772,7 @@ return {
 
 |-
 | {{captimg||Cockroach|imgsize=142px}}
-| {{ct|attention|+1}} Ante when<br>{{ct|attention|Boss Blind}}<br>is defeated<br>{{ct|burgundy|Possessive}}
+| {{ct|green|Reduces}} Blind<br>Sizes by {{ct|darkpurple|20%}}<br>{{ct|attention|+1}} Ante when<br>{{ct|attention|Boss Blind}}<br>is defeated<br>{{ct|burgundy|Possessive}}
 | $6
 | {{rarity|uncommon}}
 | {{jtype|!!}}
@@ -940,7 +940,7 @@ return {
 
 |-
 | {{captimg||Hemoturgy|imgsize=142px}}
-| Discarded cards gain<br>a random {{ct|darkedition|Edition}},<br>{{ct|enhanced|Enhancement}} or {{ct|attention|Seal}}<br>{{ct|red|-2}} Discard Limit
+| Discarded cards gain<br>a random {{ct|darkedition|Edition}},<br>{{ct|enhanced|Enhancement}} or {{ct|attention|Seal}}<br>{{ct|green|10}}{{ct|inactive|/10}} uses left<br><small>{{ct|attention|-0.5 {{ct|inactive|for first}} 2}}</small><br><small>{{ct|inactive|cards each discard}}</small>
 | $7
 | {{rarity|rare}}
 | {{jtype|#!}}<br>{{jtype|[!]}}
@@ -1308,7 +1308,7 @@ return {
 
 |-
 | {{captimg||Singularity|imgsize=142px}}
-| Create a copy of every<br>{{ct|attention|scoring card}} without an<br>{{ct|purple|Event Horizon}} sticker<br>When this {{ct|attention|Joker}} gets<br>removed, {{ct|red|Destroy}} all<br>cards it has created<br>{{ct|inactive|(Can't be {{ct|perishable|Debuffed}})}}<br>Occupies {{ct|attention|3}} Joker slots
+| Creates {{ct|attention|2}} copies<br>of {{ct|attention|playing cards}}<br>added to the deck<br>When this {{ct|attention|Joker}} gets<br>removed, {{ct|red|Destroy}} all<br>cards it has created<br>Occupies {{ct|attention|2}} Joker slots
 | $10
 | {{rarity|rare}}
 | {{jtype|[+]}}<br>{{jtype|[X]}}
@@ -1340,7 +1340,7 @@ return {
 
 |-
 | {{captimg||Stocked Shelves|imgsize=142px}}
-| {{ct|attention|Restocks}} bought<br>Booster Packs, Cards<br>and Vouchers in {{ct|money|Shop}}<br>{{ct|green|8}}{{ct|inactive|/8}} uses left
+| {{ct|attention|Restocks}} bought<br>Booster Packs, Cards<br>and Vouchers in {{ct|money|Shop}}<br>{{ct|green|10}}{{ct|inactive|/10}} uses left<br><small>{{ct|inactive|{{ct|attention|-4}} for Vouchers}}</small>
 | $4
 | {{rarity|common}}
 | {{jtype|[+]}}
@@ -1452,7 +1452,7 @@ return {
 
 |-
 | {{captimg||Watching Forest|imgsize=142px}}
-| Sort the Deck<br>{{ct|attention|lowest to highest}}<br>after drawing the<br>first hand each round<br>Change sort order<br>every {{ct|attention|3}} hands played<br>{{ct|inactive|2 remaining}}
+| Sort the Deck<br>{{ct|attention|lowest to highest}}<br>after drawing the<br>first hand each round<br>Shuffles the Deck<br>when using a {{ct|attention|Discard}}
 | $6
 | {{rarity|rare}}
 | {{jtype|!!}}

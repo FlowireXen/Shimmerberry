@@ -832,7 +832,25 @@ jd_def['j_SEMBY_goobert'] = {
         end
     end
 }
-jd_def['j_SEMBY_hemoturgy'] = { } -- no info
+jd_def['j_SEMBY_hemoturgy'] = {
+    --text = { { text = '' } },
+    extra = { {
+        { text = "(" },
+        { ref_table = "card.ability.extra", ref_value = "durability" },
+        { text = "/" },
+        { ref_table = "card.ability.extra", ref_value = "durability_max" },
+        { text = ")" },
+    } },
+    extra_config = { colour = G.C.UI.TEXT_INACTIVE, scale = 0.3 },
+    calc_function = function(card)
+        card.joker_display_values.colour = card:SEMBY_durability_color(true)
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if extra and extra.children and extra.children[1] and extra.children[1].children and extra.children[1].children[2] then
+            extra.children[1].children[2].config.colour = card.joker_display_values.colour or G.C.UI.TEXT_INACTIVE
+        end
+    end
+}
 jd_def['j_SEMBY_hypetrain'] = {
     --FIXME: Hide Xmult when "card.ability.waiting == true" or "card.ability.extra.xmult ~= 1.0"
     text = {
@@ -903,7 +921,7 @@ jd_def['j_SEMBY_lost_constellation'] = {
 jd_def['j_SEMBY_lottery_ticket'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "spacing", scale = 0.35 },
-        { text = " +", colour = G.C.CHIPS },
+        { text = "+", colour = G.C.CHIPS },
         { ref_table = "card.ability.extra", ref_value = "chips", colour = G.C.CHIPS }
     },
     reminder_text = {
@@ -930,7 +948,7 @@ jd_def['j_SEMBY_lottery_ticket'] = {
             end
         end
         card.joker_display_values.count = count
-        card.joker_display_values.spacing = localize('k_or')
+        card.joker_display_values.spacing = localize('k_or')..' '
         card.joker_display_values.localized_text = localize('SEMBY_non_face')
         local numerator, denominator = SMODS.get_probability_vars(card,
             card.ability.extra.numerator, card.ability.extra.denominator, 'JokerDisplay')
@@ -1515,7 +1533,7 @@ jd_def['j_SEMBY_scav_prototype'] = {
     text = {
         { ref_table = "card.joker_display_values", ref_value = "count" },
         { text = "x", scale = 0.35 },
-        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.IMPORTANT },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" }, --, colour = G.C.IMPORTANT },
     },
     extra = { {
         { text = "(" }, { ref_table = "card.joker_display_values", ref_value = "odds" }, { text = ")" },
@@ -1599,42 +1617,7 @@ jd_def['j_SEMBY_silver_mask'] = {
         card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
     end
 }
-jd_def['j_SEMBY_singularity'] = {
-    text = {
-        { text = "+", colour = G.C.IMPORTANT },
-        { ref_table = "card.joker_display_values", ref_value = "cards", retrigger_type = "mult", colour = G.C.IMPORTANT },
-        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
-    },
-    --reminder_text = {
-    --    { ref_table = "card.joker_display_values", ref_value = "created" },
-    --},
-    calc_function = function(card)
-        -- Main:
-        local count = 0
-        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
-        if text ~= 'Unknown' then
-            for _, scoring_card in pairs(scoring_hand) do
-                if scoring_card.ability and not scoring_card.ability.SEMBY_event_horizon then
-                    count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
-                end
-            end
-        end
-        card.joker_display_values.cards = count
-        card.joker_display_values.localized_text = ' '..localize('SEMBY_cards')
-        -- Reminder:
-        --card.joker_display_values.update_timer = (card.joker_display_values.update_timer or NORM_UPDATE) + 1
-        --if card.joker_display_values.update_timer > NORM_UPDATE then
-        --    card.joker_display_values.update_timer = 0
-        --    local created = 0
-		--    for _, playing_card in ipairs(G.playing_cards or {}) do
-		--    	if playing_card.ability.SEMBY_event_horizon == card.sort_id then
-        --              created = created + 1
-        --          end
-		--    end
-        --    card.joker_display_values.created = '('..created..' '..localize('SEMBY_cards')..')'
-        --end
-    end
-}
+jd_def['j_SEMBY_singularity'] = { } -- no info
 jd_def['j_SEMBY_stern_teacher'] = {
     text = {
         { text = "+" }, { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
