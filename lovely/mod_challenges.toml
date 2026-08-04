@@ -6,6 +6,7 @@ priority = 10
 ## Additional Parameters and Changes for Challenges:
 #> Add "Winning Ante" as Start-Parameter
 #> Add More Options for Jokers (Stickers, etc.)
+#> Add Condition(s) for "Countdown"-Challenge
 
 
 ## Add "Winning Ante" as Start-Parameter:
@@ -13,55 +14,99 @@ priority = 10
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
-pattern = "hand_size = {value = starting_params.hand_size, order = 3},"
+pattern = '''hand_size = {value = starting_params.hand_size, order = 3},'''
 position = "after"
-payload = "winning_ante = {value = (starting_params.winning_ante or 8), order = 8},"
+payload = '''winning_ante = {value = (starting_params.winning_ante or 8), order = 8},'''
 match_indent = true
 # ], [
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "self.GAME.current_round.reroll_cost = self.GAME.base_reroll_cost"
+pattern = '''self.GAME.current_round.reroll_cost = self.GAME.base_reroll_cost'''
 position = "after"
-payload = "self.GAME.win_ante = (self.GAME.starting_params.winning_ante or self.GAME.win_ante)"
+payload = '''self.GAME.win_ante = (self.GAME.starting_params.winning_ante or self.GAME.win_ante)'''
 match_indent = true
 # ]
 
 
-## Add More Options for Jokers: [
+## Add More Options for Jokers:
+# [
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
-pattern = "if v.pinned then card.pinned = true end"
+pattern = '''if v.pinned then card.pinned = true end'''
 position = "after"
 payload = '''
-	if v.SEMBY_perishable then card:add_sticker('perishable', true) end
-	if v.SEMBY_rental then card:add_sticker('rental', true) end
-	if v.SEMBY_debuffed then card:set_debuff(true) end
-	if v.SEMBY_possessive then card:add_sticker('SEMBY_possessive', true) end
-	if v.SEMBY_glitched then
-		card.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
-		card:add_sticker('SEMBY_tmtrainer_sticker', true)
-	end
-	if v.SEMBY_lavish then card:add_sticker('SEMBY_lavish_buff', true) end
+if v.SEMBY_perishable then card:add_sticker('perishable', true) end
+if v.SEMBY_rental then card:add_sticker('rental', true) end
+if v.SEMBY_debuffed then card:set_debuff(true) end
+if v.SEMBY_possessive then card:add_sticker('SEMBY_possessive', true) end
+if v.SEMBY_glitched then
+	card.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
+	card:add_sticker('SEMBY_tmtrainer_sticker', true)
+end
+if v.SEMBY_lavish then card:add_sticker('SEMBY_lavish_buff', true) end
 '''
 match_indent = true
 # ], [
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "if v.pinned then _joker.pinned = true end"
+pattern = '''if v.pinned then _joker.pinned = true end'''
 position = "after"
 payload = '''
-	if v.SEMBY_perishable then _joker:add_sticker('perishable', true) end
-	if v.SEMBY_rental then _joker:add_sticker('rental', true) end
-	if v.SEMBY_debuffed then SMODS.debuff_card(_joker, true, 'SEMBY_challenge_debuff') end
-	if v.SEMBY_possessive then _joker:add_sticker('SEMBY_possessive', true) end
-	if v.SEMBY_glitched then
-		_joker.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
-		_joker:add_sticker('SEMBY_tmtrainer_sticker', true)
-	end
-	if v.SEMBY_lavish then _joker:add_sticker('SEMBY_lavish_buff', true) end
+if v.SEMBY_perishable then _joker:add_sticker('perishable', true) end
+if v.SEMBY_rental then _joker:add_sticker('rental', true) end
+if v.SEMBY_debuffed then SMODS.debuff_card(_joker, true, 'SEMBY_challenge_debuff') end
+if v.SEMBY_possessive then _joker:add_sticker('SEMBY_possessive', true) end
+if v.SEMBY_glitched then
+	_joker.ability.SEMBY_tmtrainer_value = v.SEMBY_glitched
+	_joker:add_sticker('SEMBY_tmtrainer_sticker', true)
+end
+if v.SEMBY_lavish then _joker:add_sticker('SEMBY_lavish_buff', true) end
 '''
+match_indent = true
+# ]
+
+
+## Add Condition(s) for "Countdown"-Challenge:
+## Info: Don't activate when not in Challenge!
+# [
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''G.GAME.current_round.discards_left = math.max(0, G.GAME.round_resets.discards + G.GAME.round_bonus.discards)'''
+position = "before"
+payload = '''if not G.GAME.SEMBY_Countdown then'''
+match_indent = true
+# ], [
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''G.GAME.current_round.hands_left = (math.max(1, G.GAME.round_resets.hands + G.GAME.round_bonus.next_hands))'''
+position = "after"
+payload = '''end'''
+match_indent = true
+# ], [
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''G.GAME.current_round.discards_left = math.max(0, G.GAME.round_resets.discards + G.GAME.round_bonus.discards)'''
+position = "before"
+payload = '''
+if G.GAME.SEMBY_Countdown then
+	-- Add bonus (usually unused)
+	G.GAME.current_round.discards_left = G.GAME.current_round.discards_left + (G.GAME.round_bonus and G.GAME.round_bonus.discards or 0)
+	G.GAME.current_round.hands_left = G.GAME.current_round.hands_left + (G.GAME.round_bonus and G.GAME.round_bonus.next_hands or 0)
+else
+'''
+match_indent = true
+# ], [
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''G.GAME.current_round.hands_left = (math.max(1, G.GAME.round_resets.hands + G.GAME.round_bonus.next_hands))'''
+position = "after"
+payload = '''end'''
 match_indent = true
 # ]

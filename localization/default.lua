@@ -1,4 +1,4 @@
-local alt = math.random() < 0.1 --> Alt. Descriptions
+local alt = G.SEMBY_SECRET --> Alt. Descriptions
 --## Translations:
 return {
 	descriptions = {
@@ -1863,6 +1863,13 @@ return {
 				}
 			},
 			-- SEMBY:
+			SEMBY_blooming = {
+				name = "Blooming",
+				text = {
+					"Sell value",
+					"starts at {C:money}$#1#{}",
+				}
+			},
 			SEMBY_bound = {
 				name = "Bound",
 				text = {
@@ -2051,6 +2058,7 @@ return {
 	},
 	misc = {
 		labels = {
+			SEMBY_blooming = "Blooming",
 			SEMBY_bound = "Bound",
 			SEMBY_event_horizon = "Event Horizon",
 			SEMBY_degrading = "Degrading",
@@ -2299,6 +2307,7 @@ return {
 			ch_c_SEMBY_parking_random = { "{C:attention}Parking Discs{} are {C:green,E:2}randomized" },
 			ch_c_SEMBY_qwest_sprout = { "{s:2.0,E:1}Qwest!" },
 			ch_c_SEMBY_qwest_tougher = { "{C:attention}Quests{} are tougher" },
+			ch_c_SEMBY_qwest_limited = { "{C:inactive,s:0.9}(Limited Quest-Pool){}" },
 			ch_c_SEMBY_emperor_calus = { "{E:2}Grow Fat From {C:attention,E:2}Strength{E:2}!" },
 			ch_c_SEMBY_last_one_left_1 = { "{C:attention}I{} know where {C:attention}I'm{} supposed to be," },
 			ch_c_SEMBY_last_one_left_2 = { "crushed my {C:red}Enemies{} long ago," },

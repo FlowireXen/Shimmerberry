@@ -1,34 +1,32 @@
 -- Get Quest-Infos
 local function SEMBY_Get_Quest()
-	-- Select Category
-	local qCategory = pseudorandom_element({  "hand", "discard", "money", "consumable", "joker"  }, 'SEMBY_quest_category') -- Prev. "Item"
-	-- Select Action (2, 2, 1 probability)
-	local qAction = pseudorandom_element({  "use", "use", "beat", "beat", "shot"  }, 'SEMBY_quest_action') -- Prev. "Type"
-	-- Possible Targets
-	local qGoals = {
-		["hand"]       = { ["use"] =  60, ["beat"] =  6, ["shot"] =   8, },
-		["discard"]    = { ["use"] = 250, ["beat"] =  9, ["shot"] =  30, },
-		["money"]      = { ["use"] = 300, ["beat"] =  6, ["shot"] = 100, },
-		["consumable"] = { ["use"] = 100, ["beat"] = 12, ["shot"] =  10, },
-		["joker"]      = { ["use"] =  25, ["beat"] =  6, ["shot"] =   8, },
-	}
-	-- Select Goal-Target
-	local qGoal = qGoals[qCategory][qAction]
-	-- [Global] Challenge Addition
 	if G.GAME.SEMBY_questing then
-		-- Possible Challenge Additions
-		local qChallenges = {
-			["hand"]       = { ["use"] =  40, ["beat"] = 3, ["shot"] =  0, },
-			["discard"]    = { ["use"] =  83, ["beat"] = 3, ["shot"] =  0, },
-			["money"]      = { ["use"] = 200, ["beat"] = 3, ["shot"] = 20, },
-			["consumable"] = { ["use"] = 100, ["beat"] = 3, ["shot"] =  0, },
-			["joker"]      = { ["use"] =   7, ["beat"] = 3, ["shot"] =  0, },
+		-- Select Quest
+		local challenge = pseudorandom_element({
+			{ "hand", "use", 100 }, { "hand", "beat", 12 },
+			{ "discard", "use", 500 }, { "discard", "beat", 21 },
+			{ "money", "shot", 300 },
+			{ "consumable", "shot", 12 }, --{ "consumable", "shot", 12 },
+			{ "joker", "beat", 12 },
+		})
+		-- Return
+		return { category = challenge[1], action = challenge[2], target = challenge[3] }
+	else-- "Vanilla" then
+		-- Select Category
+		local qCategory = pseudorandom_element({ "hand", "discard", "money", "consumable", "joker" }, 'SEMBY_quest_category')
+		-- Select Action
+		local qAction = pseudorandom_element({ "use", "use", "beat", "beat", "shot" }, 'SEMBY_quest_action')
+		-- Possible Targets
+		local qGoals = {
+			["hand"]       = { ["use"] =  60, ["beat"] =  6, ["shot"] =   8, },
+			["discard"]    = { ["use"] = 250, ["beat"] =  9, ["shot"] =  30, },
+			["money"]      = { ["use"] = 300, ["beat"] =  6, ["shot"] = 100, },
+			["consumable"] = { ["use"] = 100, ["beat"] = 12, ["shot"] =  10, },
+			["joker"]      = { ["use"] =  25, ["beat"] =  6, ["shot"] =   8, },
 		}
-		-- Add to current goal
-		qGoal = qGoal + qChallenges[qCategory][qAction]
+		-- Return
+		return { category = qCategory, action = qAction, target = qGoals[qCategory][qAction] }
 	end
-	-- Return
-	return { category = qCategory, action = qAction, target = qGoal }
 end
 -- Texture Data
 local SEMBY_quest_pos = {
@@ -325,7 +323,10 @@ SMODS.Joker {
 						end
 						if SMODS.is_eternal(card, card) then
 							-- Be able to claim your Reward! :3
-							G.E_MANAGER:add_event(Event({ func = function() card.ability.eternal = false return true end }))
+							G.E_MANAGER:add_event(Event({ func = function()
+								card.ability.eternal = false
+								card.ability.SEMBY_possessive = false
+							return true end }))
 							card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize('SEMBY_eternal_cleared'), colour = G.C.ETERNAL })
 						end
 						SMODS.debuff_card(card, 'prevent_debuff', 'SEMBY_quest')

@@ -15,25 +15,22 @@ target = "game.lua"
 pattern = "G.SPLASH_LOGO = Sprite(0, 0,"
 position = "before"
 payload = '''
-	--if G.SEMBY_BERRY then
-	--	G.SEMBY_BERRY.states.visible = true
-	--else
-		G.SEMBY_BERRY = Sprite(
-			0, 0, 
-			2.8*SC_scale, 
-			2.8*SC_scale*(G.ASSET_ATLAS["SEMBY_shimmerberry"].py/G.ASSET_ATLAS["SEMBY_shimmerberry"].px),
-			G.ASSET_ATLAS["SEMBY_shimmerberry"], {x=0,y=0}
-		)
-	--end
+	G.SEMBY_BERRY = Sprite(
+		0, 0, 
+		2.8*SC_scale, 
+		2.8*SC_scale*(G.ASSET_ATLAS["SEMBY_shimmerberry"].py/G.ASSET_ATLAS["SEMBY_shimmerberry"].px),
+		G.ASSET_ATLAS["SEMBY_shimmerberry"], {x=0,y=0}
+	)
 	G.SEMBY_BERRY:set_alignment({
 		major = G.title_top,
 		type = 'cm',
 		bond = 'Weak',
 		offset = {x=5.75,y=3.45}
 	})
-    G.SEMBY_BERRY:define_draw_steps({{
-        shader = 'dissolve',
-    }})
+    G.SEMBY_BERRY:define_draw_steps({
+		{ shader = 'dissolve' },
+		G.SEMBY_SECRET and { shader = 'negative_shine' } or nil,
+	})
     G.SEMBY_BERRY.dissolve_colours = {G.C.WHITE, G.C.WHITE}
     G.SEMBY_BERRY.dissolve = 1
 
@@ -78,9 +75,7 @@ target = "game.lua"
 pattern = "function Game:start_run(args)"
 position = "after"
 payload = '''
-    if G.SEMBY_BERRY then
-        G.SEMBY_BERRY.states.visible = false
-    end
+    if G.SEMBY_BERRY then G.SEMBY_BERRY.states.visible = false end
 '''
 match_indent = true
 

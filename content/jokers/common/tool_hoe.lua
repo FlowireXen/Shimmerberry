@@ -11,8 +11,8 @@ SMODS.Joker {
 	config = {
 		extra = {
 			-- Durability
-			durability = 250,
-			durability_max = 250,
+			durability = 200,
+			durability_max = 200,
 			-- Joker
 			used = false,
 			chips = 25

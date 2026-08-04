@@ -660,7 +660,7 @@ return {
 
 |-
 | {{captimg||Axe|imgsize=142px}}
-| Each {{ct|inactive|[Suit]}} card<br>held in hand has<br>a {{ct|green|20%}} chance to<br>be {{ct|attention|destroyed}}<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|80}}{{ct|inactive|/100}} uses left
+| Each {{ct|inactive|[Suit]}} card<br>held in hand has<br>a {{ct|green|25%}} chance to<br>be {{ct|attention|destroyed}}<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|40}}{{ct|inactive|/80}} uses left
 | $6
 | {{rarity|common}}
 | {{jtype|[X]}}
@@ -948,7 +948,7 @@ return {
 
 |-
 | {{captimg||Hoe|imgsize=142px}}
-| Each {{ct|inactive|[Suit]}} card<br>held in hand<br>gives {{ct|chips|+25}} Chips<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|250}}{{ct|inactive|/250}} uses left
+| Each {{ct|inactive|[Suit]}} card<br>held in hand<br>gives {{ct|chips|+25}} Chips<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|200}}{{ct|inactive|/200}} uses left
 | $5
 | {{rarity|common}}
 | {{jtype|+c}}
@@ -1164,7 +1164,7 @@ return {
 
 |-
 | {{captimg||Pickaxe|imgsize=142px}}
-| Each {{ct|inactive|[Suit]}} card<br>held in hand has<br>a {{ct|green|40%}} chance<br>to give {{ct|money|$2}}<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|200}}{{ct|inactive|/200}} uses left
+| Each {{ct|inactive|[Suit]}} card<br>held in hand has<br>a {{ct|green|50%}} chance<br>to give {{ct|money|$2}}<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|100}}{{ct|inactive|/100}} uses left
 | $5
 | {{rarity|common}}
 | {{jtype|+$}}

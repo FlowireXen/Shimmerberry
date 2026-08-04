@@ -87,8 +87,7 @@ SMODS.Consumable {
 						set = 'Joker', skip_materialize = true, no_edition = true, stickers = { },
 						legendary = SMODS.pseudorandom_probability(card, 'SEMBY_eden_token', 2, 100, nil, true)
 					})
-					blessing.ability.SEMBY_price_mod = -blessing.cost
-					blessing:set_cost()
+					blessing:add_sticker('SEMBY_blooming', true)
 					blessing:add_to_deck()
 					G.jokers:emplace(blessing)
 					blessing:start_materialize({G.C.RED, G.C.BLUE, G.C.PURPLE})

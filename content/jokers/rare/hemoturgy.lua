@@ -21,8 +21,11 @@ SMODS.Joker {
 	},
     attributes = {
 		'discard', 'enhancements', 'editions', 'seals', 'modify_card',
-		'magic'
+		'magic', 'durability'
 	},
+	pools = {
+        ["Durability"] = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {
 			card:SEMBY_durability_amount(),

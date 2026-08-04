@@ -57,7 +57,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Anchor | X2 Chips<br>Can't be<br>Highlighted | $4 | Common | Ocean |
 | Annoying Dog | X3.0 Mult<br>No consumable slots | $7 | Rare | Animal |
 | Anodized Steel | Played Steel cards<br>reduce the Blind Size<br>by 5% when scored | $8 | Uncommon | -- |
-| Axe | Each [Suit] card<br>held in hand has<br>a 20% chance to<br>be destroyed<br>Suit changes<br>every round<br>80/100 uses left | $6 | Common | Durability |
+| Axe | Each [Suit] card<br>held in hand has<br>a 25% chance to<br>be destroyed<br>Suit changes<br>every round<br>40/80 uses left | $6 | Common | Durability |
 | Balloon | X2 Mult<br>Self destructs<br>when highlighting<br>4 or more cards | $4 | Common | -- |
 | Barmy Joker | +12 Mult if poker<br>hand contains<br>3 different suits | $5 | Common | -- |
 | Benthic Bloom | Retrigger all<br>Enhanced Cards<br>Enhanced Cards have<br>a 1 in 4 chance to<br>shatter like Glass<br>Possessive | $6 | Uncommon | Nature |
@@ -93,7 +93,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Goldenberry | Each scored<br>[King] or [Queen]<br>earns $2<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $5 | Uncommon | Berry, Food |
 | Goobert | Creates imperfect<br>copies of playing cards<br>added to your deck<br>10/10 uses left | $8 | Uncommon | Durability |
 | Hemoturgy | Discarded cards gain<br>a random Edition,<br>Enhancement or Seal<br>10/10 uses left<br>-0.5 for first 2<br>cards each discard | $7 | Rare | Magic |
-| Hoe | Each [Suit] card<br>held in hand<br>gives +25 Chips<br>Suit changes<br>every round<br>250/250 uses left | $5 | Common | Durability |
+| Hoe | Each [Suit] card<br>held in hand<br>gives +25 Chips<br>Suit changes<br>every round<br>200/200 uses left | $5 | Common | Durability |
 | Hypetrain<br>(Info Board) | Level X1!<br>Next stop in:<br>+20 Mult | $7 | Uncommon | -- |
 | Improv Show | Converts unused<br>Hands into Points<br>at end of round<br>When playing your<br>final hand, convert<br>1 Point into 1 Hand<br>Stored: 0 Points<br>(Next point: 0%) | $8 | Rare | -- |
 | Incinerator | +1 Discard Limit | $5 | Common | -- |
@@ -118,7 +118,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Peculiar Joker | +100 Chips if poker<br>hand contains<br>3 different suits | $5 | Common | -- |
 | Perfect Pitch | X2 Mult when scoring<br>exactly [1-5] card(s)<br>(Changes every hand)<br>Gain X1 Mult<br>after 5 successful<br>hands in a row<br>(Currently 0/5) | $6 | Uncommon | Music |
 | P.E.T. | This Joker gains<br>+2 Mult for every card<br>discarded this round<br>(Currently +0 Mult) | $5 | Common | -- |
-| Pickaxe | Each [Suit] card<br>held in hand has<br>a 40% chance<br>to give $2<br>Suit changes<br>every round<br>200/200 uses left | $5 | Common | Durability |
+| Pickaxe | Each [Suit] card<br>held in hand has<br>a 50% chance<br>to give $2<br>Suit changes<br>every round<br>100/100 uses left | $5 | Common | Durability |
 | Piggy Bank | When Blind is selected<br>or skipped, spend $2 to<br>add $1 of sell value<br>Starts with $2<br>extra sell value<br>X0.2 Mult for every<br>$4 of sell value<br>(Currently X1 Mult) | $5 | Common | Animal |
 | Piñata | 1 in 5 chance to<br>break open each<br>hand played<br>Gain +1 permanent<br>Consumable slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed | $6 | Common | Animal, Food |
 | Plastic Key | Destroy this card and<br>create 2 Spectral cards<br>when Boss Blind is defeated<br>(Must have room) | $6 | Uncommon | -- |

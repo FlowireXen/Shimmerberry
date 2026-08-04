@@ -55,19 +55,6 @@ G.SEMBY.Artist = {
 		},
 		guest = true
 	},
-	--[[
-	just_smolchild = {
-		name = "Gappie",
-		colour = HEX('FFE82E'),
-		links = {
-			guest_page = {
-				name = "Twitter/X",
-				link = "https://x.com/just_smol_child",
-			},
-		},
-		guest = true
-	},
-	--]]
 	-- Technical:
 	placeholder = { name = "ERROR", colour = HEX('FF00FF') },
 	debug = { name = "DEBUG", colour = HEX('FF00FF') },

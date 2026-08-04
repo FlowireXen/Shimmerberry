@@ -13,14 +13,18 @@ SMODS.Joker {
 			-- Durability
 			durability = 10,
 			durability_max = 10,
+			durability_other = { refill = true },
 			-- Joker
 			durability_diff = 4
 		}
 	},
     attributes = {
 		'passive',
-		'durability', 'shop'
+		'shop', 'durability'
 	},
+	pools = {
+        ["Durability"] = true,
+    },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {
 			card:SEMBY_durability_amount(),

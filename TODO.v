@@ -52,20 +52,10 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+Eden Token: You don't need such an extreme Winning check
+-> The "eden_checksum" is very overkill.
 
-Quest Challenge: Limit to getting the Harder Quests only
-
-Hopeless Deck: (Figure out) do two rolls and always take the higher one? (Or always choose the extremes)
-
-Add Foxie Plush as extra card to Title screen when 10% secret chance is active!
-(Also make sure the secret chance can't happen on first start-up, secret config!)
-
-stern teacher: only show "reset" when t actually does something! :3
-
-All joker that use Durability should also have the Tag, so Toolkit can spawn for them!
---> look for "SEMBY_durability_use"/"SEMBY_durability_check"
---> Also reflect in Wiki/Readme + Jokerdisplay !!
-
+Generally rework Challenges!
 
 Check for ##TODO##'s
 
@@ -81,33 +71,9 @@ Start with Eternal VIP-Joker, 13 random cards in your Deck are Bonus cards and p
 
 Currently: Give all Jokers (& others) Pronouns
 
-Artists: Add "Guest Links" section
--> Add "guest_link" code!
-
-For the other Artist:
-"Memory Tarot"/IBM/Floppy Disc -> Floppy Disc (by IBM(™-Logo here))
-Daybreak -> Chapter 5 Sunset
-Annoying Dog -> Is a Toby Fox reference, but instead of his usual Pixel Dog, do something more smooth -> 4 Different Textures needed here
-Also Give: Lost Constellation
-
-.md file
--> Collection View -> Replace Some Jokers with new Stuff (there's PINK Placeholders)
----> Switch Scartere and Memory on the Preview
-
 Add sound sources to origin
 Add Texture files to origin
 ( Generally Update Origin )
-
-Rework Countdown Challenge again?; Patch the thing that Resets hands and discards... Easy :>
-Otherwise; Make sure Burglar works ;3 
-
-Add Delayed Gratification to the Banned Jokers for Countdown
-
-Black hole.. Remove the Sticker on destroy
-
-Add "Eden"-Sticker, reduces money of Item to 0
-
-Butterfly; Inverse Logic (Gain is slow, loss is fast)
 
 
 

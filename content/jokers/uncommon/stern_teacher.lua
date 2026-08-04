@@ -100,22 +100,15 @@ SMODS.Joker {
 			}
         end
         if context.end_of_round and context.main_eval and context.game_over == false and not context.blueprint then
-            return {
-                message = localize('k_reset'),
-				colour = G.C.SEMBY_DEBUFF,
-				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					func = function()
-						for i = 1, #G.jokers.cards do
-							--	if G.jokers.cards[i].ability.debuff_sources and G.jokers.cards[i].ability.debuff_sources[card.sort_id] then
-							--  	G.jokers.cards[i]:juice_up()
-							--	end
-							SMODS.debuff_card(G.jokers.cards[i], false, card.sort_id)
-						end
-						return true
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				func = function()
+					for i = 1, #G.jokers.cards do
+						SMODS.debuff_card(G.jokers.cards[i], false, card.sort_id)
 					end
-				}))
-            }
+					return true
+				end
+			}))
         end
 	end
 }

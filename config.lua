@@ -3,4 +3,5 @@ return {
     ["eden_checksum"] = 0,
     ["eden_infinite"] = false,
     ["eden_tokens"] = { },
+    ["secrets"] = false,
 }

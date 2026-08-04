@@ -11,12 +11,12 @@ SMODS.Joker {
 	config = {
 		extra = {
 			-- Durability
-			durability = 80,
-			durability_max = 100,
+			durability = 40,
+			durability_max = 80,
 			-- Joker
 			used = false,
 			numerator = 1,
-			denominator = 5
+			denominator = 4
 		}
 	},
     attributes = {

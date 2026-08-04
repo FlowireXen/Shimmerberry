@@ -11,7 +11,7 @@ G.SEMBY = {}
 
 --## Mod Desc. Style
 Shimmerberry.description_loc_vars = function()
-    return { background_colour = G.C.WHITE, text_colour = HEX('480032') }
+	return { background_colour = G.C.WHITE, text_colour = HEX('480032') }
 end
 
 --## Compatibility
@@ -21,6 +21,13 @@ Shimmerberry.compat = {
 	cardpronouns = (SMODS.Mods['cardpronouns'] or {}).can_load,
 	display = (SMODS.Mods['JokerDisplay'] or {}).can_load,
 }
+
+--## Secrets
+if Shimmerberry.config then
+	if Shimmerberry.config.secrets then
+		G.SEMBY_SECRET = math.random() < 0.1 or nil
+	else Shimmerberry.config.secrets = true end
+end
 
 --## Load Content
 SMODS.Sound:register_global()
@@ -63,7 +70,9 @@ local SEMBY_Data = {
 	{ load = true, name = "enhancements", path = "content/enhancements" },
 	{ load = true, name = "stickers", path = "content/stickers" },
 	-- Consumables
-	{ load = true, name = "consumables", path = "content/consumables" },
+	{ load = true, name = "consumables_anim", config = { px = 71, py = 95, atlas_table = "ANIMATION_ATLAS", frames = 6 } },
+	{ load = true, name = "consumables" },
+	{ load = true, path = "content/consumables" },
 	-- Vouchers
 	{ load = true, name = "vouchers", path = "content/vouchers" },
 	--> Jokers

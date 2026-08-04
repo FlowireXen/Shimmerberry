@@ -1,8 +1,10 @@
 SMODS.Consumable {
     key = 'backup',
-    SEMBY_art = "flowire",--"placeholder",
-	atlas = "SEMBY_consumables",
-    pos = { x = 3, y = 0 },
+    SEMBY_art = "flowire",
+	--atlas = "SEMBY_consumables",
+    --pos = { x = 3, y = 0 },
+	atlas = "SEMBY_consumables_anim",
+    pos = { x = 0, y = 0 },
     set = "Tarot",
     config = {
         max_highlighted = 2,
