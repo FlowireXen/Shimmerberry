@@ -1,6 +1,6 @@
 SMODS.Consumable {
     key = 'daybreak',
-    SEMBY_art = "flowire",--"placeholder",
+    SEMBY_art = "flowire",
 	atlas = "SEMBY_consumables",
     pos = { x = 4, y = 0 },
     set = "Spectral",

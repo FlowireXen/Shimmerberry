@@ -10,30 +10,25 @@ SMODS.Challenge {
             { id = 'SEMBY_space' },
             { id = 'SEMBY_hunted_deal_1' },
             { id = 'SEMBY_hunted_deal_2' },
-            { id = 'SEMBY_space' },
-            { id = 'SEMBY_scaling_15' },
         },
         modifiers = {
             { id = 'hands', value = 3 },
-            { id = 'discards', value = 6 },
             { id = 'hand_size', value = 5 },
-            { id = 'winning_ante', value = 6 },
         }
     },
     restrictions = {
         banned_cards = {
-            { id = 'j_SEMBY_bound' },
-            --{ id = 'j_SEMBY_hemoturgy' },
-            { id = 'j_SEMBY_incinerator' },
-            { id = 'j_SEMBY_stern_teacher' },
-            { id = 'v_SEMBY_urn_old' },
-            { id = 'v_SEMBY_urn_cursed' },
             { id = 'p_standard_normal_1', ids = {
                 'p_standard_normal_1', 'p_standard_normal_2',
                 'p_standard_normal_3', 'p_standard_normal_4',
                 'p_standard_jumbo_1', 'p_standard_jumbo_2',
                 'p_standard_mega_1', 'p_standard_mega_2' }
             },
+            { id = 'j_SEMBY_bound' },
+            { id = 'j_SEMBY_stern_teacher' },
+            { id = 'j_SEMBY_incinerator' },
+            { id = 'v_SEMBY_urn_old' },
+            { id = 'v_SEMBY_urn_cursed' },
         },
     },
     jokers = {
@@ -63,8 +58,6 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
-		--G.GAME.SEMBY_survive_until = 45
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()

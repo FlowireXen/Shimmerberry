@@ -7,17 +7,11 @@ SMODS.Challenge {
             { id = 'SEMBY_space' },
             { id = 'SEMBY_printty_good_3' },
             { id = 'SEMBY_printty_good_4' },
-            { id = 'SEMBY_space' },
-            { id = 'no_reward' },
-            { id = 'SEMBY_no_win_ante' },
-            { id = 'SEMBY_no_showdown' },
-            { id = 'SEMBY_scaling_15' },
         },
         modifiers = {
-            { id = 'discards', value = 4 },
             { id = 'joker_slots', value = 10 },
-            { id = 'dollars', value = 0 },
-            { id = 'winning_ante', value = 99 },--6 },
+			{ id = 'ante_scaling', value = 2 },
+            { id = 'winning_ante', value = localize('k_none') },
         }
     },
     restrictions = {
@@ -31,7 +25,6 @@ SMODS.Challenge {
         { id = 'j_joker' },
     },
     vouchers = {
-        { id = 'v_blank' },
         { id = 'v_overstock_norm' },
         { id = 'v_overstock_plus' },
     },
@@ -49,10 +42,6 @@ SMODS.Challenge {
             { s = 'S', r = '2' }, { s = 'H', r = '2' }, { s = 'C', r = '2' }, { s = 'D', r = '2' },
         }
     },
-	apply = function(self)
-		G.GAME.SEMBY_hide_win_ante = true
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
-	end,
     calculate = function(self, context)
 		if context.end_of_round and context.main_eval and context.game_over == false and not G.GAME.won then
             -- Local Vars.

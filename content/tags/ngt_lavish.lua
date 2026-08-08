@@ -25,6 +25,6 @@ SMODS.Tag {
         end
     end,
 	in_pool = function(self, args)
-		if G.GAME.SEMBY_lavish_mode then return true else return false end
+		return G.GAME.SEMBY_lavish_mode or false
 	end
 }

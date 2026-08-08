@@ -1,7 +1,7 @@
 --## CrossMod: Card Pronouns
 if Shimmerberry.compat.cardpronouns then
--- Custom Pronoun: CHAD
 local neutral_index = #CardPronouns.classifications["neutral"].pronouns
+-- Custom Pronoun: CHAD
 CardPronouns.classifications["neutral"].pronouns[neutral_index + 1] = "Chad"
 CardPronouns.Pronoun {
     key = "SEMBY_chad", pronoun_table = { "Chad", "Chad" },
@@ -11,29 +11,88 @@ CardPronouns.Pronoun {
 -- Custom Pronoun: ERROR
 CardPronouns.classifications["neutral"].pronouns[neutral_index + 2] = "ERR/OR"
 CardPronouns.Pronoun {
-    key = "SEMBY_error", pronoun_table = { "ERR/OR" },
+    key = "SEMBY_err_or", pronoun_table = { "ERR/OR" },
     colour = HEX('FF00FF'), text_colour = G.C.WHITE,
     in_pool = function() return false end
 }
+-- Custom Pronoun: Was/Were
+CardPronouns.classifications["neutral"].pronouns[neutral_index + 3] = "Was"
+CardPronouns.classifications["neutral"].pronouns[neutral_index + 4] = "Were"
+CardPronouns.Pronoun {
+    key = "SEMBY_was_were", pronoun_table = { "Was", "Were" },
+    colour = HEX('886644'), text_colour = G.C.WHITE,
+    in_pool = function() return false end
+}
+-- Custom Pronoun: They/It
+CardPronouns.Pronoun {
+    key = "SEMBY_they_it", pronoun_table = { "They", "It" },
+    colour = HEX('844FAF'), text_colour = G.C.WHITE,
+    in_pool = function() return true end
+}
+-- Custom Pronoun: It/Them
+CardPronouns.Pronoun {
+    key = "SEMBY_it_them", pronoun_table = { "It", "Them" },
+    colour = HEX('844FAF'), text_colour = G.C.WHITE,
+    in_pool = function() return true end
+}
+-- Custom Pronoun: She/Her/It
+CardPronouns.Pronoun {
+    key = "SEMBY_she_her_it", pronoun_table = { "She", "Her", "It" },
+    colour = HEX('CA80CA'), text_colour = G.C.WHITE,
+    in_pool = function() return true end
+}
+-- Custom Pronoun: He/Him/It
+CardPronouns.Pronoun {
+    key = "SEMBY_he_him_it", pronoun_table = { "He", "Him", "It" },
+    colour = HEX('6098C6'), text_colour = G.C.WHITE,
+    in_pool = function() return true end
+}
 -- Vanilla Changes:
 G.P_CENTERS.j_hanging_chad.pronouns = "SEMBY_chad"
-G.P_CENTERS.j_misprint.pronouns = "SEMBY_error"
+G.P_CENTERS.j_misprint.pronouns = "SEMBY_err_or"
+G.P_CENTERS.j_mr_bones.pronouns = "SEMBY_was_were"
+
 -- SEMBYs Pronouns:
+-- CAN COMBINE ANY OF THESE
 --[[
-  "she_her"
-  "he_him"
-  "they_them"
-  "any_all"
-  "it_its"
-  "she_they"
-  "he_they"
+CardPronouns.PronounClassification {
+    key = "masculine",
+    pronouns = { "He", "Him", "His" }
+}
+CardPronouns.PronounClassification {
+    key = "feminine",
+    pronouns = { "She", "Her", "Hers" }
+}
+CardPronouns.PronounClassification {
+    key = "neutral",
+    pronouns = { "They", "Them", "Theirs", "It", "Its", "Chad", "ERR/OR", "Was", "Were" }
+}
+--]]
+-- CURRENT PRONOUNS
+--[[
+  SEMBY_chad
+  SEMBY_err_or
+  SEMBY_was_were
+
+  she_her
+  he_him
+  they_them
+  any_all
+  it_its
+  she_they
+  he_they
+
+  SEMBY_they_it
+  SEMBY_it_them
+  SEMBY_she_her_it
+  SEMBY_he_him_it
 --]]
 local SEMBY_Joker_Pronouns = {
-  abandoned_soul = nil,
-  adblocker = nil,
+  abandoned_soul = "she_her",
+  adblocker = "they_them",
   afterimage = "she_her",
   agent_fourty_seven = "he_him",
-  alpha = nil,
+  alpha = "it_its",
   anchor = nil,
   annoying_dog = "it_its",
   anodized_steel = nil,
@@ -49,19 +108,19 @@ local SEMBY_Joker_Pronouns = {
   bound = "he_they",
   broken_record = nil,
   buccaneer = "he_him",
-  bunburrow = nil,
+  bunburrow = "she_her",
   butterfly = nil,
   cassette_beast = nil,
   ceaseless_void = "it_its",
-  chrono_break = nil,
+  chrono_break = "she_they",
   cockroach = nil,
   common_denominator = nil,
   copy_printer = nil,
   coupon = nil,
   coupon_booklet = nil,
   daffy_joker = nil,
-  DATAMINER = "SEMBY_error",
-  doomsday_device = nil, -- was/were
+  DATAMINER = "SEMBY_err_or",
+  doomsday_device = "SEMBY_was_were",
   echoing_joker = "any_all",
   eden_blessing = "he_they",
   emergency_button = nil,
@@ -98,10 +157,10 @@ local SEMBY_Joker_Pronouns = {
   parking_disc = nil,
   pay_two_win = nil,
   peculiar_joker = nil,
-  perfect_pitch = "she_her", -- She/Her/It
+  perfect_pitch = "SEMBY_she_her_it",
   pet_plastic = nil,
   piggy_bank = nil,
-  pinata = "they_them", -- They/It
+  pinata = "SEMBY_they_it",
   plastic_key = nil,
   pocket_dimension = "any_all",
   potted_flowers = nil,
@@ -110,7 +169,7 @@ local SEMBY_Joker_Pronouns = {
   reagent = nil,
   red_mask = nil,
   replicator = "it_its",
-  ripped_joker = "SEMBY_chad", -- :3
+  ripped_joker = "SEMBY_chad",
   risky_joker = nil,
   scaffolding = nil,
   scav_prototype = "it_its",
@@ -127,7 +186,7 @@ local SEMBY_Joker_Pronouns = {
   tempered_glass = "any_all",
   the_dwarf = "she_they",
   the_giant = "he_they",
-  TMTRAINER = "SEMBY_error",
+  TMTRAINER = "SEMBY_err_or",
   to_and_fro = "they_them",
   tool_axe = "she_they",
   tool_hoe = "any_all",

@@ -14,9 +14,9 @@ SMODS.Edition {
     config = {
 		percent = 0.05
 	},
-    in_shop = true,
-    weight = 3,
-    extra_cost = 2,
+    --in_shop = true,
+    --weight = 3,
+    --extra_cost = 2,
     sound = { sound = "SEMBY_resonance", per = 1.2, vol = 1.1 },
 	badge_colour = SMODS.Gradients.SEMBY_RESONANCE,
     loc_vars = function(self, info_queue, card)
@@ -25,9 +25,9 @@ SMODS.Edition {
 			((card.edition or {}).percent or self.config.percent) * 100
 		} }
     end,
-    get_weight = function(self)
-        return G.GAME.edition_rate * self.weight
-    end,
+    --get_weight = function(self)
+    --    return G.GAME.edition_rate * self.weight
+    --end,
     on_apply = function(card)
 		if G.GAME.blind then SMODS.debuff_card(card, 'prevent_debuff', 'SEMBY_resonance') end
     end,
@@ -39,5 +39,8 @@ SMODS.Edition {
 			SEMBY_Increase_Blindsize(self.config.percent, card, true)
 			return nil, true
         end
-    end
+    end,
+    in_pool = function(self, args)
+		return false
+	end
 }

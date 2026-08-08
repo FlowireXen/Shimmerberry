@@ -6,13 +6,10 @@ SMODS.Challenge {
             { id = 'SEMBY_space' },
             { id = 'SEMBY_the_last_unicorn_1' },
             { id = 'SEMBY_the_last_unicorn_2' },
-            { id = 'SEMBY_space' },
-            { id = 'SEMBY_no_win_ante' },
-            { id = 'SEMBY_no_showdown' },
-            { id = 'SEMBY_scaling_05' },
         },
         modifiers = {
-            { id = 'winning_ante', value = 99 },
+			{ id = 'ante_scaling', value = 0.5 },
+            { id = 'winning_ante', value = localize('k_none') },
         }
     },
     restrictions = {
@@ -26,10 +23,6 @@ SMODS.Challenge {
     consumeables = {
         { id = 'c_death' }, --c_judgement
     },
-	apply = function(self)
-		G.GAME.SEMBY_hide_win_ante = true
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1.0) * 0.5
-	end,
     calculate = function(self, context)
 		if context.end_of_round and context.main_eval and context.game_over == false and not G.GAME.won then
 		    local Unigone = true

@@ -19,10 +19,9 @@ SMODS.Joker {
 	},
 	loc_vars = function(self, info_queue, card)
 		local current = G.hand and (G.hand.config.card_limit or G.hand.config.real_card_limit) - math.floor(card.ability.extra.handsize) or 0
-		current = (current >= 0 and '+' or '')..current
 		return { vars = {
 			card.ability.extra.handsize,
-			current
+			SMODS.signed(current)
 		} }
 	end,
 	calculate = function(self, card, context)
@@ -51,7 +50,7 @@ SMODS.Joker {
 					juice_card:juice_up(0.3, 0.0)
 					play_sound('generic1', 1.0, 0.8)
 					attention_text({
-						text = (discards >= 0 and '+'..discards or discards)..' '..localize('SEMBY_smoll'),
+						text = SMODS.signed(discards)..' '..localize('SEMBY_smoll'),
 						backdrop_colour = discards > 0 and G.C.GREEN or G.C.RED,
 						scale = 0.8, hold = 0.8,
 						major = juice_card, align = 'bm',

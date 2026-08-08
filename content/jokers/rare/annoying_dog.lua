@@ -3,7 +3,7 @@ local function get_texture()
 end
 SMODS.Joker {
 	key = "annoying_dog",
-    SEMBY_art = "flowire",--"placeholder",
+    SEMBY_art = "flowire",
 	atlas = "SEMBY_jokers_2",
 	pos = get_texture(), --> Changes each Game-Session
     eternal_compat = true,

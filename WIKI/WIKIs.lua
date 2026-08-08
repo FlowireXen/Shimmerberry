@@ -868,7 +868,7 @@ return {
 
 |-
 | {{captimg||57 Leaf Clover|imgsize=142px}}
-| Retrigger all<br>{{ct|enhanced|Wild Cards}}<br>{{ct|darkedition|3}} times
+| Retrigger all<br>{{ct|enhanced|Wild Cards}}<br>{{ct|darkedition|2}} times
 | $8
 | {{rarity|uncommon}}
 | {{jtype|...}}

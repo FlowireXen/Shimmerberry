@@ -22,7 +22,7 @@ SMODS.Joker {
 	},
 	loc_vars = function(self, info_queue, card)
 		return { vars = {
-			card.ability.extra.chips >= 0 and '+'..card.ability.extra.chips or card.ability.extra.chips,
+			SMODS.signed(card.ability.extra.chips),
 			card.ability.extra.chip_gain,
 			card.ability.extra.chip_loss,
 			localize(card.ability.extra.type, 'poker_hands')

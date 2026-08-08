@@ -11,16 +11,14 @@ SMODS.Challenge {
         },
         modifiers = {
             { id = 'dollars', value = 20 },
-            { id = 'winning_ante', value = 99 },
+			{ id = 'winning_ante', value = localize('k_nope_ex') },
         }
     },
     restrictions = {
         banned_cards = {
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' },
-            { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' },
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' },
-            { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' },
-            { id = 'j_SEMBY_TMTRAINER' }, { id = 'j_SEMBY_DATAMINER' }, { id = 'j_SEMBY_TMTRAINER' },
+            { id = 'j_SEMBY_TMTRAINER' },
+            { id = 'j_SEMBY_DATAMINER' },
+            { id = 'j_SEMBY_TMTRAINER' },
         },
     },
     consumeables = {
@@ -58,7 +56,6 @@ SMODS.Challenge {
         -- Hide Doom & Stats
         G.GAME.SEMBY_doomed = 0.0
         G.GAME.SEMBY_hide_doom = true
-		G.GAME.SEMBY_hide_win_ante = true
         -- Setup Challenge
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
@@ -90,7 +87,8 @@ SMODS.Challenge {
                 SMODS.change_booster_limit(1)
                 -- Increased Challenge:
         	    SEMBY_Global_BlindMod_Add('DELETE_THIS', 0.25)
-		        G.GAME.win_ante = 8 --> "99" Implies "None", but in reality it's ~~12~~ 8* :3
+		        G.GAME.win_ante = 8 --> Says "Nope!" but it's 8 :3
+                G.GAME.SEMBY_no_win_ante = nil
 				-- Change TMTRAINER:
 		        G.E_MANAGER:add_event(Event({
 		        	func = function()
@@ -101,7 +99,7 @@ SMODS.Challenge {
 		        		joker.ability.extra.SEMBY_TMTR_MAX = 4.00
                         joker.ability.SEMBY_tmtrainer_value = '???'
 		        		joker.ability.extra.corrupt = true
-		        		joker.children.center:set_sprite_pos({ x = 9, y = 3 })
+		        		joker.children.center:set_sprite_pos({ x = 9, y = 2 })
                         -- Move Joker to Area: "G.consumeable"
 		        		joker.area:remove_card(joker)
 		        		joker:add_to_deck()

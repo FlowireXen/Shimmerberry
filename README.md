@@ -83,7 +83,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Eden's Blessing | X1.5 Chips or Mult,<br>favours the small<br>Grants a<br>Brighter Future<br>when Boss Blind<br>is defeated | $4 | Uncommon | Nature |
 | Emergency Button | Prevents Death and<br>Rerolls all Jokers<br>and Consumables | $6 | Uncommon | -- |
 | Eternal Fortune | +1 Hand, +1 Luck | $4 | Common | Nature |
-| 57 Leaf Clover | Retrigger all<br>Wild Cards<br>3 times | $8 | Uncommon | Nature |
+| 57 Leaf Clover | Retrigger all<br>Wild Cards<br>2 times | $8 | Uncommon | Nature |
 | Fire Exin't | Reduce Shop prices<br>by 1% every played<br>and unscored card,<br>resets when Boss<br>Blind is selected<br>(Currently 0%/50%) | $6 | Uncommon | -- |
 | Fortune Cookie | Gains a new random<br>Edition at the start<br>of every Blind<br>Sell this card to<br>apply (This Edition) to<br>a random Joker | $6 | Common | Food |
 | Fox Plush | +12 Chips for<br>each Joker and<br>+5 Mult for each<br>empty Joker slot<br>(+0 Chips, +0 Mult) | $6 | Common | Animal |
@@ -216,22 +216,22 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Perishable Fate | Challenge | All Cards are Degrading.<br>Degrading: Destroyed after 5 rounds. |
 | Countdown | Challenge | Don't regain used Hands or Discards. |
 | Shiny Hunt | Challenge | Increased chance for the Shiny Edition.<br>Eternal Dagger, increased Winning Ante. |
-| Hunter | Challenge | Start with Agent 47, reduce your Deck to Win.<br>Custom Win Condition, no Showdowns. |
+| Hunter | Challenge | Start with Agent 47, reduce your Deck to Win.<br>Custom Win Condition! |
 | Hunted | Challenge | Start with Agent 47, keep your Deck high to Win.<br>Custom Lose Condition.<br>Decreased Hand size and Discard Limit. |
-| Done Deal | Challenge | Start with 1 Stone Card. Limited Economy,<br>starting Jokers help re-building a Deck. |
-| The Last Unicorn | Challenge | Destroy your starting Joker.<br>Custom Win Condition, no Showdowns. |
+| Done Deal | Challenge | Start with 1 Stone Card. |
+| The Last Unicorn | Challenge | Destroy your starting Joker.<br>Custom Win Condition! |
 | The Menagerie | Menagerie | Multiplies Blind size by current Ante. |
 
 ### Page 2 (11-20)
 | Name | Type | Short Challenge Summary |
 | ---- |:----:| ----------------------- |
-| Printty Good | Tutorial | Shows how "Copy Printer" works.<br>Custom Win Condition, no Showdowns. |
+| Printty Good | Tutorial | Shows how "Copy Printer" works.<br>Custom Win Condition! |
 | Gaokao | Tutorial | Shows how "Jokebra" works.<br><b>Impossible</b> Score-Requirements.<br>Lowered Winning Ante. |
 | Lavish Dreams | Challenge | Unlimited Money? |
 | 100 uses left | Challenge | Lose when out of Money.<br>Pay for played cards. |
 | Parking Roulette | Challenge | Start with 5x "Parking Disc",<br>"Parking Discs" are random. |
-| Qwest? | Challenge | Start with a random Quest!<br>Quests are harder.<br>Custom Win Condition, no Showdowns. |
-| Emperor Calus | Challenge | Start with debt.<br>Create Jokers in Shop. |
+| Qwest? | Challenge | Start with a random Quest!<br>Quests are harder.<br>Custom Win Condition! |
+| Marked for Negation | Challenge | The world <b>Revolves</b> and<br>your deck is <b>Resonant</b>. |
 | Last One Left | Challenge | Wild Kings but no Baron.<br><b>Higher</b> Winning Ante!<br><b>Doomed</b> to fail. |
 | Speed of Light | Challenge | Start with better Poker Hands.<br>Increased Blind Scaling, <br><b>Doubled</b> Winning Ante! |
 | Grandmaster Menagerie | Menagerie | Multiplies Blind size by current Ante.<br>Applies Gold Stake difficulty. |
@@ -239,7 +239,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 ### Page 3?
 | Name | Type | Short Challenge Summary |
 | ---- |:----:| ----------------------- |
-| ??? | ??? | Strange & Unknown Rules |
+| ???  | ???  | Strange & Unknown Rules |
 
 </details>
 
@@ -259,7 +259,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Pearlescent Tag | Next base edition shop<br>Joker is free and<br>becomes Pearlescent | Yes | -- |
 | Shiny Tag | Next base edition shop<br>Consumable is free and<br>becomes Shiny | Yes | -- |
 | Doom* | +?% Blind Size for<br>next Showdown Blind | No | Challenges |
-| Lavish Debt* | +?% Blind Size<br>next round | No | "Lavish Joker" &<br>Challenges |
+| Lavish Debt* | +50% Blind Size<br>next round | No | "Lavish Joker" &<br>Challenges |
 
 \* Debt-Tags don't trigger Double-Tag!
 </details>
@@ -364,7 +364,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 ## Other Notes
 Shimmerberry fixes the glitched state that can be achieved by<br>
 [running out of cards with 2x"Mr. Bones"](https://balatrowiki.org/w/Mr._Bones#Trivia) in possession.<br>
-It also allows "Mr. Bones" to save you, if you run out of cards.
+It also allows "Mr. Bones" to save you if you run out of cards.
 
 ___
 </details>

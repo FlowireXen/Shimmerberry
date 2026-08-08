@@ -6,7 +6,6 @@
 - [MINOR][Can't Fix]: "Parking Disc: 3" doesn't apply "context.modify_ante" correctly.
 
 > Future WiPs:
-- [++ ]: "Winning Ante: 99" should be "Winning Ante: None/-" (Requires patching UI)
 - [  -]: Add Unlock requirements to some Jokers
 
 > Each Release:
@@ -22,6 +21,10 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Patch Notes:
+
+!! Bug Report: Shader Issue !! -> Fixed: Shoutout to "thewhiteoctavia"
+
+-- Redo Patch-Notes:
 Updated Art-Credits system, now always shows the Art-Credits, much like the PotatoPatchUtils
 Internal Update: Removed unnecessary "name" property from all Onbjects
 "Shiny" edition now shows both states in collection
@@ -52,24 +55,13 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Eden Token: You don't need such an extreme Winning check
--> The "eden_checksum" is very overkill.
-
-Generally rework Challenges!
-
-Check for ##TODO##'s
-
 ????CAN I PAY SOMEONE TO DO THE WIKI????
 --> https://balatromods.miraheze.org/wiki/Modded_Balatro_Wiki:Balatro_localization_transcriber
 Wiki Inspo: https://balatromods.miraheze.org/wiki/Phanta
 
-V.I.P. (Very Intense Poison):
-Start with Eternal VIP-Joker, 13 random cards in your Deck are Bonus cards and permanently debuffed
-(Bonus cards are permanently debuffed)
-
-!! Bug Report: Shader Issue !! -> Fixed: Shoutout to "thewhiteoctavia"
 
 Currently: Give all Jokers (& others) Pronouns
+
 
 Add sound sources to origin
 Add Texture files to origin
@@ -78,6 +70,13 @@ Add Texture files to origin
 
 
 > Next Update [Sketch]:
+
+-> Consider "Bound" for some challenges
+
+[FINAL] "Cascade"/"Escalation Protocol" (Challenge):
+- First Blind starts at 100
+- Beat Double the last round score every Blind
+- Skipping Actively just Doubles all Score immidiatly
 
 [IDEA] Deck:
 - Replaces Money with Time
@@ -109,15 +108,14 @@ Effect:  "Doesn't take up Space, Destroyed at the End of Shop"
 - (Ace) -> 2 -> 5 -> 8 -> Jack -> Ace -> Gone
 - Played "Stone Cards" / "Cards with no ranks" get Destroyed (Message from Deck; "INVALID")
 - Ban Normal Card Packs
+- Alt.: Deck is only one Suit, which suit is up to the Player [Opens Choice Menu @ Start]
 
 [FINAL] "Digital Roses" (Challenge):
 - Start with "Flower Pot" and "Potted Flower" [2x Eternal]
 - All Face Cards are "Memory Cards" / Entire Deck is "Memory Cards" (+ Ban Pluto)
 
-[FINAL] "Cascade"/"Escalation Protocol" (Challenge):
-- First Blind starts at 100
-- Beat Double the last round score every Blind
-- Skipping Actively just Doubles all Score immidiatly
+Idea: "Shadow Crystal"/"Negative Space":
+2 Hands, 2 Hand Size, 2 Discards, Diamond Suit is Negative
 
 --G.GAME.SEMBY_last_score = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
 
@@ -144,3 +142,7 @@ Generates a random Planet Card at the start of the Blind (3 rounds left)
 Idea, Joker: Scale - "X2 Mult" when having the same amount of Jokers on both sides
 
 Phanta Compat.: Chloroform; Next 2 Shop Jokers are free and Sleepy
+
+Sticker: "Fleeting"
+Self destructs when
+Boss Blind is defeated

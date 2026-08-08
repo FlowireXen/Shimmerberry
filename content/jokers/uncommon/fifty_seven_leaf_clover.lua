@@ -10,7 +10,7 @@ SMODS.Joker {
 	cost = 8,
 	config = {
 		extra = {
-			repetitions = 3
+			repetitions = 2
 		}
 	},
     attributes = {

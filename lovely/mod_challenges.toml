@@ -5,32 +5,91 @@ priority = 10
 
 ## Additional Parameters and Changes for Challenges:
 #> Add "Winning Ante" as Start-Parameter
-#> Add More Options for Jokers (Stickers, etc.)
+#> Squishes 4+ Blind-Restrictions
+#> Add More Options for Jokers/Cards (Stickers, etc.)
 #> Add Condition(s) for "Countdown"-Challenge
 
 
+
 ## Add "Winning Ante" as Start-Parameter:
-# [
+#> "ante_scaling" already part of Vanilla
+
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = '''hand_size = {value = starting_params.hand_size, order = 3},'''
 position = "after"
-payload = '''winning_ante = {value = (starting_params.winning_ante or 8), order = 8},'''
+payload = '''
+ante_scaling = {value = (starting_params.ante_scaling or 1), order = 8},
+winning_ante = {value = (starting_params.winning_ante or 8), order = 9},
+'''
 match_indent = true
-# ], [
+# Info: Doesn't update when changing languages
+
 [[patches]]
 [patches.pattern]
 target = "game.lua"
 pattern = '''self.GAME.current_round.reroll_cost = self.GAME.base_reroll_cost'''
 position = "after"
-payload = '''self.GAME.win_ante = (self.GAME.starting_params.winning_ante or self.GAME.win_ante)'''
+payload = '''
+if self.GAME.starting_params.winning_ante then
+	if type(self.GAME.starting_params.winning_ante) == "number" then
+		self.GAME.win_ante = self.GAME.starting_params.winning_ante
+	else
+		G.GAME.SEMBY_no_win_ante = true
+		G.GAME.SEMBY_hide_win_ante = true
+	end
+end
+'''
 match_indent = true
-# ]
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+if not G.GAME.won and G.GAME.round_resets.ante >= G.GAME.win_ante and G.GAME.blind_on_deck == 'Boss' then
+    game_won = true
+    G.GAME.won = true
+end
+'''
+position = "before"
+payload = '''if not G.GAME.SEMBY_no_win_ante then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+if not G.GAME.won and G.GAME.round_resets.ante >= G.GAME.win_ante and G.GAME.blind_on_deck == 'Boss' then
+    game_won = true
+    G.GAME.won = true
+end
+'''
+position = "after"
+payload = '''end'''
+match_indent = true
+
+
+
+## When there are 4+ Blinds in Restrictions, it'll squish them together
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''{n=G.UIT.R, config={align = "cm", minh = 4.1, minw = 2, padding = 0.05, r = 0.1, colour = G.C.WHITE}, nodes= '''
+position = "before"
+payload = '''
+#banned_other >= 4 and
+{n=G.UIT.R, config={align = "cm", minh = 4.1, minw = 2, padding = -(math.min(#banned_other/25, 0.9)), r = 0.1, colour = G.C.WHITE}, nodes= 
+banned_other}
+or
+'''
+match_indent = true
+
 
 
 ## Add More Options for Jokers:
-# [
+
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
@@ -38,6 +97,7 @@ pattern = '''if v.pinned then card.pinned = true end'''
 position = "after"
 payload = '''
 if v.SEMBY_perishable then card:add_sticker('perishable', true) end
+if v.SEMBY_degrading then card:add_sticker('SEMBY_degrading', true) end
 if v.SEMBY_rental then card:add_sticker('rental', true) end
 if v.SEMBY_debuffed then card:set_debuff(true) end
 if v.SEMBY_possessive then card:add_sticker('SEMBY_possessive', true) end
@@ -48,7 +108,7 @@ end
 if v.SEMBY_lavish then card:add_sticker('SEMBY_lavish_buff', true) end
 '''
 match_indent = true
-# ], [
+
 [[patches]]
 [patches.pattern]
 target = "game.lua"
@@ -56,6 +116,7 @@ pattern = '''if v.pinned then _joker.pinned = true end'''
 position = "after"
 payload = '''
 if v.SEMBY_perishable then _joker:add_sticker('perishable', true) end
+if v.SEMBY_degrading then _joker:add_sticker('SEMBY_degrading', true) end
 if v.SEMBY_rental then _joker:add_sticker('rental', true) end
 if v.SEMBY_debuffed then SMODS.debuff_card(_joker, true, 'SEMBY_challenge_debuff') end
 if v.SEMBY_possessive then _joker:add_sticker('SEMBY_possessive', true) end
@@ -66,12 +127,21 @@ end
 if v.SEMBY_lavish then _joker:add_sticker('SEMBY_lavish_buff', true) end
 '''
 match_indent = true
-# ]
+
+# Allows Debuffing Cards visually
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''SUITS[v.s][#SUITS[v.s]+1] = _card'''
+position = "before"
+payload = '''if v.SMBd then _card.debuff = true end'''
+match_indent = true
+
 
 
 ## Add Condition(s) for "Countdown"-Challenge:
 ## Info: Don't activate when not in Challenge!
-# [
+
 [[patches]]
 [patches.pattern]
 target = "functions/button_callbacks.lua"
@@ -79,7 +149,7 @@ pattern = '''G.GAME.current_round.discards_left = math.max(0, G.GAME.round_reset
 position = "before"
 payload = '''if not G.GAME.SEMBY_Countdown then'''
 match_indent = true
-# ], [
+
 [[patches]]
 [patches.pattern]
 target = "functions/button_callbacks.lua"
@@ -87,7 +157,7 @@ pattern = '''G.GAME.current_round.hands_left = (math.max(1, G.GAME.round_resets.
 position = "after"
 payload = '''end'''
 match_indent = true
-# ], [
+
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
@@ -101,7 +171,7 @@ if G.GAME.SEMBY_Countdown then
 else
 '''
 match_indent = true
-# ], [
+
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
@@ -109,4 +179,3 @@ pattern = '''G.GAME.current_round.hands_left = (math.max(1, G.GAME.round_resets.
 position = "after"
 payload = '''end'''
 match_indent = true
-# ]

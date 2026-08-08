@@ -8,13 +8,12 @@ SMODS.Challenge {
             { id = 'no_reward' },
             { id = 'no_extra_hand_money' },
             { id = 'no_interest' },
-            { id = 'SEMBY_scaling_40' },
         },
         modifiers = {
             { id = 'hands', value = 2 },
             { id = 'discards', value = 2 },
-            { id = 'hand_size', value = 12 },
             { id = 'dollars', value = 2 },
+			{ id = 'ante_scaling', value = 4 },
         }
     },
     restrictions = {
@@ -22,7 +21,6 @@ SMODS.Challenge {
             { id = 'v_seed_money' },
             { id = 'v_money_tree' },
             { id = 'j_to_the_moon' },
-            { id = 'j_SEMBY_copy_printer' },
             { id = 'c_hermit' },
             { id = 'c_temperance' },
             { id = 'c_immolate' },
@@ -36,15 +34,11 @@ SMODS.Challenge {
             { id = 'tag_economy' },
             { id = 'tag_SEMBY_bnt_vouch_down' },
         },
-        banned_other = {
-            { id = 'bl_final_heart', type = 'blind' },
-            { id = 'bl_final_leaf',  type = 'blind' },
-        },
     },
     jokers = {
         { id = 'j_SEMBY_lavish_joker', pinned = true, eternal = true, SEMBY_lavish = true },
         { id = 'j_SEMBY_lavish_joker' },
-        { id = 'j_SEMBY_pay_two_win', SEMBY_glitched = 0.5, SEMBY_perishable = true },
+        { id = 'j_SEMBY_pay_two_win', SEMBY_glitched = 0.5 },
     },
     deck = {
         type = 'Challenge Deck',
@@ -66,7 +60,6 @@ SMODS.Challenge {
     },
 	apply = function(self)
 		G.GAME.SEMBY_lavish_mode = true
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 4.0
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()

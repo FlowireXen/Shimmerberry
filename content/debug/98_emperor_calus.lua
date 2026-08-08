@@ -71,7 +71,8 @@ SMODS.Challenge {
         if context.starting_shop then
 			local card = SMODS.add_voucher_to_shop('j_SEMBY_opulent_skint', false)
             card:add_sticker('rental', true)
+            --card:add_sticker('SEMBY_blooming', true)
         end
     end,
-	button_colour = G.C.RED
+	button_colour = HEX('FF00FF')
 }
