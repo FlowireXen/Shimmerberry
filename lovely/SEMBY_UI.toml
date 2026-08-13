@@ -29,7 +29,6 @@ payload = '''
 	})
     G.SEMBY_BERRY:define_draw_steps({
 		{ shader = 'dissolve' },
-		G.SEMBY_SECRET and { shader = 'negative_shine' } or nil,
 	})
     G.SEMBY_BERRY.dissolve_colours = {G.C.WHITE, G.C.WHITE}
     G.SEMBY_BERRY.dissolve = 1

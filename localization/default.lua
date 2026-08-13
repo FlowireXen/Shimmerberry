@@ -1,4 +1,4 @@
-local alt = G.SEMBY_SECRET --> Alt. Descriptions
+local alt = G.SEMBY.Secret --> Alt. Descriptions
 --## Translations:
 return {
 	descriptions = {

@@ -27,13 +27,13 @@ CardPronouns.Pronoun {
 CardPronouns.Pronoun {
     key = "SEMBY_they_it", pronoun_table = { "They", "It" },
     colour = HEX('844FAF'), text_colour = G.C.WHITE,
-    in_pool = function() return true end
+    in_pool = function() return false end
 }
 -- Custom Pronoun: It/Them
 CardPronouns.Pronoun {
     key = "SEMBY_it_them", pronoun_table = { "It", "Them" },
     colour = HEX('844FAF'), text_colour = G.C.WHITE,
-    in_pool = function() return true end
+    in_pool = function() return false end
 }
 -- Custom Pronoun: She/Her/It
 CardPronouns.Pronoun {
@@ -93,12 +93,12 @@ local SEMBY_Joker_Pronouns = {
   afterimage = "she_her",
   agent_fourty_seven = "he_him",
   alpha = "it_its",
-  anchor = nil,
+  anchor = "he_him",
   annoying_dog = "it_its",
-  anodized_steel = nil,
-  arcoex = nil,
-  balloon = nil,
-  barmy_joker = nil,
+  anodized_steel = "SEMBY_he_him_it",
+  arcoex = "any_all",
+  balloon = "she_they",
+  barmy_joker = "he_him",
   benthic_bloom = nil,
   berry_blue = nil,
   berry_golden = nil,
@@ -118,7 +118,7 @@ local SEMBY_Joker_Pronouns = {
   copy_printer = nil,
   coupon = nil,
   coupon_booklet = nil,
-  daffy_joker = nil,
+  daffy_joker = "she_they",
   DATAMINER = "SEMBY_err_or",
   doomsday_device = "SEMBY_was_were",
   echoing_joker = "any_all",
@@ -130,7 +130,7 @@ local SEMBY_Joker_Pronouns = {
   fortune_cookie = nil,
   foxie_plush = "she_her",
   garden_gnome = nil,
-  ghostsalt_contract = nil,
+  ghostsalt_contract = "he_they",
   gold_bomb = nil,
   goobert = "he_him",
   hemoturgy = nil,
@@ -156,7 +156,7 @@ local SEMBY_Joker_Pronouns = {
   paper_swan = nil,
   parking_disc = nil,
   pay_two_win = nil,
-  peculiar_joker = nil,
+  peculiar_joker = "she_her",
   perfect_pitch = "SEMBY_she_her_it",
   pet_plastic = nil,
   piggy_bank = nil,
@@ -175,7 +175,7 @@ local SEMBY_Joker_Pronouns = {
   scav_prototype = "it_its",
   seven_wonders = nil,
   shooting_star = nil,
-  shrewd_joker = nil,
+  shrewd_joker = "it_its",
   silver_mask = "he_they",
   singularity = "she_her",
   stern_teacher = "he_him",

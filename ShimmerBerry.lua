@@ -3,10 +3,6 @@ print("Loading: 'Shimmerberry'")
 ------------MOD CODE -------------------------
 Shimmerberry = SMODS.current_mod
 Shimmerberry.Debug = true
-
---## Mod Integrity
-SMODS.Atlas({ key = "modicon", path = "modicon.png", px = 64, py = 64 })
-SMODS.Atlas({ key = "shimmerberry", path = "shimmerberry.png", px = 80, py = 80 })
 G.SEMBY = {}
 
 --## Mod Desc. Style
@@ -25,11 +21,14 @@ Shimmerberry.compat = {
 --## Secrets
 if Shimmerberry.config then
 	if Shimmerberry.config.secrets then
-		G.SEMBY_SECRET = math.random() < 0.1 or nil
+		G.SEMBY.Secret = math.random() < 0.1 or false
 	else Shimmerberry.config.secrets = true end
 end
 
 --## Load Content
+SMODS.Atlas({ key = "modicon", path = "modicon.png", px = 64, py = 64 })
+SMODS.Atlas({ key = "shimmerberry", path = G.SEMBY.Secret and "shimmersecret.png" or "shimmerberry.png", px = 80, py = 80 })
+
 SMODS.Sound:register_global()
 
 -- Colours

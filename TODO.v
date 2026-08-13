@@ -71,7 +71,10 @@ Add Texture files to origin
 
 > Next Update [Sketch]:
 
--> Consider "Bound" for some challenges
+add "can_sell(self, card, context)" to anchor and disable selling when unselectable
+check if you can add a method to the "selectable" boolean, if so; handle it via method
+
+Consider "Bound" for some challenges
 
 [FINAL] "Cascade"/"Escalation Protocol" (Challenge):
 - First Blind starts at 100
