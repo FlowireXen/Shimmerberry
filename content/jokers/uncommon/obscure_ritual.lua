@@ -1,12 +1,11 @@
-local textures = {
-	active = { x = 4, y = 2 },
-	inactive = { x = 3, y = 2 }
-}
+local function get_texture(state)
+	return { x = state and 4 or 3, y = 2 }
+end
 SMODS.Joker {
 	key = "obscure_ritual",
 	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_2",
-	pos = textures.inactive,
+	pos = get_texture(),
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -27,19 +26,14 @@ SMODS.Joker {
 			card.ability.extra.percent * 100
 		} }
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				if card.ability.extra.active then
-					card.children.center:set_sprite_pos(textures.active)
-				end
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.active))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
-		if not from_debuff and card.ability.extra.active then
-			card.children.center:set_sprite_pos(textures.active)
+		if not from_debuff then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.active))
 		end
     end,
 	calculate = function(self, card, context)
@@ -49,7 +43,7 @@ SMODS.Joker {
 					card.ability.extra.active = true
 					G.E_MANAGER:add_event(Event({
 						func = function()
-							card.children.center:set_sprite_pos(textures.active)
+							card.children.center:set_sprite_pos(get_texture(card.ability.extra.active))
 							return true
 						end
 					}))
@@ -68,7 +62,7 @@ SMODS.Joker {
 					card.ability.extra.active = false
 					G.E_MANAGER:add_event(Event({
 						func = function()
-							card.children.center:set_sprite_pos(textures.inactive)
+							card.children.center:set_sprite_pos(get_texture(card.ability.extra.active))
 							return true
 						end
 					}))

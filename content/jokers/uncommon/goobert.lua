@@ -1,14 +1,13 @@
-local soul_textures = {
-	left = { x = 7, y = 2 },
-	right = { x = 6, y = 2 }
-}
+local function get_soul_texture(state)
+	return { x = state and 6 or 7, y = 2 }
+end
 SMODS.Joker {
 	key = "goobert",
 	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_2",
 	pos = { x = 5, y = 2 },
-	soul_pos = soul_textures.right,
-    eternal_compat = true,  --> Paradoxic, I know.
+	soul_pos = get_soul_texture(true),
+    eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = false,
 	rarity = 2,
@@ -36,22 +35,15 @@ SMODS.Joker {
 			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				card:SEMBY_set_soul_pos('SEMBY_jokers_2',
-					card.ability.extra.soul_switch and soul_textures.right or soul_textures.left
-				)
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card:SEMBY_set_soul_pos('SEMBY_jokers_2', get_soul_texture(card.ability.extra.soul_switch))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
-		if not from_debuff and card.ability.extra.texture_switch then
-			card.ability.extra.soul_switch = not card.ability.extra.soul_switch
-			card:SEMBY_set_soul_pos('SEMBY_jokers_2',
-				card.ability.extra.soul_switch and soul_textures.right or soul_textures.left
-			)
+		if not from_debuff then
+			card.ability.extra.soul_switch = true
+			card:SEMBY_set_soul_pos('SEMBY_jokers_2', get_soul_texture(card.ability.extra.soul_switch))
 		end
     end,
 	calculate = function(self, card, context)
@@ -105,8 +97,8 @@ SMODS.Joker {
 				}))
 				-- Vars. for Visuals:
 				local juice_card = (context.blueprint_card or card)
-				local soul_pos_1 = card.ability.extra.soul_switch and soul_textures.left or soul_textures.right
-				local soul_pos_2 = card.ability.extra.soul_switch and soul_textures.right or soul_textures.left
+				local soul_pos_1 = get_soul_texture(not card.ability.extra.soul_switch)
+				local soul_pos_2 = get_soul_texture(card.ability.extra.soul_switch)
 				local v_rot = card.ability.extra.soul_switch and 0.5 or -0.5
 				card.ability.extra.soul_switch = not card.ability.extra.soul_switch
 				-- Swing Visibility, Step 1

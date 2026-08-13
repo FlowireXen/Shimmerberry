@@ -124,13 +124,10 @@ SMODS.Joker {
 			}
 		end
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				card.children.center:set_sprite_pos(get_texture(card.ability.extra.index.boss))
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.index.boss))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then

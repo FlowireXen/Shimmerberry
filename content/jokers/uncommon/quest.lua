@@ -96,21 +96,18 @@ SMODS.Joker {
 			main_end = info_val
 		}
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				if card.ability.extra.quest.complete then
-					card.children.center:set_sprite_pos(SEMBY_quest_pos.complete)
-				elseif card.ability.extra.quest.action == "use" then
-					card.children.center:set_sprite_pos(SEMBY_quest_pos.active)
-				elseif not card.ability.extra.quest.reset then
-					card.children.center:set_sprite_pos(SEMBY_quest_pos.active)
-				else
-					card.children.center:set_sprite_pos(SEMBY_quest_pos.base)
-				end
-				return true
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			if card.ability.extra.quest.complete then
+				card.children.center:set_sprite_pos(SEMBY_quest_pos.complete)
+			elseif card.ability.extra.quest.action == "use" then
+				card.children.center:set_sprite_pos(SEMBY_quest_pos.active)
+			elseif not card.ability.extra.quest.reset then
+				card.children.center:set_sprite_pos(SEMBY_quest_pos.active)
+			else
+				card.children.center:set_sprite_pos(SEMBY_quest_pos.base)
 			end
-		}))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then

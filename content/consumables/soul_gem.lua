@@ -51,25 +51,15 @@ SMODS.Consumable {
 			} }
 		end
     end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				if card.ability.extra.captured ~= 0 then
-					card:SEMBY_set_soul_pos('SEMBY_consumables', get_soul_texture(card.ability.extra.captured))
-				end
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card:SEMBY_set_soul_pos('SEMBY_consumables', get_soul_texture(card.ability.extra.captured))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				if card.ability.extra.captured ~= 0 then
-					card:SEMBY_set_soul_pos('SEMBY_consumables', get_soul_texture(card.ability.extra.captured))
-				end
-				return true
-			end
-		}))
+		if not from_debuff then
+			card:SEMBY_set_soul_pos('SEMBY_consumables', get_soul_texture(card.ability.extra.captured))
+		end
     end,
 	calculate = function(self, card, context)
 		if context.end_of_round and context.game_over == false and context.main_eval

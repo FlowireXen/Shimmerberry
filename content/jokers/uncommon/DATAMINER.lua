@@ -1,12 +1,11 @@
-local textures = {
-	base = { x = 8, y = 3 },
-	corrupt = { x = 9, y = 3 }
-}
+local function get_texture(state)
+	return { x = state and 9 or 8, y = 3 }
+end
 SMODS.Joker {
 	key = "DATAMINER",
 	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_2",
-	pos = textures.base,
+	pos = get_texture(),
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = false,
@@ -37,20 +36,15 @@ SMODS.Joker {
 			card.ability.SEMBY_tmtrainer_value = '*401'
 		end
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				if card.ability.extra.SEMBY_corrupt ~= 0 then
-					card.children.center:set_sprite_pos(textures.corrupt)
-				end
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.SEMBY_corrupt ~= 0))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
 		SEMBY_TMTR_State(true)
-		if not from_debuff and card.ability.extra.SEMBY_corrupt ~= 0 then
-			card.children.center:set_sprite_pos(textures.corrupt)
+		if not from_debuff then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.SEMBY_corrupt ~= 0))
 		end
     end,
     remove_from_deck = function(self, card, from_debuff)

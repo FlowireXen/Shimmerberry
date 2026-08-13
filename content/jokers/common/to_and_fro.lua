@@ -1,12 +1,11 @@
-local textures = {
-	base = { x = 8, y = 1 },
-	switch = { x = 9, y = 1 }
-}
+local function get_texture(state)
+	return { x = state and 9 or 8, y = 1 }
+end
 SMODS.Joker {
 	key = "to_and_fro",
 	SEMBY_art = "unkokat",
 	atlas = "SEMBY_jokers_2",
-	pos = textures.base,
+	pos = get_texture(),
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -25,19 +24,14 @@ SMODS.Joker {
 		card.ability.extra.desc_switch = not card.ability.extra.desc_switch
 		return { key = card.ability.extra.desc_switch and 'j_SEMBY_fro_and_to' or 'j_SEMBY_to_and_fro' }
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				if card.ability.extra.texture_switch then
-					card.children.center:set_sprite_pos(textures.switch)
-				end
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.texture_switch))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
-		if not from_debuff and card.ability.extra.texture_switch then
-			card.children.center:set_sprite_pos(textures.switch)
+		if not from_debuff then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.texture_switch))
 		end
     end,
 	calculate = function(self, card, context)
@@ -51,9 +45,7 @@ SMODS.Joker {
 					G.hand_text_area.hand_level:juice_up()
 					-- Texture Change
 					card.ability.extra.texture_switch = not card.ability.extra.texture_switch
-					card.children.center:set_sprite_pos(
-						card.ability.extra.texture_switch and textures.switch or textures.base
-					)
+					card.children.center:set_sprite_pos(get_texture(card.ability.extra.texture_switch))
 					-- Effects
 					card:juice_up()
 					play_sound('whoosh', 1.0 + (math.random() * 0.4 - 0.2), 0.6)
@@ -66,7 +58,7 @@ SMODS.Joker {
 			hand_chips = mod_chips(old_mult)
 			update_hand_text({delay = 0.2}, {chips = hand_chips, mult = mult})
 			return nil, true
-			-- return { swap = true }   <- This makes the Card and Joker wiggle way way too much.
+			--FIXME: return { swap = true }   <- This makes the Card and Joker wiggle way way too much.
         end
     end
 }

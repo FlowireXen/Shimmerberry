@@ -42,25 +42,17 @@ SMODS.Joker {
 			colours = { color }
 		} }
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				card.children.center:set_sprite_pos(get_texture(card.ability.extra.hand_size))
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.hand_size))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
 		if card.ability.extra.hand_size and card.ability.extra.hand_size ~= 0 then
 			local change = math.min(math.abs(card.ability.extra.hand_size), card.ability.extra.hand_max)
 			if card.ability.extra.hand_size < 0 then change = -change end
 			G.hand:change_size(change)
-			G.E_MANAGER:add_event(Event({
-				func = function()
-					card.children.center:set_sprite_pos(get_texture(card.ability.extra.hand_size))
-					return true
-				end
-			}))
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.hand_size))
 		end
     end,
     remove_from_deck = function(self, card, from_debuff)
