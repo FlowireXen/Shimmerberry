@@ -3,6 +3,7 @@ SMODS.Blind {
     SEMBY_art = "flowire",
     atlas = "SEMBY_blinds",
     pos = { x = 0, y = 3},
+    dollars = 5,
     mult = 1.5,
     boss = { min = 2 },
     boss_colour = HEX("4d1575"),

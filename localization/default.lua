@@ -461,7 +461,7 @@ return {
 				}
 			},
 			j_SEMBY_ghostsalt_contract = {
-				name = alt and "Evil Deal" or "Gambler's Contract",
+				name = alt and "Evil's Deal" or "Gambler's Contract",
 				text = {
 					"Shop Jokers have",
 					"a {C:green}#1# in #2#{} chance to",

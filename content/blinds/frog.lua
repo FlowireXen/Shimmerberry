@@ -3,6 +3,8 @@ SMODS.Blind {
     SEMBY_art = "flowire",
     atlas = "SEMBY_blinds", pos = { x = 0, y = 1},
     boss = { min = 2 },
+    dollars = 5,
+    mult = 2,
     boss_colour = HEX("8ed132"),
     calculate = function(self, blind, context)
         if context.press_play and not blind.disabled then

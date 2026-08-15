@@ -3,6 +3,11 @@ https://balatromods.miraheze.org/wiki/Shimmerberry
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 New or Update:
 https://balatromods.miraheze.org/wiki/File:Consumables_View_(Shimmerberry).png
+https://balatromods.miraheze.org/wiki/File:Card_Modifiers_View_(Shimmerberry).png
+
+##TODO##
+-- Add Info for JokerDisplay and Pronouns
+-- Add Info for Vanilla Changes
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ModInfobox
@@ -27,29 +32,38 @@ It adds several new [[/Jokers/|Jokers]] and [[/Challenges/|Challenges]], a coupl
 {{Linkportal
  | title = CORE ADDITIONS
  | gridheight = 5.4
- | image1 = Shimmerberry Joker (Shimmerberry).png{{!}}96px | link1 = /Jokers/
- | image2 = Hopeless Deck (Shimmerberry).png{{!}}96px | link2 = /Challenges/
- | image3 = Intimidating Tag (Shimmerberry).png{{!}}68px | link3 = /Tags/
- | image4 = The Frog (Shimmerberry).gif{{!}}68px | link4 = /Boss Blinds/
- | image5 = Scartare Deck (Shimmerberry).png{{!}}96px | link5 = /Decks/
- | image6 = Scartare Sleeve (Shimmerberry).png{{!}}96px | link6 = /Sleeves/
+ | image1 = Shimmerberry Joker (Shimmerberry).png{{!}}96px
+ | link1 = /Jokers/
+ | image2 = Scartare Deck (Shimmerberry).png{{!}}96px
+ | link2 = /Decks/
+ | image3 = Scartare Sleeve (Shimmerberry).png{{!}}96px
+ | link3 = /Sleeves/
+ | image4 = Hopeless Deck (Shimmerberry).png{{!}}96px
+ | link4 = /Challenges/
+ | image5 = The Frog (Shimmerberry).gif{{!}}64px
+ | link5 = /Boss Blinds/
+ | image6 = Intimidating Tag (Shimmerberry).png{{!}}64px
+ | link6 = /Tags/
+ | image7 = Obtained Achievement (Cryptid).png{{!}}64px
+ | link7 = /Achievements/
+ | image8 = Joker (Vanilla).png{{!}}96px
+ | link8 = /Vanilla Changes/
 }}
 
 {{Linkportal
  | title = CONSUMABLES
  | gridheight = 5.4
- | image1 = Consumables View (Shimmerberry).png {{!}}96px | link1 = /Consumables/
- | image2 = Pearlescent (Shimmerberry).png{{!}}96px | link2 = /Editions/
- | image3 = Possessive Sticker (Shimmerberry).png{{!}}96px | link3 = /Stickers/
- | image4 = Old Urn (Shimmerberry).png{{!}}96px | link4 = /Vouchers/
+ | image1 = Pearlescent (Shimmerberry).png{{!}}96px
+ | link1 = /Editions/
+ | image2 = PLACEHOLDER.png
+ | link2 = /Enhancements/
+ | image3 = Possessive Sticker (Shimmerberry).png{{!}}96px
+ | link3 = /Stickers/
+ | image4 = Consumables View (Shimmerberry).png {{!}}96px
+ | link4 = /Consumables/
+ | image5 = Old Urn (Shimmerberry).png{{!}}96px
+ | link5 = /Vouchers/
 }}
 </div>
 
-
-##TODO##
--- Add Info for JokerDisplay and Pronouns
--- Add Info for Vanilla Changes
-
-
 [[Category:Content Mods]]
-
