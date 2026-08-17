@@ -50,9 +50,10 @@ SMODS.Challenge {
 		}
     },
 	apply = function(self)
-        -- Deck Texture
-        G.GAME.selected_back.atlas = "SEMBY_decks"
-        G.GAME.selected_back.pos = { x = 3, y = 1 }
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 3, y = 1 }
+        end
         -- Apply Gold Stake
 		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
 		G.GAME.stake = SMODS.Stakes["stake_gold"].order

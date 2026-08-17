@@ -52,9 +52,10 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
-        -- Deck Texture
-        G.GAME.selected_back.atlas = "SEMBY_decks"
-        G.GAME.selected_back.pos = { x = 0, y = 1 }
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 0, y = 1 }
+        end
 		-- "Impossible" Blinds:
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 10000 --math.huge
 		-- Your final Exam (Shows that it will show the extra Score anyways):

@@ -43,9 +43,10 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
-        -- Deck Texture
-        G.GAME.selected_back.atlas = "SEMBY_decks"
-        G.GAME.selected_back.pos = { x = 0, y = 1 }
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 0, y = 1 }
+        end
 	end,
     calculate = function(self, context)
 		if context.end_of_round and context.main_eval and context.game_over == false and not G.GAME.won then
