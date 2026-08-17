@@ -4,10 +4,6 @@ https://balatromods.miraheze.org/wiki/Shimmerberry
 New or Update:
 https://balatromods.miraheze.org/wiki/File:Consumables_View_(Shimmerberry).png
 https://balatromods.miraheze.org/wiki/File:Card_Modifiers_View_(Shimmerberry).png
-
-##TODO##
--- Add Info for JokerDisplay and Pronouns
--- Add Info for Vanilla Changes
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ModInfobox
@@ -65,5 +61,10 @@ It adds several new [[/Jokers/|Jokers]] and [[/Challenges/|Challenges]], a coupl
  | link5 = /Vouchers/
 }}
 </div>
+
+== CrossMod Content ==
+Shimmerberry fully supports the following mods:
+{{cross-mod content|JokerDisplay}}
+{{cross-mod content|CardPronouns}}
 
 [[Category:Content Mods]]

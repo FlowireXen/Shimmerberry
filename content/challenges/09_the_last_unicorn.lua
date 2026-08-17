@@ -9,7 +9,7 @@ SMODS.Challenge {
         },
         modifiers = {
 			{ id = 'ante_scaling', value = 0.5 },
-            { id = 'winning_ante', value = localize('k_none') },
+            { id = 'winning_ante', value = localize('k_none') }, --localize('SEMBY_horse_says_1')
         }
     },
     restrictions = {

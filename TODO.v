@@ -55,12 +55,11 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-????CAN I PAY SOMEONE TO DO THE WIKI????
---> https://balatromods.miraheze.org/wiki/Modded_Balatro_Wiki:Balatro_localization_transcriber
-Wiki Inspo: https://balatromods.miraheze.org/wiki/Phanta
-
-
 Currently: Give all Jokers (& others) Pronouns
+
+Jokers that require X suits, should always check suits by themselves, remove global check?
+
+Figure out how to change Challenge Deck deck-skin
 
 
 Add sound sources to origin

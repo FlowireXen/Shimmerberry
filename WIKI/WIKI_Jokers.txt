@@ -107,7 +107,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Alpha|imgsize=142px}}
-| {{ct|blue|+1}} Hand for<br>{{ct|attention|first}} scoring<br>{{ct|enhanced|Stone Card}}
+| {{ct|blue|+1}} Hand for<br>{{ct|attention|first}} scoring<br>{{ct|blue|Stone Card}}
 | {{Ct|money|$6}}
 | {{rarity|common}}
 | {{jtype|#!}}
@@ -135,7 +135,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Anodized Steel|imgsize=142px}}
-| Played {{ct|enhanced|Steel}} cards<br>{{ct|green|reduce}} the {{ct|attention|Blind Size}}<br>by {{ct|darkpurple|5%}} when scored
+| Played {{ct|blue|Steel}} cards<br>{{ct|green|reduce}} the {{ct|attention|Blind Size}}<br>by {{ct|darkpurple|5%}} when scored
 | {{Ct|money|$8}}
 | {{rarity|uncommon}}
 | {{jtype|~B}}
@@ -171,7 +171,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Benthic Bloom|imgsize=142px}}
-| Retrigger all<br>{{ct|enhanced|Enhanced Cards}}<br>{{ct|enhanced|Enhanced Cards}} have<br>a {{ct|green|1 in 4}} chance to<br>shatter like {{ct|attention|Glass}}<br>{{ct|burgundy|Possessive}}
+| Retrigger all<br>{{ct|blue|Enhanced Cards}}<br>{{ct|blue|Enhanced Cards}} have<br>a {{ct|green|1 in 4}} chance to<br>shatter like {{ct|attention|Glass}}<br>{{ct|burgundy|Possessive}}
 | {{Ct|money|$6}}
 | {{rarity|uncommon}}
 | {{jtype|...}}<br>{{jtype|[X]}}
@@ -324,7 +324,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||DATAMINER|imgsize=142px}}
-| {{ct|codegreen|Changes}} most<br>{{ct|enhanced|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>by {{ct|red|X0.5}} or {{ct|green|X2}}
+| {{ct|codegreen|Changes}} most<br>{{ct|blue|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>by {{ct|red|X0.5}} or {{ct|green|X2}}
 | {{Ct|money|$7}}
 | {{rarity|uncommon}}
 | {{jtype|[!]}}
@@ -334,7 +334,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Doomsday Device|imgsize=142px}}
-| {{ct|attention|Double}} the stored<br>{{ct|chips|Memory Value}} every {{ct|attention|12}}<br>scoring {{ct|enhanced|Memory Cards}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/12)}}
+| {{ct|attention|Double}} the stored<br>{{ct|chips|Memory Value}} every {{ct|attention|12}}<br>scoring {{ct|blue|Memory Cards}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/12)}}
 | {{Ct|money|$6}}
 | {{rarity|uncommon}}
 | {{jtype|[!]}}
@@ -381,7 +381,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||57 Leaf Clover|imgsize=142px}}
-| Retrigger all<br>{{ct|enhanced|Wild Cards}}<br>{{ct|darkedition|2}} times
+| Retrigger all<br>{{ct|blue|Wild Cards}}<br>{{ct|darkedition|2}} times
 | {{Ct|money|$8}}
 | {{rarity|uncommon}}
 | {{jtype|...}}
@@ -464,7 +464,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Hemoturgy|imgsize=142px}}
-| Discarded cards gain<br>a random {{ct|darkedition|Edition}},<br>{{ct|enhanced|Enhancement}} or {{ct|attention|Seal}}<br>{{ct|green|10}}{{ct|inactive|/10}} uses left<br><small>{{ct|attention|-0.5 {{ct|inactive|for first}} 2}}</small><br><small>{{ct|inactive|cards each discard}}</small>
+| Discarded cards gain<br>a random {{ct|darkedition|Edition}},<br>{{ct|blue|Enhancement}} or {{ct|attention|Seal}}<br>{{ct|green|10}}{{ct|inactive|/10}} uses left<br><small>{{ct|attention|-0.5 {{ct|inactive|for first}} 2}}</small><br><small>{{ct|inactive|cards each discard}}</small>
 | {{Ct|money|$7}}
 | {{rarity|rare}}
 | {{jtype|#!}}<br>{{jtype|[!]}}
@@ -521,7 +521,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Inven-Tation|imgsize=142px}}
-| {{ct|enhanced|Vintage Cards}} have a<br>{{ct|green|1 in 8}} chance to upgrade<br>the played poker hand
+| {{ct|blue|Vintage Cards}} have a<br>{{ct|green|1 in 8}} chance to upgrade<br>the played poker hand
 | {{Ct|money|$5}}
 | {{rarity|uncommon}}
 | {{jtype|!!}}
@@ -530,7 +530,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | Info: Retrigger-count can be stopped<br>mid-scoring by upgrading poker hand too much
 
 |-
-| {{captimg||JEVIL|imgsize=142px}} {{ct|grey|JEV][L}}
+| style="text-align:center;" | {{captimg||JEVIL|imgsize=142px}} {{ct|grey|JEV][L}}
 | Played {{ct|attention|Playing Cards}}<br>evaluate {{ct|attention|twice}}
 | {{Ct|money|$20}}
 | {{rarity|legendary}}
@@ -540,7 +540,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Jokebra|imgsize=142px}}
-| When {{ct|attention|Blind}} is selected,<br>set an additional {{ct|enhanced|Target}}<br>{{ct|inactive|(Between {{ct|blue|100 and 1000}})}}<br>Beat the {{ct|attention|Blind}} when<br>the Round score<br>matches the {{ct|enhanced|Target}}
+| When {{ct|attention|Blind}} is selected,<br>set an additional {{ct|blue|Target}}<br>{{ct|inactive|(Between {{ct|blue|100 and 1000}})}}<br>Beat the {{ct|attention|Blind}} when<br>the Round score<br>matches the {{ct|blue|Target}}
 | {{Ct|money|$8}}
 | {{rarity|uncommon}}
 | {{jtype|!!}}<br>({{jtype|~B}})
@@ -586,7 +586,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Mineshaft|imgsize=142px}}
-| Every {{ct|attention|3}} scoring<br>cards, add a {{ct|enhanced|Stone}},<br>{{ct|enhanced|Steel}} or {{ct|enhanced|Gold}} card<br>to the deck<br>{{ct|inactive|(Currently {{ct|attention|0}}/3)}}<br>{{ct|green|25}}{{ct|inactive|/25}} uses left
+| Every {{ct|attention|3}} scoring<br>cards, add a {{ct|blue|Stone}},<br>{{ct|blue|Steel}} or {{ct|blue|Gold}} card<br>to the deck<br>{{ct|inactive|(Currently {{ct|attention|0}}/3)}}<br>{{ct|green|25}}{{ct|inactive|/25}} uses left
 | {{Ct|money|$6}}
 | {{rarity|common}}
 | {{jtype|[+]}}
@@ -791,7 +791,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Quest?|imgsize=142px}}
-| Start a {{ct|enhanced|Quest}}!<br>Complete it to<br>{{ct|darkedition|Win}} the Game and<br>obtain a random<br>{{ct|legendary|Legendary}} Joker<br><small>([[Shimmerberry/Quest?#Quests|Has 15 quests and 7 challenge quests]])</small>
+| Start a {{ct|blue|Quest}}!<br>Complete it to<br>{{ct|darkedition|Win}} the Game and<br>obtain a random<br>{{ct|legendary|Legendary}} Joker<br><small>([[Shimmerberry/Quest?#Quests|Has 15 quests and 7 challenge quests]])</small>
 | {{Ct|money|$7}}
 | {{rarity|uncommon}}
 | {{jtype|?!}}<br>{{jtype|!!}}
@@ -801,7 +801,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | style="text-align:center;" | {{captimg||Red Lion|imgsize=142px}} {{ct|grey|Reagent}}
-| {{ct|xmult|X2.5}} Mult<br>Loses {{ct|xmult|X0.1}} Mult<br>for each {{ct|enhanced|Enhanced}}<br>card in your deck
+| {{ct|xmult|X2.5}} Mult<br>Loses {{ct|xmult|X0.1}} Mult<br>for each {{ct|blue|Enhanced}}<br>card in your deck
 | {{Ct|money|$6}}
 | {{rarity|uncommon}}
 | {{jtype|Xm}}
@@ -920,7 +920,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Stern Teacher|imgsize=142px}}
-| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} adjacent Jokers<br>for the current round<br>{{ct|mult|+20}} Mult for each<br>{{ct|perishable|Debuffed}} Joker<br>{{ct|inactive|(Currently {{ct|mult|+0}} Mult)}}
+| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} adjacent Jokers<br>for the current round<br>{{ct|mult|+20}} Mult for each<br>'''Debuffed''' Joker<br>{{ct|inactive|(Currently {{ct|mult|+0}} Mult)}}
 | {{Ct|money|$5}}
 | {{rarity|uncommon}}
 | {{jtype|+m}}<br>{{jtype|XX}}
@@ -974,7 +974,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Tempered Glass|imgsize=142px}}
-| Every played {{ct|enhanced|Glass Card}}<br>permanently decreases<br>the chance of breaking<br>by {{ct|attention|1}} when scored<br><small>{{ct|inactive|(ex:}} {{ct|green|1 in 4}} {{ct|inactive|->}} {{ct|green|1 in 5}}{{ct|inactive|)}}</small>
+| Every played {{ct|blue|Glass Card}}<br>permanently decreases<br>the chance of breaking<br>by {{ct|attention|1}} when scored<br><small>{{ct|inactive|(ex:}} {{ct|green|1 in 4}} {{ct|inactive|->}} {{ct|green|1 in 5}}{{ct|inactive|)}}</small>
 | {{Ct|money|$4}}
 | {{rarity|common}}
 | {{jtype|[!]}}
@@ -1001,13 +1001,13 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||TMTRAINER|imgsize=142px}}
-| {{ct|codegreen|Randomizes}} most<br>{{ct|enhanced|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>Range: {{ct|red|-15%}}-{{ct|green|255%}}<br>{{ct|attention|+1}} Joker slot
+| {{ct|codegreen|Randomizes}} most<br>{{ct|blue|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>Range: {{ct|red|-15%}}-{{ct|green|255%}}<br>{{ct|attention|+1}} Joker slot
 | {{Ct|money|$8}}
 | {{rarity|rare}}
 | {{jtype|[!]}}<br>{{jtype|#!}}<br>{{jtype|???}}
 | '''Flowire'''
 | '''The Binding of Isaac''' {{ct|grey|Game}}
-| Has Changing Textures <!-- [[File:TMTRAINER_GLITCHED_(Shimmerberry).png|142px]] -->
+| Unique Spawn Condition,<br>Has Changing Textures <!-- [[File:TMTRAINER_GLITCHED_(Shimmerberry).png|142px]] -->
 
 |-
 | style="text-align:center;" | {{captimg||To n' Fro|imgsize=142px}} {{ct|grey|Fro n' To}}
@@ -1048,7 +1048,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Unicorn|imgsize=142px}}
-| {{ct|chips|+12}} Chips for each unique<br>{{ct|darkedition|Edition}}, {{ct|enhanced|Enhancement}} or<br>{{ct|attention|Seal}} in your full deck<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
+| {{ct|chips|+12}} Chips for each unique<br>{{ct|darkedition|Edition}}, {{ct|blue|Enhancement}} or<br>{{ct|attention|Seal}} in your full deck<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
 | {{Ct|money|$6}}
 | {{rarity|common}}
 | {{jtype|+c}}
@@ -1057,7 +1057,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||V.I.P. Ticket|imgsize=142px}}
-| {{ct|enhanced|Bonus Cards}} always<br>shuffle to the top<br>of the {{ct|attention|Deck}}
+| {{ct|blue|Bonus Cards}} always<br>shuffle to the top<br>of the {{ct|attention|Deck}}
 | {{Ct|money|$5}}
 | {{rarity|common}}
 | {{jtype|!!}}

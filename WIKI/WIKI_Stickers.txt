@@ -75,7 +75,7 @@ Unlike Vanilla-Balatro, these Stickers don't spawn naturally, they're<br>instead
 
 |-
 | style="text-align:center;" | [[File:TMTRAINER'd_Sticker_(Shimmerberry).png|142px]] <br> '''TMTRAINER'd'''
-| Average {{ct|enhanced|Stats}}<br>changed by {{ct|codegreen|[%]}}
+| Average {{ct|blue|Stats}}<br>changed by {{ct|codegreen|[%]}}
 ----
 Marks Cards changed by<br>"Data-Jokers" and shows the<br>{{ct|codegreen|Stat-Change}} multiplier.
 | <small>{{ct|grey|Invalid}}</small>

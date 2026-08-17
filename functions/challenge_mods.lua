@@ -104,7 +104,6 @@ function SEMBY_Challenge_Start()
 		G.GAME.banned_keys['j_SEMBY_bunburrow'] = true
 		G.GAME.banned_keys['j_SEMBY_fire_exint'] = true
 		G.GAME.banned_keys['j_SEMBY_lavish_joker'] = true
-		G.GAME.banned_keys['j_SEMBY_oblivion'] = true
 		G.GAME.banned_keys['j_SEMBY_risky_joker'] = true
 		G.GAME.banned_keys['j_SEMBY_silver_mask'] = true
 		G.GAME.banned_keys['j_SEMBY_stylish_joker'] = true

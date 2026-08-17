@@ -26,7 +26,7 @@ https://balatromods.miraheze.org/wiki/Shimmerberry/Editions
 
 |-
 | style="text-align:center;" | [[File:Resonance_(Shimmerberry).png|142px]] <br> '''Resonance'''
-| Can't be {{ct|SEMBY_debuff|Debuffed}}<br>{{ct|red|Increase}} {{ct|attention|Blind}}<br>{{ct|attention|Size}} by {{ct|darkpurple|5%}}
+| Can't be '''Debuffed'''<br>{{ct|red|Increase}} {{ct|attention|Blind}}<br>{{ct|attention|Size}} by {{ct|darkpurple|5%}}
 | <small>{{ct|grey|No difference}}</small>
 | [[Shimmerberry/Challenges|{{ct|attention|Challenges}}]],<br>Doesn't spawn<br>naturally
 | {{Ct|grey|$-}}
