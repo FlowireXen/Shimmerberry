@@ -42,6 +42,11 @@ SMODS.Challenge {
             { s = 'S', r = '2' }, { s = 'H', r = '2' }, { s = 'C', r = '2' }, { s = 'D', r = '2' },
         }
     },
+	apply = function(self)
+        -- Deck Texture
+        G.GAME.selected_back.atlas = "SEMBY_decks"
+        G.GAME.selected_back.pos = { x = 0, y = 1 }
+	end,
     calculate = function(self, context)
 		if context.end_of_round and context.main_eval and context.game_over == false and not G.GAME.won then
             -- Local Vars.

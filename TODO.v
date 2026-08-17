@@ -57,10 +57,6 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 Currently: Give all Jokers (& others) Pronouns
 
-Jokers that require X suits, should always check suits by themselves, remove global check?
-
-Figure out how to change Challenge Deck deck-skin
-
 
 Add sound sources to origin
 Add Texture files to origin

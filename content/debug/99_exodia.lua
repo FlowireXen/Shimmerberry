@@ -26,6 +26,10 @@ SMODS.Challenge {
         { id = 'v_overstock_plus' },
     },
 	apply = function(self)
+        -- Deck Texture
+        G.GAME.selected_back.atlas = "SEMBY_decks"
+        G.GAME.selected_back.pos = { x = 3, y = 1 }
+        -- Challenge
 		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
 		G.GAME.stake = SMODS.Stakes["stake_gold"].order
 	end,

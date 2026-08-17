@@ -48,6 +48,10 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
+        -- Deck Texture
+        G.GAME.selected_back.atlas = "SEMBY_decks"
+        G.GAME.selected_back.pos = { x = 0, y = 1 }
+        -- Challenge
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
