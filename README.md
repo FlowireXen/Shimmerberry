@@ -11,7 +11,7 @@ Shimmerberry adds Custom, Fluffy and Vanilla-Like content:
 - 20 Challenges
 - 11 Skip-Tags
 - 7 Consumables
-- 7 Stickers
+- 8 Stickers
 - 5 Boss Blinds
 - 4 Decks (And <b>4</b> [Card Sleeves](https://github.com/larswijn/CardSleeves))
 - 2 Vouchers
@@ -285,6 +285,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 
 | Name | Joker Effect | Card Effect | Spawns? | Source |
 | ---- |:------------:|:-----------:|:-------:| ------ |
+| Blooming | Sell value<br>starts at $0 | No Effect | No | "Eden Token" |
 | Bound | +1 Joker slot<br>1 in 10 chance to<br>Debuff and Destroy<br>this card at the<br>end of the round | Technically identical,<br>just unintended. | No | "Bound Joker" |
 | Event Horizon | No Effect | Destroyed when<br>it's Singularity<br>is removed | No | "Singularity" |
 | Degrading | Destroyed<br>after 5 rounds<br>(5 remaining) | Destroyed if this<br>card is held in hand<br>at end of round | No | In Challenges |

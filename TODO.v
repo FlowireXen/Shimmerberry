@@ -23,6 +23,7 @@
 Patch Notes:
 
 !! Bug Report: Shader Issue !! -> Fixed: Shoutout to "thewhiteoctavia"
+Thanks to "GEK-1" for pointing out a buggy Unlock condition for Urns
 
 -- Redo Patch-Notes:
 Updated Art-Credits system, now always shows the Art-Credits, much like the PotatoPatchUtils
@@ -55,7 +56,9 @@ Nerfed: Bound Joker -> Gives 3 slots instead of 4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Currently: Give all Jokers (& others) Pronouns
+PREPARE PATCH NOTES YOU GOOBER
+
+CHECK TOPMOST THINGS BEFORE RELEASEEEE
 
 
 Add sound sources to origin

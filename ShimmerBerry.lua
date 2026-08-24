@@ -1,8 +1,7 @@
-print("Loading: 'Shimmerberry'")
 ----------------------------------------------
 ------------MOD CODE -------------------------
 Shimmerberry = SMODS.current_mod
-Shimmerberry.Debug = true
+Shimmerberry.Debug = false
 G.SEMBY = {}
 
 --## Mod Desc. Style
@@ -114,4 +113,4 @@ end
 
 ------------MOD CODE END----------------------
 ----------------------------------------------
-print("Finished: 'Shimmerberry'")
+print("["..Shimmerberry.id.."] "..Shimmerberry.name.." v"..Shimmerberry.version.." loaded!")

@@ -46,6 +46,6 @@ SMODS.Voucher {
         return { vars = { 1250, G.PROFILES[G.SETTINGS.profile].career_stats.c_cards_discarded } }
     end,
     check_for_unlock = function(self, args)
-        return args.type == 'c_cards_discarded' and G.PROFILES[G.SETTINGS.profile].career_stats[args.statname] >= 1250
+        return args.type == 'career_stat' and args.statname == 'c_cards_discarded' and G.PROFILES[G.SETTINGS.profile].career_stats[args.statname] >= 1250
     end
 }
