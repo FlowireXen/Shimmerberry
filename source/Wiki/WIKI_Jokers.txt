@@ -198,7 +198,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Bound Joker|imgsize=142px}}
-| When obtaining or<br>destroying this card,<br>apply {{ct|perishable|Bound}} to<br>{{ct|attention|3}} random Jokers
+| When obtaining or<br>destroying this card,<br>apply {{ct|perishable|Bound}} to<br>{{ct|attention|2}} random Jokers
 | {{Ct|money|$6}}
 | {{rarity|uncommon}}
 | {{jtype|[!]}}

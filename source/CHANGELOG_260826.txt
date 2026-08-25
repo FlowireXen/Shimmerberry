@@ -1,0 +1,188 @@
+Title: Shimmerberry - Challenger Approaching (v26.3.26a)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Hewwooo! :3
+
+First of all and once again a BIG thanks to @[unkokat](https://ko-fi.com/unkokat) for all the lovely art they have made for my mod!
+I also want to give a shout-out to @[lanedarushpy](https://git.gay/hazelpy/BalaCats) and @[GhostSalt](https://balatromods.miraheze.org/wiki/Phanta) for their art contributions!
+Thank you all, you're *really* hecking cool! >w<
+
+And with that out'da way; I wanna present to you my smoll update!
+
+# Challenger Approaching
+... I hope you'll be here when they arrive ;)
+
+## Vanilla Changes
+- Fixed a bug with Jokers that save the player from Death; Jokers now properly save the Player if they run out of cards
+- "Flower Pot" Joker: X4 Mult if poker hand contains 4 different suits
+
+## Technical Changes
+- Added Artist credits to the bottom of most cards/objects
+- Updated Jokers with changing textures (Textures don't flicker on load)
+- Replaced "Repairable" pool with "Durability" pool
+- Lots of tiny code reworks for the sake of stability (Mostly omitted from these Patch-Notes)
+
+## Eden System
+- Winning a run rewards an "Eden Token", some Jokers may reward additional Tokens
+- Added "Eden Token"-Consumable: On use removes an "Eden Token" to spawn a random Joker
+- - "Eden Token"-Consumable only spawns if the player has "Eden Tokens"
+- Eden Tokens can be disabled in the Mod-Config!
+
+___
+
+## Shaders
+- Now don't crash on Mobile (thanks to @thewhiteoctavia)!
+
+## Vouchers
+- Fixed "Cursed Urn": Unlock now properly works (thanks for pointing it out @GEK-1)!
+
+___
+
+## Jokers
+- Added "A.C.E.": Add the next 2 to 4 playing cards from Deck to scoring hand
+- Added "Balloon": X2 Mult but self destructs when highlighting 4 or more cards
+- Added "Barmy Joker": +12 Mult if poker hand contains 3 different suits
+- Added "Bunborrow": Gain $12 every 4 Rerolls
+- Added "Cassette Beast": Retrigger scoring cards for each scoring suit (beyond the first suit)
+- Added "Daffy Joker": +8 Mult if poker hand contains 2 different suits
+- Added "DATAMINER": Changes most Numbers on newly obtained Jokers by X0.5 or X2
+- Added "Doomsday Device": Double the stored Memory Value every 12 scoring Memory Cards
+- Added "Eden's Blessing": X1.5 Chips or Mult (favours the small), Grants a Brighter Future
+- Added "Fire Exin't": Reduce Shop prices by 1% every played and unscored card, resets when Boss Blind is selected
+- Added "Gambler's Contract": Shop Jokers have a 1 in 13 chance to become Negative and a 2 in 13 chance to become Possessive
+- Added "Inven-Tation": Vintage Cards have a 1 in 8 chance to upgrade the played poker hand
+- Added "Nostalgia": Take $1 of sell value from every Joker and Consumable card, Creates a Memory card for every $3 taken
+- Added "Paper Swan": X2 Chips every 5 scoring cards
+- Added "Peculiar Joker": +100 Chips if poker hand contains 3 different suits
+- Added "Pygmymall": +2 card slots available in shop every 3 shops
+- Added "Replicator": Destroys the next 10 playing cards added to the deck to Duplicate the rightmost Joker (self destructs)
+- Added "Scav. Prototype": Destroys adjacent Jokers when Blind is selected, 1 in 4 chance to gain a Duplitage for each destroyed
+- Added "Shrewd Joker": +50 Chips if poker hand contains 2 different suits
+- Added "V.I.P. Ticket": Bonus Cards always shuffle to the top of the Deck
+- Buffed "Cockroach": Passively reduces Blind Sizes by 20%
+- Buffed "Emergency Button": Also saves the player if they run out of cards
+- Buffed "Goldenberry": Always gives $2, was "$1 or $2"
+- Buffed "Obscure Ritual": Blind Size Decrease (50% -> 66.6%)
+- Clarified wording (and Logic) for "Silver Mask"
+- Clarified wording for "P2W"
+- Clarified wording for "The Dwarf"
+- Nerfed "57 Leaf Clover": Retriggers (3 -> 2), When held while Winning; Increases gained Eden Tokens
+- Nerfed "Abandoned Soul": Chips (X0.2 -> X0.1)
+- Nerfed "Adblocker": Dollars ($2 -> $1)
+- Nerfed "Anodized Steel": Blind Size Decrease (8% -> 5%)
+- Nerfed "Butterfly": Chips Gain (10 -> 2), Chips Loss (5 -> 4)
+- Nerfed "Echoing Joker": Amount isn't Probability-Affected anymore
+- Nerfed "Mineshaft": Durability (50/50 -> 25/25)
+- Nerfed "Money Laundering": Sop-Price Increase (100% -> 200%)
+- Nerfed "Piñata": Can't spawn again if it has been destroyed
+- Nerfed "Red Mask": Chips (10 -> 8)
+- Nerfed "Ripped Joker": Chips (200 -> 90), Requires playing exactly 3 cards
+- Nerfed "Risky Joker": Takes Mult (1 -> 2)
+- Nerfed "Stern Teacher": Mult for each Debuffed Joker (25 -> 20)
+- Nerfed "Unicorn": Chips (20 -> 12)
+- Renamed "Target Plush" to "Foxie Plush", updated Texture
+- Reworked "Bound Joker": When obtaining or destroying this Joker, apply Bound to 2 random Jokers
+- Reworked "Ceaseless Void": When a Card is sold, gains Stats for each $1 of sell value
+- Reworked "Improv Show": Converts unused Hands into Points, Converts Points into Hands when playing the Final Hand
+- Reworked "JEV][L": Played Playing Cards evaluate twice
+- Reworked "Lavish Joker": Regain lost Money *at start of shop*, Each $1 regained increases the next Blind Size by 5%
+- Reworked "Oblivion": Choose to Loop each Ante, Gain X1 Mult for each Ante looped, Permanently increases Blind Sizes
+- Reworked "Opulent Skint": Sell this card to replace a random card in the Shop, 1 in 256 chance to transform into a Legendary Joker
+- Reworked "Potted Flower": X4 Chips if poker hand contains 4 different suits
+- Reworked "Scaffolding": When a Joker is sold, gain +1 Hand size for each $1 of sell value, Lose 2 Hand size each Hand played (Max. 5/-5)
+- Reworked "Singularity": Creates 2 copies of playing cards added to the deck, Destroy all cards this Joker has created when removed, Occupies 2 Joker slots
+- Reworked "Stocked Shelves": Restocks bought Items, now has Durability (10/10 uses)
+- Reworked "Tempered Glass": Permanently decreases chance of played Glass Cards breaking (1 in 4 -> 1 in 5 -> 1 in 6 -> ...)
+- Reworked "TMTRAINER": *Directly* changes Jokers on Pickup, Change-System reworked
+- Reworked "Watching Forest": Sort the Deck lowest to highest after drawing the first hand each round, Shuffles the Deck when using a Discard
+- Updated "Agent 47": Removed an unnecessary Lovely-Patch
+- Updated "Axe" (Tool): Durability (80/100 -> 40/80), Chance (1 in 5 -> 1 in 4)
+- Updated "Booster Pack": Removed "Degrading" Sticker, now has Durability (3/3 uses)
+- Updated "Buccaneer": Changed wording ("thrice" -> "3 times")
+- Updated "Chrono Break": 1 in 4 chance to Shatter each Scoring Card, "Revive" shuffles cards into deck
+- Updated "Coupon Booklet": Price Change on Reroll (10% -> 5%)
+- Updated "Eternal Fortune": When held while Winning; Increases gained Eden Tokens
+- Updated "Hemoturgy": Removed Discard-Limit, now has Durability (10/10 uses)
+- Updated "Hoe" (Tool): Durability (250/250 -> 200/200)
+- Updated "Hypetrain": Waiting-Time is now Percentage-Based, Mult Change (1 -> 2 / 10% of Max.)
+- Updated "Jokebra": Target Range (100/1100 -> 100/1000)
+- Updated "Lottery Ticket": Mult (2.5 -> 3), Chips (12 -> 8)
+- Updated "Pickaxe" (Tool): Durability (200/200 -> 100/100), Chance (1 in 2.5 -> 2 in 4)
+- Updated "Quest?": Added harder Challenge Specific Quests
+- Updated Jokers with "End of Ante"-Destruction effects to properly get a Win-Sticker ("Melon", "Plastic Key", ...)
+- Various additional Jokers and Joker-Effects have been slightly reworded
+
+___
+
+## Challenges
+- Menagerie and Tutorial Challenges have a custom Deck-Texture
+- Some Challenges display custom Game Over reasons
+- "Winning Ante" can now show "None" (or similar) instead of showing "99"
+- When "Winning Ante" is "None" (prev. "99"), it won't stop Showdown Blinds from appearing
+- Removed "No Winning Ante" rule (now a modifier)
+- Removed "No Showdown Blinds" rule (was obsolete)
+- Added "base Blind size" modifier, removed most rules mentioning "Blind Size"
+- Reworked "A Berry Good Meal": Removed limited economy, added a custom Game Over condition
+- Updated "A Tool for every Joke": Hand size (16 -> 15)
+- Updated "Countdown": Optimized internal logic, banned "Delayed Gratification"
+- Updated "Shiny Hunt": Eggs start with more Sell Value, but scale slower
+- Updated "Hunter": Start with "The Emperor" instead of "The Fool"
+- Reworked "Hunted": Discards (6 -> 3), Winning Ante (6 -> 8), base Blind size (X1.5 -> X1.0), incentives Discarding 3 cards
+- Reworked "Done Deal": Removed limited economy, new rule; "Use all Hands each Hand played", starts with better Poker Hands
+- Updated "Printty Good": Discards (4 -> 3), base Blind size (X1.5 -> X2.0)
+- Updated "Gaokao": Discards (4 -> 5), Hand size (12 -> 10), start with Debuffed Aces
+- Updated "Lavish Dreams": Hand size (12 -> 8), small Starting-Joker changes
+- Updated "Qwest?": Joker now gives harder Challenge-Specific Quests
+- Removed "Emperor Calus": Didn't make sense with the new "Opulent Skint" (Can be reactivated in Debug-Mode)
+- Added "Marked for Negation": Limits Playing Card generation, Starting Deck is "Resonant", start with "JEV][L"
+- Updated "Last One Left": Removed Text-Clutter, Discards (1 -> 0), Joker Slots (6 -> 5)
+- Updated "DELETE THIS"/" ": Name is now hidden
+
+## Achievements
+- Added an Achievement for earning $0 from the "Golden Egg" Blind
+- Added an Achievement for completing **all** Shimmerberry Challenges
+- Added an Achievement for using "Daybreak" to remove all playing card ranks
+
+## Blinds
+- Added "Ghost": Increase Blind Size by 25% for each Joker (start of round)
+- Added "Golden Egg": Big Blind Size, High Payout that decreases with each Card played
+
+## Consumables
+- Added Planet "Microcosm": Enhances all cards of a selected Poker hand into "Vintage Cards"
+- Added Spectral "Daybreak": Enhances all cards in hand into a random Enhancement
+- Added Tarot "The Backup": Enhances 2 cards into "Memory Cards"
+- Updated Art for "The Ocean", by @[lanedarushpy](https://git.gay/hazelpy/BalaCats)
+- Updated "Order": Isn't banned in all Challenges anymore
+
+## Decks/Sleeves
+- Added "Burned Deck": Destroys the first scoring card every Hand
+- Updated "Burned Sleeve": Destroy the leftmost discarded card every Discard (when combined with "Burned Deck")
+
+## Editions
+- Updated "Resonance": Can't naturally spawn anymore
+- Nerfed "Shiny": Sell Value gain (+$3 -> +$2)
+
+## Enhancements
+- Added "Memory Card": On scoring, [Suit]-Memories gain +2 Chips for the rest of the run
+- Added "Vintage Card": Retrigger if played poker hand is not your highest-level hand
+
+## Stickers
+- Added "Blooming": Sell value starts at $0
+- Added "Bound": +1 Joker slot, 1 in 10 chance to Debuff and Destroy this card (end of round)
+- Added "Lavish": Can't be debuffed
+- Added "Shimmer Immune": Can't be transformed by most other Jokers and Consumables (Example; "Copy Printer" and "Order")
+- Updated "Degrading" for Playing Cards: Destroyed if this is held in hand at end of round
+
+## (Skip-)Tags
+- Added "Duplitage": Gives a copy of the next obtained Joker
+- Added "Recycling Tag": Gain +1 discard each round (5/5 uses left)
+- Added "Tag at Hand": Gain +1 hand each round (5/5 uses left)
+- Added "Spin Tag": First shop Reroll costs $2 less (5/5 uses left)
+- Added "Kiosk Tag": +1 card slot available in next shop
+- Reworked "Doom" (Debt): +?% Blind Size for next Showdown Blind
+- Updated "Intimidating": Minimum Ante (None -> 2+)
+
+___
+
+## Cross-Mod
+- Added support for "[JokerDisplay](https://github.com/nh6574/JokerDisplay)"
+- Added pronouns for "[CardPronouns](https://github.com/real-niacat/CardPronouns)"

@@ -1,149 +1,104 @@
-# TODO's:
-
-> List of Known Bugs:
-- [MAJOR][Won't Fix]: "Talisman" crashes the Game -> Use "Amulet" instead.
-- [MINOR][Can't Fix]: "Afterimage" doesn't apply "context.modify_ante" correctly.
-- [MINOR][Can't Fix]: "Parking Disc: 3" doesn't apply "context.modify_ante" correctly.
-
-> Future WiPs:
-- [  -]: Add Unlock requirements to some Jokers
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 > Each Release:
 - Update: README.md, Version Number ("Year"."Month"."Day""Minor"), Create *Latest GitHub Release*
 - External:
+- - Discord-Thread
 - - Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
 - - Mod Index: https://github.com/FlowireXen/balatro-mod-index - meta.json, readme.md
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 > Next TODO's:
 - Upload to: https://thunderstore.io/c/balatro
-- Shimmerberry Lite :: Only the Challenges (and needed Patches), Any Jokers will be reproduced in the Challenge Code - If the Challenge is interesting, Shimmerberry Lite -> SEMBL
+- - 
+- Shimmerberry "Challenger Arrival"/"The Circus"
+- [SEMBL] Shimmerberry Lite :: Only the Challenges (and needed Patches)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Patch Notes:
+> Future WiPs:
+- [++ ]: Update to new SMODS; Blind Mod, Chance Mod, etc.
+- [+  ]: "##FIXME##"/"FIXME"
+- [  -]: Add Unlock requirements to some Jokers
 
-!! Bug Report: Shader Issue !! -> Fixed: Shoutout to "thewhiteoctavia"
-Thanks to "GEK-1" for pointing out a buggy Unlock condition for Urns
+> Known Bugs:
+- [MAJOR][Won't Fix]: "Talisman" crashes the Game -> Use "Amulet" instead.
+- [MINOR][Can't Fix]: "Afterimage" doesn't apply "context.modify_ante" correctly.
+- [MINOR][Can't Fix]: "Parking Disc: 3" doesn't apply "context.modify_ante" correctly.
 
--- Redo Patch-Notes:
-Updated Art-Credits system, now always shows the Art-Credits, much like the PotatoPatchUtils
-Internal Update: Removed unnecessary "name" property from all Onbjects
-"Shiny" edition now shows both states in collection
-"Degrading" works in Collection View again
-"Degrading" now works with Playing cards -> "Destroyed if this card is held in hand at end of round"
-Updated Translation File: Removed Duplicate Entries
-Updated Challenge "Shiny Hunt": Now grants a flat $3 bonus to all starting eggs
-Reworked "Improv Show": Now Converts leftover hands into bonus hands for future scoring
-"Cockroach" now relies on the SMODS fallback when skipping the Winning Ante -> Added some fitting ingame info!
-"TMTRAINER" is no longer Blueprint Compatible, but doesn't break as often anymore.
-Technical: All Destruction Effects happen quicker now
-"Bound Joker" has more visual feedback
-"Melon" and "Plastic Key" wait for the Win-Screen before getting destroyed in more/better circumstances
-Obscure Ritual has been Buffed (50% -> 66.6%)
-Eternal Jokers given by Challenges are Immune to "Emergency Button", "Copy Printer" and "Order (Spectral)"
-"Echoing Joker" reduced cost by $2 + Description Updated
-"Shooting Star" Description Updated
-All Jokers with a Changing Texture are now less prone to breaking/crashing when changing the internal Values
-"Revives" now always shuffle into the Deck
-Updated "Chrono Break" Revive Mechanic, "Chrono Break" now Shatters all scoring cards instead of 1 random
-Updated "Tempered Glass" Revive Mechanic
-Enjoy Art from GhostSalt, lanedarushpy, ... :3
-Some Challenges now have Custom Death Reasons!
-Intimidating: Now only shows up Ante 2 and up
-Nerfed: Stocked Shelves (Destroyed after buying 5 cards)
-Buffed: Watching Forest -> Now always sorts once, direction changes every 3 hands
-Nerfed: Bound Joker -> Gives 3 slots instead of 4
+> Current WiPs:
+- None!
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-PREPARE PATCH NOTES YOU GOOBER
+> "Challenger Arrival"/"The Circus" [SPOILERS]
+- If you're looking here to gain an Edge over your competitors, you're sadly not gonna find anything interesting ;)
 
-CHECK TOPMOST THINGS BEFORE RELEASEEEE
+> New SMODS needed:
+- Use the SMODS "Blind Size" changing code/logic
+- Add "can_sell(self, card, context)" to "Anchor"-Joker and disable selling when unselectable
 
+> Features [Ideas/Notes]:
+- Sticker, "Temporary Copy": "Doesn't take up Space, Destroyed at the End of Shop", set one to "-1" and the other to "0" (so negative doesn't apply)
+- Sticker, "Fleeting": Self destructs when Boss Blind is defeated
+- Joker, "Scale": X2 Mult when having the same amount of Jokers on both sides
+- Joker, "Chloroform": Next 2 Shop Jokers are free and Sleepy (Phanta Compat.)
+- Voucher, "Doomed", "Doomed 2": First Level just adds Doom, Second Level gives +1 Hand Size for every 50% Doom
+- Skip Tag, "Discovery": Generates [Random Planet Card] at the start of the Blind (3 uses)
 
-Add sound sources to origin
-Add Texture files to origin
-( Generally Update Origin )
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+> Add "Circus" Mode:
+- Rogue-Like where you select Challenge-Rules and Modifiers
+- Each Run Rewards Points, these can be used to unlock Shimmerberry
+- Winning Ante 12, can be increased for greater Rewards
+- Different Rules and Modifiers give more points or multipliers
+- When you select a Rule, choose between 2 versions (Easy Option gives Score, Harder Option gives Multiplier, BOTH show how they affect score)
 
+> "Circus" Starts:
+- "Shadow Crystal": 2 Hands, 2 Hand Size, 2 Discards, Diamond Suit is (always) Negative
+- "Digital Roses": Bans Pluto & Jupiter, All Non-Face Cards are "Memory Cards"
+- "Scalper": +2 Hand Size, Starting Deck is "Degrading"
+- "Desperate": +2 Hands, Hands only earn 0.5 Coins
+- "Doomsday": Deck is Linked to a "Degrading" "Black Hole"
 
-> Next Update [Sketch]:
+> Challenge Ideas [Notes/Rules/Modifiers]:
+- Consider "Bound" for some challenges
+- Replace Money with Time; $1 => 10 seconds, Shows a Timer in the Money-Slot, Internally just subtract $0.1 every second
+- "No Shops"
+- After beating a Boss Blind, permanently Disable all owned Jokers
 
-add "can_sell(self, card, context)" to anchor and disable selling when unselectable
-check if you can add a method to the "selectable" boolean, if so; handle it via method
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Consider "Bound" for some challenges
+> Challenges [Final]:
 
-[FINAL] "Cascade"/"Escalation Protocol" (Challenge):
-- First Blind starts at 100
-- Beat Double the last round score every Blind
-- Skipping Actively just Doubles all Score immidiatly
+# "Pizzo Trial":
+-- Don't Regain Hands & Discards, Start with "5 Hands" and "5 Discards"
+-- Each Shop Generates a "+1 Hand" and "+1 Discard" Voucher for $5
+-- > [Secretly Ban these Vouchers at start of Run]
+-- Hands and Discards give Money [Green Deck]
 
-[IDEA] Deck:
-- Replaces Money with Time
-- - $1 => 10 seconds
-- - Literally just show a time in the Money-Slot
-- - "Set Cost" can just be hooked etc.
+# "Cascade"/"Escalation Protocol":
+-- First Blind starts at 100
+-- Beat Double the last round score every Blind
+-- Skipping Actively just Doubles/Triples Score immidiatly
+-- "G.GAME.SEMBY_last_score = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling"
 
-Sticker: "Temporary Copy"
-Effect:  "Doesn't take up Space, Destroyed at the End of Shop"
---> set one to "-1" and the other to "0" (so negative doesn't apply either)
+# "Gungame":
+-- Start with 4 Kings [1 of each suit]
+-- Played Cards split in half (rounded up); 1x"King" -> 2x"Seven" -> 4x"Four" -> 8x"Two"
+-- Played 2's get destroyed, Rankless cards always get destroyed
+-- Newly added cards always turn into Stone
 
-> Challenger Approaching [SPOILER][Sketch]:
+# "Simon Says":
+-- Selects a random Poker Hand, changes when the Poker-Hand is played
+-- Playing any Hand that isn't Simon's Hand is invalid
 
-"Nonrefundable Trial": 10 Hand Size, 10 Cards, playing cards are all Degrading
-"Explosive Trial": Buff Shop, Go from Ante 1 to Ante 8 instantly
-"Deckless Trial": All playing cards are debuffed
-"Desperate Trial": Starting Stats -1, Hands only earn $0.5, Only one Card each Shop (No Vouchers or boosters), No reward money
-"Doomsday Trial": Start with "[Degrading] Black Hole", Deck is Linked to Black Hole, Winning Ante 6, Ban Revive Jokers, (Empty Shops?)
-"??": After beating a Boss Blind, permanently Disable all owned Jokers
+# "0 to 100":
+-- Super Buff Shop, Both Reroll Vouchers
+-- Go from Ante 1 to Ante 8 instantly
 
-"Pizzo Trial": Don't Regain Hands & Discards, You're able to buy Hands and Discards in Shop (Vouchers, Ban Upgrades), Start with 5 of each
-- Instead of Vouchers; Add two Custom Buttons above the Deck -> $4 per Discard, $8 per Hand
-- Hands (and Discards) DO still give money
-
-"Gungame Trial":
-- Entire Deck start as 2's
-- Played Cards up their rank by 3
-- Played Face Cards get destroyed
-- (Ace) -> 2 -> 5 -> 8 -> Jack -> Ace -> Gone
-- Played "Stone Cards" / "Cards with no ranks" get Destroyed (Message from Deck; "INVALID")
-- Ban Normal Card Packs
-- Alt.: Deck is only one Suit, which suit is up to the Player [Opens Choice Menu @ Start]
-
-[FINAL] "Digital Roses" (Challenge):
-- Start with "Flower Pot" and "Potted Flower" [2x Eternal]
-- All Face Cards are "Memory Cards" / Entire Deck is "Memory Cards" (+ Ban Pluto)
-
-Idea: "Shadow Crystal"/"Negative Space":
-2 Hands, 2 Hand Size, 2 Discards, Diamond Suit is Negative
-
---G.GAME.SEMBY_last_score = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
-
-"Simon Says" -> Selects (4) Cards in a Order,
-You have to repeat showed order
-Speeds up, also requests unselecting in a different order, increases cards selected & de-selected, mixes operations etc.
-
-Challenge: "Binary Soul"
-Selling Joker to the Left; Invert All Bits
-Selling Joker to Right: Shift all bits to the Left, Overflow gets destroyed, Push 0 into queue
-Win by fulfilling a random Sequence 0000 0000
-Instead; Show a Number and a Target Number (0-255)
-Also has a random starting number
-Math to make sure the numbers are apart and not easy to get
-
-Doomed Voucher; First Level just adds Doom, second Level gives +1 Hand Size for every 50% Doom
-
-Every Consumable can be flipped once, revealing a random planet card
-
-Skip Tag: "New Discovery"
-Generates a random Planet Card at the start of the Blind (3 rounds left)
-(Secret extension; Last turn always pulls a modded planet?)
-
-Idea, Joker: Scale - "X2 Mult" when having the same amount of Jokers on both sides
-
-Phanta Compat.: Chloroform; Next 2 Shop Jokers are free and Sleepy
-
-Sticker: "Fleeting"
-Self destructs when
-Boss Blind is defeated
+# "Frozen Hell":
+-- Starting Deck is Debuffed
+-- All but 1 Mult are added to Chips

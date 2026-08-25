@@ -50,7 +50,7 @@ SMODS.Consumable {
             delay = 0.4,
             func = function()
                 play_sound('tarot1')
-                selected_card:juice_up(0.3)
+                selected_card:juice_up(0.3, 0.5)
                 return true
             end
         }))
@@ -60,7 +60,7 @@ SMODS.Consumable {
             func = function()
                 selected_card:flip()
                 play_sound('card1', 1.1)
-                selected_card:juice_up(0.3)
+                selected_card:juice_up(0.3, 0.3)
                 return true
             end
         }))
@@ -71,7 +71,7 @@ SMODS.Consumable {
             func = function()
                 local edition = poll_edition('SEMBY_ocean', nil, true, true, { 'e_SEMBY_pearlescent', 'e_SEMBY_shiny' })
                 selected_card:set_edition(edition, true)
-                selected_card:juice_up(0.3)
+                selected_card:juice_up(0.3, 0.5)
                 return true
             end
         }))
@@ -81,7 +81,7 @@ SMODS.Consumable {
             func = function()
                 selected_card:flip()
                 play_sound('tarot2', 0.8, 0.6)
-                selected_card:juice_up(0.3)
+                selected_card:juice_up(0.3, 0.3)
                 return true
             end
         }))

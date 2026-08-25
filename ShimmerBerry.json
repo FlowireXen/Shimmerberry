@@ -2,7 +2,7 @@
   "id": "SEMBY",
   "name": "Shimmerberry",
   "author": ["Flowire", "unkokat"],
-  "description": "Adds Fluffy, Custom and Vanilla-Like Content: 110 Jokers, 20 Challenges, 7 Consumables, 4 Decks (+Sleeves!) and more!",
+  "description": "Adds Fluffy, Custom and Vanilla-Like Content: 110 Jokers, 20 Challenges, 4 Decks and more!",
   "prefix": "SEMBY",
   "main_file": "ShimmerBerry.lua",
   "badge_colour": "FF8FA9",

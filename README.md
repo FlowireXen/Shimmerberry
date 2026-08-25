@@ -63,7 +63,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Benthic Bloom | Retrigger all<br>Enhanced Cards<br>Enhanced Cards have<br>a 1 in 4 chance to<br>shatter like Glass<br>Possessive | $6 | Uncommon | Nature |
 | Blueberry | Each scored<br>[King] or [Queen]<br>gives +30 Chips<br>Ranks change<br>every round<br>Gets Eaten when<br>no [King] or [Queen]<br>scored this round | $4 | Common | Berry, Food |
 | Booster Pack | 3 additional<br>Booster Packs<br>in each Shop<br>3/3 uses left | $5 | Common | Durability |
-| Bound Joker | When obtaining or<br>destroying this card,<br>apply Bound to<br>3 random Jokers | $6 | Uncommon | -- |
+| Bound Joker | When obtaining or<br>destroying this card,<br>apply Bound to<br>2 random Jokers | $6 | Uncommon | -- |
 | Broken Record | Randomly add 2 to 3<br>retriggers to any<br>scoring cards | $4 | Common | Music |
 | Buccaneer | Adds 3 times the sell<br>value of all other<br>owned Jokers to Chips<br>(Currently +0 Chips) | $4 | Common | -- |
 | Bunburrow | Gain $12 every<br>4 Rerolls<br>(4 remaining) | $4 | Common | Animal |
@@ -211,7 +211,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 ### Page 1 (1-10)
 | Name | Type | Short Challenge Summary |
 | ---- |:----:| ----------------------- |
-| A Berry Good Meal | Tutorial | Shows how the "Berry Jokers" interact.<br>Limited Economy, lowered Winning Ante.<br>Don't lose the Berries! |
+| A Berry Good Meal | Tutorial | Shows how the "Berry Jokers" interact.<br>Lowered Winning Ante, don't lose the Berries! |
 | A Tool for every Joke | Tutorial | Shows how the "Tool Jokers" interact.<br>Lowered Winning Ante. |
 | Perishable Fate | Challenge | All Cards are Degrading.<br>Degrading: Destroyed after 5 rounds. |
 | Countdown | Challenge | Don't regain used Hands or Discards. |

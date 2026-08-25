@@ -19,6 +19,11 @@ function SEMBY_Challenge_Start()
 			return true
 		end
 	}))
+	-- Modifier-Bans
+	if G.GAME.modifiers and G.GAME.modifiers.no_blind_reward
+	then -- No Egg.
+		G.GAME.banned_keys['bl_SEMBY_golden_egg'] = true
+	end
 	-- Custom Bans for Vanilla Challenges
 	if G.GAME.challenge == 'c_jokerless_1'
 	then -- Remove Joker-Generator:
