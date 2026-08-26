@@ -4,9 +4,8 @@ SMODS.Challenge {
         custom = {
             { id = 'SEMBY_done_deal' },
             { id = 'SEMBY_space' },
-            { id = 'no_reward' },
-            { id = 'SEMBY_extra_bonus' },
-            { id = 'no_interest' },
+            { id = 'SEMBY_no_hands' },
+            { id = 'SEMBY_upgrade_pokerhands' },
         },
         modifiers = {
             { id = 'hands', value = 1 },
@@ -18,34 +17,40 @@ SMODS.Challenge {
         banned_cards = {
             { id = 'v_grabber' },
             { id = 'v_nacho_tong' },
-            { id = 'v_seed_money' },
-            { id = 'v_money_tree' },
-            { id = 'j_to_the_moon' },
+            --{ id = 'j_SEMBY_alpha' },
+            { id = 'v_hieroglyph' },
+            { id = 'v_petroglyph' },
         },
-        banned_other = {
-            { id = 'bl_ox', type = 'blind' },
-            { id = 'bl_arm', type = 'blind' },
-            --{ id = 'bl_tooth', type = 'blind' },
-            { id = 'bl_final_bell', type = 'blind' },
-        },
-    },
-    jokers = {
-        { id = 'j_SEMBY_alpha', eternal = true },
-        { id = 'j_dna', SEMBY_perishable = true, edition = "negative" },
-        { id = 'j_SEMBY_goobert', SEMBY_possessive = true },
     },
     vouchers = {
         { id = 'v_blank' },
+        { id = 'v_antimatter' },
     },
     consumeables = {
-        { id = 'c_pluto' },
+        { id = 'c_deja_vu' },
     },
     deck = {
         type = 'Challenge Deck',
-        cards = { { s = 'H', r = 'K', e = 'm_stone' } }
+        cards = { { s = 'H', r = 'K', e = 'm_stone', d = 'negative' } }
     },
 	apply = function(self)
-		G.GAME.modifiers.money_per_hand = (G.GAME.modifiers.money_per_hand or 1) + 1
+		-- Level up all Hands
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			func = function()
+				for planet, _ in pairs(G.GAME.hands) do
+					level_up_hand(card, planet, true, 3)
+				end
+				save_run()
+				return true
+			end
+		}))
+	end,
+    calculate = function(self, context)
+        if context.press_play then
+            local amount = G.GAME.current_round.hands_left - 1
+            if amount > 0 then ease_hands_played(-amount) end
+        end
 	end,
 	button_colour = G.C.RED
 }

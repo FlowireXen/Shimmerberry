@@ -1,11 +1,23 @@
+local SEED = "SEMBY_parking_disc_V3"
+-- Hardcoded Properties
+local MAIN_PROPS = { base = 0, min = 1, max = 12, s12 = 11, key = 'm' }
+local BOSS_PROPS = { base = 0, min = 1, max =  4, s12 =  3, key = 'b' }
+-- Texture Code
+local function get_texture(state)
+	if state and state ~= 0 then
+		if state == 1 then return { x = 1, y = 3 } end
+		if state == 2 then return { x = 2, y = 3 } end
+		if state == 3 then return { x = 3, y = 3 } end
+		if state == 4 then return { x = 4, y = 3 } end
+	end
+	return { x = 0, y = 3 }
+end
+-- Joker Code
 SMODS.Joker {
 	key = "parking_disc",
-	name = "SEMBY_parking_disc",
-	atlas = "SEMBY_jokers",
-	pos = { x = 8, y = 8 },
-	soul_pos = { x = 7, y = 11 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_2",
+	pos = get_texture(),
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -13,71 +25,56 @@ SMODS.Joker {
 	cost = 6,
 	config = {
 		extra = {
-			setup = false,
-			value = {
-				main = 0,
-				boss = 0,
-				mult = 1.0
-			},
-			index = {
-				main = 0,
-				boss = 0,
-				s12 = false,
-			},
-			limit = {
-				main = { base = 0, min = 1, max = 12, s12 = 11 },
-				boss = { base = 0, min = 1, max =  4, s12 =  3 },
-			},
-			state = {
-				main = {
-					{ value =    1, desc = "1"  }, -- 01: handsize
-					{ value =    2, desc = "2"  }, -- 02: xmult
-					{ value =    2, desc = "3"  }, -- 03: blueprint
-					{ value =    1, desc = "4"  }, -- 04: discards
-					{ value =    5, desc = "5"  }, -- 05: mult
-					{ value =    1, desc = "6"  }, -- 06: consumables
-					{ value =    3, desc = "7"  }, -- 07: xchips
-					{ value =    4, desc = "8"  }, -- 08: money
-					{ value = 0.05, desc = "9"  }, -- 09: percent
-					{ value =  100, desc = "10" }, -- 10: chips
-					{ value =    1, desc = "11" }, -- 11: retrigger
-					{ value =  2.0, desc = "12" }, -- 12: random
-				},
-				boss = {
-					{ value =  2.0, desc = "boss_1" }, -- 01: stat_mult
-					{ value =    2, desc = "boss_2" }, -- 02: hands
-					{ value = 0.25, desc = "boss_3" }, -- 03: percent
-					{ value =    0, desc = "boss_4" }, -- 04: disable
-				},
-			},
-			pos_valid = { x = 8, y = 8 },
-			pos_overwrite = { x = 8, y = 8 },
-			soul_pos_valid = { base = 7 },
-			soul_pos_overwrite = { x = 7, y = 11 }
+			-- Drawing
+			SEMBY_Graphics = { Parking = true }, --> /functions/drawsteps.lua
+			SEMBY_Text = 'P', setup = false,
+			-- Base
+			index = { main = 0, boss = 0, s12 = false },
+			value = { main = 0, boss = 0, mult = 1.0 },
+			-- Values: Main
+			["m1"]  =   1, -- 01: handsize
+			["m2"]  =   2, -- 02: xmult
+			["m3"]  =   2, -- 03: blueprint
+			["m4"]  =   1, -- 04: discards
+			["m5"]  =   5, -- 05: mult
+			["m6"]  =   1, -- 06: consumables
+			["m7"]  =   3, -- 07: xchips
+			["m8"]  =   4, -- 08: money
+			["m9"]  = 0.1, -- 09: percent
+			["m10"] = 100, -- 10: chips
+			["m11"] =   1, -- 11: retrigger
+			["m12"] = 2.0, -- 12: random + stat_mult
+			-- Values: Boss
+			["b1"] =  2.0, -- 01: stat_mult
+			["b2"] =    2, -- 02: hands
+			["b3"] = 0.25, -- 03: percent
+			["b4"] =    0, -- 04: disable
 		}
 	},
+    attributes = {
+		'scaling', 'reset', 'boss_blind',
+		'changing_effects'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
-		-- Vars:
-		local current_key = 'j_'..'SEMBY_parking_disc'
-		local current_index = card.ability.extra.index.s12 and card.ability.extra.index.s12 or card.ability.extra.index.main
+		-- Vars.
+		local current_key, boss_info, copy_info
+		local current_index = math.floor(card.ability.extra.index.s12 or card.ability.extra.index.main)
 		local current_val = card.ability.extra.value.main
-        local boss_info = nil
-        local copy_info = nil
 		-- Current State:
-		if current_index ~= card.ability.extra.limit.main.base then
+		if current_index >= MAIN_PROPS.min and current_index <= MAIN_PROPS.max then
 			-- Main Info
-			current_key = current_key..'_'..card.ability.extra.state.main[current_index].desc
+			current_key = 'SEMBY_parking_disc'..'_'..current_index
 			if current_index == 9 then current_val = current_val * 100 end
 			-- Boss/Bonus Info
-			if card.ability.extra.index.boss ~= card.ability.extra.limit.boss.base then
-				local boss_key = 'SEMBY_parking_disc'..'_'..card.ability.extra.state.boss[card.ability.extra.index.boss].desc
+			local boss_index = math.floor(card.ability.extra.index.boss)
+			if boss_index >= BOSS_PROPS.min and boss_index <= BOSS_PROPS.max then
+				local boss_key = 'SEMBY_parking_disc'..'_boss_'..boss_index
 				boss_info = { { n = G.UIT.C, config = { align = "bm", minh = 0.2 },
 					nodes = { { n = G.UIT.C, config = { ref_table = card, align = "m" },
 						nodes = { { n = G.UIT.T, config = {
-							text = card.ability.extra.index.boss == 1 and localize{ type = 'variable', key = boss_key, vars = { card.ability.extra.value.mult } } or localize(boss_key),
-							colour = G.C.DARK_EDITION,
-							scale = 0.32 * 0.8
+							text = boss_index == 1 and localize{ type = 'variable',
+								key = boss_key, vars = { card.ability.extra.value.mult }
+							} or localize(boss_key), colour = G.C.DARK_EDITION, scale = 0.32 * 0.8
 						} } }
 					} }
 				} }
@@ -85,10 +82,10 @@ SMODS.Joker {
 			-- Blueprint Info
 			if current_index == 3 then
 				local compatible = false
-				if card.area and card.area == G.jokers then
-					for i = 1, #G.jokers.cards do
-						if G.jokers.cards[i] == card then
-							if i > 1 then compatible = G.jokers.cards[i-1].config.center.blueprint_compat end
+				if card.area and not card.area.config.collection then
+					for i = 1, #card.area.cards do
+						if card.area.cards[i] == card then
+							if i > 1 then compatible = card.area.cards[i-1].config.center.blueprint_compat end
 							break
 						end
 					end
@@ -109,51 +106,41 @@ SMODS.Joker {
 			info_queue[#info_queue + 1] = { key = 'SEMBY_parking_disc_XX', set = "Other" }
 		elseif card.area and not card.area.config.collection then
 			local next_index = current_index + 1
-			if next_index > card.ability.extra.limit.main.max then
-				next_index = card.ability.extra.limit.main.min
-			end
-			local next_key = 'SEMBY_parking_disc'..'_'..card.ability.extra.state.main[next_index].desc
-			local next_val = card.ability.extra.state.main[next_index].value
+			if next_index > MAIN_PROPS.max or next_index < MAIN_PROPS.min
+			then next_index = MAIN_PROPS.min end
+			local next_key = 'SEMBY_parking_disc'..'_'..next_index
+			local next_val = card.ability.extra[MAIN_PROPS.key..next_index]
 			if next_index == 9 then next_val = next_val * 100 end
-			--1: I tried everything, looked at the Code, tried every possible Combination... I don't understand why this doesn't work:
-			-- : info_queue[#info_queue + 1] = { key = 'j_'..next_key, set = "Joker", config = { extra = {}, next_val }, specific_vars = { next_val } }
-			-- : Workaround is just creating the Desc. twice ("Joker" & "Other") in the Loc-Files :annoyed:
-			--2: I tried again with more Info and Insight and still: Nope, still NIL-Values.
-			-- : I would be happy if it Crashes due to Looping the Desc.-Tables, but not even that happens.
 			info_queue[#info_queue + 1] = { key = next_key, set = "Other", vars = { next_val } }
 		end
 		-- Return
-		return {
-			main_start = boss_info,
-			key = current_key,
-			vars = { current_val },
-			main_end = copy_info
-		}
+		if current_key then
+			return {
+				main_start = boss_info,
+				key = current_key,
+				set = "Other",
+				vars = { current_val },
+				main_end = copy_info
+			}
+		end
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
-				card:SEMBY_set_soul_pos('SEMBY_jokers', card.ability.extra.soul_pos_overwrite)
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.index.boss))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
-			-- Reset: State
-			card.ability.extra.index.main = card.ability.extra.limit.main.base
-			card.ability.extra.index.boss = card.ability.extra.limit.boss.base
+			-- Reset: Index
+			card.ability.extra.index.main = MAIN_PROPS.base
+			card.ability.extra.index.boss = BOSS_PROPS.base
 			-- Reset: Value
-			card.ability.extra.value.main = card.ability.extra.limit.main.base
-			card.ability.extra.value.boss = card.ability.extra.limit.boss.base
+			card.ability.extra.value.main = 0
+			card.ability.extra.value.boss = 0
 			card.ability.extra.value.mult = 1.0
 			-- Reset: Texture
-			card.ability.extra.pos_overwrite.x = card.ability.extra.pos_valid.x
-			card.ability.extra.pos_overwrite.y = card.ability.extra.pos_valid.y
-			card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
-			card.ability.extra.soul_pos_overwrite.x = card.ability.extra.soul_pos_valid.base
-			card:SEMBY_set_soul_pos('SEMBY_jokers', card.ability.extra.soul_pos_overwrite)
+			card.ability.extra.SEMBY_Text = G.GAME.SEMBY_random_parking and '?' or 'P'
+			card.children.center:set_sprite_pos(get_texture())
 		end
     end,
 	calculate = function(self, card, context)
@@ -161,36 +148,37 @@ SMODS.Joker {
 			card.ability.extra.setup = false
 		end
 		if context.setting_blind and not self.getting_sliced then
-			-- Code Simplicity...
-			local cref = card.ability.extra -- (Maybe) Remove this for Release!
-			local juice_card = (context.blueprint_card or card) -- Not this.
+			local cref = card.ability.extra
+			local juice_card = (context.blueprint_card or card)
 			-- Setup
 			if not cref.setup then
+				-- Setup
 				cref.setup = true
-				-- Next Effect
-				if G.GAME.SEMBY_random_parking then
-					cref.index.main = pseudorandom("SEMBYPDsXX", cref.limit.main.min, cref.limit.main.max)
-				else cref.index.main = cref.index.s12 and cref.limit.main.min or cref.index.main + 1 end
 				local mult = 1.0
-				-- EOL: State 12
+				-- Next Effect
+				if G.GAME.SEMBY_random_parking then cref.index.main = pseudorandom(SEED, MAIN_PROPS.min, MAIN_PROPS.max)
+				else cref.index.main = cref.index.s12 and MAIN_PROPS.min or math.max(MAIN_PROPS.min, math.floor(cref.index.main)+1) end
+				-- EOL: Special 12
 				cref.index.s12 = false
-				if cref.index.main == cref.limit.main.max then
-					cref.index.s12 = cref.index.main
-					mult = mult * cref.state.main[cref.index.main].value
-					cref.index.main = pseudorandom("SEMBYPDs12", cref.limit.main.min, cref.limit.main.s12)
+				if cref.index.main >= MAIN_PROPS.max then
+					cref.index.s12 = MAIN_PROPS.max
+					mult = mult * cref[MAIN_PROPS.key..MAIN_PROPS.max]
+					cref.index.main = pseudorandom(SEED, MAIN_PROPS.min, MAIN_PROPS.s12)
 				end
 				-- Boss Effect
 				if G.GAME.blind.boss or cref.index.s12 then
-					cref.index.boss = pseudorandom("SEMBYPD_Boss", cref.limit.boss.min, cref.index.s12 and cref.limit.boss.s12 or cref.limit.boss.max)
-					mult = mult * (cref.index.boss == 1 and cref.state.boss[cref.index.boss].value or 1.0)
-					cref.value.boss = cref.state.boss[cref.index.boss].value * mult
-				else
-					cref.index.boss = cref.limit.boss.base
-					cref.value.boss = cref.limit.boss.base
-				end
+					cref.index.boss = pseudorandom(SEED, BOSS_PROPS.min, cref.index.s12 and BOSS_PROPS.s12 or BOSS_PROPS.max)
+					cref.value.boss = cref[BOSS_PROPS.key..cref.index.boss]
+					if cref.index.boss == 1 then mult = mult * cref.value.boss
+					else cref.value.boss = cref.value.boss * mult end
+				else cref.index.boss = BOSS_PROPS.base; cref.value.boss = 0 end
 				-- Math Value
-				cref.value.main = cref.state.main[cref.index.main].value * mult
-				cref.value.mult = mult -- for Desc.
+				cref.value.main = cref[MAIN_PROPS.key..cref.index.main] * mult
+				cref.value.mult = mult --> Desc.
+				-- TMTRAINER Support:
+				if cref.index.main == 1 or cref.index.main == 3
+				or cref.index.main == 6 or cref.index.main == 11
+				then cref.value.main = math.floor(cref.value.main+0.5) end
 			end
 			-- Texture
 			if not context.blueprint then
@@ -206,12 +194,8 @@ SMODS.Joker {
 					trigger = 'after',
 					func = function()
 						-- Main Texture
-						cref.pos_overwrite.x = cref.pos_valid.x + (((cref.index.s12 and cref.index.s12 or cref.index.main) - 1) % 4)
-						cref.pos_overwrite.y = cref.pos_valid.y + math.floor(((cref.index.s12 and cref.index.s12 or cref.index.main) - 1) / 4)
-						card.children.center:set_sprite_pos(cref.pos_overwrite)
-						-- Soul Texture
-						cref.soul_pos_overwrite.x = cref.soul_pos_valid.base + cref.index.boss
-						card:SEMBY_set_soul_pos('SEMBY_jokers', cref.soul_pos_overwrite)
+						card.ability.extra.SEMBY_Text = cref.index.s12 or cref.index.main
+						card.children.center:set_sprite_pos(get_texture(cref.index.boss))
 						-- Effects
 						card:juice_up()
 						card:flip()
@@ -221,7 +205,7 @@ SMODS.Joker {
 				}))
 			end
 			-- Main Effects
-			if cref.index.main ~= cref.limit.main.base then
+			if cref.index.main ~= MAIN_PROPS.base then
 				if cref.index.main == 1 then -- Hand Size
                     SMODS.calculate_effect({
 						message = localize{ type = 'variable', key = 'a_handsize', vars = { cref.value.main } },
@@ -239,7 +223,7 @@ SMODS.Joker {
 				end
 			end
 			-- Boss/Bonus Effects:
-			if cref.index.boss ~= cref.limit.boss.base then
+			if cref.index.boss ~= BOSS_PROPS.base then
 				if cref.index.boss == 2 then -- Extra Hands
                     SMODS.calculate_effect({
 						message = localize{ type = 'variable', key = 'a_hands', vars = { cref.value.boss } },
@@ -272,21 +256,23 @@ SMODS.Joker {
 			end
 		end
 		if card.ability.extra.index.main == 3 then -- Blueprint
-			local copy_joker = nil
-			for i = 1, #G.jokers.cards do
-				if G.jokers.cards[i] == card then
-					if i > 1 then copy_joker = G.jokers.cards[i - 1] end
-					break
+			if card.area then
+				local copy_joker = nil
+				for i = 1, #card.area.cards do
+					if card.area.cards[i] == card then
+						if i > 1 then copy_joker = card.area.cards[i - 1] end
+						break
+					end
 				end
-			end
-			if copy_joker then
-				local merged_hell = {}
-				for i = 1, card.ability.extra.value.main do
-					merged_hell = SMODS.merge_effects( { merged_hell }, { SMODS.blueprint_effect(card, copy_joker, context) } )
+				if copy_joker then
+					local merged_hell = {}
+					for i = 1, card.ability.extra.value.main do
+						merged_hell = SMODS.merge_effects( { merged_hell }, { SMODS.blueprint_effect(card, copy_joker, context) } )
+					end
+					return merged_hell
+				else
+					return nil
 				end
-				return merged_hell
-			else
-				return nil
 			end
 		end
 		if context.joker_main then
@@ -306,7 +292,7 @@ SMODS.Joker {
 								SMODS.add_card {
 									set = 'Consumeables',
 									area = G.consumeables,
-									key_append = 'SEMBYPDs06'
+									key_append = SEED
 								}
 								G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
 								return true
@@ -326,7 +312,7 @@ SMODS.Joker {
 				return { dollars = card.ability.extra.value.main }
 			end
 			if card.ability.extra.index.main == 9 then -- Decrease Blind Size
-				SEMBY_Reduce_Blindsize(card.ability.extra.percent, (context.blueprint_card or card), true)
+				SEMBY_Reduce_Blindsize(card.ability.extra.value.main, (context.blueprint_card or card), true)
 				return nil, true
 			end
 			if card.ability.extra.index.main == 10 then -- Chips

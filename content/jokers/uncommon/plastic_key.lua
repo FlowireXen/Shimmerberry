@@ -1,10 +1,15 @@
+local AMOUNT = 5
+local function get_texture(state)
+	if not state or state > AMOUNT or state < 1 then
+		state = math.random(1, AMOUNT)
+	end
+	return { x = math.floor(state)-1, y = 1 }
+end
 SMODS.Joker {
 	key = "plastic_key",
-	name = "SEMBY_plastic_key",
-	atlas = "SEMBY_jokers",
-	pos = { x = 3, y = 7 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_2",
+	pos = get_texture(),
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = false,
@@ -13,34 +18,31 @@ SMODS.Joker {
 	config = {
 		extra = {
 			spectrals = 2,
-			delayed = false,
-			pos_valid = { min = 3, max = 7 },
-			pos_overwrite = { x = 3, y = 7 },
+			state = nil
 		}
 	},
+    attributes = {
+		'generation', 'boss_blind', 'spectral'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.spectrals
 		} }
 	end,
 	set_ability = function(self, card, initial, delay_sprites)
 		if card.config.center.discovered and initial then
-			card.ability.extra.pos_overwrite.x = math.random(card.ability.extra.pos_valid.min, card.ability.extra.pos_valid.max)
-			card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+			card.ability.extra.state = math.random(1, AMOUNT)
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.state))
 		end
 	end,
-	load = function(self, card, card_table, other_card)
-		G.E_MANAGER:add_event(Event({
-			func = function()
-				card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
-				return true
-			end
-		}))
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.extra then
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.state))
+		end
 	end,
     add_to_deck = function(self, card, from_debuff)
 		if not from_debuff then
-			card.children.center:set_sprite_pos(card.ability.extra.pos_overwrite)
+			card.children.center:set_sprite_pos(get_texture(card.ability.extra.state))
 		end
     end,
 	calculate = function(self, card, context)
@@ -61,30 +63,19 @@ SMODS.Joker {
 					delay(0.2)
 				else break end
             end
-			-- Makes sure, you can actually get "Winning Stickers" on the Joker! :3
-			if G.GAME.blind.config.blind.boss.showdown then
-				card.ability.extra.delayed = true
-				card.ability.SEMBY_price_mod = -1000000
-				card:set_cost()
-			end
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    card:juice_up()
-                    play_sound('cancel') --tarot1
-					if not card.ability.extra.delayed then
-						G.E_MANAGER:add_event(Event({
-							trigger = 'after',
-							delay = 0.3,
-							blockable = false,
-							func = function()
-								card:start_dissolve()
-								return true
-							end
-						}))
-					end
-                    return true
-                end
-            }))
+			-- Delay Destruction until Payout; Allows "Winning Stickers"! :3
+			card.ability.extra.delayed = not G.GAME.won and G.GAME.round_resets.ante >= G.GAME.win_ante
+    		G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+    		    func = function()
+    		        card:juice_up()
+    		        play_sound('cancel')
+					if card.ability.extra.delayed then
+						card:add_sticker('SEMBY_possessive', true)
+					else card:start_dissolve() end
+    		        return true
+    		    end
+    		}))
             return {
 				message = localize{ type = 'variable', key = 'SEMBY_spectrals', vars = { card.ability.extra.spectrals } },
                 colour = G.C.SECONDARY_SET.Spectral
@@ -92,8 +83,6 @@ SMODS.Joker {
 		end
 	end,
     calc_dollar_bonus = function(self, card)
-		if card.ability.extra.delayed then
-			card:start_dissolve()
-		end
+		if card.ability.extra.delayed then card:start_dissolve() end
     end
 }

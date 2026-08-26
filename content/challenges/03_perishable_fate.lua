@@ -14,7 +14,7 @@ SMODS.Challenge {
         },
     },
     jokers = {
-        { id = 'j_SEMBY_toolkit', SEMBY_perishable = true },
+        { id = 'j_SEMBY_toolkit', SEMBY_degrading = true },
     },
 	apply = function(self)
         G.GAME.SEMBY_degrading = true

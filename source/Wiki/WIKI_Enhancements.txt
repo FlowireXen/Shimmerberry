@@ -1,0 +1,42 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Enhancements
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+'''[[Shimmerberry]]''' currently adds '''2''' Enhancements to the game.
+
+<!-- Table Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Enhancement<br>Art & Names
+!Description
+!No Rank?
+!No Suit?
+!Always<br>Scores?
+!Artist
+!Reference
+
+|-
+| style="text-align:center;" | [[File:Memory_(Shimmerberry).png|142px]] <br> '''Memory''' Card
+| {{ct|inactive|[Suit]}} Memories<br>gain {{ct|chips|+2}} Chips,<br>has no rank
+----
+All Memory Cards with<br>the same Suit get<br>upgraded when scored
+| Yes
+| No
+| Yes
+| '''Flowire'''
+| '''[[Buffoonery|{{ct|blue|Buffoonery}}]]'''<br>{{ct|grey|Balatro Mod}}
+
+|-
+| style="text-align:center;" | [[File:Vintage_(Shimmerberry).png|142px]] <br> '''Vintage''' Card
+| Retrigger if played<br>{{ct|attention|poker hand}} is {{ct|attention|not}} your<br>{{ct|attention|highest-level}} hand
+| No
+| No
+| No
+| '''Flowire'''
+| 
+
+|}
+<!-- Table End -->
+
+[[Category:Card Modifiers]]

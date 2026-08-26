@@ -3,7 +3,7 @@ version = "2.0.0"
 dump_lua = true
 priority = 10
 
-# Allows Hiding the "Wining Ante" (replaces it with a simple '?')
+# Allows Hiding the "Winning Ante" (replaces it with a simple '?')
 # This adds an extra check and should be the least intrusive implementation (imo/afaik)
 
 [[patches]]

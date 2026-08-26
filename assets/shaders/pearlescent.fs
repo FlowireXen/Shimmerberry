@@ -28,7 +28,7 @@ extern PRECISION vec4 burn_colour_2;
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
 // My Stuff
-#define rot(param) mat2(cos(param + vec4(0,33,11,0)))
+#define rot(param) mat2(cos(param + vec4(0.,33.,11.,0.)))
 
 // This is what actually changes the look of card
 vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords )
@@ -40,7 +40,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     vec2 uv_scaled_centered = (uv - 0.5) * 2.3;
     // General Vars
     float lng = length(uv_scaled_centered);
-    float time2 = (pearlescent.g + time) / 2 + pearlescent.r;
+    float time2 = (pearlescent.g + time) / 2. + pearlescent.r;
     // Rotating Spirals
     vec2 pnt = sin(uv_scaled_centered * lng);
     pnt *= rot(-cos(lng * 5.0 + time2));
@@ -53,7 +53,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     // Helps pronounce streaks
     pnt *= rot(lng + atan(uv_scaled_centered.y, uv_scaled_centered.x));
     // Color
-    vec3 col = sin(dst * vec3(4, 3, 1)) * 0.5 + 0.5; //1, 0.75, 0.25
+    vec3 col = sin(dst * vec3(4., 3., 1.)) * 0.5 + 0.5; //1., 0.75, 0.25
     col = mix(vec3(0.577) * dot(vec3(0.6), col), col, cos(atan(pnt.y, pnt.x) - time2));
     col += cross(vec3(1.2), col) * sin(atan(pnt.y, pnt.x) - time2);
     // Adjust Blue-Value
@@ -119,6 +119,6 @@ vec4 position( mat4 transform_projection, vec4 vertex_position )
     float scale = 0.2*(-0.03 - 0.3*max(0., 0.3-mid_dist))
                 *hovering*(length(mouse_offset)*length(mouse_offset))/(2. -mid_dist);
 
-    return transform_projection * vertex_position + vec4(0,0,0,scale);
+    return transform_projection * vertex_position + vec4(0.,0.,0.,scale);
 }
 #endif

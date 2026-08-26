@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "pet_plastic",
-	name = "SEMBY_pet_plastic",
-	atlas = "SEMBY_jokers",
-	pos = { x = 0, y = 5 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 6, y = 3 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,10 @@ SMODS.Joker {
 			mult = 0
 		}
 	},
+    attributes = {
+		'discard', 'mult', 'scaling', 'reset'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.mult_gain,
 			card.ability.extra.mult
@@ -38,7 +38,7 @@ SMODS.Joker {
 					blocking = false,
 					func = function()
 						card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
-						card:juice_up(0.1, (math.random() < 0.5) and 0.2 or -0.2)
+						card:juice_up(0.1, 0.2)
 						play_sound('generic1', 1.2, 0.5)
 						attention_text({
 							text = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } },

@@ -1,0 +1,48 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Editions
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+'''[[Shimmerberry]]''' currently adds '''3''' Editions to the game.
+
+<!-- Table Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Edition<br>Art & Names
+!Normal Description
+!On Playing Card
+!Main Source
+!Extra Cost
+!Shader<br>Description
+!Artist
+
+|-
+| style="text-align:center;" | [[File:Pearlescent_(Shimmerberry).png|142px]] <br> '''Pearlescent'''
+| {{ct|green|Reduce}}<br>{{ct|attention|Blind Size}}<br>by {{ct|darkpurple|5%}}
+| <small>{{ct|grey|No difference}}</small>
+| [[Shimmerberry/Consumables#Tarots|{{ct|attention|Ocean Tarot}}]],<br>Spawns naturally
+| {{Ct|money|$3}}
+| style="text-align:center;" | Animated, slow,<br>zooming in, twisting<br>iridescent spiral.
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Resonance_(Shimmerberry).png|142px]] <br> '''Resonance'''
+| Can't be '''Debuffed'''<br>{{ct|red|Increase}} {{ct|attention|Blind}}<br>{{ct|attention|Size}} by {{ct|darkpurple|5%}}
+| <small>{{ct|grey|No difference}}</small>
+| [[Shimmerberry/Challenges|{{ct|attention|Challenges}}]],<br>Doesn't spawn<br>naturally
+| {{Ct|grey|$-}}
+| style="text-align:center;" | Animated, splitting<br>card texture.
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Shiny_(Shimmerberry).png|142px]] <br> '''Shiny'''
+| Gains {{ct|money|$2}} of<br>{{ct|attention|sell value}} at<br>end of round
+| Grant {{ct|money|$1}} of<br>{{ct|attention|sell value}} to a<br>random {{ct|attention|Joker}}
+| [[Shimmerberry/Consumables#Tarots|{{ct|attention|Ocean Tarot}}]],<br>Spawns naturally
+| {{Ct|money|$0}}
+| style="text-align:center;" | Animated, random<br>yellow stars.
+| '''Flowire'''
+
+|}
+<!-- Table End -->
+
+[[Category:Card Modifiers]]

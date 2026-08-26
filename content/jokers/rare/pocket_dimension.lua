@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "pocket_dimension",
-	name = "SEMBY_pocket_dimension",
-	atlas = "SEMBY_jokers",
-	pos = { x = 8, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 8, y = 1 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,11 @@ SMODS.Joker {
 			xmult = 1.5
 		}
 	},
+    attributes = {
+		'xmult', 'space',
+		'consumable', 'magic',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.slots,
 			card.ability.extra.xmult
@@ -30,22 +31,8 @@ SMODS.Joker {
 		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.slots
     end,
 	calculate = function(self, card, context)
-        if context.other_consumeable then
-			-- This Context is Janky: All these Events Trigger Instantly upon scoring:
-			--[[
-			G.E_MANAGER:add_event(Event({
-				trigger = 'after',
-				func = function()
-					attention_text({
-						text = localize{type = "name_text", set = context.other_consumeable.config.center.set, key = context.other_consumeable.config.center.key},
-						backdrop_colour = G.C.SECONDARY_SET[context.other_consumeable.config.center.set] or G.C.DARK_EDITION,
-						scale = 0.7, hold = 1.0, major = card,
-						align = 'bm', offset = { x = 0, y = 0 }
-					})
-					return true
-				end
-			}))
-			--]]
+        if context.other_consumeable and context.other_consumeable.area
+		and context.other_consumeable.area == G.consumeables then
             return {
 				xmult = card.ability.extra.xmult,
 				message_card = context.other_consumeable,

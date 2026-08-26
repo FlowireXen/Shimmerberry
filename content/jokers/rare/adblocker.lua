@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "adblocker",
-	name = "SEMBY_adblocker",
-	atlas = "SEMBY_jokers",
-	pos = { x = 10, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 8, y = 6 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -13,11 +11,14 @@ SMODS.Joker {
 	config = {
 		extra = {
 			debuffed = false,
-			dollars = 2
+			dollars = 1
 		}
 	},
+    attributes = {
+		'economy',
+		'debuff_card'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		info_queue[#info_queue + 1] = { key = "debuffed_playing_card", set = "Other" }
 		local ret_val
 		local ret_col
@@ -95,7 +96,7 @@ SMODS.Joker {
 				card.ability.extra.debuffed = false
 				return {
 					message = localize('k_reset'),
-					colour = G.C.ATTENTION,
+					colour = G.C.IMPORTANT,
 					func = function()
 						for _, playing_card in ipairs(G.playing_cards) do
 							SMODS.debuff_card(playing_card, false, card.sort_id)

@@ -12,7 +12,7 @@ SMODS.Challenge {
         }
     },
     jokers = {
-        { id = 'j_SEMBY_debugjoker', pinned = true, eternal = true },
+        { id = 'j_SEMBY_debugjoker', pinned = true, eternal = true, SEMBY_lavish = true },
         { id = 'j_SEMBY_t3mprr' },
         { id = 'j_dusk' },
     },
@@ -26,22 +26,13 @@ SMODS.Challenge {
         { id = 'v_overstock_plus' },
     },
 	apply = function(self)
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 2, y = 1 }
+        end
+        -- Challenge
 		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
 		G.GAME.stake = SMODS.Stakes["stake_gold"].order
-		G.E_MANAGER:add_event(Event({
-			trigger = 'after',
-			func = function()
-				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					func = function()
-						SMODS.debuff_card(G.jokers.cards[1], 'prevent_debuff', 'SEMBY_debugjoker')
-						save_run()
-						return true
-					end
-				}))
-				return true
-			end
-		}))
 	end,
 	button_colour = HEX('FF00FF')
 }

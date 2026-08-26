@@ -1,18 +1,16 @@
 SMODS.Joker {
 	key = "gold_bomb",
-	name = "SEMBY_gold_bomb",
-	atlas = "SEMBY_jokers",
-	pos = { x = 8, y = 6 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 0, y = 1 },
     eternal_compat = true,
     perishable_compat = false,
     blueprint_compat = false,
 	rarity = 2,
 	cost = 5,
-	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
-	end,
+    attributes = {
+		'destroy_card', 'hands'
+	},
     calculate = function(self, card, context)
 		if G.GAME.current_round.hands_left == 0 and not context.blueprint then
 			if context.joker_main then
@@ -20,7 +18,7 @@ SMODS.Joker {
 					trigger = 'after',
 					func = function()
 						card:SEMBY_set_dissolve({G.C.L_BLACK, G.C.BLACK}, 0.0, 0.4, 0)
-						card:juice_up(1.5, 1.25)
+						card:juice_up(1.5, math.random() > 0.5 and 1.25 or -1.25)
 						return true
 					end
 				}))
@@ -38,7 +36,7 @@ SMODS.Joker {
 					trigger = 'after',
 					func = function()
 						card:SEMBY_set_dissolve({G.C.L_BLACK, G.C.BLACK}, 0.4, 0.0, 1.0)
-						card:juice_up(0.1, 0.1)
+						card:juice_up(0.1, 0.2)
 						return true
 					end
 				}))

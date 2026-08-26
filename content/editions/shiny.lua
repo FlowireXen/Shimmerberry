@@ -7,21 +7,24 @@ SMODS.Shader {
 --## Edition
 SMODS.Edition {
     key = "shiny",
-	name = "SEMBY_shiny",
+	SEMBY_art = "flowire",
     shader = "shiny",
     config = {
-		base_value = 3.0,
+		base_value = 2.0,
 		card_value = 1.0
 	},
     in_shop = true,
-    weight = 6,
+    weight = 7,
     extra_cost = 0,
-    sound = { sound = "SEMBY_shiny", per = 1.2 * 1.58, vol = 0.4 },
+    sound = { sound = "SEMBY_shiny", per = 1.2 * 1.58, vol = 1.2 },
     loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
+		if card.area and card.area.config.collection and card.ability and card.ability.set ~= "Joker" then
+        	info_queue[#info_queue + 1] = { key = "SEMBY_shiny_playing_card", set = "Other", vars = { G.P_CENTERS.e_SEMBY_shiny.config.card_value } }
+		end
 		if card.playing_card or (card.ability and (card.ability.set == "Default" or card.ability.set == "Enhanced")) then
 			return {
-				key = 'e_SEMBY_shiny_playing_card',
+				key = 'SEMBY_shiny_playing_card',
+				set = "Other",
 				vars = { (card.edition or {}).card_value or self.config.card_value }
 			}
 		end

@@ -1,0 +1,1141 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Jokers
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+REMOVE : "{{captimg||Target Plush|imgsize=142px}}" -> Target Plush is out of Date, remove/rename Page
+
+Remove: [[File:PLACEHOLDER_(Shimmerberry).png|142px]]
+
+|-
+| {{captimg||DEBUGTEST|imgsize=142px}}
+| Very likely to <u>Crash the Game</u>!<br><small>{{ct|grey|Function changes every release.}}</small> <!-- INFO: Please don't bother documenting this Jokers effects! -->
+----
+Part of the '''Debug''' set.<br>
+
+'''Unobtainable''' during<br>normal gameplay.
+| {{Ct|money|$1242}}
+| {{rarity|common}}
+| {{Jtype|?!}}<br>{{Jtype|???}}<br>{{Jtype|--}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Target Plush|imgsize=142px}}
+|
+{{ct|chips|+15}} Chips for each {{ct|orange|Joker}} and<br>{{ct|mult|+4}} Mult for each empty {{ct|orange|Joker}} slot
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|+c}}<br>{{jtype|+m}}
+| '''unkokat'''
+----
+Reference:<br>
+'''Target''' {{ct|grey|Shop}}
+| - <!--A.T.-->
+
+Change Debug Jokers + Textures + Add the 4th Debug Joker
+
+In Quest: Add the Challenge Quests
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+{{modsubpage}}
+{{Uses Many Images}}
+{{incomplete|"Temporary Notes" will move into the Joker-Pages|##TODO##}}
+<!-- Flowire says: If you are reading this, I am currently editing this Page to remove the "Stub" category! -->
+
+'''[[Shimmerberry]]''' currently adds '''110''' Jokers to the game.<br>
+When starting the game, there is a 10% chance for some Jokers to have alternative names and textures.
+
+== List of Jokers ==
+<!-- Table 1, Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Joker<br>Art & Names
+!Description
+!Cost
+!Rarity
+!Type
+!Artist
+!Reference
+!Temporary Notes
+
+|-
+| {{captimg||Abandoned Soul|imgsize=142px}}
+| Gains {{ct|xchips|X0.1}} Chips<br>when a {{ct|attention|face}} card<br>is destroyed<br>{{ct|inactive|(Currently {{ct|xchips|X1}} Chips)}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|Xc}}
+| '''unkokat'''
+| 
+
+|-
+| style="text-align:center;" | {{captimg||A.C.E.|imgsize=142px}} <small>{{ct|grey|Arbitrary Code Execution}}</small>
+| Add the next {{ct|attention|2 to 4}}<br>playing cards from<br>Deck to scoring hand
+| {{Ct|money|$7}}
+| {{rarity|rare}}
+| {{jtype|P!}}
+| '''unkokat''' <br> 
+| '''Super Mario World''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Adblocker|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} a random suit<br>in your deck<br>{{ct|inactive|(Debuffed: Nothing}}{{ct|inactive|)}}<br>Played debuffed cards<br>give {{ct|money|$1}} before scoring
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|+$}}<br>{{jtype|XX}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Afterimage|imgsize=142px}}
+| Copies ability of<br>{{ct|attention|Joker}} to the left<br>{{ct|darkedition|3}} times
+| {{Ct|money|$20}}
+| {{rarity|legendary}}
+| {{jtype|!!}} {{jtype|!!}} {{jtype|!!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Agent 47|imgsize=142px}}
+| When discarding<br>exactly {{ct|attention|3}} cards,<br>{{ct|red|eliminate}} {{ct|attention|one}}<br>at random
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|[X]}}
+| '''unkokat'''
+| '''Hitman''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Alpha|imgsize=142px}}
+| {{ct|blue|+1}} Hand for<br>{{ct|attention|first}} scoring<br>{{ct|blue|Stone Card}}
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|#!}}
+| '''unkokat'''
+| '''Noita''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Anchor|imgsize=142px}}
+| {{ct|xchips|X2}} Chips<br>{{ct|red|Can't}} be<br>{{ct|attention|Highlighted}}
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|Xc}}
+| '''unkokat'''
+| 
+
+|-
+| style="text-align:center;" | {{captimg||Annoying Dog|imgsize=142px}} {{ct|grey|Toby Fox}}
+| {{ct|xmult|X3.0}} Mult<br>{{ct|red|No}} consumable slots
+| {{Ct|money|$7}}
+| {{rarity|rare}}
+| {{jtype|Xm}}<br>{{jtype|XX}}
+| '''unkokat'''
+| '''[[Undertale/Deltarune|{{ct|blue|Vio's Undertale}}]]''' {{ct|grey|Balatro Mod}}
+| Has Changing Textures <!-- Create File(s) -->
+
+|-
+| {{captimg||Anodized Steel|imgsize=142px}}
+| Played {{ct|blue|Steel}} cards<br>{{ct|green|reduce}} the {{ct|attention|Blind Size}}<br>by {{ct|darkpurple|5%}} when scored
+| {{Ct|money|$8}}
+| {{rarity|uncommon}}
+| {{jtype|~B}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Axe|imgsize=142px}}
+| Each {{ct|inactive|[Suit]}} card<br>held in hand has<br>a {{ct|green|25%}} chance to<br>be {{ct|attention|destroyed}}<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|40}}{{ct|inactive|/80}} uses left
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|[X]}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Balloon|imgsize=142px}}
+| {{ct|xmult|X2}} Mult<br>{{ct|red|Self destructs}}<br>when highlighting<br>{{ct|attention|4 or more}} cards
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|Xm}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Barmy Joker|imgsize=142px}}
+| {{ct|mult|+12}} Mult if poker<br>hand contains<br>{{ct|attention|3}} different suits
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+m}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Benthic Bloom|imgsize=142px}}
+| Retrigger all<br>{{ct|blue|Enhanced Cards}}<br>{{ct|blue|Enhanced Cards}} have<br>a {{ct|green|1 in 4}} chance to<br>shatter like {{ct|attention|Glass}}<br>{{ct|burgundy|Possessive}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|...}}<br>{{jtype|[X]}}
+| '''unkokat'''
+| '''Risk of Rain 2''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Blueberry|imgsize=142px}}
+| Each scored<br>{{ct|attention|[King]}} or {{ct|attention|[Queen]}}<br>gives {{ct|chips|+30}} Chips<br>{{ct|inactive|[Ranks] change}}<br>{{ct|inactive|every round}}<br><small>Gets {{ct|red|Eaten}} when</small><br><small>no {{ct|attention|[King]}} or {{ct|attention|[Queen]}}</small><br><small>scored this round</small>
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|+c}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Booster Pack|imgsize=142px}}
+| {{ct|attention|3}} additional<br>{{ct|attention|Booster Packs}}<br>in each {{ct|money|Shop}}<br>{{ct|green|3}}{{ct|inactive|/3}} uses left
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|#!}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Bound Joker|imgsize=142px}}
+| When obtaining or<br>destroying this card,<br>apply {{ct|perishable|Bound}} to<br>{{ct|attention|2}} random Jokers
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|[!]}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Broken Record|imgsize=142px}}
+| Randomly add {{ct|attention|2}} to {{ct|attention|3}}<br>retriggers to any<br>scoring cards
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|...}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Buccaneer|imgsize=142px}}
+| Adds {{ct|attention|3}} times the sell<br>value of all other<br>owned {{ct|attention|Jokers}} to {{ct|chips|Chips}}<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|+c}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Bunburrow|imgsize=142px}}
+| Bunburrow<br>Gain {{ct|money|$12}} every<br>{{ct|attention|4}} {{ct|green|Rerolls}}<br>{{ct|inactive|(4 remaining)}}
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|+$}}
+| '''unkokat'''
+| '''Paquerette Down''' <br> '''the Bunburrows''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Butterfly|imgsize=142px}}
+| {{ct|chips|0}} Chips<br>{{ct|green|Gains}} {{ct|chips|+2}} Chips<br>if played hand<br>contains a {{ct|attention|Pair}},<br>{{ct|red|Loses}} {{ct|chips|4}} Chips<br>if it doesn't
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|+c}}<br>{{jtype|~c}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Cassette Beast|imgsize=142px}}
+| Retrigger scoring cards<br>for {{ct|attention|each}} scoring suit<br>beyond the first suit
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|...}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Ceaseless Void|imgsize=142px}}
+| When a Card is {{ct|attention|sold}}, gain<br>{{ct|darkpurple|+3%}} Blind Size, {{ct|xmult|X0.02}} Mult<br>or {{ct|xchips|X0.02}} Chips for each<br>{{ct|money|$1}} of sell value<br>When {{ct|attention|Blind}} is selected<br>{{ct|red|increase}} Blind Size by {{ct|darkpurple|0%}}<br>{{ct|xchips|X1}} Chips, {{ct|xmult|X1}} Mult
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|XB}}<br>{{jtype|Xc}}<br>{{jtype|Xm}}
+| '''unkokat'''
+| '''Calamity''' {{ct|grey|Terraria Mod}}
+
+|-
+| {{captimg||Chrono Break|imgsize=142px}}
+| {{ct|legendary|Revive}} shattered<br>{{ct|attention|playing cards}}<br>{{ct|attention|Shatter}} {{ct|green|1 in 4}}<br>scoring cards
+| {{Ct|money|$7}}
+| {{rarity|rare}}
+| {{jtype|[+]}}<br>{{jtype|[X]}}
+| '''Flowire'''
+| '''Passing Through''' {{ct|grey|Song}} <br> {{ct|grey|by Kaden MacKay}} <br> '''Chrono Trigger''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Cockroach|imgsize=142px}}
+| {{ct|green|Reduces}} Blind<br>Sizes by {{ct|darkpurple|20%}}<br>{{ct|attention|+1}} Ante when<br>{{ct|attention|Boss Blind}}<br>is defeated<br>{{ct|burgundy|Possessive}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|!!}}
+| '''unkokat'''
+| '''Inscryption''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Common Denominator|imgsize=142px}}
+| Copies abilities of<br>{{ct|attention|all}} {{ct|common|Common}} Jokers<br>{{ct|common|Commons}}: 0<br>{{ct|green|Compatible}}: 0<br>{{ct|red|Incompatible}}: 0
+| {{Ct|money|$10}}
+| {{rarity|rare}}
+| {{jtype|!!}}
+| '''unkokat'''
+| '''It’s all connected''' {{ct|grey|Meme}}
+
+|-
+| {{captimg||Copy Printer|imgsize=142px}}
+| At the end of the {{ct|attention|Shop}}<br>convert the {{ct|attention|Joker}} to the {{ct|attention|left}}<br>into the {{ct|attention|Joker}} to the {{ct|attention|right}}<br>{{ct|inactive|(Destroyed/Maintained after use)}}
+| {{Ct|money|$12}}
+| {{rarity|rare}}
+| {{jtype|!!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Coupon|imgsize=142px}}
+| Shops are<br>{{ct|money|20%}} cheaper
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|!!}}<br>{{jtype|~$}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Coupon Booklet|imgsize=142px}}
+| Shops are {{ct|money|50%}} cheaper<br>Raise prices by {{ct|red|5%}}<br>on every {{ct|green|Reroll}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|!!}}<br>{{jtype|~$}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Daffy Joker|imgsize=142px}}
+| {{ct|mult|+8}} Mult if poker<br>hand contains<br>{{ct|attention|2}} different suits
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+m}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||DATAMINER|imgsize=142px}}
+| {{ct|codegreen|Changes}} most<br>{{ct|blue|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>by {{ct|red|X0.5}} or {{ct|green|X2}}
+| {{Ct|money|$7}}
+| {{rarity|uncommon}}
+| {{jtype|[!]}}
+| '''unkokat'''
+| '''The Binding of Isaac''' {{ct|grey|Game}}
+| Has Changing Textures <!-- Create File(s) -->
+
+|-
+| {{captimg||Doomsday Device|imgsize=142px}}
+| {{ct|attention|Double}} the stored<br>{{ct|chips|Memory Value}} every {{ct|attention|12}}<br>scoring {{ct|blue|Memory Cards}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/12)}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|[!]}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Echoing Joker|imgsize=142px}}
+| Creates {{ct|attention|2}} {{ct|darkedition|Negative}}<br>copies of the next<br>used {{ct|attention|Consumable}},<br>{{ct|red|self destructs}}
+| {{Ct|money|$7}}
+| {{rarity|rare}}
+| {{jtype|[+]}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Eden's Blessing|imgsize=142px}}
+| {{ct|xmultchips|X1.5}} Chips or Mult,<br>favours the small<br>Grants a<br>{{ct|xmultchips|Brighter Future}}<br>when {{ct|attention|Boss Blind}}<br>is defeated
+| {{Ct|money|$4}}
+| {{rarity|uncommon}}
+| {{jtype|Xc}}<br>{{jtype|Xm}}
+| '''lanedarushpy'''
+| '''The Binding of Isaac''' {{ct|grey|Game}}
+| "Secret" Info: Different text when<br>"Eden Chips" are Disabled
+
+|-
+| {{captimg||Emergency Button|imgsize=142px}}
+| Prevents Death and<br>{{ct|green|Rerolls}} all {{ct|attention|Jokers}}<br>and {{ct|attention|Consumables}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|!!}}<br>{{jtype|[!]}}
+| '''Flowire'''
+| '''Among Us''' {{ct|grey|Game}}
+| Info: Reference page "Vanilla Changes"
+
+|-
+| {{captimg||Eternal Fortune|imgsize=142px}}
+| {{ct|blue|+1}} Hand, {{ct|green|+1}} Luck
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|%!}}<br>{{jtype|#!}}
+| '''unkokat'''
+| '''Made in Abyss''' {{ct|grey|Manga}}
+
+|-
+| {{captimg||57 Leaf Clover|imgsize=142px}}
+| Retrigger all<br>{{ct|blue|Wild Cards}}<br>{{ct|darkedition|2}} times
+| {{Ct|money|$8}}
+| {{rarity|uncommon}}
+| {{jtype|...}}
+| '''unkokat'''
+| '''Risk of Rain 2''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Fire Exin't|imgsize=142px}}
+| Reduce Shop prices<br>by {{ct|money|1%}} every played<br>and {{ct|attention|unscored}} card,<br>resets when {{ct|attention|Boss}}<br>{{ct|attention|Blind}} is selected<br>{{ct|inactive|(Currently {{ct|money|0%}}/50%)}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|~$}}<br>{{jtype|???}}
+| '''unkokat'''
+| 
+| Secret Info: Special Spawn Condition
+
+|-
+| {{captimg||Fortune Cookie|imgsize=142px}}
+| Gains a new random<br>{{ct|darkedition|Edition}} at the start<br>of every {{ct|attention|Blind}}<br>Sell this card to<br>apply {{ct|darkedition|(This Edition)}} to<br>a random Joker
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|[!]}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Fox Plush|imgsize=142px}}
+| {{ct|chips|+12}} Chips for<br>each {{ct|attention|Joker}} and<br>{{ct|mult|+5}} Mult for each<br>empty {{ct|attention|Joker}} slot<br>{{ct|inactive|(}}{{ct|chips|+0}} {{ct|inactive|Chips,}} {{ct|mult|+0}} {{ct|inactive|Mult)}}
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|+c}}<br>{{jtype|+m}}
+| '''unkokat'''
+| '''Pillowfort Fox''' {{ct|grey|Plush}}
+
+|-
+| style="text-align:center;" | {{captimg||Gambler's Contract|imgsize=142px}} {{ct|grey|Evil's Deal}}
+| Shop Jokers have<br>a {{ct|green|1 in 13}} chance to<br>become {{ct|darkedition|Negative}} and<br>a {{ct|green|2 in 13}} chance to<br>become {{ct|burgundy|Possessive}}<br><small>{{ct|inactive|(Fixed probabilities)}}</small>
+| {{Ct|money|$7}}
+| {{rarity|rare}}
+| {{jtype|[!]}}
+| '''GhostSalt'''
+| '''[[Phanta|{{ct|spectral|Phanta}}]]''' {{ct|grey|Balatro Mod}}
+
+|-
+| {{captimg||Garden Gnome|imgsize=142px}}
+| {{ct|mult|+30}} Mult<br>{{ct|attention|-2}} Hand size
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+m}}<br>{{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Gold Bomb|imgsize=142px}}
+| Destroy all<br>played cards<br>in {{ct|attention|final hand}}<br>of round
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|[X]}}
+| '''Flowire'''
+| '''The Binding of Isaac''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Goldenberry|imgsize=142px}}
+| Each scored<br>{{ct|attention|[King]}} or {{ct|attention|[Queen]}}<br>earns {{ct|money|$2}}<br>{{ct|inactive|[Ranks] change}}<br>{{ct|inactive|every round}}<br><small>Gets {{ct|red|Eaten}} when</small><br><small>no {{ct|attention|[King]}} or {{ct|attention|[Queen]}}</small><br><small>scored this round</small>
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|+$}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Goobert|imgsize=142px}}
+| Creates {{ct|green|imperfect}}<br>copies of {{ct|attention|playing cards}}<br>added to your deck<br>{{ct|green|10}}{{ct|inactive|/10}} uses left
+| {{Ct|money|$8}}
+| {{rarity|uncommon}}
+| {{jtype|[+]}}<br>{{jtype|[!]}}
+| '''unkokat'''
+| '''Inscryption''' {{ct|grey|Game}}
+| Has Changing Textures <!-- Create File(s) -->
+
+|-
+| {{captimg||Hemoturgy|imgsize=142px}}
+| Discarded cards gain<br>a random {{ct|darkedition|Edition}},<br>{{ct|blue|Enhancement}} or {{ct|attention|Seal}}<br>{{ct|green|10}}{{ct|inactive|/10}} uses left<br><small>{{ct|attention|-0.5 {{ct|inactive|for first}} 2}}</small><br><small>{{ct|inactive|cards each discard}}</small>
+| {{Ct|money|$7}}
+| {{rarity|rare}}
+| {{jtype|#!}}<br>{{jtype|[!]}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Hoe|imgsize=142px}}
+| Each {{ct|inactive|[Suit]}} card<br>held in hand<br>gives {{ct|chips|+25}} Chips<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|200}}{{ct|inactive|/200}} uses left
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+c}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Info Board|imgsize=142px}} <!-- !!! NEEDS TO LINK TO HYPETRAIN !!! -->
+| Your {{ct|attention|Joker}} arrives in:<br>{{ct|mult|+20}} Mult
+| {{Ct|money|$7}}
+| {{rarity|uncommon}}
+| {{jtype|+m}}<br>({{jtype|Xm}})
+| '''unkokat'''
+| '''Deutsche Bahn''' {{ct|grey|Company}}
+| Linked with Hypetrain
+
+|-
+| style="text-align:center;" | {{captimg||Hypetrain|imgsize=142px}} {{ct|grey|HYPETRAIN}}
+| Level {{ct|xmult|X1}}!<br>Next stop in:<br>{{ct|mult|+20}} Mult
+| {{Ct|money|$7}}
+| {{rarity|uncommon}}
+| {{jtype|+m}}<br>{{jtype|Xm}}
+| '''unkokat'''
+| '''Twitch''' {{ct|grey|Company}}
+| Linked with Hypetrain<br Has Changing Textures
+
+|-
+| {{captimg||Improv Show|imgsize=142px}}
+| Converts unused<br>{{ct|blue|Hands}} into {{ct|green|Points}}<br>at end of round<br>When playing your<br>{{ct|attention|final hand}}, convert<br>{{ct|attention|1}} {{ct|green|Point}} into {{ct|attention|1}} {{ct|blue|Hand}}<br>Stored: {{ct|attention|0}} {{ct|green|Points}}<br>{{ct|inactive|(Next point: 0%)}}
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|#!}}
+| '''unkokat'''
+| '''One please''' {{ct|grey|Meme}}
+| Info: Describe how exactly it gathers points
+
+|-
+| {{captimg||Incinerator|imgsize=142px}}
+| {{ct|green|+1}} Discard Limit
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Inven-Tation|imgsize=142px}}
+| {{ct|blue|Vintage Cards}} have a<br>{{ct|green|1 in 8}} chance to upgrade<br>the played poker hand
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|!!}}
+| '''unkokat'''
+| 
+| Info: Retrigger-count can be stopped<br>mid-scoring by upgrading poker hand too much
+
+|-
+| style="text-align:center;" | {{captimg||JEVIL|imgsize=142px}} {{ct|grey|JEV][L}}
+| Played {{ct|attention|Playing Cards}}<br>evaluate {{ct|attention|twice}}
+| {{Ct|money|$20}}
+| {{rarity|legendary}}
+| {{jtype|>>}}
+| '''Flowire'''
+| '''Deltarune''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Jokebra|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>set an additional {{ct|blue|Target}}<br>{{ct|inactive|(Between {{ct|blue|100 and 1000}})}}<br>Beat the {{ct|attention|Blind}} when<br>the Round score<br>matches the {{ct|blue|Target}}
+| {{Ct|money|$8}}
+| {{rarity|uncommon}}
+| {{jtype|!!}}<br>({{jtype|~B}})
+| '''Flowire'''
+| '''[[Buffoonery|{{ct|blue|Buffoonery}}]]''' {{ct|grey|Balatro Mod}}
+
+|-
+| style="text-align:center;" | {{captimg||Lavish Joker|imgsize=142px}} {{ct|grey|Lavish Chad}}
+| Regain lost {{ct|money|Money}}<br>at start of {{ct|attention|shop}}<br>{{ct|inactive|(Currently {{ct|money|$0}})}}<br>Each {{ct|money|$1}} regained<br>{{ct|red|increases}} the next<br>{{ct|attention|Blind Size}} by {{ct|darkpurple|5%}}<br>{{ct|inactive|(Currently {{ct|darkpurple|+0%}})}}
+| {{Ct|money|$0}}
+| {{rarity|rare}}
+| {{jtype|+$}}<br>({{jtype|XB}})
+| '''unkokat'''
+| 
+| Info: Spawns a Tag
+
+|-
+| {{captimg||Lost Constellation|imgsize=142px}}
+| {{ct|green|1 in 3}} {{ct|planet|Planet}} cards<br>upgrade poker hand<br>{{ct|attention|2}} additional times
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|!!}}
+| '''Flowire'''
+| '''[https://github.com/tetraminus/Tetrapak {{ct|blue|Tetrapak}}]''' {{ct|grey|Balatro Mod}}
+
+|-
+| {{captimg||Lottery Ticket|imgsize=142px}}
+| Scoring {{ct|attention|non-face}} cards<br>have a {{ct|green|1 in 4}} chance<br>to give {{ct|mult|+3}} Mult or<br>{{ct|chips|+8}} Chips otherwise
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+c}}<br>{{jtype|+m}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Melon|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>{{ct|green|reduce}} {{ct|attention|Blind Size}} by {{ct|darkpurple|50%}}<br>{{ct|attention|Destroyed}} when<br>{{ct|attention|Boss Blind}} is defeated
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|~B}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Mineshaft|imgsize=142px}}
+| Every {{ct|attention|3}} scoring<br>cards, add a {{ct|blue|Stone}},<br>{{ct|blue|Steel}} or {{ct|blue|Gold}} card<br>to the deck<br>{{ct|inactive|(Currently {{ct|attention|0}}/3)}}<br>{{ct|green|25}}{{ct|inactive|/25}} uses left
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|[+]}}
+| '''unkokat'''
+| '''Minecraft''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Misery|imgsize=142px}}
+| {{ct|xmult|X0.5}} Mult<br>{{ct|xchips|X4.0}} Chips for {{ct|attention|first}}<br>{{ct|attention|hand}} of round
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|Xc}}<br>{{jtype|Xm}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Money Laundering|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>gain {{ct|blue|+2}} Hands and<br>{{ct|red|+2}} Discards<br>{{ct|red|Increase}} shop<br>prices by {{ct|money|200%}}
+| {{Ct|money|$8}}
+| {{rarity|uncommon}}
+| {{jtype|#!}}<br>{{jtype|~$}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Nashi Pear|imgsize=142px}}
+| When Blind is selected,<br>increase {{ct|attention|Round score}}<br>by {{ct|darkpurple|10.000}} and reduce<br>this by {{ct|darkpurple|2000}}
+| {{Ct|money|$3}}
+| {{rarity|common}}
+| {{jtype|+S}}
+| '''unkokat'''
+| 
+| Has Changing Textures <!-- [[File:Nashi_Pear_States_(Shimmerberry).gif|142px]], Needs Update (Texture Changed) -->
+
+|-
+| {{captimg||Nostalgia|imgsize=142px}}
+| When Blind is selected,<br>take {{ct|money|$1}} of {{ct|attention|sell value}}<br>from every {{ct|attention|Joker}} and<br>{{ct|attention|Consumable}} card<br>Create a {{ct|attention|Memory}} card<br>for every {{ct|money|$3}} taken<br>{{ct|inactive|({{ct|money|$3}} remaining)}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|~$}}<br>{{jtype|[+]}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Oblivion|imgsize=142px}}
+| When beating an {{ct|attention|Ante}}<br>you may choose to<br>Loop back to Ante {{ct|attention|1}}<br>Gain {{ct|xmult|X1}} Mult each<br>Ante looped back<br>{{ct|inactive|(Currently {{ct|xmult|X1}} Mult)}}<br>When looping back,<br>permanently {{ct|red|increase}}<br>all {{ct|attention|Blind Sizes}} by {{ct|darkpurple|100%}}
+| {{Ct|money|$20}}
+| {{rarity|legendary}}
+| {{jtype|Xm}}<br>{{jtype|O!}}
+| '''Flowire'''
+| '''Loop Hero''' {{ct|grey|Game}}
+| Info: Show new Menu (Screenshots)
+
+|-
+| {{captimg||Obscure Ritual|imgsize=142px}}
+| {{ct|green|Reduce}} {{ct|attention|Blind Size}}<br>by {{ct|darkpurple|66.6%}} when drawing<br>the {{ct|attention|last}} card
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|~B}}
+| '''unkokat'''
+| 
+| Has Changing Textures <!-- [[File:Obscure_Ritual_Active_(Shimmerberry).png|142px]] -->
+
+|-
+| {{captimg||Opulent Skint|imgsize=142px}}
+| Sell this card to<br>{{ct|attention|replace}} a random<br>card in the Shop<br>with this {{ct|attention|Joker}}<br>{{ct|green|1 in 256}} chance<br>to transform into<br>a {{ct|legendary|Legendary}} Joker<br>when {{ct|attention|Bought}}
+| {{Ct|money|$10}}
+| {{rarity|uncommon}}
+| {{jtype|[!]}}<br>{{jtype|[+]}}
+| '''unkokat'''
+| '''Destiny 2''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Ouroboros|imgsize=142px}}
+| Each scored {{ct|attention|8}} gives<br>{{ct|blue|+1}} Hand and {{ct|red|increases}}<br>the {{ct|attention|Blind Size}} by {{ct|darkpurple|8%}}
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|XB}}<br>{{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Paper Swan|imgsize=142px}}
+| {{ct|xchips|X2}} Chips every<br>{{ct|attention|5}} scoring cards<br>{{ct|inactive|(Currently {{ct|attention|0}}/5)}}
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|Xc}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Parking Disc|imgsize=142px}}
+| {{ct|green|Effect}} changes each round,<br>{{ct|darkedition|Bonus Effect}} in {{ct|attention|Boss Blinds}}<br><small>([[Shimmerberry/Parking_Disc#Main_Effect|Has 12 states and 4 bonus effects]])</small>
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|?!}}
+| '''Flowire'''
+| 
+| Info: Reference Challenge<br>Has Changing Textures <!-- [[File:Parking_Disc_States_(Shimmerberry).gif|142px]], Needs Update (Texture Changed) -->
+
+|-
+| {{captimg||P2W|imgsize=142px}}
+| Spend {{ct|money|$2}} to<br>gain {{ct|mult|+30}} Mult<br>each Hand
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|+m}}<br>{{jtype|~$}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Peculiar Joker|imgsize=142px}}
+| {{ct|chips|+100}} Chips if poker<br>hand contains<br>{{ct|attention|3}} different suits
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+c}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Perfect Pitch|imgsize=142px}}
+| {{ct|xmult|X2}} Mult when {{ct|attention|scoring}}<br>exactly {{ct|attention|[1-5]}} card(s)<br><small>{{ct|inactive|(Amount changes every hand)}}</small><br>Gain {{ct|xmult|X1}} Mult<br>after {{ct|attention|5}} successful<br>hands in a row<br>{{ct|inactive|(Currently {{ct|attention|0}}/5)}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|Xm}}
+| '''unkokat'''
+| '''Hatsune Miku'''/CV01 {{ct|grey|Vocaloid}}
+| Has Changing Textures <!-- [[File:Perfect_Pitch_States_(Shimmerberry).gif|142px]] -->
+
+|-
+| {{captimg||P.E.T.|imgsize=142px}}
+| This Joker gains<br>{{ct|mult|+2}} Mult for every card<br>discarded this round<br>{{ct|inactive|(Currently}} {{ct|mult|+0}} {{ct|inactive|Mult)}}
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+m}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Piggy Bank|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected<br>or skipped, spend {{ct|money|$2}} to<br>add {{ct|money|$1}} of {{ct|attention|sell value}}<br>Starts with {{ct|money|$2}}<br>extra {{ct|attention|sell value}}<br>{{ct|xmult|X0.2}} Mult for every<br>{{ct|money|$4}} of {{ct|attention|sell value}}<br>{{ct|inactive|(Currently}} {{ct|xmult|X1}} {{ct|inactive|Mult)}}
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|Xm}}<br>{{jtype|~$}}
+| '''unkokat'''
+| '''The Bazaar''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Pickaxe|imgsize=142px}}
+| Each {{ct|inactive|[Suit]}} card<br>held in hand has<br>a {{ct|green|50%}} chance<br>to give {{ct|money|$2}}<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|100}}{{ct|inactive|/100}} uses left
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+$}}
+| '''unkokat'''
+| 
+
+|-
+| style="text-align:center;" | {{captimg||Piñata|imgsize=142px}} {{ct|grey|Quick Brown Fox}}
+| {{ct|green|1 in 5}} chance to<br>break open {{ct|attention|each}}<br>{{ct|attention|hand}} played<br>Gain {{ct|attention|+1}} permanent<br>{{ct|attention|Consumable}} slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|#!}}<br>{{jtype|[+]}}<br>{{jtype|???}}
+| '''unkokat'''
+| '''WANDERLUST''' {{ct|grey|Song}} <br> {{ct|grey|by HALLEY LABS}}
+
+|-
+| {{captimg||Plastic Key|imgsize=142px}}
+| {{ct|attention|Destroy}} this card and<br>create {{ct|attention|2}} {{ct|spectral|Spectral}} cards<br>when {{ct|attention|Boss Blind}} is defeated<br>{{ct|inactive|(Must have room)}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|[+]}}
+| '''unkokat'''
+| '''The Escapists''' {{ct|grey|Game}}
+| Has Changing Textures <!-- [[File:Plastic_Key_Variants_(Shimmerberry).gif|142px]] -->
+
+|-
+| {{captimg||Pocket Dimension|imgsize=142px}}
+| Cards in your<br>{{ct|attention|Consumable}} area<br>give {{ct|xmult|X1.5}} Mult<br>{{ct|attention|+3}} Consumable slots
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|Xm}}<br>{{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Potted Flower|imgsize=142px}}
+| {{ct|xchips|X4}} Chips if poker<br>hand contains<br>{{ct|attention|4}} different suits
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|Xc}}
+| '''unkokat'''
+| 
+| Info: Reference Flower Pot<br>+ Vanilla Changes Page
+
+|-
+| {{captimg||Pygmymall|imgsize=142px}}
+| {{ct|attention|+2}} card slots<br>available in shop<br>every {{ct|attention|3}} shops<br>{{ct|inactive|[In 3 shops]}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Quest?|imgsize=142px}}
+| Start a {{ct|blue|Quest}}!<br>Complete it to<br>{{ct|darkedition|Win}} the Game and<br>obtain a random<br>{{ct|legendary|Legendary}} Joker<br><small>([[Shimmerberry/Quest?#Quests|Has 15 quests and 7 challenge quests]])</small>
+| {{Ct|money|$7}}
+| {{rarity|uncommon}}
+| {{jtype|?!}}<br>{{jtype|!!}}
+| '''Flowire'''
+| 
+| Has Changing Textures <!-- [[File:Quest?_Inactive_(Shimmerberry).png|142px]], Page also needs Win-State -->
+
+|-
+| style="text-align:center;" | {{captimg||Red Lion|imgsize=142px}} {{ct|grey|Reagent}}
+| {{ct|xmult|X2.5}} Mult<br>Loses {{ct|xmult|X0.1}} Mult<br>for each {{ct|blue|Enhanced}}<br>card in your deck
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|Xm}}
+| '''unkokat'''
+| '''Harry Potter''' {{ct|grey|Movie}}
+
+|-
+| {{captimg||Red Mask|imgsize=142px}}
+| This Joker gains {{ct|chips|+8}} Chips<br>when adding or removing<br>a {{ct|attention|playing card}}<br>{{ct|inactive|(Currently}} {{ct|chips|+0}} {{ct|inactive|Chips)}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|+c}}
+| '''unkokat'''
+| '''Vampire Survivors''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Replicator|imgsize=142px}}
+| {{ct|attention|Destroys}} the next {{ct|attention|10}}<br>playing cards added to<br>the deck to {{ct|attention|Duplicate}}<br>the rightmost Joker<br>{{ct|red|self destructs}}<br>{{ct|inactive|(Currently {{ct|attention|0}}/10)}}
+| {{Ct|money|$5}}
+| {{rarity|rare}}
+| {{jtype|[X]}}<br>{{jtype|[+]}}<br>{{jtype|???}}
+| '''unkokat'''
+| '''Replication''' {{ct|grey|Minecraft Mod}}
+
+|-
+| {{captimg||Ripped Joker|imgsize=142px}}
+| {{ct|chips|+90}} Chips if played<br>hand contains<br>exactly {{ct|attention|3}} cards
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+c}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Risky Joker|imgsize=142px}}
+| Scoring cards {{ct|red|take}}<br>{{ct|chips|6}} Chips and {{ct|mult|1}} Mult<br>and increase the<br>Blind Payout by {{ct|money|$1}}<br>{{ct|inactive|(Next payout {{ct|money|+$0}})}}
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|~c}}<br>{{jtype|~m}}<br>{{jtype|+$}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Scaffolding|imgsize=142px}}
+| {{ct|inactive|{{ct|attention|0}}/5}} Hand size<br>When a {{ct|attention|Joker}} is {{ct|attention|sold}},<br>gain {{ct|attention|+1}} Hand size for<br>each {{ct|money|$1}} of sell value<br>{{ct|red|Lose}} {{ct|attention|2}} Hand size<br>each {{ct|blue|Hand}} played
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|#!}}
+| '''unkokat'''<br> & '''Flowire'''
+| 
+| Has Changing Textures <!-- [[File:Scaffolding_States_(Shimmerberry).gif|142px]], Needs Update (Texture Changed) -->
+
+|-
+| {{captimg||Scav. Prototype|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>destroy {{ct|attention|adjacent}} Jokers<br>{{ct|green|1 in 4}} chance to gain<br>a {{ct|attention|Duplitage}} for each<br>destroyed Joker
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|[X]}}<br>{{jtype|!!}}
+| '''unkokat'''
+| '''Casualties: Unknown''' {{ct|grey|Game}}
+| Has Changing Textures <!-- Create File(s) -->
+
+|-
+| {{captimg||7 Wonders|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected<br>{{ct|green|reduce}} the {{ct|attention|Blind Size}}<br>by {{ct|darkpurple|2%}} for each {{ct|attention|7}} in<br>your {{ct|attention|full deck}}<br>{{ct|inactive|(Currently {{ct|darkpurple|0%}}/50%)}}
+| {{Ct|money|$7}}
+| {{rarity|uncommon}}
+| {{jtype|~B}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Shimmerberry|img=Shimmerberry_Joker_(Shimmerberry).png|imgsize=142px}}
+| Each scored<br>{{ct|attention|[King]}} or {{ct|attention|[Queen]}}<br>{{ct|green|reduces}} {{ct|attention|Blind}}<br>{{ct|attention|Size}} by {{ct|darkpurple|5%}}<br>{{ct|inactive|[Ranks] change}}<br>{{ct|inactive|every round}}<br><small>Gets {{ct|red|Eaten}} when</small><br><small>no {{ct|attention|[King]}} or {{ct|attention|[Queen]}}</small><br><small>scored this round</small>
+| {{Ct|money|$6}}
+| {{rarity|rare}}
+| {{jtype|~B}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Shooting Star|imgsize=142px}}
+| When {{ct|attention|Boss Blind}} is<br>defeated, upgrade<br>every {{ct|legendary|Poker Hand}}<br>by {{ct|green|1}} level{{ct|inactive|(s)}}<br><small>{{ct|inactive|(Probability affected)}}</small>
+| {{Ct|money|$7}}
+| {{rarity|uncommon}}
+| {{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Shrewd Joker|imgsize=142px}}
+| {{ct|chips|+50}} Chips if poker<br>hand contains<br>{{ct|attention|2}} different suits
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|+c}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Silver Mask|imgsize=142px}}
+| {{ct|money|+$2}} for each {{ct|attention|missing}}<br>Hand size below {{ct|attention|10}} at<br>the end of the round<br>{{ct|inactive|(Currently {{ct|money|$20}})}}
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|+$}}
+| '''unkokat'''
+| '''Popee the Performer''' {{ct|grey|Anime}} <br> '''Lethal Company''' {{ct|grey|Game}}
+
+|-
+| {{captimg||Singularity|imgsize=142px}}
+| Creates {{ct|attention|2}} copies<br>of {{ct|attention|playing cards}}<br>added to the deck<br>When this {{ct|attention|Joker}} gets<br>removed, {{ct|red|Destroy}} all<br>cards it has created<br>Occupies {{ct|attention|2}} Joker slots
+| {{Ct|money|$10}}
+| {{rarity|rare}}
+| {{jtype|[+]}}<br>{{jtype|[X]}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Stern Teacher|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>{{ct|perishable|Debuff}} adjacent Jokers<br>for the current round<br>{{ct|mult|+20}} Mult for each<br>'''Debuffed''' Joker<br>{{ct|inactive|(Currently {{ct|mult|+0}} Mult)}}
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|+m}}<br>{{jtype|XX}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Strawberry|imgsize=142px}}
+| Each scored<br>{{ct|attention|[King]}} or {{ct|attention|[Queen]}}<br>gives {{ct|mult|+8}} Mult<br>{{ct|inactive|[Ranks] change}}<br>{{ct|inactive|every round}}<br><small>Gets {{ct|red|Eaten}} when</small><br><small>no {{ct|attention|[King]}} or {{ct|attention|[Queen]}}</small><br><small>scored this round</small>
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|+m}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Stylish Joker|imgsize=142px}}
+| Earn {{ct|money|$1}} for every<br>{{ct|attention|Consumable}} you keep<br>at the end of round<br>{{ct|attention|+2}} consumable slots<br>and {{ct|red|-1}} hand size
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|#!}}<br>{{jtype|+$}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Stocked Shelves|imgsize=142px}}
+| {{ct|attention|Restocks}} bought<br>Booster Packs, Cards<br>and Vouchers in {{ct|money|Shop}}<br>{{ct|green|10}}{{ct|inactive|/10}} uses left<br><small>{{ct|inactive|{{ct|attention|-4}} for Vouchers}}</small>
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|[+]}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Sword Swallower|imgsize=142px}}
+| {{ct|xmult|X1}} Mult for each<br>{{ct|common|Common}} Joker<br>{{ct|inactive|(Currently}} {{ct|xmult|X1}} {{ct|inactive|Mult)}}
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|Xm}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||PUSH UR T3MPRR|imgsize=142px}}
+| {{ct|attention|BLIND}} SELECTED,<br>{{ct|red|CLOCK IT UP}} {{ct|darkpurple|200%}}<br>{{ct|attention|CARD}} PLAYED,<br>{{ct|green|PUSH IT DOWN}} {{ct|darkpurple|6%}}
+| {{Ct|money|$5}}
+| {{rarity|uncommon}}
+| {{jtype|XB}}<br>{{jtype|~B}}<br>{{jtype|XX}}
+| '''Flowire'''
+| '''PUSH UR T3MPRR''' {{ct|grey|Song}} <br> {{ct|grey|by femtanyl}}
+
+|-
+| {{captimg||Tempered Glass|imgsize=142px}}
+| Every played {{ct|blue|Glass Card}}<br>permanently decreases<br>the chance of breaking<br>by {{ct|attention|1}} when scored<br><small>{{ct|inactive|(ex:}} {{ct|green|1 in 4}} {{ct|inactive|->}} {{ct|green|1 in 5}}{{ct|inactive|)}}</small>
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|[!]}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||The Dwarf|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>set hand size to {{ct|attention|5}} and<br>add the {{ct|attention|difference}}<br>to the {{ct|red|Discards}} {{ct|inactive|({{ct|red|+0}})}}
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||The Giant|imgsize=142px}}
+| When {{ct|attention|Blind}} is selected,<br>{{ct|attention|lose all discards}} and<br>gain {{ct|attention|as much}} hand size
+| {{Ct|money|$6}}
+| {{rarity|uncommon}}
+| {{jtype|#!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||TMTRAINER|imgsize=142px}}
+| {{ct|codegreen|Randomizes}} most<br>{{ct|blue|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>Range: {{ct|red|-15%}}-{{ct|green|255%}}<br>{{ct|attention|+1}} Joker slot
+| {{Ct|money|$8}}
+| {{rarity|rare}}
+| {{jtype|[!]}}<br>{{jtype|#!}}<br>{{jtype|???}}
+| '''Flowire'''
+| '''The Binding of Isaac''' {{ct|grey|Game}}
+| Unique Spawn Condition,<br>Has Changing Textures <!-- [[File:TMTRAINER_GLITCHED_(Shimmerberry).png|142px]] -->
+
+|-
+| style="text-align:center;" | {{captimg||To n' Fro|imgsize=142px}} {{ct|grey|Fro n' To}}
+| Played cards swap<br>{{ct|chips|Chips}} and {{ct|mult|Mult}}<br>before scoring
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|~c}}<br>{{jtype|~m}}
+| '''unkokat'''
+| 
+| Has Changing Textures <!-- [[File:Fro_n'_To_(Shimmerberry).png|142px]] -->
+
+|-
+| {{captimg||Shovel|imgsize=142px}}
+| Each {{ct|inactive|[Suit]}} card<br>held in hand<br>gives {{ct|xmult|X1.2}} Mult<br>{{ct|inactive|Suit changes}}<br>{{ct|inactive|every round}}<br>{{ct|green|200}}{{ct|inactive|/200}} uses left
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|Xm}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Toolkit|imgsize=142px}}
+| All {{ct|attention|Jokers}} to the {{ct|attention|left}},<br>that have a limited<br>number of uses, are<br>{{ct|green|repaired}} and regain<br>up to {{ct|attention|5}} uses at the<br>end of the round<br>{{ct|green|200}}{{ct|inactive|/200}} uses left<br><small>{{ct|inactive|Can't be repaired}}</small>
+| {{Ct|money|$4}}
+| {{rarity|common}}
+| {{jtype|[!]}}<br>{{jtype|!!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||20 to Die for|imgsize=142px}}
+| Quadruples all {{ct|attention|listed}}<br><big>{{ct|green|probabilities}}</big><br>{{ct|inactive|(ex: {{ct|green|1 in 3 -> 4 in 3}})}}
+| {{Ct|money|$6}}
+| {{rarity|rare}}
+| {{jtype|%!}}
+| '''unkokat'''
+| '''Goobleck''' {{ct|grey|Character}} <br> from '''Riptide''' {{ct|grey|D&D Podcast}}
+
+|-
+| {{captimg||Unicorn|imgsize=142px}}
+| {{ct|chips|+12}} Chips for each unique<br>{{ct|darkedition|Edition}}, {{ct|blue|Enhancement}} or<br>{{ct|attention|Seal}} in your full deck<br>{{ct|inactive|(Currently {{ct|chips|+0}} Chips)}}
+| {{Ct|money|$6}}
+| {{rarity|common}}
+| {{jtype|+c}}
+| '''unkokat'''
+| '''My Little Pony''' {{ct|grey|Franchise}}
+
+|-
+| {{captimg||V.I.P. Ticket|imgsize=142px}}
+| {{ct|blue|Bonus Cards}} always<br>shuffle to the top<br>of the {{ct|attention|Deck}}
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|!!}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Warm Embrace|imgsize=142px}}
+| {{ct|chips|Chips}} and {{ct|mult|Mult}} are<br>rounded up to the<br>{{ct|attention|next}} multiple of {{ct|attention|10}}
+| {{Ct|money|$5}}
+| {{rarity|common}}
+| {{jtype|~c}}<br>{{jtype|~m}}
+| '''unkokat'''
+| 
+
+|-
+| {{captimg||Watching Forest|imgsize=142px}}
+| Sort the Deck<br>{{ct|attention|lowest to highest}}<br>after drawing the<br>first hand each round<br>Shuffles the Deck<br>when using a {{ct|attention|Discard}}
+| {{Ct|money|$6}}
+| {{rarity|rare}}
+| {{jtype|!!}}
+| '''unkokat'''
+| 
+| Has Changing Textures <!-- [[File:Watching_Forest_States_(Shimmerberry).gif|142px]] -->
+
+|}
+<!-- Table 1, End -->
+
+== Debug Jokers ==
+There are '''4''' additional Jokers, when enabling "Debug" in <code>ShimmerBerry.lua</code>.<br>
+These Jokers are '''unobtainable''' during normal gameplay, even when activated.
+<!-- Table 2, Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Joker<br>Art & Names
+!Description
+!Cost
+!Rarity
+!Type
+!Artist
+!Reference
+
+|-
+| {{captimg||DEBUGJOKER|imgsize=142px|text= {{ct|black|DEBUG}}{{ct|attention|JOKER}} }}
+| {{ct|black-bg|X0.0}} Chips and Mult<br>Regain {{ct|blue|Hands}} played<br>Regain {{ct|red|Discards}} used<br>{{ct|green|Rerolls}} are free
+| {{Ct|money|$1242}}
+| {{rarity|common}}
+| {{jtype|Xc}}<br>{{jtype|Xm}}<br>{{Jtype|#!}}<br>{{jtype|!!}}<br>{{Jtype|XX}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||DEBUGGAIN|imgsize=142px|text= {{ct|black|DEBUG}}{{ct|blue|GAIN}} }}
+| {{ct|blue|+5}} Play limit<br>{{ct|red|+5}} Discard limit
+| {{Ct|money|$1242}}
+| {{rarity|common}}
+| {{jtype|#!}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||DEBUGPAUSE|imgsize=142px|text= {{ct|black|DEBUG}}{{ct|red|PAUSE}} }}
+| {{ct|red|Pause}} for {{ct|attention|2}} second{{ct|inactive|(s)}}
+| {{Ct|money|$1242}}
+| {{rarity|common}}
+| {{Jtype|--}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||DEBUGSTASIS|imgsize=142px|text= {{ct|black|DEBUG}}{{ct|green|STASIS}} }}
+| {{ct|blue|Freezes}} {{ct|attention|Ante}}<br>and {{ct|attention|Money}}
+| {{Ct|money|$1242}}
+| {{rarity|common}}
+| {{jtype|!!}}<br>{{jtype|~$}}
+| '''Flowire'''
+| 
+
+|}
+<!-- Table 2, End -->
+
+[[Category:Jokers]]

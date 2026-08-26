@@ -9,6 +9,10 @@ SMODS.Challenge {
         },
     },
 	apply = function(self)
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 1, y = 1 }
+        end
 		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
 		G.GAME.stake = SMODS.Stakes["stake_gold"].order
 		G.GAME.starting_params.ante_scaling = math.max(1.0, G.GAME.round_resets.ante)

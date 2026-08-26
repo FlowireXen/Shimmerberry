@@ -6,12 +6,12 @@ SMODS.Challenge {
             { id = 'SEMBY_space' },
             { id = 'SEMBY_gold_stake' },
             { id = 'SEMBY_upgrade_pokerhands' },
-            { id = 'SEMBY_scaling_20' },
         },
         modifiers = {
             { id = 'discards', value = 4 },
             { id = 'hand_size', value = 10 },
             { id = 'joker_slots', value = 8 },
+			{ id = 'ante_scaling', value = 2 },
             { id = 'winning_ante', value = 16 },
         }
     },
@@ -32,8 +32,6 @@ SMODS.Challenge {
 		-- Gold Stake
 		SMODS.setup_stake(SMODS.Stakes["stake_gold"].order)
 		G.GAME.stake = SMODS.Stakes["stake_gold"].order
-		-- Faster Scaling
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 2.0
 		-- Level up all Hands
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',

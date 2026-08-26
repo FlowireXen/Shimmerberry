@@ -1,0 +1,54 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Decks
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+'''[[Shimmerberry]]''' currently adds '''4''' Decks to the game.
+
+<!-- Table Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Deck<br>Art & Names
+!Description
+!Unlock
+!Artist
+!Reference
+
+|-
+| {{captimg||Scartare Deck|imgsize=142px}}
+| Remove all Ranks below {{ct|attention|7}}<br>{{ct|attention|+2}} Hand size, {{ct|red|-3}} Discards<br>Discard {{ct|red|2}} random cards<br>after each hand played
+----
+Also known as "Skat"{{ct|grey|(ska:t)}} Deck
+| Win a run with {{ct|red|Red Deck}}
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Hopeless Deck|imgsize=142px}}
+| {{ct|darkedition|Unknown}} Winning Ante<br>Gain {{ct|attention|+1}} Joker Slot<br>for every {{ct|attention|4}} Boss<br>Blinds defeated
+----
+{{whiteout|Winning Ante lies<br>between {{ct|orange|6}} and {{ct|orange|14}}}}
+| Win a run with {{ct|yellow|Abandoned Deck}}
+| '''Flowire'''
+| '''The Backrooms''' {{ct|grey|Fiction}}
+
+|-
+| {{captimg||Strange Deck|imgsize=142px}}
+| {{ct|black|Generating Deck...}}
+----
+{{whiteout|Randomized Deck with <u>heavy</u> bias <br> Cards change when scored}}
+| Win a run with '''Erratic Deck'''
+| '''Flowire'''
+| 
+
+|-
+| {{captimg||Burned Deck|imgsize=142px}}
+| {{ct|red|Destroy}} the<br>{{ct|attention|first}} scoring card<br>every {{ct|blue|Hand}}
+| Win a run with {{ct|spectral|Plasma Deck}}
+| '''Flowire'''
+| 
+
+|}
+<!-- Table End -->
+
+[[Category:Decks]]

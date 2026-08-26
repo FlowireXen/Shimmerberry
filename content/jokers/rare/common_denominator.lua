@@ -1,17 +1,17 @@
 SMODS.Joker {
 	key = "common_denominator",
-	name = "SEMBY_common_denominator",
-	atlas = "SEMBY_jokers",
-	pos = { x = 6, y = 3 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 1, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
 	rarity = 3,
 	cost = 10,
+    attributes = {
+		'copying'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         if card.area and card.area == G.jokers then
 			local commons = 0
 			local compatible = 0

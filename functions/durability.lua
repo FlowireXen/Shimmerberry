@@ -25,15 +25,8 @@ function Card:SEMBY_durability_check()
 				func = function()
 					self:juice_up()
 					play_sound('tarot1')
-					G.E_MANAGER:add_event(Event({
-						trigger = 'after',
-						delay = 0.3,
-						func = function()
-							self.getting_sliced = true
-							self:start_dissolve()
-							return true
-						end
-					}))
+					self.getting_sliced = true
+					self:start_dissolve()
 					return true
 				end
 			}))
@@ -60,11 +53,11 @@ function Card:SEMBY_durability_amount()
 	return self:SEMBY_has_durability() and format_ui_value(self.ability.extra.durability) or 'INVALID'
 end
 
-function Card:SEMBY_durability_color()
-	if self:SEMBY_has_durability() then
+function Card:SEMBY_durability_color(validated)
+	if validated or self:SEMBY_has_durability() then
 		if type((self.ability.extra.durability_max or nil)) == "number" then
-			if self.ability.extra.durability > (self.ability.extra.durability_max * 0.5) then return G.C.GREEN end
-			if self.ability.extra.durability > (self.ability.extra.durability_max * 0.1) then return G.C.ORANGE end
+			if self.ability.extra.durability > math.floor(self.ability.extra.durability_max * 0.5 + 0.5) then return G.C.GREEN end
+			if self.ability.extra.durability > math.max(1, self.ability.extra.durability_max * 0.1) then return G.C.ORANGE end
 			return G.C.RED
 		end
 		return G.C.GREEN

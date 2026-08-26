@@ -2,32 +2,29 @@ SMODS.Challenge {
     key = 'SEMBY_last_one_left',
     rules = {
         custom = {
-            { id = 'SEMBY_last_one_left_1' },
-            { id = 'SEMBY_last_one_left_2' },
-            { id = 'SEMBY_last_one_left_3' },
+            { id = 'SEMBY_last_one_left' },
             { id = 'SEMBY_space' },
             { id = 'SEMBY_doomed_start' },
             { id = 'SEMBY_doomed_cards' },
             { id = 'SEMBY_space' },
-            { id = 'no_reward' },
             { id = 'SEMBY_extra_bonus' },
             { id = 'no_interest' },
-            { id = 'SEMBY_scaling_15' },
         },
         modifiers = {
             { id = 'hands', value = 5 },
-            { id = 'discards', value = 1 },
-            { id = 'joker_slots', value = 6 },
+            { id = 'discards', value = 0 },
             { id = 'dollars', value = 0 },
             { id = 'winning_ante', value = 12 },
         }
     },
     restrictions = {
         banned_cards = {
-            { id = 'j_baron' },
             { id = 'v_seed_money' },
             { id = 'v_money_tree' },
             { id = 'j_to_the_moon' },
+            { id = 'v_wasteful' },
+            { id = 'v_recyclomancy' },
+            { id = 'j_baron' },
         },
         banned_other = {
             { id = 'bl_club', type = 'blind' },
@@ -38,12 +35,10 @@ SMODS.Challenge {
         },
     },
     jokers = {
-        { id = 'j_baron', eternal = true, SEMBY_debuffed = true },
-        { id = 'j_SEMBY_fifty_seven_leaf_clover', eternal = true, edition = "SEMBY_resonance" },
-        { id = 'j_SEMBY_tool_shovel', SEMBY_possessive = true },
+        { id = 'j_SEMBY_fifty_seven_leaf_clover', eternal = true },
+        { id = 'j_baron', SEMBY_debuffed = true },
     },
     vouchers = {
-        { id = 'v_blank' },
         { id = 'v_directors_cut' },
     },
     deck = {
@@ -67,14 +62,12 @@ SMODS.Challenge {
 	apply = function(self)
 		-- Extra Hands Money
 		G.GAME.modifiers.money_per_hand = (G.GAME.modifiers.money_per_hand or 1) + 1
-		-- Faster Scaling
-		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 1.5
         -- Add Doom
         G.GAME.SEMBY_doomed = 1.0
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-				add_tag(Tag('tag_SEMBY_doom_debt'))
+				add_tag(Tag('tag_SEMBY_ngt_doom'))
 				play_sound('highlight1', 1.2 + math.random() * 0.1, 0.5)
 				return true
 			end

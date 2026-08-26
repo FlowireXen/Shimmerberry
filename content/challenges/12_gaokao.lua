@@ -7,8 +7,8 @@ SMODS.Challenge {
             { id = 'SEMBY_impossible_blinds' },
         },
         modifiers = {
-            { id = 'discards', value = 4 },
-            { id = 'hand_size', value = 12 },
+            { id = 'discards', value = 5 },
+            { id = 'hand_size', value = 10 },
             { id = 'winning_ante', value = 5 },
         }
     },
@@ -34,13 +34,12 @@ SMODS.Challenge {
         { id = 'c_heirophant' },
     },
     vouchers = {
-        { id = 'v_blank' },
         { id = 'v_directors_cut' },
     },
     deck = {
         type = 'Challenge Deck',
         cards = {
-			{ s = 'S', r = 'A' }, { s = 'H', r = 'A' }, { s = 'C', r = 'A' }, { s = 'D', r = 'A' },
+			{ s = 'S', r = 'A', SMBd = true }, { s = 'H', r = 'A', SMBd = true }, { s = 'C', r = 'A', SMBd = true }, { s = 'D', r = 'A', SMBd = true },
             { s = 'S', r = 'T' }, { s = 'H', r = 'T' }, { s = 'C', r = 'T' }, { s = 'D', r = 'T' },
             { s = 'S', r = '9' }, { s = 'H', r = '9' }, { s = 'C', r = '9' }, { s = 'D', r = '9' },
             { s = 'S', r = '8' }, { s = 'H', r = '8' }, { s = 'C', r = '8' }, { s = 'D', r = '8' },
@@ -53,6 +52,10 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 0, y = 1 }
+        end
 		-- "Impossible" Blinds:
 		G.GAME.starting_params.ante_scaling = (G.GAME.starting_params.ante_scaling or 1) * 10000 --math.huge
 		-- Your final Exam (Shows that it will show the extra Score anyways):
@@ -64,6 +67,25 @@ SMODS.Challenge {
 				end
 			end
 		end
+        -- Custom Death Reason:
+        G.GAME.SEMBY_defeated = {
+            atlas = G.P_CENTERS.j_SEMBY_jokebra.atlas,
+            position = G.P_CENTERS.j_SEMBY_jokebra.pos,
+            loc_key = 'SEMBY_lose_12_gaokao'
+        }
+        -- Debuff Aces
+		G.E_MANAGER:add_event(Event({
+			trigger = 'after',
+			func = function()
+			    for _, playing_card in ipairs(G.playing_cards) do
+			    	if playing_card:get_id() == 14 then
+			            SMODS.debuff_card(playing_card, true, 'SEMBY_Gaokao')
+                    end
+			    end
+		        save_run()
+				return true
+			end
+		}))
 	end,
 	button_colour = G.C.BLUE
 }

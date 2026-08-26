@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "warm_embrace",
-	name = "SEMBY_warm_embrace",
-	atlas = "SEMBY_jokers",
-	pos = { x = 9, y = 4 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 3, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -15,8 +13,11 @@ SMODS.Joker {
 			rounding = 10
 		}
 	},
+    attributes = {
+		'mult', 'chips',
+		'animal'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.rounding
 		} }

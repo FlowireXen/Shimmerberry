@@ -1,10 +1,8 @@
 SMODS.Joker {
-	key = "incinerator",
-	name = "SEMBY_incinerator",
-	atlas = "SEMBY_jokers",
-	pos = { x = 1, y = 5 },
-    unlocked = true,
-    discovered = false,
+	key = "incinerator", -- furnace
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 7, y = 3 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -15,8 +13,10 @@ SMODS.Joker {
 			limit = 1
 		}
 	},
+    attributes = {
+		'discard', 'passive'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.limit
 		} }

@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "ouroboros",
-	name = "SEMBY_ouroboros",
-	atlas = "SEMBY_jokers",
-	pos = { x = 11, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 9, y = 2 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,11 @@ SMODS.Joker {
 			percent = 0.08
 		}
 	},
+    attributes = {
+		'hands', 'xblindsize', 'eight',
+		'animal',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.hands,
 			100 * card.ability.extra.percent

@@ -1,9 +1,8 @@
 SMODS.Joker {
 	key = "berry_shimmer",
-	name = "SEMBY_berry_shimmer",
-	atlas = "SEMBY_jokers",
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
 	pos = { x = 1, y = 0 },
-    unlocked = true,
     discovered = true,
     eternal_compat = false,
     perishable_compat = true,
@@ -16,12 +15,14 @@ SMODS.Joker {
 			percent = 0.05
 		}
 	},
+    attributes = {
+		'food', 'rank', 'xblindsize'
+	},
 	pools = {
         ["Food"] = true,
 		["Berry"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local card_one = G.GAME.current_round.SEMBY_berry_rank_one or { rank = 'King' }
 		local card_two = G.GAME.current_round.SEMBY_berry_rank_two or { rank = 'Queen' }
 		return { vars = {
@@ -50,7 +51,8 @@ SMODS.Joker {
 			if not card.ability.activated then
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        play_sound('SEMBY_crunch_'..math.random(1, 2))
+    			        card:juice_up()
+    			        play_sound('SEMBY_crunch_'..math.random(1, 2), 1.0, 0.8)
 						card:start_dissolve()
                         return true
                     end

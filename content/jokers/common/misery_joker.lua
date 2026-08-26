@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "misery",
-	name = "SEMBY_misery",
-	atlas = "SEMBY_jokers",
-	pos = { x = 5, y = 3 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 9, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -12,15 +10,17 @@ SMODS.Joker {
 	cost = 5,
     config = { 
 		extra = {
-			Xmult = 0.5,
-			Xchip = 4.0
+			xmult = 0.5,
+			xchips = 4.0
 		}
 	},
+    attributes = {
+		'hands', 'xmult', 'xchips'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         return { vars = {
-			card.ability.extra.Xmult,
-			card.ability.extra.Xchip
+			card.ability.extra.xmult,
+			card.ability.extra.xchips
 		} }
     end,
 	calculate = function(self, card, context)
@@ -31,12 +31,12 @@ SMODS.Joker {
 		if context.joker_main then
 			if G.GAME.current_round.hands_played == 0 then
 				return {
-					xmult = card.ability.extra.Xmult,
-					xchips = card.ability.extra.Xchip
+					xmult = card.ability.extra.xmult,
+					xchips = card.ability.extra.xchips
 				}
 			else
 				return {
-					xmult = card.ability.extra.Xmult
+					xmult = card.ability.extra.xmult
 				}
 			end
         end

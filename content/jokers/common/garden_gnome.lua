@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "garden_gnome",
-	name = "SEMBY_garden_gnome",
-	atlas = "SEMBY_jokers",
-	pos = { x = 3, y = 4 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 4, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,10 @@ SMODS.Joker {
 			handsize = 2
 		}
 	},
+    attributes = {
+		'mult', 'hand_size'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.mult,
 			card.ability.extra.handsize

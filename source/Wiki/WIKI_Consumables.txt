@@ -1,0 +1,142 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Consumables
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+New or Update:
+
+[[File:Backup_Tarot_(Shimmerberry).gif]] -> IS ANIMATED!!!!
+[[File:Ocean_Tarot_(Shimmerberry).png]]  -> UPDATE TEXTURE!!!!
+[[File:Microcosm_Planet_(Shimmerberry).png]]
+[[File:Daybreak_Spectral_(Shimmerberry).png]]
+[[File:Eden_Token_(Shimmerberry).png]]
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+__TOC__
+
+'''[[Shimmerberry]]''' currently adds '''7''' Consumables to the game:
+* '''1''' Planet Card
+* '''2''' Tarot Cards
+* '''3''' Spectral Cards
+* '''1''' Token
+
+== Planets ==
+<!-- Table 1, Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Planet<br>Art & Names
+!Description
+!Artist
+
+|-
+| style="text-align:center;" | [[File:Microcosm_Planet_(Shimmerberry).png|142px]] <br> '''Microcosm'''
+| Level down<br>a selected<br>{{ct|attention|Poker Hand}}<br>Enhances all<br>cards for the<br>{{ct|attention|Poker Hand}} to<br>[[Shimmerberry/Enhancements|{{ct|attention|Vintage Cards}}]]
+| '''lanedarushpy'''
+
+|}
+<!-- Table 1, End -->
+
+== Tarots ==
+<!-- Table 2, Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Tarot<br>Art & Names
+!Description
+!Artist
+
+|-
+| style="text-align:center;" | [[File:Backup_Tarot_(Shimmerberry).gif|142px]] <br> The '''Backup'''
+| Enhances {{ct|attention|2}}<br>selected cards to<br>[[Shimmerberry/Enhancements|{{ct|attention|Memory Cards}}]]
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Ocean_Tarot_(Shimmerberry).png|142px]] <br> The '''Ocean'''
+| Add [[Shimmerberry/Editions|{{ct|darkedition|Pearlescent}}]]<br>or [[Shimmerberry/Editions|{{ct|darkedition|Shiny}}]] to a<br>random {{ct|attention|Joker}}<br>or {{ct|attention|Playing Card}}<br>in your hand
+| '''lanedarushpy'''
+
+|}
+<!-- Table 2, End -->
+
+== Spectrals ==
+<!-- Table 3, Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Planet<br>Art & Names
+!Description
+!Artist
+
+|-
+| style="text-align:center;" | [[File:Daybreak_Spectral_(Shimmerberry).png|142px]] <br> '''Daybreak'''
+| Enhances each card<br>in hand into a<br>{{ct|attention|[Random Enhancement]}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Order_Spectral_(Shimmerberry).png|142px]] <br> '''Order'''
+| Replace {{ct|attention|all}} Jokers with<br>one {{ct|attention|random}} Joker in<br>your possession, the<br>new copies keep their<br>old {{ct|darkedition|Modifiers}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Soul_Gem_Empty_Spectral_(Shimmerberry).png|142px]] <br> '''Empty Soul Gem'''
+| Captures the<br>{{ct|spectral|Soul}} of the next<br>defeated {{ct|attention|Blind}}
+----
+Turns into a [[Shimmerberry/Consumables#Soul_Gems|{{Ct|spectral|Soul Gem}}]]
+| '''Flowire'''
+
+|}
+<!-- Table 3, End -->
+
+=== Soul Gems ===
+<!-- Table 4, Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Soul Gem
+!Description / On Use
+!Source
+
+|-
+| style="text-align:center;" | [[File:Soul_Gem_Common_Spectral_(Shimmerberry).png|142px]]<br>'''Soul Gem ('''{{Ct|common|Common}}''')'''
+| {{Ct|common|Common}} Soul Captured<br>{{Ct|gray|(Must have room)}}
+----
+Spawns a {{Ct|common|Common}} Joker
+| Defeating a<br>{{Ct|blue|Small Blind}}
+
+|-
+| style="text-align:center;" | [[File:Soul_Gem_Uncommon_Spectral_(Shimmerberry).png|142px]]<br>'''Soul Gem ('''{{Ct|uncommon|Uncommon}}''')'''
+| {{Ct|uncommon|Uncommon}} Soul Captured<br>{{Ct|gray|(Must have room)}}
+----
+Spawns an {{Ct|uncommon|Uncommon}} Joker
+| Defeating a<br>{{Ct|orange|Big Blind}}<br>{{ct|grey|(Fallback)}}
+
+|-
+| style="text-align:center;" | [[File:Soul_Gem_Rare_Spectral_(Shimmerberry).png|142px]]<br>'''Soul Gem ('''{{Ct|rare|Rare}}''')'''
+| {{Ct|rare|Rare}} Soul Captured<br>{{Ct|gray|(Must have room)}}
+----
+Spawns a {{Ct|rare|Rare}} Joker
+| Defeating a<br>{{Ct|red|Boss Blind}}
+
+|-
+| style="text-align:center;" | [[File:Soul_Gem_Legendary_Spectral_(Shimmerberry).png|142px]]<br>'''Soul Gem ('''{{Ct|legendary|Legendary}}''')'''
+| {{Ct|legendary|Legendary}} Soul Captured<br>{{Ct|gray|(Must have room)}}
+----
+Spawns a {{Ct|legendary|Legendary}} Joker
+| Defeating a<br>{{Ct|spectral|Showdown}}<br>{{Ct|spectral|Boss Blind}}
+
+|}
+<!-- Table 4, End -->
+
+== Tokens ==
+<!-- Table 5, Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Token<br>Art & Names
+!Description
+!Source
+!Artist
+
+|-
+| style="text-align:center;" | [[File:Eden_Token_(Shimmerberry).png|142px]] <br> '''Eden Token'''
+| {{ct|attention|Use}} this {{ct|purple|Eden Token}}<br>to create a random<br>{{ct|attention|Joker}} of any rarity<br>{{ct|inactive|(Must have room)}}<br>{{ct|red|Self destructs}} when<br>{{ct|attention|Boss Blind}} is defeated
+| Spawns at the start of a new Run,<br>when the Player has Eden Tokens to spend.<br>Eden Tokens are granted for Winning runs.
+| '''lanedarushpy'''
+
+|}
+<!-- Table 5, End -->
+
+[[Category:Planet Cards]]
+[[Category:Tarot Cards]]
+[[Category:Spectral Cards]]

@@ -20,7 +20,7 @@ function SEMBY_Blind_Wiggle()
 	}))
 end
 
--- Change Blind Size
+-- Change Local Blind Size
 function SEMBY_Change_Blindsize(mult)
 	G.E_MANAGER:add_event(Event({
 		trigger = 'after',
@@ -31,8 +31,7 @@ function SEMBY_Change_Blindsize(mult)
 		end
 	}))
 end
-
--- Increase Blind Size
+-- Increase Local Blind Size
 function SEMBY_Increase_Blindsize(percent, card, wiggle)
 	if percent then
 		if G.GAME.blind.chips ~= 0 then
@@ -49,8 +48,7 @@ function SEMBY_Increase_Blindsize(percent, card, wiggle)
 		end
 	end
 end
-
--- Reduce Blind Size
+-- Reduce Local Blind Size
 function SEMBY_Reduce_Blindsize(percent, card, wiggle)
 	if percent then
 		if G.GAME.blind.chips ~= 0 then
@@ -65,6 +63,45 @@ function SEMBY_Reduce_Blindsize(percent, card, wiggle)
 				colour = G.C.SEMBY_PERCENT
 			})
 		end
+	end
+end
+
+-- Calculate Global:
+function SEMBY_Global_BlindMod_Calculate()
+	local modifier = false
+	if G.GAME.SEMBY_Global_BlindMods then
+		for key, amount in pairs(G.GAME.SEMBY_Global_BlindMods) do
+			modifier = (modifier or 1.0) * amount
+		end
+	end
+	G.GAME.SEMBY_Global_BlindMod = modifier
+end
+-- Add Global:
+function SEMBY_Global_BlindMod_Add(key, amount)
+	if key and amount then
+		if not G.GAME.SEMBY_Global_BlindMods then G.GAME.SEMBY_Global_BlindMods = { } end
+		G.GAME.SEMBY_Global_BlindMods[key] = (G.GAME.SEMBY_Global_BlindMods[key] or 1.0) + amount
+		SEMBY_Global_BlindMod_Calculate()
+	end
+end
+-- Set Global:
+function SEMBY_Global_BlindMod_Set(key, value)
+	if key then
+		if not G.GAME.SEMBY_Global_BlindMods then G.GAME.SEMBY_Global_BlindMods = { } end
+		G.GAME.SEMBY_Global_BlindMods[key] = value
+		SEMBY_Global_BlindMod_Calculate()
+	end
+end
+-- Remove Global:
+function SEMBY_Global_BlindMod_Remove(key, amount)
+	if key and G.GAME.SEMBY_Global_BlindMods then
+		if amount and G.GAME.SEMBY_Global_BlindMods[key] then
+			G.GAME.SEMBY_Global_BlindMods[key] = G.GAME.SEMBY_Global_BlindMods[key] - amount
+			if G.GAME.SEMBY_Global_BlindMods[key] == 1.0 then
+				G.GAME.SEMBY_Global_BlindMods[key] = nil
+			end
+		else G.GAME.SEMBY_Global_BlindMods[key] = nil end
+		SEMBY_Global_BlindMod_Calculate()
 	end
 end
 

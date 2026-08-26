@@ -1,0 +1,40 @@
+[manifest]
+version = "1.2.0"
+dump_lua = true
+priority = 10
+
+# 1.) Upgrades TMTRAINER functionality by modifying "Card:add_to_deck()"
+# 2.) Adds an extra modifier to "skip_destroy_animation"
+
+# TMTRAINER
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+local obj = self.config.center
+if obj and obj.add_to_deck and type(obj.add_to_deck) == 'function' then
+'''
+position = "before"
+payload = '''
+if not from_debuff and G.GAME.SEMBY_TMTRAINER and self.ability.set == "Joker" then
+    SEMBY_TMTR_Change(self)
+end
+'''
+match_indent = true
+
+# Alternative
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''
+play_sound('tarot1')
+self.T.r = -0.2
+'''
+position = "at"
+payload = '''
+if not self.SEMBY_shut_up then
+    play_sound('tarot1')
+end
+self.T.r = -0.2
+'''
+match_indent = true

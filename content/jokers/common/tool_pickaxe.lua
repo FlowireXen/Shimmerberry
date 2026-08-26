@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "tool_pickaxe",
-	name = "SEMBY_tool_pickaxe",
-	atlas = "SEMBY_jokers",
-	pos = { x = 9, y = 7 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 3, y = 1 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -13,26 +11,30 @@ SMODS.Joker {
 	config = {
 		extra = {
 			-- Durability
-			durability = 200,
-			durability_max = 200,
+			durability = 100,
+			durability_max = 100,
 			-- Joker
 			used = false,
 			dollars = 2,
-			chance = 2.5
+			numerator = 2,
+			denominator = 4
 		}
 	},
+    attributes = {
+		'economy', 'chance', 'suit',
+		'durability'
+	},
 	pools = {
-		["Tool"] = true,
-        ["Repairable"] = true,
+        ["Durability"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         local suit = (G.GAME.current_round.SEMBY_tool_suit or {}).suit or 'Spades'
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance, 'SEMBY_tool_pickaxe')
+		local numerator, denominator = SMODS.get_probability_vars(card,
+			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_tool_pickaxe')
 		local percentage = math.floor((numerator / denominator) * 100 + 0.5)
 		return { vars = {
 			localize(suit, 'suits_singular'),
-			percentage,
+			math.min(100, percentage),
 			card.ability.extra.dollars,
 			card:SEMBY_durability_amount(),
 			colours = { 
@@ -46,7 +48,9 @@ SMODS.Joker {
 		and context.other_card:is_suit(G.GAME.current_round.SEMBY_tool_suit.suit)
 		and (context.blueprint or card:SEMBY_durability_use()) then
 			card.ability.extra.used = true -- Only Check+Announce Durability if used
-			if SMODS.pseudorandom_probability(card, 'SEMBY_tool_pickaxe', 1, card.ability.extra.chance) then
+			if SMODS.pseudorandom_probability(card, 'SEMBY_tool_pickaxe',
+				card.ability.extra.numerator, card.ability.extra.denominator)
+			then
 				return {
 					dollars = card.ability.extra.dollars
 				}

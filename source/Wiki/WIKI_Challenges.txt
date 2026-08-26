@@ -1,0 +1,506 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Challenges
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+__TOC__
+
+'''[[Shimmerberry]]''' currently adds '''21''' Challenges to the game.<br>
+
+Shimmerberry also displays {{ct|orange|Winning Ante}} and {{ct|orange|base Blind size}} as part of the {{ct|blue|Game Modifiers}} {{ct|grey|(see [[Shimmerberry/Vanilla Changes|Vanilla Changes]])}}.
+
+== Shimmerberry Challenges ==
+
+=== Page 1 (1-10) ===
+
+<!-- Table 1, Start -->
+{| class="sortable wikitable" style="image-rendering:pixelated;min-width:1000px"
+! 
+! colspan="3" | Challenge
+! 
+! colspan="3" | Initial
+! 
+! colspan="2" | Restrictions
+|-
+! #
+! Name
+! Description
+! Modifiers
+! class="unsortable" | 
+! Jokers
+! <small>Consumables<br>& Vouchers</small>
+! Deck
+! class="unsortable" | 
+! Banned Cards
+! Tags & Other
+
+|-
+! S01
+| style="text-align:center;" | A Berry Good Meal
+| A tasty {{ct|blue|Tutorial}} for the {{ct|attention|Berry Jokers}}!
+----
+{{ct|red|Lose}} when beating a {{ct|attention|Blind}}<br>without a {{ct|attention|Berry Joker}}
+| {{ct|red|4}} discards per round<br>Winning Ante: {{ct|orange|6}}
+| 
+| A [[Shimmerberry/Stickers|{{ct|purple|Possessive}}]] set<br>of {{ct|orange|Berry Jokers}}:<br>{{j||Shimmerberry|img=Shimmerberry_Joker_(Shimmerberry).png}},<br>{{j||Blueberry}},<br>{{j||Goldenberry}},<br>{{j||Strawberry}}
+| {{ct|grey|None}}
+| Ranks {{ct|orange|2-10}}<br>{{ct|grey|(36 cards)}}
+| 
+| {{ct|grey|None}}
+| {{vb|Verdant Leaf}}
+
+|-
+! S02
+| style="text-align:center;" | A Tool for every Joke
+| A handy {{ct|blue|Tutorial}} for the {{ct|attention|Tool Jokers}}!
+----
+Jokers no longer appear in the {{ct|attention|shop}}
+| {{ct|orange|15}} hand size<br>Winning Ante: {{ct|orange|6}}
+| 
+| {{j||Eternal Fortune}},<br>a [[Shimmerberry/Stickers|{{ct|purple|Possessive}}]] set<br>of {{ct|orange|Tool Jokers}}:<br>{{j||Axe}},<br>{{j||Hoe}},<br>{{j||Pickaxe}},<br>{{j||Shovel}}
+| {{vt|The Tower}}<br>{{vt|The Lovers}}
+----
+{{vv|Magic Trick}}
+| Ranks {{ct|orange|2-10}}<br>{{ct|grey|(36 cards)}}
+| 
+| {{j||Toolkit}}
+| {{vb|Verdant Leaf}}
+
+|-
+! S03
+| style="text-align:center;" | Perishable Fate
+| Age and {{ct|purple|Wither}}, old and bitter.
+----
+All cards are {{ct|purple|Degraging}}
+| {{ct|grey|None}}
+| 
+| [[Shimmerberry/Stickers|{{ct|purple|Degrading}}]]<br>{{j||Toolkit}}
+| {{ct|grey|None}}
+| Standard<br>{{ct|grey|(52 cards)}}
+| 
+| {{vj|Half Joker}}<br>{{j||Ripped Joker}}
+| {{ct|grey|None}}
+
+|-
+! S04
+| style="text-align:center;" | Countdown
+| {{ct|inactive|24:00... 23:59... 23:58... 23:57...}}<!-- 23:56... -->
+----
+Extra {{ct|blue|Hands}} no longer earn money
+| {{ct|blue|24}} hands per round<br>{{ct|red|24}} discards per round
+| 
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+| Standard<br>{{ct|grey|(52 cards)}}
+| 
+| {{vj|Delayed Gratification}}
+| {{vb|The Water}}<br>{{vb|The Needle}}
+
+|-
+! S05
+| style="text-align:center;" | Shiny Hunt
+| Enjoy increased {{ct|money|Shiny}} spawns!
+----
+Extra {{ct|blue|Hands}} earn {{ct|green|more}} money
+| Start with {{ct|money|$25}}<br>Winning Ante: {{ct|orange|12}}
+| 
+| {{ct|orange|Pinned}}, {{ct|purple|Eternal}}<br> and {{ct|spectral|Negative}}<br>{{vj|Ceremonial Dagger}},<br>Five [[Shimmerberry/Editions|{{ct|money|Shiny}}]] {{vj|Egg}}s<br>with {{ct|money|$5}} {{ct|orange|sell value}}
+| {{vv|Seed Money}}<br>{{vv|Money Tree}}
+| Standard with<br>[[Shimmerberry/Editions|{{ct|money|Shiny}}]] Edition<br>{{ct|grey|(52 cards)}}
+| 
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+
+|-
+! S06
+| style="text-align:center;" | Hunter
+| Welcome to {{ct|blue|Balatro}}, {{ct|attention|47}}.
+----
+{{ct|darkedition|Win}} by beating a {{ct|attention|Blind}}<br>with {{ct|attention|10 or less}} Cards<br>in your full Deck!
+| {{ct|orange|6}} Joker Slots<br>Winning Ante: {{ct|orange|None}}
+| 
+| {{ct|purple|Eternal}}<br>{{j||Agent 47}}
+| {{vt|The Emperor}}
+| Standard with<br>{{ct|orange|8}} Stone Cards<br>{{ct|grey|(60 cards)}}
+| 
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+
+|-
+! S07
+| style="text-align:center;" | Hunted
+| {{ct|red|Target Acquired.}}
+----
+{{ct|red|Lose}} when beating a {{ct|attention|Blind}}<br>with {{ct|attention|45 or less}} Cards<br>in your full Deck!<br>Discarding {{ct|attention|3}} cards {{ct|green|increases}}<br>hand size by {{ct|attention|2}} for the round.
+| {{ct|blue|3}} hands per round<br>{{ct|orange|5}} hand size
+| 
+| {{ct|purple|Eternal}} and<br>[[Shimmerberry/Stickers|{{ct|purple|Possessive}}]]<br>{{j||Agent 47}}
+| {{vt|The Fool}}
+| Standard with<br>{{ct|orange|8}} Stone Cards<br>{{ct|grey|(60 cards)}}
+| 
+| {{vj|Booster_Packs|Standard Pack|img=Standard_Pack_1_(Vanilla).png|nott=true}}<br>{{j||Bound Joker}}<br>{{j||Stern Teacher}}<br>{{j||Incinerator}}<br>{{WeeIconLink|pagelink=Shimmerberry/Vouchers|displaytext=Old Urn|img=Old_Urn_(Shimmerberry).png}}<br>{{WeeIconLink|pagelink=Shimmerberry/Vouchers|displaytext=Cursed Urn|img=Cursed_Urn_(Shimmerberry).png}}
+| {{ct|grey|None}}
+
+|-
+! S08
+| style="text-align:center;" | Done Deal
+| {{ct|attention|King}} of {{ct|darkedition|Everything}}, {{ct|attention|King}} of '''Nothing'''.
+----
+Use {{ct|attention|all}} {{ct|blue|Hands}} each hand played<br>Start with {{ct|green|better}} Poker Hands
+| {{ct|blue|1}} hands per round<br>{{ct|red|0}} discards per round<br>Start with {{ct|money|$0}}
+| 
+| {{ct|grey|None}}
+| {{vt|Deja Vu}}
+----
+{{vv|Blank}}<br>{{vv|Antimatter}}
+| 1x {{ct|spectral|Negative}}<br>Stone Card<br>{{ct|grey|(1 card)}}
+| 
+| {{vv|Grabber}}<br>{{vv|Nacho Tong}}<br>{{vv|Hieroglyph}}<br>{{vv|Petroglyph}}
+| {{ct|grey|None}}
+
+|-
+! S09
+| style="text-align:center;" | The Last Unicorn
+| The Last Hunt.
+----
+{{ct|darkedition|Win}} by beating a Blind<br>without the {{ct|attention|Unicorn}}.
+| {{ct|purple|X0.5}} base Blind size<br>Winning Ante: {{ct|orange|None}}
+| 
+| [[Shimmerberry/Stickers|{{ct|purple|Possessive}}]]<br>and '''Debuffed'''<br>{{j||Unicorn}}
+| {{vt|Death}}
+| Standard<br>{{ct|grey|(52 cards)}}
+| 
+| {{j||Unicorn}}
+| {{ct|grey|None}}
+
+|-
+! S10
+| style="text-align:center;" | The Menagerie
+| Pleasure and delight awaits {{ct|attention|You}}.
+----
+{{ct|legendary|Multiplies}} Blind size by current Ante
+| {{ct|grey|None}}
+| 
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+| Standard<br>{{ct|grey|(52 cards)}}
+| 
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+
+|}
+<!-- Table 1, End -->
+
+=== Page 2 (11-20) ===
+
+<!-- Table 2, Start -->
+{| class="sortable wikitable" style="image-rendering:pixelated;min-width:1000px"
+! 
+! colspan="3" | Challenge
+! 
+! colspan="3" | Initial
+! 
+! colspan="2" | Restrictions
+|-
+! #
+! Name
+! Description
+! Modifiers
+! class="unsortable" | 
+! Jokers
+! <small>Consumables<br>& Vouchers</small>
+! Deck
+! class="unsortable" | 
+! Banned Cards
+! Tags & Other
+
+|-
+! S11
+| style="text-align:center;" | Printty Good
+| A productive {{ct|blue|Tutorial}}<br>for the {{ct|attention|Copy Printer}}!
+----
+{{ct|darkedition|Win}} by beating a {{ct|attention|Blind}} with<br>{{ct|attention|9}} copies of the same {{ct|attention|Joker}}!
+| {{ct|orange|10}} Joker Slots<br>{{ct|purple|X2}} base Blind size<br>Winning Ante: {{ct|orange|None}}
+| 
+| {{vj|Flash Card}},<br>{{ct|purple|Eternal}} and {{ct|money|Rental}}<br>{{j||Copy Printer}},<br>{{vj|Joker}}
+| {{vv|Overstock}}<br>{{vv|Overstock Plus}}
+| Ranks {{ct|orange|2-10}}<br>{{ct|grey|(36 cards)}}
+|
+| {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=Order|img=Order_Spectral_(Shimmerberry).png}}
+| {{ct|grey|None}}
+
+|-
+! S12
+| style="text-align:center;" | Gaokao
+| An annual {{ct|blue|Tutorial}} for {{ct|attention|Jokebra}}!
+----
+{{ct|red|Impossible}} Score-Requirements
+| {{ct|red|5}} discards per round<br>{{ct|orange|10}} hand size<br>Winning Ante: {{ct|orange|5}}
+| 
+| {{ct|purple|Eternal}} {{j||Jokebra}}
+| {{vt|The Empress}}<br>{{vt|The Hierophant}}
+----
+{{vv|Director's Cut}}
+| Ranks {{ct|orange|2-10}},<br>'''Debuffed''' {{ct|orange|Aces}}<br>{{ct|grey|(40 cards)}}
+|
+| {{j||Stern Teacher}}
+| {{vt|Boss Tag}}
+----
+{{vb|The Water}}<br>{{vb|The Eye}}<br>{{vb|The Mouth}}<br>{{vb|The Needle}}
+
+|-
+! S13
+| style="text-align:center;" | Lavish Dreams
+| "Prove Your Worth."<br>        - {{ct|money|Lavish Joker}}
+----
+All {{ct|orange|Blinds}} give no reward money<br>Extra {{ct|blue|Hands}} no longer earn money<br>Earn no {{ct|orange|Interest}} at end of round
+| {{ct|blue|2}} hands per round<br>{{ct|red|2}} discards per round<br>Start with {{ct|money|$2}}<br>{{ct|purple|X4}} base Blind size
+| 
+| {{ct|purple|Eternal}}, [[Shimmerberry/Stickers|{{ct|money|Lavish}}]] and<br>{{ct|orange|Pinned}} {{j||Lavish Joker}},<br>{{j||Lavish Joker}},<br>{{j||P2W}}
+| {{ct|grey|None}}
+| Standard,<br>all Faces<br>are {{ct|orange|Kings}}<br>{{ct|grey|(52 cards)}}
+|
+| {{vv|Seed Money}}<br>{{vv|Money Tree}}<br>{{vj|To the Moon}}<br>{{vt|The Hermit}}<br>{{vt|Temperance}}<br>{{vt|Immolate}}
+| {{vt|Investment Tag}}<br>{{vt|Handy Tag}}<br>{{vt|Garbage Tag}}<br>{{vt|Coupon Tag}}<br>{{vt|Speed Tag}}<br>{{vt|Economy Tag}}<br>{{t||Vouch down Tag}}
+
+|-
+! S14
+| style="text-align:center;" | 100 uses left
+| {{ct|attention|JOKER}} IS ETERNAL.<br>{{ct|money|MONEY}} IS FUEL.<br>{{ct|blue|BALATRO}} IS FULL.
+----
+{{ct|red|Lose}} when money is {{ct|money|$0}} {{ct|attention|or less}}.<br>Pay {{ct|money|$1}} per card played<br>Extra {{ct|blue|Hands}} no longer earn money<br>Earn no {{ct|orange|Interest}} at end of round
+| Start with {{ct|money|$100}}
+| 
+| {{ct|blue|Perishable}} {{j||Coupon}}
+| {{vt|Temperance}}
+| Standard<br>{{ct|grey|(52 cards)}}
+|
+| {{vj|Credit Card}}<br>{{vv|Seed Money}}<br>{{vv|Money Tree}}<br>{{vj|To the Moon}}<br>{{j||Toolkit}}<br>{{j||Lavish Joker}}<br>{{vt|Wraith}}
+| {{vb|The Ox}}
+
+|-
+! S15
+| style="text-align:center;" | Parking Roulette
+| {{ct|attention|Three}} {{ct|red|Cherries}} = {{ct|blue|Free Parking}}
+----
+[[Shimmerberry/Jokers|{{ct|attention|Parking Discs}}]] are {{ct|green|randomized}}<br>Jokers no longer appear in the {{ct|orange|shop}}
+| {{ct|grey|None}}
+| 
+| 5x {{ct|purple|Eternal}}<br>{{j||Parking Disc}}
+| {{ct|grey|None}}
+| Standard<br>{{ct|grey|(52 cards)}}
+|
+| {{ct|grey|None}}
+| {{vb|Amber Acorn}}<br>{{vb|Verdant Leaf}}
+
+|-
+! S16
+| style="text-align:center;" | Qwest?
+| <big>Qwest!</big>
+----
+{{ct|attention|Quests}} are tougher<br><small>{{ct|inactive|(Limited Quest-Pool)}}</small>
+| {{ct|orange|6}} Joker Slots<br>Winning Ante: {{ct|orange|None}}
+| 
+| {{ct|purple|Eternal}} {{j||Quest?}}
+| {{ct|grey|None}}
+| Standard<br>{{ct|grey|(52 cards)}}
+|
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+
+|-
+! S17
+| style="text-align:center;" | Marked for Negation
+| {{ct|darkpurple|Prepare for Deletion.}}
+| {{ct|grey|None}}
+| 
+| {{ct|purple|Eternal}} and [[Shimmerberry/Stickers|{{ct|money|Lavish}}]]<br>{{j||JEVIL}}
+| {{ct|grey|None}}
+| Standard with<br>[[Shimmerberry/Editions|{{ct|darkpurple|Resonance}}]]<br>Edition<br>{{ct|grey|(52 cards)}}
+|
+| {{vj|Booster_Packs|Standard Pack|img=Standard_Pack_1_(Vanilla).png|nott=true}}<br>{{vv|Magic Trick}}<br>{{vv|Illusion}}
+| {{vt|Standard Tag}}
+----
+{{vb|The Wall}}<br>{{vb|Violet Vessel}}<br>{{b|The Ghost}}
+
+|-
+! S18
+| style="text-align:center;" | Last One Left
+| The last one left to go is {{ct|red|Me}}.
+----
+Start with {{ct|attention|100%}} [[Shimmerberry/Tags|{{ct|purple|Doom}}]]<br>Gain {{ct|attention|2%}} [[Shimmerberry/Tags|{{ct|purple|Doom}}]] per card played<br>Extra {{ct|blue|Hands}} earn {{ct|green|more}} money<br>Earn no {{ct|orange|Interest}} at end of round
+| {{ct|blue|5}} hands per round<br>{{ct|red|0}} discards per round<br>Start with {{ct|money|$0}}<br>Winning Ante: {{ct|orange|12}}
+| 
+| {{ct|purple|Eternal}}<br>{{j||57 Leaf Clover}},<br>'''Debuffed''' {{vj|Baron}}
+| {{vv|Director's Cut}}
+| Standard,<br>all Faces are<br>{{ct|blue|Wild}} {{ct|orange|Kings}}<br>{{ct|grey|(52 cards)}}
+|
+| {{vv|Seed Money}}<br>{{vv|Money Tree}}<br>{{vj|To the Moon}}<br>{{vv|Wasteful}}<br>{{vv|Recyclomancy}}<br>{{vj|Baron}}
+| {{vb|The Club}}<br>{{vb|The Goad}}<br>{{vb|The Window}}<br>{{vb|The Plant}}<br>{{vb|The Head}}
+
+|-
+! S19
+| style="text-align:center;" | Speed of Light
+| Reach the {{ct|attention|edge}} of the {{ct|darkedition|Universe}}!
+----
+Apply {{ct|money|Gold Stake}} difficulty<br>Start with {{ct|green|better}} Poker Hands
+| {{ct|red|4}} discards per round<br>{{ct|orange|10}} hand size<br>{{ct|orange|8}} Joker Slots<br>{{ct|purple|X2}} base Blind size<br>Winning Ante: {{ct|orange|16}}
+| 
+| [[Shimmerberry/Stickers|{{ct|purple|Possessive}}]]<br>{{j||Shooting Star}},<br>{{ct|purple|Eternal}} {{j||Afterimage}},<br>{{j||20 to Die for}}
+| {{vt|Planet X}}
+| Standard<br>{{ct|grey|(52 cards)}}
+|
+| {{ct|grey|None}}
+| {{vb|The Arm}}
+
+|-
+! S20
+| style="text-align:center;" | Grandmaster Menagerie
+| Sorrow and despair awaits {{ct|red|Us}}.
+----
+Apply {{ct|money|Gold Stake}} difficulty<br>{{ct|purple|Multiplies}} Blind size by current Ante
+| {{ct|grey|None}}
+| 
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+| Standard<br>{{ct|grey|(52 cards)}}
+|
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+
+|}
+<!-- Table 2, End -->
+
+=== Page 3? (21+) ===
+
+<!-- Table 3, Start -->
+{| class="sortable wikitable" style="image-rendering:pixelated;min-width:1000px"
+! 
+! colspan="3" | Challenge
+! 
+! colspan="3" | Initial
+! 
+! colspan="2" | Restrictions
+|-
+! #
+! Name
+! Description
+! Modifiers
+! class="unsortable" | 
+! Jokers
+! <small>Consumables<br>& Vouchers</small>
+! Deck
+! class="unsortable" | 
+! Banned Cards
+! Tags & Other
+
+|-
+! S21
+| style="text-align:center;" | <small>{{ct|grey|DELETE THIS}}</small>
+| <nowiki>::</nowiki>{{ct|codegreen|UNKNOWN}} RULESET {{ct|yellow-bg|0x16b80c740}}<br>::{{ct|codegreen|UNKNOWN}} RULESET {{ct|purple-bg|1x32b04a335}}
+----
+<nowiki>::</nowiki>{{ct|codegreen|UNKNOWN}} RULESET {{ct|red-bg|0x16b68f512}}<br>::{{ct|codegreen|UNKNOWN}} RULESET {{ct|green-bg|1x32b12c092}}<br>::{{ct|codegreen|UNKNOWN}} RULESET {{ct|blue-bg|0x16b64e926}}
+| Start with {{ct|money|$20}}<br>Winning Ante: {{ct|orange|Nope!}}
+| 
+| {{ct|grey|None}}
+| {{ct|purple|Eternal}} {{j||TMTRAINER}}
+| {{ct|codegreen|UNKNOWN}}<br>{{ct|grey|(100 cards)}}
+|
+| {{j||TMTRAINER}}<br>{{j||DATAMINER}}<br>{{j||TMTRAINER}}
+| {{ct|grey|None}}
+
+|}
+<!-- Table 3, End -->
+
+{{Togglebox start--|header=Click here to view the full ruleset for "DELETE THIS" (S21)|headercolor=#119933||group=SEMBY_DELETE_THIS}}
+
+<big>When starting the Challenge:</big>
+* Applies {{ct|money|Gold Stake}} difficulty
+* Secretly [[Shimmerberry/Tags|{{ct|purple|Dooms}}]] the Player, reveals {{ct|purple|Doom}} after beating {{ct|orange|Ante 1}}
+* Hides stats for all areas {{ct|grey|(instead of showing "0/5 Jokers", it shows either "NaN" or "???")}}
+* Increases {{ct|orange|Joker}} and {{ct|orange|Consumable}} slots by {{ct|orange|1}}
+* Sets {{ct|orange|Hand Size}} to a random number between {{ct|orange|6 and 12}}
+* {{ct|codegreen|Randomizes}} the entire Deck
+* Permanently reduces {{ct|money|Shop}} prices by {{ct|money|20%}}
+* Permanently reduces {{ct|green|Reroll}} cost by {{ct|money|$2}}
+* Permanently adds {{ct|orange|1}} {{vj|Booster_Packs|Booster-Pack|img=Standard_Pack_1_(Vanilla).png|nott=true}} to all {{ct|money|Shops}}
+* Permanently {{ct|red|increases}} all {{ct|orange|Blind Sizes}} by {{ct|darkpurple|25%}}
+* Sets the Winning Ante to {{ct|orange|8}} {{ct|grey|(the Winning Ante stays hidden)}}
+* Sets up a custom Game Over; if the player fails, it will always show "{{ct|pink|ERROR}}"
+----
+<big>While playing:</big>
+* When skipping a {{ct|orange|Blind}}, {{ct|green|1 in 2}} chance to gain a {{vt|Double Tag}} {{ct|grey|(doesn't duplicate the Tag obtained by skipping)}}
+* When {{ct|green|Rerolling}} the {{ct|money|Shop}}, it will always generate a new {{vj|Booster_Packs|Booster-Pack|img=Standard_Pack_1_(Vanilla).png|nott=true}}
+* When using a {{ct|orange|Consumable}}, {{ct|green|1 in 3}} chance to gain a copy
+* When '''Obtaining''' a {{ct|orange|Joker}}, {{ct|green|1 in 4}} chance to  {{ct|green|gain}} a {{ct|orange|Joker Slot}}
+* When '''Selling''' a {{ct|orange|Joker}}, {{ct|green|1 in 4}} chance to {{ct|red|lose}} a {{ct|orange|Joker Slot}}
+* '''Upping the Ante''' has a {{ct|green|1 in 4}} chance to fail
+* When a {{ct|orange|Boss Blind}} is defeated, reduce all {{ct|money|Shop}} prices by {{ct|money|5%}} and {{ct|red|increases}} all {{ct|orange|Blind Sizes}} by {{ct|darkpurple|25%}}
+* When playing a {{ct|blue|Hand}} while having more than {{ct|orange|0}} {{ct|red|Discards}}, temporarily increase the {{ct|orange|Hand Size}} by {{ct|orange|3}}
+
+{{--Togglebox end|group=SEMBY_DELETE_THIS}}
+
+== Debug Challenges ==
+
+'''[[Shimmerberry]]''' currently offers '''2''' additional Challenges, by setting <code>Shimmerberry.Debug</code> in <code>ShimmerBerry.lua</code> to <code>true</code>.
+
+<!-- Table 4, Start -->
+{| class="sortable wikitable" style="image-rendering:pixelated;min-width:1000px"
+! 
+! colspan="3" | Challenge
+! 
+! colspan="3" | Initial
+! 
+! colspan="2" | Restrictions
+|-
+! #
+! Name
+! Description
+! Modifiers
+! class="unsortable" | 
+! Jokers
+! <small>Consumables<br>& Vouchers</small>
+! Deck
+! class="unsortable" | 
+! Banned Cards
+! Tags & Other
+
+|-
+! D98
+----
+{{ct|grey|Was<br>S17}}
+| style="text-align:center;" | Emperor Calus
+| Grow Fat From {{ct|attention|Strength}}!
+----
+Jokers no longer appear in the {{ct|orange|shop}}
+| {{ct|orange|4}} Joker Slots<br>Start with {{ct|money|$-10}}
+| 
+| {{ct|money|Rental}} {{j||Opulent Skint}},<br>{{ct|blue|Perishable}} and [[Shimmerberry/Editions|{{ct|money|Shiny}}]]<br>{{vj|Credit Card}},<br>{{ct|purple|Eternal}} {{j||Coupon}}
+| {{vt|Temperance}}
+----
+{{vv|Hone}}<br>{{vv|Magic Trick}}<br>{{vv|Glow Up}}<br>{{vv|Illusion}}
+| Ranks {{ct|orange|2-10}},<br>{{ct|money|Gold}} {{ct|orange|Kings}}<br>{{ct|grey|(40 cards)}}
+|
+| {{vt|Wraith}}<br>{{vt|Ectoplasm}}<br>{{vj|Booster_Packs|Buffoon Pack|img=Buffoon_Pack_1_(Vanilla).png|nott=true}}
+| {{vt|Rare Tag}}<br>{{vt|Negative Tag}}<br>{{vt|Polychrome Tag}}<br>{{vt|Buffoon Tag}}<br>{{vt|Top-up Tag}}
+
+|-
+! D99
+| style="text-align:center;" | Exodia
+| Apply {{ct|money|Gold Stake}} difficulty
+| {{ct|blue|1}} hands per round<br>{{ct|red|1}} discards per round<br>{{ct|orange|8}} Joker Slots<br>Winning Ante: {{ct|orange|32}}
+| 
+| {{ct|purple|Eternal}}, [[Shimmerberry/Stickers|{{ct|money|Lavish}}]] and<br>{{ct|orange|Pinned}} {{j||DEBUGJOKER}},<br>{{j||PUSH UR T3MPRR}},<br>{{vj|Dusk}}
+| {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=Order|img=Order_Spectral_(Shimmerberry).png}}
+----
+{{vv|Blank}}<br>{{vv|Overstock}}<br>{{vv|Overstock Plus}}<br>{{vv|Overstock Plus}}
+| Standard<br>{{ct|grey|(52 cards)}}
+|
+| {{ct|grey|None}}
+| {{ct|grey|None}}
+
+|}
+<!-- Table 4, End -->
+
+[[Category:Challenges]]

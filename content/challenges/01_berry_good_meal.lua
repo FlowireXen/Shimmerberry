@@ -6,22 +6,13 @@ SMODS.Challenge {
             { id = 'SEMBY_space' },
             { id = 'SEMBY_berry_eaten_1' },
             { id = 'SEMBY_berry_eaten_2' },
-            { id = 'SEMBY_space' },
-            { id = 'no_reward' },
-            { id = 'no_interest' },
         },
         modifiers = {
             { id = 'discards', value = 4 },
-            { id = 'dollars', value = 0 },
             { id = 'winning_ante', value = 6 },
         }
     },
     restrictions = {
-        banned_cards = {
-            { id = 'v_seed_money' },
-            { id = 'v_money_tree' },
-            { id = 'j_to_the_moon' },
-        },
         banned_other = {
             { id = 'bl_final_leaf',  type = 'blind' },
         },
@@ -31,9 +22,6 @@ SMODS.Challenge {
         { id = 'j_SEMBY_berry_blue', SEMBY_possessive = true },
         { id = 'j_SEMBY_berry_golden', SEMBY_possessive = true },
         { id = 'j_SEMBY_berry_straw', SEMBY_possessive = true },
-    },
-    vouchers = {
-        { id = 'v_blank' },
     },
     deck = {
         type = 'Challenge Deck',
@@ -49,8 +37,14 @@ SMODS.Challenge {
             { s = 'S', r = '2' }, { s = 'H', r = '2' }, { s = 'C', r = '2' }, { s = 'D', r = '2' },
         }
     },
+	apply = function(self)
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 0, y = 1 }
+        end
+	end,
     calculate = function(self, context)
-        -- FIXME: Known Problem; You can lose all berries on the final Blind and still Win.
+        -- ##FIXME##/Known Bug: You can lose all berries on the final Blind and still Win
 		if context.end_of_round and context.main_eval and context.game_over == false then
 	        G.E_MANAGER:add_event(Event({
 	        	func = function()
@@ -59,6 +53,11 @@ SMODS.Challenge {
                             return true
                         end
 		            end
+                    G.GAME.SEMBY_defeated = {
+                        atlas = G.P_CENTERS.j_SEMBY_berry_shimmer.atlas,
+                        position = G.P_CENTERS.j_SEMBY_berry_shimmer.pos,
+                        loc_key = 'SEMBY_lose_01_berry'
+                    }
 		            SEMBY_Challenge_LOSE()
 	        		return true
 	        	end

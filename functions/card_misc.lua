@@ -22,52 +22,7 @@ function Card:SEMBY_set_dissolve(dissolve_colours, dissolve_from, dissolve_to, d
 	}))
 end
 
--- Basic Revive Logic
-function Card:SEMBY_revive_copy(revive_source)
-    if not (self.SEMBY_chronos) then
-	    -- Create Copy
-	    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-	    local copy_card = copy_card(self, nil, nil, G.playing_card)
-	    self.SEMBY_chronos = true
-	    -- Add to Deck
-	    copy_card:add_to_deck()
-	    G.deck.config.card_limit = G.deck.config.card_limit + 1
-	    table.insert(G.playing_cards, copy_card)
-	    -- Revive to Deck or Hand
-	    copy_card.states.visible = nil
-	    G.E_MANAGER:add_event(Event({
-	    	func = function()
-                if G.GAME.blind and G.GAME.blind.in_blind then
-	    		    G.hand:emplace(copy_card)
-	    		    G.GAME.blind:debuff_card(copy_card)
-	    		    G.hand:sort()
-                else
-	        		G.deck:emplace(copy_card)
-                end
-	    	    -- Delayed Animation 'cause Cool!
-	    	    G.E_MANAGER:add_event(Event({
-	    	    	trigger = 'after',
-	    	    	delay = 0.4,
-	    	    	func = function()
-                        if revive_source then revive_source:juice_up() end
-	    	    		copy_card:SEMBY_revive_animation()
-	    	    		return true
-	    	    	end
-	    	    }))
-	    		return true
-	    	end
-	    }))
-	    -- Further Handling
-	    G.E_MANAGER:add_event(Event({
-	    	func = function()
-	    		SMODS.calculate_context({ playing_card_added = true, cards = { copy_card } })
-	    		return true
-	    	end
-	    }))
-    end
-end
-
--- Visual + Sound
+-- Revive: Visual + Sound
 function Card:SEMBY_revive_animation()
     local dissolve_time = 0.7
     self.states.visible = true

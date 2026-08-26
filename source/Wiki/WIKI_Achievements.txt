@@ -1,0 +1,33 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Achievements
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+'''[[Shimmerberry]]''' currently adds '''3''' Achievements to the game.
+
+<!-- Table Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Achievement
+!Description
+!Strategy/Notes
+
+|-
+| style="text-align:center;" | [[File:Daybreak_Spectral_(Shimmerberry).png|71px]] <br> '''SCP-001'''
+| Use [[Shimmerberry/Consumables|Daybreak]] to remove<br>all playing card ranks
+| Turn all playing cards in Hand into<br>Stone or Memory cards (for example)
+
+|-
+| style="text-align:center;" | [[File:Obtained_Achievement_(Cryptid).png|64px]] <br> '''Flowire<br>Loves You!'''
+| Complete all<br>Shimmerberry [[Shimmerberry/Challenges|Challenges]]
+| Includes the "secret" TMTRAINER-Challenge
+
+|-
+| style="text-align:center;" | [[File:Golden_Egg_(Shimmerberry).gif|68px]] <br> '''Coming Out'''
+| Earn $0 from the<br>[[Shimmerberry/Boss_Blinds|Golden Egg]] Blind
+| Does not include things like<br>leftover Hands or {{vj|Golden Joker}},<br>just requires scoring 25 cards.
+
+|}
+<!-- Table End -->
+
+[[Category:Achievements]]

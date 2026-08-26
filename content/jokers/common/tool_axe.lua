@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "tool_axe",
-	name = "SEMBY_tool_axe",
-	atlas = "SEMBY_jokers",
-	pos = { x = 9, y = 6 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 1, y = 1 },
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = true,
@@ -13,27 +11,31 @@ SMODS.Joker {
 	config = {
 		extra = {
 			-- Durability
-			durability = 80,
-			durability_max = 100,
+			durability = 40,
+			durability_max = 80,
 			-- Joker
 			used = false,
-			chance = 5
+			numerator = 1,
+			denominator = 4
 		}
 	},
+    attributes = {
+		'destroy_card', 'chance', 'suit',
+		'durability'
+	},
 	pools = {
-		["Tool"] = true,
-        ["Repairable"] = true,
+        ["Durability"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         local suit = (G.GAME.current_round.SEMBY_tool_suit or {}).suit or 'Spades'
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.chance, 'SEMBY_tool_axe')
+		local numerator, denominator = SMODS.get_probability_vars(card,
+			card.ability.extra.numerator, card.ability.extra.denominator, 'SEMBY_tool_axe')
 		local percentage = math.floor((numerator / denominator) * 100 + 0.5)
 		return { vars = {
 			localize(suit, 'suits_singular'),
-			percentage,
+			math.min(100, percentage),
 			card:SEMBY_durability_amount(),
-			colours = { 
+			colours = {
 				G.C.SUITS[suit],
 				card:SEMBY_durability_color()
 			}
@@ -45,7 +47,9 @@ SMODS.Joker {
 		and context.other_card:is_suit(G.GAME.current_round.SEMBY_tool_suit.suit)
 		and (context.blueprint or card:SEMBY_durability_use()) then
 			card.ability.extra.used = true -- Only Check+Announce Durability if used
-			if SMODS.pseudorandom_probability(card, 'SEMBY_tool_axe', 1, card.ability.extra.chance) then
+			if SMODS.pseudorandom_probability(card, 'SEMBY_tool_axe',
+				card.ability.extra.numerator, card.ability.extra.denominator)
+			then
 				context.other_card.ability.SEMBY_axed = true
 				return {
 					message = localize('SEMBY_hit_ex'),

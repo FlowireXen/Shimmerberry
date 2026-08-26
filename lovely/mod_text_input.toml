@@ -1,0 +1,29 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 10
+
+# Allows creation of "Numbers Only"-Textboxes
+
+# Parameter in "create_text_input()"
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''args.all_caps = args.all_caps or false'''
+position = "after"
+payload = '''args.SEMBY_num_only = args.SEMBY_num_only or false'''
+match_indent = true
+
+# Hijack Vanilla Logic:
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''if hook.config.ref_table.extended_corpus then'''
+position = "before"
+payload = '''
+if hook_config.SEMBY_num_only then
+    corpus = '1234567890'
+    if args.key == 'o' then args.key = '0' end
+end
+'''
+match_indent = true

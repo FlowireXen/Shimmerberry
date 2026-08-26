@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "the_dwarf",
-	name = "SEMBY_the_dwarf",
-	atlas = "SEMBY_jokers",
-	pos = { x = 11, y = 6 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 1, y = 2 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -15,10 +13,15 @@ SMODS.Joker {
 			handsize = 5
 		}
 	},
+    attributes = {
+		'hand_size', 'discard',
+		'animal'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
+		local current = G.hand and (G.hand.config.card_limit or G.hand.config.real_card_limit) - math.floor(card.ability.extra.handsize) or 0
 		return { vars = {
-			card.ability.extra.handsize
+			card.ability.extra.handsize,
+			SMODS.signed(current)
 		} }
 	end,
 	calculate = function(self, card, context)
@@ -47,7 +50,7 @@ SMODS.Joker {
 					juice_card:juice_up(0.3, 0.0)
 					play_sound('generic1', 1.0, 0.8)
 					attention_text({
-						text = (discards >= 0 and '+'..discards or discards)..' '..localize('SEMBY_smoll'),
+						text = SMODS.signed(discards)..' '..localize('SEMBY_smoll'),
 						backdrop_colour = discards > 0 and G.C.GREEN or G.C.RED,
 						scale = 0.8, hold = 0.8,
 						major = juice_card, align = 'bm',

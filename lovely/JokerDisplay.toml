@@ -1,0 +1,197 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 10
+
+## START : Editions
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/api_helper_functions.lua"]'''
+pattern = '''local modifiers = {'''
+position = "after"
+payload = '''
+SEMBY_percent = nil,
+SEMBY_round = nil,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/api_helper_functions.lua"]'''
+pattern = '''edition_mods.e_mult or modifiers.e_mult,'''
+position = "after"
+payload = '''
+SEMBY_percent = (modifiers.SEMBY_percent and edition_mods.SEMBY_percent and modifiers.SEMBY_percent ^ edition_mods.SEMBY_percent)
+    or edition_mods.SEMBY_percent or modifiers.SEMBY_percent,
+SEMBY_round = edition_mods.SEMBY_round or modifiers.SEMBY_round,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/api_helper_functions.lua"]'''
+pattern = '''extra_mods.e_mult or modifiers.e_mult,'''
+position = "after"
+payload = '''
+SEMBY_percent = (modifiers.SEMBY_percent and extra_mods.SEMBY_percent and modifiers.SEMBY_percent ^ extra_mods.SEMBY_percent)
+    or extra_mods.SEMBY_percent or modifiers.SEMBY_percent,
+SEMBY_round = extra_mods.SEMBY_round or modifiers.SEMBY_round,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local new_modifiers = {'''
+position = "after"
+payload = '''
+SEMBY_percent = modifiers.SEMBY_percent,
+SEMBY_round = modifiers.SEMBY_round,
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local modifiers_changed = reset or false'''
+position = "before"
+payload = '''
+mod_keys[#mod_keys+1] = "SEMBY_percent"
+mod_keys[#mod_keys+1] = "SEMBY_round"
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local mod_nodes = {}'''
+position = "after"
+payload = '''
+if self.modifiers.SEMBY_percent then
+    local SEMBY_percent_node = {}
+    local sign, amount, colour = self.modifiers.SEMBY_percent >= 0 and '+' or '-', math.abs(self.modifiers.SEMBY_percent)*100, G.C.SEMBY_PERCENT_L
+    table.insert(SEMBY_percent_node, JokerDisplay.create_display_object(self, { text = sign, colour = colour }))
+    table.insert(SEMBY_percent_node, JokerDisplay.create_display_object(self, { text = amount, colour = colour }))
+    table.insert(SEMBY_percent_node, JokerDisplay.create_display_object(self, { text = '%', colour = colour }))
+    table.insert(mod_nodes, SEMBY_percent_node)
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/ui.lua"]'''
+pattern = '''local row_index = 1'''
+position = "before"
+payload = '''
+if self.modifiers.SEMBY_round then
+    local round_node = {}
+    table.insert(round_node, JokerDisplay.create_display_object(self, { text = "(" .. localize("k_round") .. ")", colour = G.C.UI.TEXT_INACTIVE, scale = 0.3 }))
+    table.insert(mod_nodes, round_node)
+end
+'''
+match_indent = true
+## END: Editions
+
+## START : Degrading Sticker
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''if self.ability.rental then'''
+position = "before"
+payload = '''
+-- Hijacking "Perishable" for "Degrading"
+if self.ability.SEMBY_degrading_tally then
+    self.joker_display_values.perishable = (self.ability.SEMBY_degrading_tally or 5).."/"..(G.GAME.perishable_rounds or 5)
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''local should_display_perishable = self.ability.perishable'''
+position = "after"
+payload = '''
+-- Hijacking "Perishable" for "Degrading"
+or self.ability.SEMBY_degrading
+should_display_perishable = should_display_perishable
+'''
+match_indent = true
+## END: Degrading Sticker
+
+## START : Bound Sticker
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/config_tab.lua"]'''
+pattern = '''card:set_perishable(true)'''
+position = "before"
+payload = '''card:add_sticker('SEMBY_bound', true)'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''if self.ability.perish_tally then'''
+position = "before"
+payload = '''
+self.joker_display_values.SEMBY_bound = ''
+if self.ability.SEMBY_bound then
+    local numerator, denominator = SMODS.get_probability_vars(self,
+        self.ability.SEMBY_bound.numerator or 0, self.ability.SEMBY_bound.denominator or 0, 'SEMBY_jdis_bound')
+    --self.joker_display_values.SEMBY_bound = localize{type = 'variable', key = "jdis_odds", vars = { numerator, denominator }}
+    self.joker_display_values.SEMBY_bound = math.min(100, math.floor((numerator/denominator)*100+0.5))..'%'
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS JokerDisplay "src/display_functions.lua"]'''
+pattern = '''local should_display_perishable = self.ability.perishable'''
+position = "before"
+payload = '''
+local should_display_bound = self.ability.SEMBY_bound
+    and self.facing ~= 'back'
+    and JokerDisplay.config.enabled
+    and not (self.joker_display_values or {}).disabled
+    and not JokerDisplay.config.disable_perishable --> Perishable Toggles Bound
+if should_display_bound and not self.children.joker_display_SEMBY_bound then
+    self.children.joker_display_SEMBY_bound = UIBox {
+        definition = {
+            n = G.UIT.ROOT,
+            config = {
+                minh = 0.5,
+                maxh = 0.5,
+                minw = 0.75,
+                maxw = 0.75,
+                r = 0.001,
+                padding = 0.1,
+                align = 'cm',
+                colour = adjust_alpha(darken(G.C.BLACK, 0.2), 0.8),
+                shadow = false,
+                ref_table = self
+            },
+            nodes = {
+                JokerDisplay.create_display_text_object({
+                    ref_table = self.joker_display_values, ref_value = "SEMBY_bound",
+                    colour = G.C.GREEN, scale = 0.35
+                })
+            }
+        },
+        config = {
+            align = "tm",
+            bond = 'Strong',
+            parent = self,
+            offset = { x = 0.0, y = 0 },
+        },
+    }
+    self.children.joker_display_SEMBY_bound.states.collide.can = true
+    self.children.joker_display_SEMBY_bound.name = "JokerDisplay"
+elseif not should_display_bound and self.children.joker_display_SEMBY_bound then
+    self.children.joker_display_SEMBY_bound:remove()
+    self.children.joker_display_SEMBY_bound = nil
+end
+'''
+match_indent = true
+## END: Bound Sticker

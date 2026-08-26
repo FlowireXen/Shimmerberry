@@ -1,20 +1,16 @@
 SMODS.Blind {
     key = "sharp_shooter",
-	name = "SEMBY_sharp_shooter",
+	SEMBY_art = "flowire",
     atlas = "SEMBY_blinds",
-    pos = { x = 0, y = 2},
+	pos = { x = 0, y = 2},
     dollars = 8,
     mult = 2,
-    boss = {
-		showdown = true
-	},
+    boss = { showdown = true },
     boss_colour = HEX("FFD61D"),
-    --loc_vars = function(self) SEMBY_Queue_Artist(self, info_queue) end,
     calculate = function(self, blind, context)
-		-- Just in case someone fixes the Metador-Triggers:
         if context.press_play and not blind.disabled then
 			blind.prepped = true
-            blind.triggered = true
+			blind.triggered = true --> Metador
         end
     end,
 	drawn_to_hand = function(self)

@@ -1,67 +1,104 @@
-# TODO's:
-
-> List of Known Bugs:
-- [MAJOR][ Planned ]: Talisman crashes the Game
-- [MINOR][ Planned ]: "Afterimage" doesn't apply "context.modify_ante" correctly.
-- [MINOR][Won't Fix]: Copies of a Debuffed "Anchor" can *always* be Highlighted, even after the Debuff runs out.
-- [MINOR][Won't Fix]: Transformed "Anchor" Copies can only be Highlighted after returning from Main Menu.
-
-> Future WiPs:
-- [+++]: Add Talisman Support
-- [ ++]: "Winning Ante: 99" should be "Winning Ante: None/-" (Requires patching UI)
-- [ ++]: Add Unlock requirements to some Jokers
-- [ ++]: Add "Partners" Support
-- [  +]: Make sure "play_sound" from Jokers/Challenges with no delay only play once
-- [   ]: Give all Jokers pronouns
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 > Each Release:
 - Update: README.md, Version Number ("Year"."Month"."Day""Minor"), Create *Latest GitHub Release*
 - External:
+- - Discord-Thread
 - - Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
 - - Mod Index: https://github.com/FlowireXen/balatro-mod-index - meta.json, readme.md
 
-> Maybe TODO's:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+> Next TODO's:
 - Upload to: https://thunderstore.io/c/balatro
+- - 
+- Shimmerberry "Challenger Arrival"/"The Circus"
+- [SEMBL] Shimmerberry Lite :: Only the Challenges (and needed Patches)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-> Next Update [Sketch]:
+> Future WiPs:
+- [++ ]: Update to new SMODS; Blind Mod, Chance Mod, etc.
+- [+  ]: "##FIXME##"/"FIXME"
+- [  -]: Add Unlock requirements to some Jokers
 
-Arch: +100 Chips if there is a 5 rank gap between scoring cards / 1 gap in rank -> new hand type
-Something New: gain 10 dollars if you play a hand you havent played before
-Fire Exit: 1 in 4 to reduce blind size by 50%
-~~Taskmaster: multiple tasks, rewards dollars, destroyed after 3 failed tasks, BASE for Challenges...~~
-Dent/Chipped: Add flat 50 score for each card played or discarded
-Blind: 2X Size, When beaten, Resets Score and Disables Blind
-???: Returns last three used Consumables (must have space)
-"Joker": Reduce/Increase Round Score by 50%, +1XMULT for every 1000 Points removed/added
-"Deck"/"Challenge": Disables "High Card", "Pair" and "Three of a kind" -> Sleeve BLOCKS these hands
-Wine Garden: Gain a random Berry at the start of each Blind, Berry Jokers don't take up space, (Destroying this Joker destroyes all Berries)
-Healing Salve: Every 3 scoring cards this gains 1%, When sold, reduce current blind size by X%
-4th Boss-Blind: "Ghost" -> "Phanta" Mod reference!
-4th Consumable: Tarot, "Monarch"
+> Known Bugs:
+- [MAJOR][Won't Fix]: "Talisman" crashes the Game -> Use "Amulet" instead.
+- [MINOR][Can't Fix]: "Afterimage" doesn't apply "context.modify_ante" correctly.
+- [MINOR][Can't Fix]: "Parking Disc: 3" doesn't apply "context.modify_ante" correctly.
 
-Eden Soul (Uncommon):
-Mode 1: Winning a Blind with this grants a random Joker next run, also randomly gives 10 Mult or 50 Chips
-Mode 2: When starting a Blind, create a Random Joker (and remove 1 from "Eden Souls")
-Can create Legendaries!
-Technical: Add an option "Eden Souls" -> With Reset-Button and "Set to Max"-Button (9999+)
-
-> Challenger Approaching [SPOILER][Sketch]:
-
-"Nonrefundable Trial": 10 Hand Size, but once you've drawn a Hand, the rest of your Deck gets Discarded
-"Explosive Trial": Buff Shop, Go from Ante 1 to Ante 8 instantly
-"Deckless Trial": All playing cards are debuffed
-"Desperate Trial": Starting Stats -1, Hands only earn $0.5, Only one Card each Shop (No Vouchers or boosters), No reward money
-"Doomsday Trial": Start with "[Degrading] Black Hole", Deck is Linked to Black Hole, Winning Ante 6, Ban Revive Jokers, (Empty Shops?)
-"Pizzo Trial": Don't Regain Hands & Discards, You're able to buy Hands and Discards in Shop (Vouchers, Ban Upgrades), Start with 5 of each
-
-"Gungame Trial":
-- Entire Deck start as 2's
-- Played Cards up their rank by 3
-- Played Queens, Kings and Aces get destroyed
-- - 2 -> 5 -> 8 -> Jack -> Ace -> Gone
-- Played "Stone Cards" / "Cards with no ranks" get Destroyed (Message from Deck; "INVALID")
-- Ban Normal Card Packs
+> Current WiPs:
+- None!
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+> "Challenger Arrival"/"The Circus" [SPOILERS]
+- If you're looking here to gain an Edge over your competitors, you're sadly not gonna find anything interesting ;)
+
+> New SMODS needed:
+- Use the SMODS "Blind Size" changing code/logic
+- Add "can_sell(self, card, context)" to "Anchor"-Joker and disable selling when unselectable
+
+> Features [Ideas/Notes]:
+- Sticker, "Temporary Copy": "Doesn't take up Space, Destroyed at the End of Shop", set one to "-1" and the other to "0" (so negative doesn't apply)
+- Sticker, "Fleeting": Self destructs when Boss Blind is defeated
+- Joker, "Scale": X2 Mult when having the same amount of Jokers on both sides
+- Joker, "Chloroform": Next 2 Shop Jokers are free and Sleepy (Phanta Compat.)
+- Voucher, "Doomed", "Doomed 2": First Level just adds Doom, Second Level gives +1 Hand Size for every 50% Doom
+- Skip Tag, "Discovery": Generates [Random Planet Card] at the start of the Blind (3 uses)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+> Add "Circus" Mode:
+- Rogue-Like where you select Challenge-Rules and Modifiers
+- Each Run Rewards Points, these can be used to unlock Shimmerberry
+- Winning Ante 12, can be increased for greater Rewards
+- Different Rules and Modifiers give more points or multipliers
+- When you select a Rule, choose between 2 versions (Easy Option gives Score, Harder Option gives Multiplier, BOTH show how they affect score)
+
+> "Circus" Starts:
+- "Shadow Crystal": 2 Hands, 2 Hand Size, 2 Discards, Diamond Suit is (always) Negative
+- "Digital Roses": Bans Pluto & Jupiter, All Non-Face Cards are "Memory Cards"
+- "Scalper": +2 Hand Size, Starting Deck is "Degrading"
+- "Desperate": +2 Hands, Hands only earn 0.5 Coins
+- "Doomsday": Deck is Linked to a "Degrading" "Black Hole"
+
+> Challenge Ideas [Notes/Rules/Modifiers]:
+- Consider "Bound" for some challenges
+- Replace Money with Time; $1 => 10 seconds, Shows a Timer in the Money-Slot, Internally just subtract $0.1 every second
+- "No Shops"
+- After beating a Boss Blind, permanently Disable all owned Jokers
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+> Challenges [Final]:
+
+# "Pizzo Trial":
+-- Don't Regain Hands & Discards, Start with "5 Hands" and "5 Discards"
+-- Each Shop Generates a "+1 Hand" and "+1 Discard" Voucher for $5
+-- > [Secretly Ban these Vouchers at start of Run]
+-- Hands and Discards give Money [Green Deck]
+
+# "Cascade"/"Escalation Protocol":
+-- First Blind starts at 100
+-- Beat Double the last round score every Blind
+-- Skipping Actively just Doubles/Triples Score immidiatly
+-- "G.GAME.SEMBY_last_score = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling"
+
+# "Gungame":
+-- Start with 4 Kings [1 of each suit]
+-- Played Cards split in half (rounded up); 1x"King" -> 2x"Seven" -> 4x"Four" -> 8x"Two"
+-- Played 2's get destroyed, Rankless cards always get destroyed
+-- Newly added cards always turn into Stone
+
+# "Simon Says":
+-- Selects a random Poker Hand, changes when the Poker-Hand is played
+-- Playing any Hand that isn't Simon's Hand is invalid
+
+# "0 to 100":
+-- Super Buff Shop, Both Reroll Vouchers
+-- Go from Ante 1 to Ante 8 instantly
+
+# "Frozen Hell":
+-- Starting Deck is Debuffed
+-- All but 1 Mult are added to Chips

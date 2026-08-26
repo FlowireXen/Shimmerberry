@@ -1,0 +1,87 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Stickers
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+'''[[Shimmerberry]]''' currently adds '''8''' Stickers to the game.
+
+Unlike Vanilla-Balatro, these Stickers don't spawn naturally, they're<br>instead applied by other Cards or are just naturally part of certain Jokers.
+
+<!-- Table Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Sticker<br>Art & Names
+!Normal Description
+!On Playing Card
+!Target
+!Source
+!Artist
+
+|-
+| style="text-align:center;" | [[File:Blooming_Sticker_(Shimmerberry).png|142px]] <br> '''Blooming'''
+| Sell value<br>starts at {{ct|money|$0}}
+| <small>{{ct|grey|Invalid}}</small>
+| Jokers and<br>Consumables
+| [[Shimmerberry/Consumables|{{ct|attention|Eden Token}}]] <!-- Link to Consumable-Page when it exists! -->
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Bound_Sticker_(Shimmerberry).png|142px]] <br> '''Bound'''
+| {{ct|attention|+1}} Joker slot<br>{{ct|green|1 in 10}} chance to<br>{{ct|red|Debuff and Destroy}}<br>this card at the<br>end of the round
+| <small>{{ct|grey|Invalid}}</small>
+| Jokers and<br>Consumables
+| {{j||Bound Joker}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Event_Horizon_Sticker_(Shimmerberry).png|142px]] <br> '''Event Horizon'''
+| <small>{{ct|grey|Invalid}}</small>
+| Destroyed when<br>it's {{ct|attention|Singularity}}<br>is removed
+| Playing Cards
+| {{j||Singularity}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Degrading_Sticker_(Shimmerberry).png|142px]] <br> '''Degrading'''
+| Destroyed<br>after {{ct|attention|5}} rounds<br>{{ct|inactive|({{ct|attention|5}} remaining)}}
+| {{ct|attention|Destroyed}} if this<br>card is held in hand<br>at end of round
+| Playing Cards,<br>Jokers and<br>Consumables
+| [[Shimmerberry/Challenges|{{ct|attention|Challenges}}]]
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Lavish_Sticker_(Shimmerberry).png|142px]] <br> '''Lavish'''
+| Can't be<br>debuffed
+| <small>{{ct|grey|No difference}}</small>
+| Playing Cards,<br>Jokers and<br>Consumables
+| [[Shimmerberry/Challenges|{{ct|attention|Challenges}}]]
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Possessive_Sticker_(Shimmerberry).png|142px]] <br> '''Possessive'''
+| Can't be sold
+| <small>{{ct|grey|Invalid}}</small>
+| Jokers and<br>Consumables
+| {{j||Gambler's Contract}},<br>Naturally spawns<br>on some Jokers,<br>[[Shimmerberry/Challenges|{{ct|attention|Challenges}}]]
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Shimmer_Immune_Sticker_(Shimmerberry).png|142px]] <br> '''Shimmer Immune'''
+| Can't be transformed<br>by most other Jokers<br>and Consumables
+| <small>{{ct|grey|No difference}}</small>
+| Playing Cards,<br>Jokers and<br>Consumables
+| [[Shimmerberry/Challenges|{{ct|attention|Challenges}}]]
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:TMTRAINER'd_Sticker_(Shimmerberry).png|142px]] <br> '''TMTRAINER'd'''
+| Average {{ct|blue|Stats}}<br>changed by {{ct|codegreen|[%]}}
+----
+Marks Cards changed by<br>"Data-Jokers" and shows the<br>{{ct|codegreen|Stat-Change}} multiplier.
+| <small>{{ct|grey|Invalid}}</small>
+| Jokers
+| {{j||TMTRAINER}},<br>{{j||DATAMINER}},<br>[[Shimmerberry/Challenges|{{ct|attention|Challenges}}]]
+| '''Flowire'''
+
+|}
+<!-- Table End -->

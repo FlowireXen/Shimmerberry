@@ -1,0 +1,46 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Vouchers
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+'''[[Shimmerberry]]''' currently adds '''2''' Vouchers with '''2''' respective upgrades to the game.
+
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+! colspan="2" | Base Voucher
+! colspan="3" | Upgraded Voucher
+! Combined Bonus
+! colspan="2" | Other Infos
+|-
+!Art & Names
+!Description
+!Art & Names
+!Description
+!Unlock
+!Total
+!Artist
+!Reference
+
+|-
+| style="text-align:center;" | [[File:Comedy_Mask_(Shimmerberry).png|142px]]<br>'''Comedy Mask'''
+| {{ct|green|Reduce}} all<br>Blind Sizes by {{ct|darkpurple|20%}}<br>{{ct|red|-1}} Hand size
+| style="text-align:center;" | [[File:Tragedy_Mask_(Shimmerberry).png|142px]]<br>'''Tragedy Mask'''
+| {{ct|green|Reduce}} all<br>Blind Sizes by {{ct|darkpurple|20%}}<br>{{ct|red|-1}} Hand size
+| Discover<br>{{ct|attention|10}} Blinds
+| {{ct|green|Reduce}} all<br>Blind Sizes by {{ct|darkpurple|40%}}<br>{{ct|red|-2}} Hand size
+| '''Flowire'''
+| '''The Amazing<br>Digital Circus''' {{ct|grey|Show}}
+
+|-
+| style="text-align:center;" | [[File:Old_Urn_(Shimmerberry).png|142px]]<br>'''Old Urn'''
+| {{ct|green|+1}} Discard limit
+| style="text-align:center;" | [[File:Cursed_Urn_(Shimmerberry).png|142px]]<br>'''Cursed Urn'''
+| {{ct|green|+2}} Discard limit<br>but {{ct|red|lose}} {{ct|attention|1}} Discard<br>each round
+| Discard a total<br>of {{ct|attention|1250}} cards
+| Permanently {{ct|green|increase}}<br>amount of Discardable<br>cards by {{ct|attention|3}}, but {{ct|red|lose}}<br>{{ct|attention|1}} Discard each round
+| '''unkokat'''
+| '''R.E.P.O.''' {{ct|grey|Game}}<br>'''Yu-Gi-Oh!''' {{ct|grey|Game}}
+
+|}
+
+[[Category:Vouchers]]

@@ -1,0 +1,80 @@
+Bugfixes, challange updates and preperations for "Challenger Approaching".
+
+# Changelog:
+- Reworded a lot of different Jokers & Effects (Special thanks to https://github.com/GhostSalt and https://github.com/SleepyG11)
+
+## Joker Changes:
+### Buffs:
+- Abandoned Soul: +X0.1 -> +X0.2 Chips
+- Anodized Steel: -7.5% -> -8% Blind Size
+- Benthic Bloom: Destruction only gets checked for once, even when owning multiple copies
+- Buccaneer: 2x -> 3x Sell value
+- Hoe (Tool): +20 -> +25 Chips
+- Lottery Ticket: Checks for Non-Face cards, uncapped probability
+- Money Laundering: +$3 -> +$0 Reroll cost
+- Nashi Pear: +5.000 -> +10.000 Score, still takes 5 steps to be destroyed
+- Red Mask: +8 -> +10 Chips
+### Nerfs:
+- Chrono Break: Uncommon -> Rare
+- Piñata: Stops spawning after 5 succesfull hits
+- Quest?: Can't duplicate completed Quests anymore
+- Risky Joker: -4 -> -5 Chips, Mult unchanged
+- Stocked Shelves: $4 -> $5 Buy-Price
+- Unicorn: +25 -> +20 Chips
+### Fixes:
+- Blue-, Golden-, Straw- and Shimmerberry: Destructions trigger sooner, fixing event issues/softlocks
+- Money Laundering: Won't take twice as much as it costs when bought
+### Updates:
+- Agent 47: Quicker and more silent animation
+- Ceaseless Void: Removed "Payout" Stat, Stat-Gain reworked to be more random, Buffed Gains, Reduced Negative Effects
+- Opulent Skint: Easier rarity conditions but only triggers when entering a shop
+- Singularity: Can't copy cards created by a Singularity, copied steel-cards trigger immidiatly now
+- Fox Plush: 15 -> 12 Chips, 4 -> 5 Mult
+### Reworks:
+- JEV][L: Destroyes a consumable to generate 2 consumables, increases blind size for each created consumable
+- Oblivion: Resets you back to Ante 1, Slowly increases Ante condition, Each Reset rewards you with more money, Progrress-System has been deleted
+- Tempered Glass: Revives 50% of shattered glass cards, doesn't affect glass breaking chance
+- Toolkit: 500 -> 200 Durability, Repairs are now "1 to 1" instead of "X to 1", this is generally a Buff.
+
+## Challenge Changes:
+### Updates:
+- A Berry Good Meal: Lose when out of Berries, Blinds don't reward money.
+- A Tool for every Joke: Start with Tower & Lovers, 6 -> 5 Joker Slots, 0 -> 4 starting Money, Interest enabled
+- Perishable Fate: Removed Possessive from Toolkit
+- Countdown: 30 -> 24 Hands, 30 -> 24 Discards
+- Shiny Hunt: x4.0 -> x2.0 Initial Jokers Stats
+- Done Deal: DNA Perishable instead of Eternal, Goobert is now Possessive
+- The Last Unicorn: Judgement -> Death, Added some Whimsy *Neigh!*
+- Gaokao: 6 -> 5 Winning Ante, Removed (nearly) all Bans
+- Lavish Dreams: Banned (Hermit, Temperance and Immolate), Removed Bull and Bootstraps
+- Parking Roulette: Removed "Joker", Parking Discs are random (while in this Challenge), No Jokers in Shop, Special reward for hitting 3x same Effect
+- Qwest?: "Qwest?" Jokers are more difficult (while in this Challenge)
+- Emperor Calus: Start with 100% Lavish Debt, Start with 2x Investment Tag
+- Last One Left: Start with the new "Doomed" Tag, every card played adds 2% Doom
+- Speed of Light: Shooting Star is now Possessive insteaf od Eternal, X1.5 -> X2.0 Base Blind Size
+### Reworks:
+- Hunted: 6 -> 5 Hands size, 4 -> 3 Starting Hands, Game Over when (30 -> 45) or less cards, Standard Packs banned, gain +2 temporary hand size when discarding exactly 3 cards
+- Printty Good: 5 -> 10 Joker slots, No winning Ante, Photo Printer is now Rental, X1.5 Base Blind Size, Win when owning 9 copies of the same Joker
+- 50 uses left: Renamed to "100 uses left", 50 -> 100 starting Money, Instantly lose when hitting $0, Pay $1 per played card instead, -$2 -> $0 per unused Hands/Discards
+- (Again) "Secret Challenge 21" is a much more fun, quirky and predictable Challenge now!
+
+## Other Changes:
+### Added:
+- Tag, Doomed: Only spawns in Challenges, Increases next Showdown Blind Score, Is a Debt-Tag
+### Buffs:
+- Tag, Intimidating: -10% -> -20% Blind Size
+- Voucher, Comedy: -10% -> -20% Blind Size
+- Voucher, Tragedy: -15% -> -20% Blind Size
+### Updates:
+- Edition, Shiny: Clear Visuals when a Shiny Playing Card scores and ups the Value of a Joker
+- Mechanic, Revive: Revived Cards get put into the Deck when outside of a Blind
+### Reworks:
+- Edition, Resonance: +5% Blind Size, Can't be Debuffed
+- Mechanic, Durability: All Durability actions are now "1 to 1" instead of "X to 1", this is generally a Buff.
+- Sleeve, Burning: Destroys first scoring card every hand instead of first drawn hand every boss blind
+- Tarot, Ocean: Randomly selects a Joker ore Playing card in your hand
+### Removed:
+- Tag, Resonance Debt: Wasn't fun to play with and was generally very buggy
+
+## Technical Changes:
+- All Mod-Function-Names now start with "SEMBY_[...]"

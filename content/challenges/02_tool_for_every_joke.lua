@@ -7,7 +7,7 @@ SMODS.Challenge {
             { id = 'no_shop_jokers' },
         },
         modifiers = {
-            { id = 'hand_size', value = 16 },
+            { id = 'hand_size', value = 15 },
             { id = 'winning_ante', value = 6 },
         }
     },
@@ -27,7 +27,6 @@ SMODS.Challenge {
         { id = 'j_SEMBY_eternal_fortune' },
     },
     vouchers = {
-        { id = 'v_blank' },
         { id = 'v_magic_trick' },
     },
     consumeables = {
@@ -49,16 +48,19 @@ SMODS.Challenge {
         }
     },
 	apply = function(self)
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 0, y = 1 }
+        end
 		G.E_MANAGER:add_event(Event({
 			trigger = 'after',
 			func = function()
-                -- Used to be it's own function:
 	            G.E_MANAGER:add_event(Event({
 	            	func = function()
 	            		for index, joker in pairs(G.jokers.cards) do
                             if joker:SEMBY_has_durability() then
-	            				joker.ability.extra.durability = 1000 --(amount or 100)
-	            				joker.ability.extra.durability_max = 1000 --(amount or 100)
+	            				joker.ability.extra.durability = 1000
+	            				joker.ability.extra.durability_max = 1000
 	            			end
 	            		end
 	            		save_run()

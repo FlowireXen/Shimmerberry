@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "seven_wonders",
-	name = "SEMBY_seven_wonders",
-	atlas = "SEMBY_jokers",
-	pos = { x = 10, y = 3 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 1, y = 5 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,10 @@ SMODS.Joker {
 			percent_max = 0.50
 		}
 	},
+    attributes = {
+		'rank', 'seven', 'xblindsize', 'full_deck'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         local seven_tally = 0
         if G.playing_cards then
 			for _, playing_card in ipairs(G.playing_cards) do

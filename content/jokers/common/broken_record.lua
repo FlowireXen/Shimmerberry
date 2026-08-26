@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "broken_record",
-	name = "SEMBY_broken_record",
-	atlas = "SEMBY_jokers",
-	pos = { x = 1, y = 4 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 3, y = 3 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -12,25 +10,28 @@ SMODS.Joker {
 	cost = 4,
 	config = {
 		extra = {
-			repetitions_min = 2,
-			repetitions_max = 3,
+			min = 2,
+			max = 3,
 			cards = nil
 		}
+	},
+    attributes = {
+		'retrigger',
+		'music'
 	},
 	pools = {
 		["Music"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
-			card.ability.extra.repetitions_min,
-			card.ability.extra.repetitions_max
+			card.ability.extra.min,
+			card.ability.extra.max
 		} }
 	end,
 	calculate = function(self, card, context)
         if context.before then --and context.main_eval
 			local selected = {}
-			local repeats = math.random(card.ability.extra.repetitions_min, card.ability.extra.repetitions_max)
+			local repeats = math.max(1, pseudorandom('SEMBY_broken_record', card.ability.extra.min, card.ability.extra.max))
 			for i = 1, repeats do
 				local ret = pseudorandom_element(context.scoring_hand, pseudoseed('SEMBY_broken_record_'..i))
 				table.insert(selected, ret)

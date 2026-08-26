@@ -1,10 +1,11 @@
+local function get_texture()
+	return { x = math.random(0, 3), y = 4 }
+end
 SMODS.Joker {
 	key = "annoying_dog",
-	name = "SEMBY_annoying_dog",
-	atlas = "SEMBY_jokers",
-	pos = { x = 11, y = 1 },
-    unlocked = true,
-    discovered = false,
+    SEMBY_art = "flowire",
+	atlas = "SEMBY_jokers_2",
+	pos = get_texture(), --> Changes each Game-Session
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -12,24 +13,26 @@ SMODS.Joker {
 	cost = 7,
 	config = {
 		extra = {
-			xmult = 3,
-			slots = 103
+			xmult = 3
 		}
 	},
+    attributes = {
+		'xmult',
+		'consumable', 'animal',
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		info_queue[#info_queue + 1] = { key = "inspired_vio_undertale", set = "Other" }
 		return { vars = {
 			(card.ability.extra.xmult % 1 == 0) and card.ability.extra.xmult..'.0' or card.ability.extra.xmult
 		} }
 	end,
     add_to_deck = function(self, card, from_debuff)
-		G.consumeables:SEMBY_add_text_overwrite(card.sort_id, 'SEMBY_dog_overflow')
+		G.consumeables:SEMBY_add_text_override(card.sort_id, 'SEMBY_dog_overflow')
 		G.consumeables:SEMBY_block()
     end,
     remove_from_deck = function(self, card, from_debuff)
 		G.consumeables:SEMBY_unblock()
-		G.consumeables:SEMBY_remove_text_overwrite(card.sort_id)
+		G.consumeables:SEMBY_remove_text_override(card.sort_id)
     end,
 	calculate = function(self, card, context)
 		if context.joker_main then

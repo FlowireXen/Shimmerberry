@@ -1,20 +1,21 @@
 SMODS.Joker {
 	key = "fortune_cookie",
-	name = "SEMBY_fortune_cookie",
-	atlas = "SEMBY_jokers",
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
 	pos = { x = 6, y = 0 },
-    unlocked = true,
-    discovered = false,
     eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = false,
 	rarity = 1,
 	cost = 6,
+    attributes = {
+		'editions', 'food', 'on_sell',
+		'changing_effects'
+	},
 	pools = {
         ["Food"] = true,
     },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		if card.edition and card.edition.key then
 			local loc_key = G.localization.descriptions.Edition[card.edition.key]
 			if loc_key and loc_key.name then
@@ -31,7 +32,7 @@ SMODS.Joker {
 		if card.config.center.discovered and initial then
 			G.E_MANAGER:add_event(Event({
 				func = function()
-					card:set_edition(poll_edition(nil, nil, nil, true))
+					card:set_edition(poll_edition('SEMBY_fortune_cookie', nil, nil, true))
 					return true
 				end
 			}))
@@ -52,7 +53,7 @@ SMODS.Joker {
 				trigger = 'after',
 				delay = 0.2,
 				func = function()
-					card:set_edition(poll_edition(nil, nil, nil, true))
+					card:set_edition(poll_edition('SEMBY_fortune_cookie', nil, nil, true))
 					card:flip()
 					play_sound('card1')
 					return true

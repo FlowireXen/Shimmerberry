@@ -1,16 +1,10 @@
 SMODS.Consumable {
     key = "ocean",
-	name = "SEMBY_ocean",
-    set = "Tarot",
+    SEMBY_art = "lanedarushpy",
 	atlas = "SEMBY_consumables",
-    pos = { x = 3, y = 0 },
-    config = {
-        extra = {
-            odds = 5
-        }
-    },
+    pos = { x = 1, y = 0 },
+    set = "Tarot",
     loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
         info_queue[#info_queue + 1] = G.P_CENTERS.e_SEMBY_pearlescent
         info_queue[#info_queue + 1] = G.P_CENTERS.e_SEMBY_shiny
         --info_queue[#info_queue + 1] = { key = "e_SEMBY_shiny_playing_card", set = "Edition", config = G.P_CENTERS.e_SEMBY_shiny.config }
@@ -23,7 +17,7 @@ SMODS.Consumable {
         -- Card Selection
         local selected_card
         if next(jokers) and next(pl_cards) then -- chance for both
-            if SMODS.pseudorandom_probability(card, 'SEMBY_ocean', 1, (card.ability.extra.odds or 5)) then
+            if SMODS.pseudorandom_probability(card, 'SEMBY_ocean', 1, 5, nil, true) then
                 selected_card = pseudorandom_element(jokers, 'SEMBY_ocean')
             else
                 selected_card = pseudorandom_element(pl_cards, 'SEMBY_ocean')

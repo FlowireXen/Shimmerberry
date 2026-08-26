@@ -1,0 +1,105 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Vanilla_Changes
+CHECK AGAIN BEFORE RELEASE
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+{{Uses Many Images}}
+<!-- Thank you https://balatromods.miraheze.org/wiki/Manifold/Vanilla_Changes for the Page-Style inspiration! -->
+
+__TOC__
+
+== Bugfixes ==
+
+<blockquote>Normally, {{vj|Mr. Bones}} cannot save the player if they run out of cards in their deck. However, if the player has two Mr. Bones, running out of cards puts the game in a glitched state where it ends the round every frame, with very strange results. [...] Using this glitch, it is possible to progress past ante 39. If done on a boss round, it ups the ante constantly.</blockquote>
+
+'''[[Shimmerberry]]''' fixes a bug that stops Mr. Bones from saving the player if they run out of cards.<br>
+Additionally, if the player dies with two Mr. Bones, the game does not constantly up the Ante anymore.<br>
+This Bugfix affects all Mods that have a Player-Saving Joker.
+
+== Jokers ==
+
+'''[[Shimmerberry]]''' adds a [[Shimmerberry/Stickers|TMTRAINER'd]] Sticker to {{vj|Misprint}}, which allows Misprint to enable {{j||TMTRAINER}}'s special spawn condition.<br>
+The mod also buffs and simplifies the wording for {{vj|Flower Pot}}:
+
+<!-- Table 1, Start -->
+{| class="wikitable" style="text-align:center;image-rendering:pixelated"
+!Vanilla
+!Modified
+! 
+!Reason
+
+|- style="border-bottom:hidden"
+| {{captimg|Vanilla|Flower Pot|imgsize=142px|link=v:Flower Pot}}
+| {{captimg||Flower Pot|imgsize=142px|sprmod=Vanilla}}
+| 
+| {{captimg||Potted Flowers|imgsize=142px}}
+
+|-
+! style="font-weight:normal" | {{ct|xmult|X3}} Mult if poker<br>hand contains a<br>{{ct|diamonds|Diamond}} card, {{ct|clubs|Club}} card,<br>{{ct|hearts|Heart}} card, and {{ct|spades|Spade}} card
+! style="font-weight:normal" | {{ct|xmult|X4}} Mult if poker<br>hand contains<br>{{ct|attention|4}} different suits
+! 
+! style="font-weight:normal" | {{ct|xchips|X4}} Chips if poker<br>hand contains<br>{{ct|attention|4}} different suits
+
+|}
+<!-- Table 1, End -->
+
+== Challenges ==
+
+'''[[Shimmerberry]]''' add '''2''' additional "Game Modifiers":
+- Winning Ante: {{ct|grey|[8]}}
+- X{{ct|grey|[1]}} base Blind size
+
+Eternal Jokers always gain "[[Shimmerberry/Stickers|Shimmer Immune]]" at the start of each Challenge run.
+
+=== Shimmerberry Challenges ===
+
+Some '''[[Shimmerberry/Challenges|Shimmerberry Challenges]]''' change vanilla behaviours.
+
+<!-- Table 2, Start -->
+{| class="wikitable" style="text-align:center;image-rendering:pixelated"
+!Challenge
+!Changes
+
+|-
+| {{captimg|Shimmerberry|Countdown|imgsize=71px|img=Challenge Deck (Vanilla).png|link=Shimmerberry/Challenges}}
+| {{vt|Garbage Tag}} gives $1 for each current Discard<br>left, instead of counting up all unused Discards.
+
+|}
+<!-- Table 2, End -->
+
+=== Vanilla Challenges ===
+
+'''[[Shimmerberry]]''' adds additional restrictions to Vanilla challenges, these restrictions are not visible ingame.
+
+<!-- Table 3, Start -->
+{| class="wikitable" style="text-align:center;image-rendering:pixelated;max-width:1000px"
+! style="min-width:150px" | Challenge
+! style="min-width:250px" | Added Restrictions
+
+|-
+| {{captimg|Vanilla|Non-Perishable|imgsize=71px|img=Challenge Deck (Vanilla).png|link=v:Non-Perishable}}
+| {{j||Axe}}, {{j||Balloon}}, {{j||Blueberry}}, {{j||Booster Pack}}, {{j||Bound Joker}}, {{j||Cockroach}}, {{j||Coupon Booklet}}, {{j||Echoing Joker}}, {{j||Emergency Button}}, {{j||Fortune Cookie}}, {{j||Goldenberry}}, {{j||Goobert}}, {{j||Hoe}}, {{j||Melon}}, {{j||Mineshaft}}, {{j||Nashi Pear}}, {{j||Opulent Skint}}, {{j||Ouroboros}}, {{j||Pickaxe}}, {{j||Piggy Bank}}, {{j||Piñata}}, {{j||Plastic Key}}, {{j||Replicator}}, {{j||Scav. Prototype}}, {{j||Shimmerberry|img=Shimmerberry_Joker_(Shimmerberry).png}}, {{j||Shovel}}, {{j||Stocked Shelves}}, {{j||Strawberry}}, {{j||Toolkit}}
+
+|-
+| {{captimg|Vanilla|Fragile|imgsize=71px|img=Challenge Deck (Vanilla).png|link=v:Fragile}}
+| {{j||Alpha}}, {{j||Anodized Steel}}, {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=The Backup|img=Backup_Tarot_(Shimmerberry).gif}}, {{j||Benthic Bloom}}, {{j||Chrono Break}}, {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=Daybreak|img=Daybreak_Spectral_(Shimmerberry).png}}, {{j||Doomsday Device}}, {{j||57 Leaf Clover}}, {{j||Goobert}}, {{j||Hemoturgy}}, {{j||Inventation}}, {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=Microcosm|img=Microcosm_Planet_(Shimmerberry).png}}, {{j||Mineshaft}}, {{j||Nostalgia}}, {{j||Reagent}}, {{j||Singularity}}, {{j||Tempered Glass}}, {{j||V.I.P. Ticket}}
+
+|-
+| {{captimg|Vanilla|Five-Card Draw|imgsize=71px|img=Challenge Deck (Vanilla).png|link=v:Five-Card Draw}}
+| {{WeeIconLink|pagelink=Shimmerberry/Vouchers|displaytext=Comedy Mask|img=Comedy_Mask_(Shimmerberry).png}}, {{j||The Dwarf}}, {{WeeIconLink|pagelink=Shimmerberry/Boss_Blinds|displaytext=The Frog|img=The_Frog_(Shimmerberry).gif}}, {{j||Garden Gnome}}, {{j||The Giant}}, {{j||Scaffolding}}, {{j||Stylish Joker}}, {{WeeIconLink|pagelink=Shimmerberry/Vouchers|displaytext=Tragedy Mask|img=Tragedy_Mask_(Shimmerberry).png}}
+
+|-
+| {{captimg|Vanilla|Jokerless|imgsize=71px|img=Challenge Deck (Vanilla).png|link=v:Jokerless}}
+| {{WeeIconLink|pagelink=Shimmerberry/Tags|displaytext=Duplitage|img=Duplitage_(Shimmerberry).png}}, {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=Order|img=Order_Spectral_(Shimmerberry).png}}, {{WeeIconLink|pagelink=Shimmerberry/Tags|displaytext=Pearlescent Tag|img=Pearlescent_Tag_(Shimmerberry).png}}, {{WeeIconLink|pagelink=Shimmerberry/Boss_Blinds|displaytext=Sharp Shooter|img=Sharp_Shooter_(Shimmerberry).gif}}, {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=Soul Gem|img=Soul_Gem_Empty_Spectral_(Shimmerberry).png}}
+
+|-
+| {{vd|Blast Off|Blast Off|img=Challenge Deck (Vanilla).png|nott=true}},<br>{{vd|Golden Needle|Golden Needle|img=Challenge Deck (Vanilla).png|nott=true}}
+| {{j||Alpha}}, {{j||Eternal Fortune}}, {{j||Improv Show}}, {{j||Money Laundering}}, {{j||Ouroboros}}, {{WeeIconLink|pagelink=Shimmerberry/Tags|displaytext=Tag at Hand|img=Tag_at_Hand_(Shimmerberry).png}}
+
+|-
+| {{vd|The Omelette|The Omelette|img=Challenge Deck (Vanilla).png|nott=true}},<br>{{vd|Rich get Richer|Rich get Richer|img=Challenge Deck (Vanilla).png|nott=true}},<br>{{vd|Inflation|Inflation|img=Challenge Deck (Vanilla).png|nott=true}},<br>{{vd|Golden Needle|Golden Needle|img=Challenge Deck (Vanilla).png|nott=true}}
+| {{j||Adblocker}}, {{j||Bunburrow}}, {{j||Coupon}}, {{j||Coupon Booklet}}, {{j||Fire Exin't}}, {{j||Goldenberry}}, {{j||Lavish Joker}}, {{WeeIconLink|pagelink=Shimmerberry/Consumables|displaytext=The Ocean|img=Ocean_Tarot_(Shimmerberry).png}}, {{j||Pickaxe}}, {{j||Risky Joker}}, {{WeeIconLink|pagelink=Shimmerberry/Editions|displaytext=Shiny Edition|img=Shiny_(Shimmerberry).png}}, {{WeeIconLink|pagelink=Shimmerberry/Tags|displaytext=Shiny Tag|img=Shiny_Tag_(Shimmerberry).png}}, {{j||Silver Mask}}, {{WeeIconLink|pagelink=Shimmerberry/Tags|displaytext=Spin Tag|img=Spin_Tag_(Shimmerberry).png}}, {{j||Stylish Joker}}, {{WeeIconLink|pagelink=Shimmerberry/Tags|displaytext=Vouch-down Tag|img=Vouch_down_Tag_(Shimmerberry).png}}
+
+|}
+<!-- Table 3, End -->

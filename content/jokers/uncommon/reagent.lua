@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "reagent",
-	name = "SEMBY_reagent",
-	atlas = "SEMBY_jokers",
-	pos = { x = 10, y = 4 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 4, y = 5 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = true,
@@ -16,8 +14,10 @@ SMODS.Joker {
 			xmult_mod = 0.1
 		}
 	},
+    attributes = {
+		'scaling', 'xmult', 'enhancements'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		local xmult_ret = card.ability.extra.xmult
         for _, playing_card in ipairs(G.playing_cards or {}) do
 			if xmult_ret > 1.0 then
@@ -49,7 +49,7 @@ SMODS.Joker {
 					trigger = 'after',
 					delay = 0.2,
 					func = function()
-						juice_card:juice_up(0.1, 0.2)
+						juice_card:juice_up(0.2, 0.2)
 						play_sound('cancel')
 						return true
 					end

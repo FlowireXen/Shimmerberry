@@ -1,10 +1,8 @@
 SMODS.Joker {
 	key = "agent_fourty_seven",
-	name = "SEMBY_agent_fourty_seven",
-	atlas = "SEMBY_jokers",
-	pos = { x = 4, y = 2 },
-    unlocked = true,
-    discovered = false,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 4, y = 4 },
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
@@ -15,59 +13,48 @@ SMODS.Joker {
 			discard_limit = 3
 		}
 	},
+    attributes = {
+		'destroy_card', 'discard'
+	},
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
 			card.ability.extra.discard_limit
 		} }
 	end,
+    add_to_deck = function(self, card, from_debuff)
+		if not from_debuff then card.ability.extra.discard_limit = math.floor(card.ability.extra.discard_limit) end
+    end,
 	calculate = function(self, card, context)
 		if context.pre_discard and not (context.blueprint) and #context.full_hand == card.ability.extra.discard_limit then
 			-- Find Target (Duplicate Safe Code)
 			local target_location = pseudorandom('SEMBY_agent_fourty_seven', 1, card.ability.extra.discard_limit)
 			for i = 1, card.ability.extra.discard_limit do
-				if context.full_hand[target_location].ability.SEMBY_hitman then
+				if context.full_hand[target_location].SEMBY_removed then
 					target_location = target_location + 1
 					if target_location > card.ability.extra.discard_limit then
 						target_location = 1
 					end
 				else
-					context.full_hand[target_location].ability.SEMBY_hitman = card.sort_id
-					break;
+					context.full_hand[target_location].SEMBY_removed = card.sort_id
+					break
 				end
 			end
 			return nil, true
 		end
         if context.discard and not (context.blueprint) and #context.full_hand == card.ability.extra.discard_limit
-		and context.other_card.ability.SEMBY_hitman and context.other_card.ability.SEMBY_hitman == card.sort_id then
-			G.E_MANAGER:add_event(Event({
-				trigger = 'after',
-				func = function()
-					attention_text({
-						text = localize('SEMBY_target'),
-						scale = 0.8,
-						hold = 1.0,
-						major = context.other_card,
-						colour = G.C.RED,
-						align = 'cm',
-						offset = { x = 0, y = 0 }
-					})
-					return true
-				end
-			}))
-			delay(0.5)
-			context.other_card.ability.SEMBY_hitman = nil
-			context.other_card.SEMBY_removed = true --> Only works due to a Lovely-Patch: "/lovely/fix_discard.toml"
-			G.E_MANAGER:add_event(Event({
-				trigger = 'after',
-				func = function()
-					SMODS.destroy_cards(context.other_card, nil, true, false)
-					return true
-				end
-			}))
+		and context.other_card.SEMBY_removed and context.other_card.SEMBY_removed == card.sort_id then
+			context.other_card.SEMBY_removed = nil
+			attention_text({
+				text = localize('SEMBY_target'),
+				scale = 0.8, hold = 1.0,
+				major = context.other_card,
+				colour = G.C.RED, align = 'cm',
+				offset = { x = 0, y = 0 }
+			})
 			return {
 				message = localize('SEMBY_acquired_ex'),
-				colour = G.C.RED
+				colour = G.C.RED,
+				remove = true
 			}
         end
 	end

@@ -1,55 +1,83 @@
--- Reworked Vanilla:
-function SEMBY_change_shop_size(mod)
-    if not G.GAME.shop then return end
-    G.GAME.shop.joker_max = G.GAME.shop.joker_max + mod
-    if G.shop_jokers and G.shop_jokers.cards then
-        -- Don't remove jokers in shop.
-        G.shop_jokers.config.card_limit = G.GAME.shop.joker_max
-        G.shop_jokers.T.w = math.min(G.GAME.shop.joker_max*1.02*G.CARD_W,4.08*G.CARD_W)
-        G.shop:recalculate()
-        for i = 1, G.GAME.shop.joker_max - #G.shop_jokers.cards do
-            G.shop_jokers:emplace(create_card_for_shop(G.shop_jokers))
-        end
-    end
-end
--- Joker:
 SMODS.Joker {
 	key = "stocked_shelves",
-	name = "SEMBY_stocked_shelves",
-	atlas = "SEMBY_jokers",
-	pos = { x = 4, y = 5 },
-    unlocked = true,
-    discovered = false,
-    eternal_compat = true,
+	SEMBY_art = "unkokat",
+	atlas = "SEMBY_jokers_1",
+	pos = { x = 5, y = 6 },
+    eternal_compat = false,
     perishable_compat = true,
     blueprint_compat = false,
 	rarity = 1,
-	cost = 5,
+	cost = 4,
 	config = {
 		extra = {
-			slots = 1
+			-- Durability
+			durability = 10,
+			durability_max = 10,
+			durability_other = { refill = true },
+			-- Joker
+			durability_diff = 4
 		}
 	},
+    attributes = {
+		'passive',
+		'shop', 'durability'
+	},
+	pools = {
+        ["Durability"] = true,
+    },
 	loc_vars = function(self, info_queue, card)
-		SEMBY_Queue_Artist(card, info_queue)
 		return { vars = {
-			card.ability.extra.slots,
+			card:SEMBY_durability_amount(),
+			card.ability.extra.durability_diff,
+			colours = { card:SEMBY_durability_color() }
 		} }
 	end,
-    add_to_deck = function(self, card, from_debuff)
-		SMODS.change_voucher_limit(card.ability.extra.slots)
-        SMODS.change_booster_limit(card.ability.extra.slots)
-        G.E_MANAGER:add_event(Event({func = function()
-            SEMBY_change_shop_size(card.ability.extra.slots)
-			return true
-        end}))
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-		SMODS.change_voucher_limit(-card.ability.extra.slots)
-        SMODS.change_booster_limit(-card.ability.extra.slots)
-        G.E_MANAGER:add_event(Event({func = function()
-            SEMBY_change_shop_size(-card.ability.extra.slots)
-			return true
-        end}))
+	calculate = function(self, card, context)
+        if not context.blueprint then
+            local ret_state, ret_uses
+            if context.buying_card and not context.buying_self then
+                ret_state = context.card == card and 1 or 0
+                if context.card.ability.set == "Voucher" then
+					if card.ability.extra.durability - card.ability.extra.durability_diff > 0 then
+						ret_uses = card.ability.extra.durability_diff
+			        	G.E_MANAGER:add_event(Event({
+			        		func = function()
+			        			SMODS.add_voucher_to_shop()--(nil, true)
+			        			return true
+			        		end
+			        	}))
+					else return end
+                else
+			        G.E_MANAGER:add_event(Event({
+			        	func = function()
+			        		G.shop_jokers:emplace(create_card_for_shop(G.shop_jokers))
+			        		return true
+			        	end
+			        }))
+                end
+            end
+            if context.open_booster and context.card.SEMBY_origin and context.card.SEMBY_origin == 'shop' then
+                ret_state = 0
+			    G.E_MANAGER:add_event(Event({
+			    	func = function()
+			    		SMODS.add_booster_to_shop()
+			    		return true
+			    	end
+			    }))
+            end
+            if ret_state then
+                return {
+                    message = localize('SEMBY_restocked_ex'),
+                    colour = G.C.GREEN,
+					func = function()
+                        if ret_state == 0 then
+                            card:SEMBY_durability_use(ret_uses)
+		    	            card:SEMBY_durability_check()
+                        end
+						return true
+					end
+                }
+            end
+        end
     end
 }

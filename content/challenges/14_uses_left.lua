@@ -61,7 +61,15 @@ SMODS.Challenge {
         -- Check for a Loss
         if (context.money_altered and (G.GAME.dollars + context.amount) <= 0)
         or (context.after and G.GAME.dollars <= 0) --Extra Check for "The Tooth"
-        then SEMBY_Challenge_LOSE(true) end
+        then
+            G.GAME.SEMBY_defeated = {
+                atlas = G.P_CENTERS.j_SEMBY_pay_two_win.atlas,
+                position = G.P_CENTERS.j_SEMBY_pay_two_win.pos,
+                loc_key = 'SEMBY_lose_14_uses',
+                color = G.C.MONEY
+            }
+            SEMBY_Challenge_LOSE(true)
+        end
     end,
 	button_colour = G.C.RED
 }

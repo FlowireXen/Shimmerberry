@@ -1,65 +1,4 @@
-SMODS.Back{
-	key = "scartare",
-	name = "SEMBY_scartare",
-	atlas = "SEMBY_decks",
-	pos = { x = 0, y = 0 },
-	config = {
-		extra = {
-			discard_mod = 3,    -- remove discards
-			discard_limit = 3,	-- remove discardable amount
-			hand_size = 2,      -- add hand size
-			min_id = 7,         -- remove card-id below
-			discards = 2        -- visuals for menu
-		}
-	},
-	loc_vars = function(self, info_queue, back)
-		--SEMBY_Queue_Artist(back, info_queue)
-		return { vars = {
-			self.config.extra.min_id,
-			self.config.extra.hand_size,
-			self.config.extra.discard_mod,
-			G.GAME.SEMBY_scartare_view and G.GAME.starting_params.discard_limit or self.config.extra.discards
-		} }
-	end,
-    apply = function(self)
-		-- Show Different Auto-Discard Amount:
-		G.GAME.SEMBY_scartare_view = true
-		-- Discards: -3
-		G.GAME.starting_params.discards = math.max(0, G.GAME.starting_params.discards - self.config.extra.discard_mod)
-		-- Discard Limit: -3
-        G.E_MANAGER:add_event(Event({
-            func = function()
-				SMODS.change_discard_limit(-self.config.extra.discard_limit)
-				return true
-            end
-        }))
-		-- Hand Size: +2
-		G.GAME.starting_params.hand_size = G.GAME.starting_params.hand_size + self.config.extra.hand_size
-		-- Deck: Remove any below 7
-        G.E_MANAGER:add_event(Event({
-            func = function()
-				for i = #G.playing_cards, 1, -1 do
-					if G.playing_cards[i]:get_id() < self.config.extra.min_id then
-						G.playing_cards[i]:remove()
-					end
-				end
-				G.GAME.starting_deck_size = #G.playing_cards
-                return true
-            end
-        }))
-		-- Bans: Useless Tag
-		G.GAME.banned_keys['tag_garbage'] = true
-    end,
-	calculate = function(self, back, context)
-        if context.after then
-			SEMBY_Scartare()
-        end
-    end,
-	unlocked = false,
-	unlock_condition = {type = 'win_deck', deck = 'b_red'},
-}
-
-function SEMBY_Scartare()
+local function SEMBY_Scartare()
 	-- "The Hook 2.0"
 	G.E_MANAGER:add_event(Event({
 		func = function()
@@ -115,3 +54,115 @@ function SEMBY_Scartare()
 		end
 	}))
 end
+SMODS.Back{
+	key = "scartare",
+	SEMBY_art = "flowire",
+	atlas = "SEMBY_decks",
+	pos = { x = 0, y = 0 },
+	config = {
+		extra = {
+			discard_mod = 3,    -- remove discards
+			discard_limit = 3,	-- remove discardable amount
+			hand_size = 2,      -- add hand size
+			min_id = 7,         -- remove card-id below
+			discards = 2        -- visuals for menu
+		}
+	},
+	loc_vars = function(self, info_queue, back)
+		return { vars = {
+			self.config.extra.min_id,
+			self.config.extra.hand_size,
+			self.config.extra.discard_mod,
+			G.GAME.SEMBY_scartare_view and G.GAME.starting_params.discard_limit or self.config.extra.discards
+		} }
+	end,
+    apply = function(self)
+		-- Show Different Auto-Discard Amount:
+		G.GAME.SEMBY_scartare_view = true
+		-- Discards: -3
+		G.GAME.starting_params.discards = math.max(0, G.GAME.starting_params.discards - self.config.extra.discard_mod)
+		-- Discard Limit: -3
+        G.E_MANAGER:add_event(Event({
+            func = function()
+				SMODS.change_discard_limit(-self.config.extra.discard_limit)
+				return true
+            end
+        }))
+		-- Hand Size: +2
+		G.GAME.starting_params.hand_size = G.GAME.starting_params.hand_size + self.config.extra.hand_size
+		-- Deck: Remove any below 7
+        G.E_MANAGER:add_event(Event({
+            func = function()
+				for i = #G.playing_cards, 1, -1 do
+					if G.playing_cards[i]:get_id() < self.config.extra.min_id then
+						G.playing_cards[i]:remove()
+					end
+				end
+				G.GAME.starting_deck_size = #G.playing_cards
+                return true
+            end
+        }))
+		-- Bans: Useless Tag
+		G.GAME.banned_keys['tag_garbage'] = true
+    end,
+	calculate = function(self, back, context)
+        if context.after then
+			SEMBY_Scartare()
+        end
+    end,
+	unlocked = false,
+	unlock_condition = {type = 'win_deck', deck = 'b_red'},
+}
+if Shimmerberry.compat.sleeves then CardSleeves.Sleeve {
+    key = "scartare_sl",
+	SEMBY_art = "flowire",
+    atlas = "SEMBY_sleeves",
+    pos = { x = 0, y = 0 },
+	config = {
+		extra = {
+			discard_mod = 3,    -- remove discards
+			discard_limit = 3,	-- remove discardable amount
+			bonus_limit = 2,    -- add if "deck + sleeve"
+			hand_size = 2,      -- add hand size
+			min_id = 7,         -- remove card-id below
+			discards = 2        -- visuals for menu
+		}
+	},
+    loc_vars = function(self)
+        if self.get_current_deck_key() == "b_SEMBY_scartare" then
+			return { key = "sleeve_SEMBY_scartare_sl_alt", vars = {
+				self.config.extra.bonus_limit,
+				self.config.extra.bonus_limit
+			} }
+        else
+			return { vars = {
+				self.config.extra.min_id,
+				self.config.extra.hand_size,
+				self.config.extra.discard_mod,
+				G.GAME.SEMBY_scartare_view and G.GAME.starting_params.discard_limit or self.config.extra.discards
+			} }
+        end
+    end,
+    apply = function(self)
+		if self.get_current_deck_key() == "b_SEMBY_scartare" then
+			-- Discard Limit Bonus: +2
+        	G.E_MANAGER:add_event(Event({
+        	    func = function()
+					SMODS.change_discard_limit(self.config.extra.bonus_limit)
+					return true
+        	    end
+        	}))
+			-- Hand Size Bonus: +2
+			G.GAME.starting_params.hand_size = G.GAME.starting_params.hand_size + self.config.extra.bonus_limit
+		else -- Any other Deck:
+			SMODS.Back.obj_table["b_SEMBY_scartare"].apply(self)
+		end
+    end,
+    calculate = function(self, sleeve, context)
+        if context.after and not (self.get_current_deck_key() == "b_SEMBY_scartare") then
+			SEMBY_Scartare()
+        end
+    end,
+    unlocked = false,
+    unlock_condition = { deck = "b_SEMBY_scartare", stake = "stake_green" },
+} end

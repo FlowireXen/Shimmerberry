@@ -1,0 +1,68 @@
+Page:
+https://balatromods.miraheze.org/wiki/Shimmerberry/Boss_Blinds
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{modsubpage}}
+
+'''[[Shimmerberry]]''' currently adds '''5''' Boss Blinds to the game, including '''1''' Showdown Boss Blind.<br>
+When starting the game, there is a 10% chance for some Boss Blinds to have alternative names.
+
+<!-- Table Start -->
+{| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
+!Blind<br>Art & Names
+!Description
+!Min. Ante
+!Blind Size
+!Showdown?
+!Reward
+!Artist
+
+|-
+| style="text-align:center;" | [[File:The_Frog_(Shimmerberry).gif|68px]] <br> '''The Frog''' <br> {{ct|grey|Tiny Guy}}
+| {{ct|attention|-1}} hand size and<br>{{ct|red|+1}} discard for<br>each hand played
+| Ante 2
+| X2 base
+| No
+| {{ct|money|$5}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:The_Ghost_(Shimmerberry).gif|68px]] <br> '''The Ghost''' <br> {{ct|grey|Phanta}}
+| At start of the round,<br>{{ct|red|increase}} Blind Size by {{ct|attention|25%}}<br>for each Joker you own
+| Ante 2
+| X1.5 base
+| No
+| {{ct|money|$5}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Golden_Egg_(Shimmerberry).gif|68px]] <br> '''Golden Egg''' <br> {{ct|grey|The Egg}}
+| Reward loses {{ct|money|$1}}<br>each scoring card
+| Ante 3
+| X3 base
+| No
+| {{ct|money|$25}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:The_Pencil_(Shimmerberry).gif|68px]] <br> '''The Pencil''' <br> {{ct|grey|Ink Scrawl}}
+| Debuff {{ct|attention|first}} played<br>card every hand
+| {{ct|grey|None}}
+| X2 base
+| No
+| {{ct|money|$5}}
+| '''Flowire'''
+
+|-
+| style="text-align:center;" | [[File:Sharp_Shooter_(Shimmerberry).gif|68px]] <br> '''Sharp Shooter''' <br> {{ct|grey|Justice}}
+| {{ct|attention|Five}} random Cards<br>debuffed every hand
+| {{ct|grey|None}}
+| X2 base
+| Yes
+| {{ct|money|$8}}
+| '''Flowire'''
+
+|}
+<!-- Table End -->
+
+[[Category:Boss Blinds]]

@@ -4,42 +4,34 @@ function SEMBY_Win_Ante_Hidden()
 	return G.GAME.SEMBY_hide_win_ante
 end
 
---## Generic Challenge Modifiers
-function SEMBY_Challenge_Generic()
-	-- "Order"-Immunity for Eternal/Possessive Jokers
+--## SEMBY Challange Changes
+function SEMBY_Challenge_Start()
+	-- Add "Shimmer-Immunity" to "Eternal"/"Possessive" Cards:
 	G.E_MANAGER:add_event(Event({
 		func = function()
-			if G.jokers and G.jokers.cards and #G.jokers.cards > 0 then
-				for i = 1, #G.jokers.cards do
-					if SMODS.is_eternal(G.jokers.cards[i], 'OrderImmunity')
-					or G.jokers.cards[i].ability.SEMBY_possessive
-					then G.jokers.cards[i].ability.SEMBY_OI = true end
+			for _, area in ipairs(SMODS.get_card_areas('jokers')) do
+				for _, card in ipairs(area.cards) do
+					if SMODS.is_eternal(card)
+					--or card.ability.SEMBY_possessive
+					then card:add_sticker('SEMBY_shimmer_immune', true) end
 				end
 			end
 			return true
 		end
 	}))
-	-- Bans, Break Progression:
-	G.GAME.banned_keys['j_SEMBY_cockroach'] = true
-	G.GAME.banned_keys['j_SEMBY_emergency_button'] = true
-	-- Bans, Overpowered:
-	G.GAME.banned_keys['j_SEMBY_lavish_joker'] = true
-	G.GAME.banned_keys['j_SEMBY_singularity'] = true
-	G.GAME.banned_keys['j_SEMBY_oblivion'] = true
-	G.GAME.banned_keys['j_SEMBY_bound'] = true
-	-- Breaking or OP, but get to Stay:
-	--G.GAME.banned_keys['j_SEMBY_copy_printer'] = true
-	--G.GAME.banned_keys['c_SEMBY_order_shrine'] = true
-end
-
---## Custom Bans for Vanilla Challenges
-function SEMBY_Challenge_Vanilla()
+	-- Modifier-Bans
+	if G.GAME.modifiers and G.GAME.modifiers.no_blind_reward
+	then -- No Egg.
+		G.GAME.banned_keys['bl_SEMBY_golden_egg'] = true
+	end
+	-- Custom Bans for Vanilla Challenges
 	if G.GAME.challenge == 'c_jokerless_1'
 	then -- Remove Joker-Generator:
 		G.GAME.banned_keys['c_SEMBY_soul_gem'] = true
 		-- Useless
 		G.GAME.banned_keys['c_SEMBY_order_shrine'] = true
-		G.GAME.banned_keys['tag_SEMBY_pearlescent_skip'] = true
+		G.GAME.banned_keys['tag_SEMBY_edt_pearlescent'] = true
+		G.GAME.banned_keys['tag_SEMBY_adt_duplitage'] = true
 		-- Too Difficult
 		G.GAME.banned_keys['bl_SEMBY_sharp_shooter'] = true
 		return
@@ -71,17 +63,26 @@ function SEMBY_Challenge_Vanilla()
 	end
 	if G.GAME.challenge == 'c_fragile_1'
 	then -- Remove Enhancements-Changes and Card-Generation:
+		G.GAME.banned_keys['c_SEMBY_backup'] = true
+		G.GAME.banned_keys['c_SEMBY_daybreak'] = true
 		G.GAME.banned_keys['j_SEMBY_goobert'] = true
 		G.GAME.banned_keys['j_SEMBY_hemoturgy'] = true
+		G.GAME.banned_keys['c_SEMBY_microcosm'] = true
 		G.GAME.banned_keys['j_SEMBY_mineshaft'] = true
+		G.GAME.banned_keys['j_SEMBY_nostalgia'] = true
 		-- Useless and not fun to find
 		G.GAME.banned_keys['j_SEMBY_alpha'] = true
 		G.GAME.banned_keys['j_SEMBY_anodized_steel'] = true
+		G.GAME.banned_keys['j_SEMBY_doomsday_device'] = true
 		G.GAME.banned_keys['j_SEMBY_fifty_seven_leaf_clover'] = true
+		G.GAME.banned_keys['j_SEMBY_inventation'] = true
 		G.GAME.banned_keys['j_SEMBY_reagent'] = true
-		-- OP, but get to Stay
-		--G.GAME.banned_keys['j_SEMBY_chrono_break'] = true
-		--G.GAME.banned_keys['j_SEMBY_tempered_glass'] = true
+		G.GAME.banned_keys['j_SEMBY_vip_ticket'] = true
+		-- Overpowered
+		G.GAME.banned_keys['j_SEMBY_benthic_bloom'] = true
+		G.GAME.banned_keys['j_SEMBY_chrono_break'] = true
+		G.GAME.banned_keys['j_SEMBY_singularity'] = true
+		G.GAME.banned_keys['j_SEMBY_tempered_glass'] = true
 		return
 	end
 	if G.GAME.challenge == 'c_blast_off_1'
@@ -92,6 +93,7 @@ function SEMBY_Challenge_Vanilla()
 		G.GAME.banned_keys['j_SEMBY_improv'] = true
 		G.GAME.banned_keys['j_SEMBY_money_laundering'] = true
 		G.GAME.banned_keys['j_SEMBY_ouroboros'] = true
+		G.GAME.banned_keys['tag_SEMBY_bnt_hands'] = true
 		-- Early Exit;
 		if G.GAME.challenge == 'c_blast_off_1' then return end
 	end
@@ -104,16 +106,19 @@ function SEMBY_Challenge_Vanilla()
 		G.GAME.banned_keys['e_SEMBY_shiny'] = true
 		G.GAME.banned_keys['j_SEMBY_adblocker'] = true
 		G.GAME.banned_keys['j_SEMBY_berry_golden'] = true
-		--G.GAME.banned_keys['j_SEMBY_piggy_bank'] = true
+		G.GAME.banned_keys['j_SEMBY_bunburrow'] = true
+		G.GAME.banned_keys['j_SEMBY_fire_exint'] = true
+		G.GAME.banned_keys['j_SEMBY_lavish_joker'] = true
 		G.GAME.banned_keys['j_SEMBY_risky_joker'] = true
 		G.GAME.banned_keys['j_SEMBY_silver_mask'] = true
 		G.GAME.banned_keys['j_SEMBY_stylish_joker'] = true
 		G.GAME.banned_keys['j_SEMBY_tool_pickaxe'] = true
-		G.GAME.banned_keys['tag_SEMBY_shiny_skip'] = true
-		G.GAME.banned_keys['tag_SEMBY_vouch_down'] = true
+		G.GAME.banned_keys['tag_SEMBY_edt_shiny'] = true
 		-- Other Shop Modifier:
-		--G.GAME.banned_keys['j_SEMBY_coupon'] = true
+		G.GAME.banned_keys['j_SEMBY_coupon'] = true
 		G.GAME.banned_keys['j_SEMBY_coupon_booklet'] = true
+		G.GAME.banned_keys['tag_SEMBY_bnt_reroll'] = true
+		G.GAME.banned_keys['tag_SEMBY_bnt_vouch_down'] = true
 		return
 	end
 end
@@ -136,7 +141,6 @@ function SEMBY_Challenge_WIN()
 						blocking = false,
 						func = function()
 							win_game()
-							--G.GAME.won = true
 							return true
 						end
 					}))
@@ -153,7 +157,7 @@ function SEMBY_Challenge_LOSE(forced)
 		func = function()
 			if G.STATE == G.STATES.BLIND_SELECT
 			or G.STATE == G.STATES.ROUND_EVAL
-			or forced -- Might cause bugs!
+			or forced --> Might cause bugs!
 			then
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
@@ -161,9 +165,6 @@ function SEMBY_Challenge_LOSE(forced)
 					blocking = false,
 					func = function()
 						G.STATE = G.STATES.GAME_OVER
-						--if not G.GAME.won and not G.GAME.seeded and not G.GAME.challenge then
-						--	G.PROFILES[G.SETTINGS.profile].high_scores.current_streak.amt = 0
-						--end
 						G:save_settings()
 						G.FILE_HANDLER.force = true
 						G.STATE_COMPLETE = false

@@ -8,6 +8,10 @@ SMODS.Challenge {
         },
     },
 	apply = function(self)
+        if G.GAME.selected_back then
+            G.GAME.selected_back.atlas = "SEMBY_decks"
+            G.GAME.selected_back.pos = { x = 1, y = 1 }
+        end
 		G.GAME.starting_params.ante_scaling = math.max(1.0, G.GAME.round_resets.ante)
 	end,
     calculate = function(self, context)

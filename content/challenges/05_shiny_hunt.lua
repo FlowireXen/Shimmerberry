@@ -7,30 +7,21 @@ SMODS.Challenge {
             { id = 'SEMBY_extra_bonus' },
         },
         modifiers = {
-            { id = 'consumable_slots', value = 5 },
             { id = 'dollars', value = 25 },
             { id = 'winning_ante', value = 12 },
         }
     },
     jokers = {
         { id = 'j_ceremonial', pinned = true, eternal = true, edition = "negative" },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
-        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = 2.0 },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
+        { id = 'j_egg', edition = "SEMBY_shiny", SEMBY_glitched = '+$3' },
     },
     vouchers = {
-        { id = 'v_blank' },
         { id = 'v_seed_money' },
         { id = 'v_money_tree' },
-    },
-    consumeables = {
-        { id = 'c_talisman' },
-        { id = 'c_talisman' },
-        { id = 'c_talisman' },
-        { id = 'c_talisman' },
-        { id = 'c_talisman' },
     },
     deck = {
         type = 'Challenge Deck',
@@ -47,7 +38,9 @@ SMODS.Challenge {
 					trigger = 'after',
 					func = function()
 						for i = 2, #G.jokers.cards do
-							G.jokers.cards[i].ability.extra = G.jokers.cards[i].ability.extra * 2.0
+							--G.jokers.cards[i].ability.extra = G.jokers.cards[i].ability.extra + 3.0
+                            G.jokers.cards[i].ability.extra_value = G.jokers.cards[i].ability.extra_value + 3.0
+		                    G.jokers.cards[i]:set_cost()
 						end
 						save_run()
 						return true
