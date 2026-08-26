@@ -3,23 +3,23 @@ version = "1.0.0"
 dump_lua = true
 priority = 10
 
-## Adds Custom Death-Reasons
-
-# "Vanilla Code" Patch:
+# Adds Custom Death-Reasons (Respecting "Wormhole Mod")
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
-pattern = "if score == 'defeated_by' then"
+pattern = '''if score == 'furthest_ante' then'''
 position = "before"
 payload = '''
-if G.GAME.SEMBY_defeated and score == 'defeated_by' then
+if G.GAME.SEMBY_defeated and score == 'defeated_by'
+and not G.GAME.dummy_defeated_by
+then
 	label = localize('k_defeated_by')
 
 	local SEMBY_vars = {
 		atlas = G.GAME.SEMBY_defeated.atlas or "SEMBY_jokers_1",
 		position = G.GAME.SEMBY_defeated.position or { x = 0, y = 0 },
 		loc_key = G.GAME.SEMBY_defeated.loc_key or nil,
-    	color = G.GAME.SEMBY_defeated.color or G.C.UI.TEXT_LIGHT,
+		color = G.GAME.SEMBY_defeated.color or G.C.UI.TEXT_LIGHT,
 	}
 	G.GAME.SEMBY_defeated = nil
 
@@ -38,52 +38,17 @@ if G.GAME.SEMBY_defeated and score == 'defeated_by' then
 			{n=G.UIT.O, config={object = consequence_sprite}}
 		}},
 	}
-else
+
+	score = 'SEMBY_defeated_by' -- Skip Vanilla Logic
+end
 '''
 match_indent = true
 
-# "Wormhole Mod" Patch, same PAYLOAD as above:
+# Restore Vanilla Logic
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
-pattern = "if G.GAME.dummy_defeated_by and score == 'defeated_by' then"
+pattern = '''if score == 'poker_hand' then'''
 position = "before"
-payload = '''
-if G.GAME.SEMBY_defeated and score == 'defeated_by' then
-	label = localize('k_defeated_by')
-
-	local SEMBY_vars = {
-		atlas = G.GAME.SEMBY_defeated.atlas or "SEMBY_jokers_1",
-		position = G.GAME.SEMBY_defeated.position or { x = 0, y = 0 },
-		loc_key = G.GAME.SEMBY_defeated.loc_key or nil,
-    	color = G.GAME.SEMBY_defeated.color or G.C.UI.TEXT_LIGHT,
-	}
-	G.GAME.SEMBY_defeated = nil
-
-	local consequence_sprite = SMODS.create_sprite(0, 0, 1.5, 2.0, SMODS.get_atlas(SEMBY_vars.atlas), SEMBY_vars.position)
-	consequence_sprite:define_draw_steps({ {shader = 'dissolve', shadow_height = 0.05}, {shader = 'dissolve'} })
-
-	score_tab = {
-		{n=G.UIT.R, config={align = "cm", minh = 0.55}, nodes={
-			{n=G.UIT.O, config={object = DynaText({
-				string = SEMBY_vars.loc_key and localize(SEMBY_vars.loc_key) or 'ERROR',
-				colours = {SEMBY_vars.color},
-				shadow = true, float = true, maxw = 2.2, scale = 0.45
-			})}}
-		}},
-		{n=G.UIT.R, config={align = "cm", padding = 0.1}, nodes={
-			{n=G.UIT.O, config={object = consequence_sprite}}
-		}},
-	}
-else
-'''
-match_indent = true
-
-# Close "if"-statement
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = "local label_scale = 0.5"
-position = "before"
-payload = "end"
+payload = '''if score == 'SEMBY_defeated_by' then score = 'defeated_by' end'''
 match_indent = true

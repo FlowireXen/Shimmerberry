@@ -19,10 +19,10 @@ priority = -99999
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 then"
+pattern = '''if #G.hand.cards < 1 and #G.deck.cards < 1 and #G.play.cards < 1 then'''
 position = "after"
 payload = '''
-    G.STATE = G.STATES.HAND_PLAYED
-    G.STATE_COMPLETE = true
+G.STATE = G.STATES.HAND_PLAYED
+G.STATE_COMPLETE = true
 '''
 match_indent = true

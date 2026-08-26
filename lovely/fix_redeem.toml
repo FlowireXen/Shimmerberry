@@ -8,7 +8,7 @@ priority = 10
 [[patches]]
 [patches.pattern]
 target = "functions/button_callbacks.lua"
-pattern = "draw_card(G.hand, G.play, 1, 'up', true, card, nil, true)"
+pattern = '''draw_card(G.hand, G.play, 1, 'up', true, card, nil, true)'''
 position = "before"
-payload = "if card then card.SEMBY_origin = area and area.config and area.config.type or 'new' end"
+payload = '''if card then card.SEMBY_origin = area and area.config and area.config.type or 'new' end'''
 match_indent = true

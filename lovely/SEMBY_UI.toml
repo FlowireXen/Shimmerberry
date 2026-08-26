@@ -12,84 +12,80 @@ priority = 10
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "G.SPLASH_LOGO = Sprite(0, 0,"
+pattern = '''G.SPLASH_LOGO = Sprite(0, 0,'''
 position = "before"
 payload = '''
-	G.SEMBY_BERRY = Sprite(
-		0, 0, 
-		2.8*SC_scale, 
-		2.8*SC_scale*(G.ASSET_ATLAS["SEMBY_shimmerberry"].py/G.ASSET_ATLAS["SEMBY_shimmerberry"].px),
-		G.ASSET_ATLAS["SEMBY_shimmerberry"], {x=0,y=0}
-	)
-	G.SEMBY_BERRY:set_alignment({
-		major = G.title_top,
-		type = 'cm',
-		bond = 'Weak',
-		offset = {x=5.75,y=3.45}
-	})
-    G.SEMBY_BERRY:define_draw_steps({
-		{ shader = 'dissolve' },
-	})
-    G.SEMBY_BERRY.dissolve_colours = {G.C.WHITE, G.C.WHITE}
-    G.SEMBY_BERRY.dissolve = 1
-
+G.SEMBY_BERRY = Sprite(
+	0, 0, 
+	2.8*SC_scale, 
+	2.8*SC_scale*(G.ASSET_ATLAS["SEMBY_shimmerberry"].py/G.ASSET_ATLAS["SEMBY_shimmerberry"].px),
+	G.ASSET_ATLAS["SEMBY_shimmerberry"], {x=0,y=0}
+)
+G.SEMBY_BERRY:set_alignment({
+	major = G.title_top,
+	type = 'cm',
+	bond = 'Weak',
+	offset = {x=5.75,y=3.45}
+})
+G.SEMBY_BERRY:define_draw_steps({
+	{ shader = 'dissolve' },
+})
+G.SEMBY_BERRY.dissolve_colours = {G.C.WHITE, G.C.WHITE}
+G.SEMBY_BERRY.dissolve = 1
 '''
 match_indent = true
 
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)"
+pattern = '''ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)'''
 position = "before"
-payload = "ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)"
+payload = '''ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)'''
 match_indent = true
 
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, 2.3)"
+pattern = '''ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, 2.3)'''
 position = "before"
-payload = "ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, 2.3)"
+payload = '''ease_value(G.SEMBY_BERRY, 'dissolve', -1, nil, nil, nil, 2.3)'''
 match_indent = true
 
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "if G.SPLASH_LOGO then"
+pattern = '''if G.SPLASH_LOGO then'''
 position = "before"
 payload = '''
-    if G.SEMBY_BERRY then
-        love.graphics.push()
-        G.SEMBY_BERRY:translate_container()
-        G.SEMBY_BERRY:draw()
-        love.graphics.pop()
-    end
-
+if G.SEMBY_BERRY then
+    love.graphics.push()
+    G.SEMBY_BERRY:translate_container()
+    G.SEMBY_BERRY:draw()
+    love.graphics.pop()
+end
 '''
 match_indent = true
 
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "function Game:start_run(args)"
+pattern = '''function Game:start_run(args)'''
 position = "after"
-payload = '''
-    if G.SEMBY_BERRY then G.SEMBY_BERRY.states.visible = false end
-'''
+payload = '''if G.SEMBY_BERRY then G.SEMBY_BERRY.states.visible = false end'''
 match_indent = true
 
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
-pattern = "G.SPLASH_LOGO.states.visible = true"
+pattern = '''G.SPLASH_LOGO.states.visible = true'''
 position = "before"
-payload = "G.SEMBY_BERRY.states.visible = true"
+payload = '''G.SEMBY_BERRY.states.visible = true'''
 match_indent = true
 
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
-pattern = "G.SPLASH_LOGO.states.visible = false"
+pattern = '''G.SPLASH_LOGO.states.visible = false'''
 position = "before"
-payload = "G.SEMBY_BERRY.states.visible = false"
+payload = '''G.SEMBY_BERRY.states.visible = false'''
 match_indent = true
