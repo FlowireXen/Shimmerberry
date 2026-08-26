@@ -1,49 +1,5 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry/Jokers
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-REMOVE : "{{captimg||Target Plush|imgsize=142px}}" -> Target Plush is out of Date, remove/rename Page
-
-Remove: [[File:PLACEHOLDER_(Shimmerberry).png|142px]]
-
-|-
-| {{captimg||DEBUGTEST|imgsize=142px}}
-| Very likely to <u>Crash the Game</u>!<br><small>{{ct|grey|Function changes every release.}}</small> <!-- INFO: Please don't bother documenting this Jokers effects! -->
-----
-Part of the '''Debug''' set.<br>
-
-'''Unobtainable''' during<br>normal gameplay.
-| {{Ct|money|$1242}}
-| {{rarity|common}}
-| {{Jtype|?!}}<br>{{Jtype|???}}<br>{{Jtype|--}}
-| '''Flowire'''
-| 
-
-|-
-| {{captimg||Target Plush|imgsize=142px}}
-|
-{{ct|chips|+15}} Chips for each {{ct|orange|Joker}} and<br>{{ct|mult|+4}} Mult for each empty {{ct|orange|Joker}} slot
-| {{Ct|money|$6}}
-| {{rarity|common}}
-| {{jtype|+c}}<br>{{jtype|+m}}
-| '''unkokat'''
-----
-Reference:<br>
-'''Target''' {{ct|grey|Shop}}
-| - <!--A.T.-->
-
-Change Debug Jokers + Textures + Add the 4th Debug Joker
-
-In Quest: Add the Challenge Quests
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
 {{modsubpage}}
 {{Uses Many Images}}
-{{incomplete|"Temporary Notes" will move into the Joker-Pages|##TODO##}}
-<!-- Flowire says: If you are reading this, I am currently editing this Page to remove the "Stub" category! -->
 
 '''[[Shimmerberry]]''' currently adds '''110''' Jokers to the game.<br>
 When starting the game, there is a 10% chance for some Jokers to have alternative names and textures.
@@ -58,7 +14,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 !Type
 !Artist
 !Reference
-!Temporary Notes
 
 |-
 | {{captimg||Abandoned Soul|imgsize=142px}}
@@ -131,7 +86,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|Xm}}<br>{{jtype|XX}}
 | '''unkokat'''
 | '''[[Undertale/Deltarune|{{ct|blue|Vio's Undertale}}]]''' {{ct|grey|Balatro Mod}}
-| Has Changing Textures <!-- Create File(s) -->
 
 |-
 | {{captimg||Anodized Steel|imgsize=142px}}
@@ -327,10 +281,9 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{ct|codegreen|Changes}} most<br>{{ct|blue|Numbers}} on newly<br>obtained {{ct|attention|Jokers}}<br>by {{ct|red|X0.5}} or {{ct|green|X2}}
 | {{Ct|money|$7}}
 | {{rarity|uncommon}}
-| {{jtype|[!]}}
+| {{jtype|[!]}}<br>{{jtype|#!}}
 | '''unkokat'''
 | '''The Binding of Isaac''' {{ct|grey|Game}}
-| Has Changing Textures <!-- Create File(s) -->
 
 |-
 | {{captimg||Doomsday Device|imgsize=142px}}
@@ -358,7 +311,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|Xc}}<br>{{jtype|Xm}}
 | '''lanedarushpy'''
 | '''The Binding of Isaac''' {{ct|grey|Game}}
-| "Secret" Info: Different text when<br>"Eden Chips" are Disabled
 
 |-
 | {{captimg||Emergency Button|imgsize=142px}}
@@ -368,7 +320,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|!!}}<br>{{jtype|[!]}}
 | '''Flowire'''
 | '''Among Us''' {{ct|grey|Game}}
-| Info: Reference page "Vanilla Changes"
 
 |-
 | {{captimg||Eternal Fortune|imgsize=142px}}
@@ -396,7 +347,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|~$}}<br>{{jtype|???}}
 | '''unkokat'''
 | 
-| Secret Info: Special Spawn Condition
 
 |-
 | {{captimg||Fortune Cookie|imgsize=142px}}
@@ -460,7 +410,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|[+]}}<br>{{jtype|[!]}}
 | '''unkokat'''
 | '''Inscryption''' {{ct|grey|Game}}
-| Has Changing Textures <!-- Create File(s) -->
 
 |-
 | {{captimg||Hemoturgy|imgsize=142px}}
@@ -481,14 +430,13 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | 
 
 |-
-| {{captimg||Info Board|imgsize=142px}} <!-- !!! NEEDS TO LINK TO HYPETRAIN !!! -->
+| {{captimg||Info Board|imgsize=142px|link=Shimmerberry/Hypetrain}}
 | Your {{ct|attention|Joker}} arrives in:<br>{{ct|mult|+20}} Mult
 | {{Ct|money|$7}}
 | {{rarity|uncommon}}
 | {{jtype|+m}}<br>({{jtype|Xm}})
 | '''unkokat'''
 | '''Deutsche Bahn''' {{ct|grey|Company}}
-| Linked with Hypetrain
 
 |-
 | style="text-align:center;" | {{captimg||Hypetrain|imgsize=142px}} {{ct|grey|HYPETRAIN}}
@@ -498,7 +446,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|+m}}<br>{{jtype|Xm}}
 | '''unkokat'''
 | '''Twitch''' {{ct|grey|Company}}
-| Linked with Hypetrain<br Has Changing Textures
 
 |-
 | {{captimg||Improv Show|imgsize=142px}}
@@ -508,7 +455,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|#!}}
 | '''unkokat'''
 | '''One please''' {{ct|grey|Meme}}
-| Info: Describe how exactly it gathers points
 
 |-
 | {{captimg||Incinerator|imgsize=142px}}
@@ -527,7 +473,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|!!}}
 | '''unkokat'''
 | 
-| Info: Retrigger-count can be stopped<br>mid-scoring by upgrading poker hand too much
 
 |-
 | style="text-align:center;" | {{captimg||JEVIL|imgsize=142px}} {{ct|grey|JEV][L}}
@@ -555,7 +500,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|+$}}<br>({{jtype|XB}})
 | '''unkokat'''
 | 
-| Info: Spawns a Tag
 
 |-
 | {{captimg||Lost Constellation|imgsize=142px}}
@@ -619,7 +563,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|+S}}
 | '''unkokat'''
 | 
-| Has Changing Textures <!-- [[File:Nashi_Pear_States_(Shimmerberry).gif|142px]], Needs Update (Texture Changed) -->
 
 |-
 | {{captimg||Nostalgia|imgsize=142px}}
@@ -638,7 +581,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|Xm}}<br>{{jtype|O!}}
 | '''Flowire'''
 | '''Loop Hero''' {{ct|grey|Game}}
-| Info: Show new Menu (Screenshots)
 
 |-
 | {{captimg||Obscure Ritual|imgsize=142px}}
@@ -648,7 +590,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|~B}}
 | '''unkokat'''
 | 
-| Has Changing Textures <!-- [[File:Obscure_Ritual_Active_(Shimmerberry).png|142px]] -->
 
 |-
 | {{captimg||Opulent Skint|imgsize=142px}}
@@ -685,7 +626,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|?!}}
 | '''Flowire'''
 | 
-| Info: Reference Challenge<br>Has Changing Textures <!-- [[File:Parking_Disc_States_(Shimmerberry).gif|142px]], Needs Update (Texture Changed) -->
 
 |-
 | {{captimg||P2W|imgsize=142px}}
@@ -713,7 +653,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|Xm}}
 | '''unkokat'''
 | '''Hatsune Miku'''/CV01 {{ct|grey|Vocaloid}}
-| Has Changing Textures <!-- [[File:Perfect_Pitch_States_(Shimmerberry).gif|142px]] -->
 
 |-
 | {{captimg||P.E.T.|imgsize=142px}}
@@ -759,7 +698,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|[+]}}
 | '''unkokat'''
 | '''The Escapists''' {{ct|grey|Game}}
-| Has Changing Textures <!-- [[File:Plastic_Key_Variants_(Shimmerberry).gif|142px]] -->
 
 |-
 | {{captimg||Pocket Dimension|imgsize=142px}}
@@ -771,14 +709,13 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | 
 
 |-
-| {{captimg||Potted Flower|imgsize=142px}}
+| {{captimg||Potted Flowers|imgsize=142px}}
 | {{ct|xchips|X4}} Chips if poker<br>hand contains<br>{{ct|attention|4}} different suits
 | {{Ct|money|$6}}
 | {{rarity|uncommon}}
 | {{jtype|Xc}}
 | '''unkokat'''
 | 
-| Info: Reference Flower Pot<br>+ Vanilla Changes Page
 
 |-
 | {{captimg||Pygmymall|imgsize=142px}}
@@ -797,7 +734,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|?!}}<br>{{jtype|!!}}
 | '''Flowire'''
 | 
-| Has Changing Textures <!-- [[File:Quest?_Inactive_(Shimmerberry).png|142px]], Page also needs Win-State -->
 
 |-
 | style="text-align:center;" | {{captimg||Red Lion|imgsize=142px}} {{ct|grey|Reagent}}
@@ -852,7 +788,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|#!}}
 | '''unkokat'''<br> & '''Flowire'''
 | 
-| Has Changing Textures <!-- [[File:Scaffolding_States_(Shimmerberry).gif|142px]], Needs Update (Texture Changed) -->
 
 |-
 | {{captimg||Scav. Prototype|imgsize=142px}}
@@ -862,7 +797,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|[X]}}<br>{{jtype|!!}}
 | '''unkokat'''
 | '''Casualties: Unknown''' {{ct|grey|Game}}
-| Has Changing Textures <!-- Create File(s) -->
 
 |-
 | {{captimg||7 Wonders|imgsize=142px}}
@@ -1007,7 +941,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|[!]}}<br>{{jtype|#!}}<br>{{jtype|???}}
 | '''Flowire'''
 | '''The Binding of Isaac''' {{ct|grey|Game}}
-| Unique Spawn Condition,<br>Has Changing Textures <!-- [[File:TMTRAINER_GLITCHED_(Shimmerberry).png|142px]] -->
 
 |-
 | style="text-align:center;" | {{captimg||To n' Fro|imgsize=142px}} {{ct|grey|Fro n' To}}
@@ -1017,7 +950,6 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|~c}}<br>{{jtype|~m}}
 | '''unkokat'''
 | 
-| Has Changing Textures <!-- [[File:Fro_n'_To_(Shimmerberry).png|142px]] -->
 
 |-
 | {{captimg||Shovel|imgsize=142px}}
@@ -1081,14 +1013,13 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{jtype|!!}}
 | '''unkokat'''
 | 
-| Has Changing Textures <!-- [[File:Watching_Forest_States_(Shimmerberry).gif|142px]] -->
 
 |}
 <!-- Table 1, End -->
 
 == Debug Jokers ==
-There are '''4''' additional Jokers, when enabling "Debug" in <code>ShimmerBerry.lua</code>.<br>
-These Jokers are '''unobtainable''' during normal gameplay, even when activated.
+'''[[Shimmerberry]]''' currently offers '''4''' additional Jokers, by setting <code>Shimmerberry.Debug</code> in <code>ShimmerBerry.lua</code> to <code>true</code>.<br>
+These Jokers are '''unobtainable''' during normal gameplay, even when enabled.
 <!-- Table 2, Start -->
 {| class="sortable wikitable" style="text-align:center;image-rendering:pixelated"
 !Joker<br>Art & Names

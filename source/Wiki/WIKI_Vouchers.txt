@@ -1,7 +1,3 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry/Vouchers
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 {{modsubpage}}
 
 '''[[Shimmerberry]]''' currently adds '''2''' Vouchers with '''2''' respective upgrades to the game.

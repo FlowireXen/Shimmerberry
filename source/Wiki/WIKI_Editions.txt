@@ -1,7 +1,3 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry/Editions
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 {{modsubpage}}
 '''[[Shimmerberry]]''' currently adds '''3''' Editions to the game.
 

@@ -1,7 +1,3 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry/Achievements
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 {{modsubpage}}
 
 '''[[Shimmerberry]]''' currently adds '''3''' Achievements to the game.
@@ -20,7 +16,7 @@ https://balatromods.miraheze.org/wiki/Shimmerberry/Achievements
 |-
 | style="text-align:center;" | [[File:Obtained_Achievement_(Cryptid).png|64px]] <br> '''Flowire<br>Loves You!'''
 | Complete all<br>Shimmerberry [[Shimmerberry/Challenges|Challenges]]
-| Includes the "secret" TMTRAINER-Challenge
+| Includes the "secret" Challenge (S21)
 
 |-
 | style="text-align:center;" | [[File:Golden_Egg_(Shimmerberry).gif|68px]] <br> '''Coming Out'''

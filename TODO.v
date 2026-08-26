@@ -5,13 +5,15 @@
 - External:
 - - Discord-Thread
 - - Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
-- - Mod Index: https://github.com/FlowireXen/balatro-mod-index - meta.json, readme.md
+- - Mod Index: https://github.com/skyline69/balatro-mod-index
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-> Next TODO's:
+> UPCOMING:
 - Upload to: https://thunderstore.io/c/balatro
-- - 
+- - Also add Link to README.md
+
+> Next TODO's:
 - Shimmerberry "Challenger Arrival"/"The Circus"
 - [SEMBL] Shimmerberry Lite :: Only the Challenges (and needed Patches)
 

@@ -1,11 +1,3 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-New or Update:
-https://balatromods.miraheze.org/wiki/File:Consumables_View_(Shimmerberry).png
-https://balatromods.miraheze.org/wiki/File:Card_Modifiers_View_(Shimmerberry).png
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 {{ModInfobox
 | name = Shimmerberry
 | image = Shimmerberry Icon.png
@@ -14,10 +6,12 @@ https://balatromods.miraheze.org/wiki/File:Card_Modifiers_View_(Shimmerberry).pn
 | author = Flowire, unkokat
 | internalid = SEMBY
 | modprefix = SEMBY
-| dependencies = [[Steamodded]] (>=1.0.0~BETA-1503a)<br>[[Lovely]] (>=0.9.0)
-| conflicts = 
+| dependencies = [[Steamodded]] (>=1.0.0~BETA-1620a)<br>[[Lovely]] (>=0.9.0)
+| conflicts = <!--[[Talisman]]-->
 | creationdate = October 28, 2025
-| latestversion = 26.07.05a
+| latestversion = 26.8.26a
+| badgebgcolor = #FF8FA9
+| badgetextcolor = #FFFFFF
 }}
 
 Shimmerberry is a mod by Flowire with art by unkokat that expands the game by adding vanilla-like and custom content.<br>
@@ -51,7 +45,7 @@ It adds several new [[/Jokers/|Jokers]] and [[/Challenges/|Challenges]], a coupl
  | gridheight = 5.4
  | image1 = Pearlescent (Shimmerberry).png{{!}}96px
  | link1 = /Editions/
- | image2 = PLACEHOLDER.png
+ | image2 = Memory (Shimmerberry).png{{!}}96px
  | link2 = /Enhancements/
  | image3 = Possessive Sticker (Shimmerberry).png{{!}}96px
  | link3 = /Stickers/
@@ -63,8 +57,8 @@ It adds several new [[/Jokers/|Jokers]] and [[/Challenges/|Challenges]], a coupl
 </div>
 
 == CrossMod Content ==
-Shimmerberry fully supports the following mods:
-{{cross-mod content|JokerDisplay}}
-{{cross-mod content|CardPronouns}}
+Shimmerberry also supports the following mods:
+* [[JokerDisplay]]
+* [[CardPronouns]]
 
 [[Category:Content Mods]]

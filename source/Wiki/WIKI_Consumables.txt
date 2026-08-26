@@ -1,15 +1,3 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry/Consumables
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-New or Update:
-
-[[File:Backup_Tarot_(Shimmerberry).gif]] -> IS ANIMATED!!!!
-[[File:Ocean_Tarot_(Shimmerberry).png]]  -> UPDATE TEXTURE!!!!
-[[File:Microcosm_Planet_(Shimmerberry).png]]
-[[File:Daybreak_Spectral_(Shimmerberry).png]]
-[[File:Eden_Token_(Shimmerberry).png]]
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 {{modsubpage}}
 
 __TOC__

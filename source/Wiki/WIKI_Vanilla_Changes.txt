@@ -1,8 +1,3 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry/Vanilla_Changes
-CHECK AGAIN BEFORE RELEASE
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 {{modsubpage}}
 {{Uses Many Images}}
 <!-- Thank you https://balatromods.miraheze.org/wiki/Manifold/Vanilla_Changes for the Page-Style inspiration! -->
@@ -20,6 +15,7 @@ This Bugfix affects all Mods that have a Player-Saving Joker.
 == Jokers ==
 
 '''[[Shimmerberry]]''' adds a [[Shimmerberry/Stickers|TMTRAINER'd]] Sticker to {{vj|Misprint}}, which allows Misprint to enable {{j||TMTRAINER}}'s special spawn condition.<br>
+
 The mod also buffs and simplifies the wording for {{vj|Flower Pot}}:
 
 <!-- Table 1, Start -->
@@ -46,9 +42,9 @@ The mod also buffs and simplifies the wording for {{vj|Flower Pot}}:
 
 == Challenges ==
 
-'''[[Shimmerberry]]''' add '''2''' additional "Game Modifiers":
-- Winning Ante: {{ct|grey|[8]}}
-- X{{ct|grey|[1]}} base Blind size
+'''[[Shimmerberry]]''' adds '''2''' additional "Game Modifiers":
+* Winning Ante: {{ct|grey|[8]}}
+* X{{ct|grey|[1]}} base Blind size
 
 Eternal Jokers always gain "[[Shimmerberry/Stickers|Shimmer Immune]]" at the start of each Challenge run.
 
@@ -63,7 +59,7 @@ Some '''[[Shimmerberry/Challenges|Shimmerberry Challenges]]''' change vanilla be
 
 |-
 | {{captimg|Shimmerberry|Countdown|imgsize=71px|img=Challenge Deck (Vanilla).png|link=Shimmerberry/Challenges}}
-| {{vt|Garbage Tag}} gives $1 for each current Discard<br>left, instead of counting up all unused Discards.
+| {{vt|Garbage Tag}} gives {{ct|money|$1}} for each current Discard left,<br>instead of counting up all unused Discards during the run.
 
 |}
 <!-- Table 2, End -->
@@ -72,9 +68,11 @@ Some '''[[Shimmerberry/Challenges|Shimmerberry Challenges]]''' change vanilla be
 
 '''[[Shimmerberry]]''' adds additional restrictions to Vanilla challenges, these restrictions are not visible ingame.
 
+{{Togglebox start--|header=Click here to view all Vanilla changes|headercolor=#009dff||group=SEMBY_DELETE_THIS}}
+
 <!-- Table 3, Start -->
 {| class="wikitable" style="text-align:center;image-rendering:pixelated;max-width:1000px"
-! style="min-width:150px" | Challenge
+! style="min-width:150px" | Challenge(s)
 ! style="min-width:250px" | Added Restrictions
 
 |-
@@ -103,3 +101,5 @@ Some '''[[Shimmerberry/Challenges|Shimmerberry Challenges]]''' change vanilla be
 
 |}
 <!-- Table 3, End -->
+
+{{--Togglebox end|group=SEMBY_DELETE_THIS}}

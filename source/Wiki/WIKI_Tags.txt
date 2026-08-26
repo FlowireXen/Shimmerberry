@@ -1,12 +1,3 @@
-Page:
-https://balatromods.miraheze.org/wiki/Shimmerberry/Tags
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-New or Update:
-
-Remove/Update:
-[[File:Resonance_Debt_Tag_(Shimmerberry).png|68px]]
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 {{modsubpage}}
 
 '''[[Shimmerberry]]''' currently adds '''11 [[v:Tags|Skip-Tags]]''' to the game, including '''2''' [[Shimmerberry/Tags#Debts|{{Ct|red|Debt-Tags}}]].
@@ -22,54 +13,54 @@ Remove/Update:
 |-
 | style="text-align:center;" | [[File:Duplitage_(Shimmerberry).png|68px]] <br> '''Duplitage'''
 | Creates a copy<br>of the next<br>obtained {{ct|attention|Joker}}<br><small>{{ct|inactive|(Must have room)}}</small>
-| Ante 2
+| Ante '''2'''
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Intimidating_Tag_(Shimmerberry).png|68px]] <br> '''Intimidating''' Tag
 | {{ct|darkpurple|-20%}} {{ct|attention|Blind Size}}<br>next round
-| Ante 2
+| Ante '''2'''
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Recycling_Tag_(Shimmerberry).png|68px]] <br> '''Recycling''' Tag
 | Gain {{ct|red|+1}} discard<br>each round<br>{{ct|inactive|({{ct|attention|5}} uses left)}}
-| Ante 2
+| Ante '''2'''
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Tag_at_Hand_(Shimmerberry).png|68px]] <br> '''Tag at Hand'''
 | Gain {{ct|blue|+1}} hand<br>each round<br>{{ct|inactive|({{ct|attention|5}} uses left)}}
-| Ante 2
+| Ante '''2'''
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Spin_Tag_(Shimmerberry).png|68px]] <br> '''Spin''' Tag
 | {{ct|attention|First}} shop reroll<br>costs {{ct|money|$2}} less<br>{{ct|inactive|({{ct|attention|5}} uses left)}}
-| Ante 2
+| Ante '''2'''
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Kiosk_Tag_(Shimmerberry).png|68px]] <br> '''Kiosk''' Tag
 | {{ct|attention|+1}} card slot<br>available in<br>next shop
-| Ante 2
+| Ante '''2'''
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Vouch_down_Tag_(Shimmerberry).png|68px]] <br> '''Vouch-down''' Tag
 | Reduce the cost of a random<br>{{ct|attention|Voucher}} by {{ct|money|$5}} next shop
-| Ante 2
+| Ante '''2'''
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Pearlescent_Tag_(Shimmerberry).png|68px]] <br> '''Pearlescent''' Tag
-| Next base edition shop<br>Joker is free and<br>becomes {{ct|darkedition|Pearlescent}}
+| Next base edition shop<br>Joker is free and<br>becomes [[Shimmerberry/Editions|{{ct|darkedition|Pearlescent}}]]
 | {{ct|grey|None}}
 | '''Flowire'''
 
 |-
 | style="text-align:center;" | [[File:Shiny_Tag_(Shimmerberry).png|68px]] <br> '''Shiny''' Tag
-| Next base edition shop<br>{{ct|attention|Consumable}} is free and<br>becomes {{ct|darkedition|Shiny}}
+| Next base edition shop<br>{{ct|attention|Consumable}} is free and<br>becomes [[Shimmerberry/Editions|{{ct|darkedition|Shiny}}]]
 | {{ct|grey|None}}
 | '''Flowire'''
 
