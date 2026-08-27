@@ -6,6 +6,7 @@
 - - Discord-Thread
 - - Wiki: https://balatromods.miraheze.org/wiki/Shimmerberry
 - - Mod Index: https://github.com/skyline69/balatro-mod-index
+- - Thunderstore: "manifest.json", https://thunderstore.io/c/balatro/p/Flowire/Shimmerberry
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

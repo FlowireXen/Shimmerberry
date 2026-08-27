@@ -391,10 +391,10 @@ Inspired me to start Modding:<br>
 <ins><b>Buffoonery</b></ins>: [GitHub-Page](https://github.com/pinkmaggit-hub/Buffoonery)<br>
 <ins><b>Tetrapak</b></ins>: [GitHub-Page](https://github.com/tetraminus/Tetrapak)<br>
 
-<!--# Other Mod Pages
-##TODO##
-Coming soon!<br>
--> Thunderstore.-->
+# Official Web-Pages
+This is where you can find Shimmerberry:
+- <ins><b>GitHub</b></ins>: https://github.com/FlowireXen/Shimmerberry
+- <ins><b>Thunderstore</b></ins>: https://thunderstore.io/c/balatro/p/Flowire/Shimmerberry
 
 # Thank you for reading
 and we hope <i>You</i> will enjoy our mod!<br>

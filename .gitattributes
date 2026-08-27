@@ -4,3 +4,5 @@
 # Ignore for exports
 source export-ignore
 TODO.v export-ignore
+icon.png export-ignore
+manifest.json export-ignore
