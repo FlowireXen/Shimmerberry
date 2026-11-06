@@ -69,7 +69,6 @@ function SMODS.current_mod.reset_game_globals(run_start)
 		SEMBY_Global_BlindMod_Calculate()
 		SEMBY_Global_ShopMod_Calculate()
 		if SEMBY_Eden_Valid() then
-			G.GAME.SEMBY_eden_checksum = Shimmerberry.config.eden_checksum
 			if Shimmerberry.config.eden_infinite or SEMBY_Eden_Token() > 0 then
 				G.E_MANAGER:add_event(Event({
 					func = function()
@@ -108,10 +107,6 @@ SMODS.current_mod.calculate = function(self, context)
 		end
 		return
     end
-	if context.end_of_round and context.main_eval and SEMBY_Eden_Valid() then
-		Shimmerberry.config.eden_checksum = math.random()
-		G.GAME.SEMBY_eden_checksum = Shimmerberry.config.eden_checksum
-	end
 	if context.ante_change and context.ante_end and G.GAME.SEMBY_oblivion then
 		G.GAME.SEMBY_oblivion_state = 0
 	end

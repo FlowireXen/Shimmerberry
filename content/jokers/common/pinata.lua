@@ -11,7 +11,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			numerator = 1,
-			denominator = 5,
+			denominator = 8,
 			slots = 1,
 			reward = true,
 			breaks = false
@@ -42,7 +42,6 @@ SMODS.Joker {
 		if card.ability.extra.reward and not from_debuff then
         	G.GAME.SEMBY_used_pinata = (G.GAME.SEMBY_used_pinata or 0) + 1
 			G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.slots
-			G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) +1
             for i = 0, G.consumeables.config.card_limit do
 				if (G.GAME.consumeable_buffer or 0) + #G.consumeables.cards <= G.consumeables.config.card_limit then
 					G.GAME.consumeable_buffer = (G.GAME.consumeable_buffer or 0) + 1

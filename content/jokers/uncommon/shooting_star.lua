@@ -22,12 +22,6 @@ SMODS.Joker {
 			number_format(amount)
 		} }
 	end,
-    add_to_deck = function(self, card, from_debuff)
-		if not from_debuff then G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) +1 end
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-		if not from_debuff then G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) -1 end
-    end,
 	calculate = function(self, card, context)
 		if context.end_of_round and context.main_eval and context.game_over == false and G.GAME.blind.boss then
 			-- Actual Code:

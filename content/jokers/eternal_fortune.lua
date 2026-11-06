@@ -6,7 +6,7 @@ SMODS.Joker {
     eternal_compat = true,
     perishable_compat = true,
     blueprint_compat = false,
-	rarity = 1,
+	rarity = 2,
 	cost = 4,
 	config = {
 		extra = {
@@ -30,9 +30,6 @@ SMODS.Joker {
 			ease_hands_played(card.ability.extra.hands)
 			card:juice_up(0.1, 0.2)
 		return true end }))
-		if not from_debuff then
-			G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) +1
-		end
     end,
     remove_from_deck = function(self, card, from_debuff)
         G.E_MANAGER:add_event(Event({func = function()
@@ -41,9 +38,6 @@ SMODS.Joker {
 				ease_hands_played(-card.ability.extra.hands)
 			end
 		return true end }))
-		if not from_debuff then
-			G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) -1
-		end
     end,
     calculate = function(self, card, context)
         if context.mod_probability and not context.blueprint then

@@ -12,22 +12,16 @@ return {
 					"{C:SEMBY_flowire}Shimmerberry{} adds {C:dark_edition}Custom{},",
 					"{C:legendary}Fluffy{} and {C:attention}Vanilla-Like{} content:",
 					"{s:0.2} {}",
-					"{C:attention}90{} Jokers, {C:blue}20{} Challenges, {C:tarot}4{} Vouchers,",
-					"{C:red}3{} Decks {C:inactive,s:0.9}(& Sleeves){}, {C:spectral}3{} Consumables",
-					"and {C:dark_edition,E:1}more{}!",
-                    " ",
+					"{C:attention}110{} Jokers, {C:blue}20{} Challenges,",
+					"{C:red}4{} Decks and {C:dark_edition,E:1}more{}!",
+                    "{s:0.8} ",
                     "Programming by {C:SEMBY_flowire}Flowire{}.",
                     "Art by {C:SEMBY_unkokat}unkokat{} and {C:SEMBY_flowire}Flowire{}.",
-                    " ",
+                    "{s:0.8} ",
 					"Check the {C:attention}Collection{}-View or the",
 					"{C:SEMBY_unkokat}Credits{}-Tab for detailed credits!",
-					" ",
+                    "{s:0.8} ",
 					"{s:1.2}Have fun! {C:red,s:1.2}<3",
-					--"{u:inactive}                                   ",
-                    --"{s:0.5} ",
-                    --"Leave Feedback or Report Bugs here:",
-					--"{C:enhanced,u:enhanced,s:0.9}https://{C:enhanced,s:0.9}g{C:enhanced,u:enhanced,s:0.9}ithub.com/FlowireXen/Shimmerberr{C:enhanced,s:0.9}y",
-					----> https://github.com/FlowireXen/Shimmerberry
 					"{s:0.5} ",
                 }
             }
@@ -56,11 +50,15 @@ return {
 			},
 			j_SEMBY_afterimage = {
 				name = "Afterimage",
-				text = {
+				text = {{
 					"Copies ability of",
 					"{C:attention}Joker{} to the left",
-					"{C:dark_edition,E:1}#1#{} times",
-				}
+					"{C:dark_edition}#1#{} times",
+				}, {
+					"Each {C:legendary,E:1}Afterimage{}",
+					"reduces amount of",
+					"copies by {C:attention}#2#{}",
+				}}
 			},
 			j_SEMBY_agent_fourty_seven = {
 				name = "Agent 47",

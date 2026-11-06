@@ -47,10 +47,12 @@ SMODS.Joker {
 					colour = G.C.GREEN
 				}, true
 			end
-			return {
-				message = tostring(card.ability.extra.count),
-				colour = G.C.IMPORTANT
-			}, true
+			if not context.blueprint then
+				return {
+					message = tostring(card.ability.extra.count),
+					colour = G.C.IMPORTANT
+				}, true
+			end
 		end
         if context.ending_shop and card.ability.extra.count <= 0 then
 			card.ability.extra.count = card.ability.extra.every

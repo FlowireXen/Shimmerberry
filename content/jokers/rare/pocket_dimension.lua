@@ -11,7 +11,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			slots = 3,
-			xmult = 1.5
+			xmult = 1.25
 		}
 	},
     attributes = {

@@ -44,7 +44,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Afterimage|imgsize=142px}}
-| Copies ability of<br>{{ct|attention|Joker}} to the left<br>{{ct|darkedition|3}} times
+| Copies ability of<br>{{ct|attention|Joker}} to the left<br>{{ct|darkedition|3}} times<br>Each {{ct|legendary|Afterimage}}<br>reduces amount of<br>copies by {{ct|attention|1}}
 | {{Ct|money|$20}}
 | {{rarity|legendary}}
 | {{jtype|!!}} {{jtype|!!}} {{jtype|!!}}
@@ -325,7 +325,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 | {{captimg||Eternal Fortune|imgsize=142px}}
 | {{ct|blue|+1}} Hand, {{ct|green|+1}} Luck
 | {{Ct|money|$4}}
-| {{rarity|common}}
+| {{rarity|uncommon}}
 | {{jtype|%!}}<br>{{jtype|#!}}
 | '''unkokat'''
 | '''Made in Abyss''' {{ct|grey|Manga}}
@@ -683,7 +683,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | style="text-align:center;" | {{captimg||Piñata|imgsize=142px}} {{ct|grey|Quick Brown Fox}}
-| {{ct|green|1 in 5}} chance to<br>break open {{ct|attention|each}}<br>{{ct|attention|hand}} played<br>Gain {{ct|attention|+1}} permanent<br>{{ct|attention|Consumable}} slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed
+| {{ct|green|1 in 8}} chance to<br>break open {{ct|attention|each}}<br>{{ct|attention|hand}} played<br>Gain {{ct|attention|+1}} permanent<br>{{ct|attention|Consumable}} slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed
 | {{Ct|money|$6}}
 | {{rarity|common}}
 | {{jtype|#!}}<br>{{jtype|[+]}}<br>{{jtype|???}}
@@ -701,7 +701,7 @@ When starting the game, there is a 10% chance for some Jokers to have alternativ
 
 |-
 | {{captimg||Pocket Dimension|imgsize=142px}}
-| Cards in your<br>{{ct|attention|Consumable}} area<br>give {{ct|xmult|X1.5}} Mult<br>{{ct|attention|+3}} Consumable slots
+| Cards in your<br>{{ct|attention|Consumable}} area<br>give {{ct|xmult|X1.25}} Mult<br>{{ct|attention|+3}} Consumable slots
 | {{Ct|money|$8}}
 | {{rarity|rare}}
 | {{jtype|Xm}}<br>{{jtype|#!}}

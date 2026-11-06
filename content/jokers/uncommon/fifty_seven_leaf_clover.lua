@@ -24,12 +24,6 @@ SMODS.Joker {
 			card.ability.extra.repetitions
 		} }
 	end,
-    add_to_deck = function(self, card, from_debuff)
-		if not from_debuff then G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) +1 end
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-		if not from_debuff then G.GAME.SEMBY_eden_bonus = (G.GAME.SEMBY_eden_bonus or 0) -1 end
-    end,
 	calculate = function(self, card, context)
 		if context.repetition then --and context.cardarea == G.play then
 			if SMODS.has_enhancement(context.other_card, 'm_wild') then

@@ -1,3 +1,15 @@
+local function UpdateDuplicates(amount)
+	local ret_count = 0
+	for _, area in ipairs(SMODS.get_card_areas('jokers')) do
+		for _, card in ipairs(area.cards) do
+			if card.config.center_key == 'j_SEMBY_afterimage' then
+				ret_count = ret_count + 1
+				card.ability.extra.current = card.ability.extra.current + amount
+			end
+		end
+	end
+	return ret_count
+end
 SMODS.Joker {
 	key = "afterimage",
 	SEMBY_art = "unkokat",
@@ -11,7 +23,9 @@ SMODS.Joker {
 	cost = 20,
 	config = {
 		extra = {
-			repeats = 3
+			repeats = 3,
+			penalty = 1,
+			current = 0
 		}
 	},
     attributes = {
@@ -46,10 +60,16 @@ SMODS.Joker {
 			} }
 		end
 		return {
-			vars = { card.ability.extra.repeats },
+			vars = { math.max(1, card.ability.extra.repeats - card.ability.extra.current * card.ability.extra.penalty), card.ability.extra.penalty },
 			main_end = main_blueprint_info
 		}
 	end,
+    add_to_deck = function(self, card, from_debuff)
+		card.ability.extra.current = UpdateDuplicates(1)
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+		card.ability.extra.current = UpdateDuplicates(-1)
+    end,
 	calculate = function(self, card, context)
 		if card.area then
 			local copy_joker = nil
@@ -61,7 +81,7 @@ SMODS.Joker {
 			end
 			if copy_joker then
 				local merged_hell = {}
-				for i = 1, card.ability.extra.repeats do
+				for i = 1, math.max(1, card.ability.extra.repeats - card.ability.extra.current * card.ability.extra.penalty) do
 					merged_hell = SMODS.merge_effects( { merged_hell }, { SMODS.blueprint_effect(card, copy_joker, context) } )
 				end
 				return merged_hell

@@ -1,0 +1,26 @@
+Title: Shimmerberry - November Fixits (v26.11.061)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Hewwooo! :3
+
+Today I'm bringing some nerfs and fixes to Shimmerberry!
+
+# November Fixits
+
+## Eden System
+- Jokers no longer reward additional Tokens, except for "Eden's Blessing"
+- Reminder: Eden Tokens can be disabled in the Mod-Config!
+
+___
+
+## Jokers
+- Nerfed "Afterimage": Copy-amount gets reduced for each Afterimage
+- Nerfed "Eternal Fortune": Rarity (Common -> Uncommon)
+- Nerfed "Piñata": Chance (1 in 5 -> 1 in 8)
+- Nerfed "Pocket Dimension": Mult (X1.5 -> X1.25)
+- Updated "Eden's Blessing": Tokens (1 Token repeating -> 3 Tokens once)
+- Updated some Joker-Effect visuals
+
+___
+
+## Cross-Mod
+- Fixed and updated support for "[JokerDisplay](https://github.com/nh6574/JokerDisplay)"

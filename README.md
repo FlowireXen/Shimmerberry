@@ -51,7 +51,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Abandoned Soul | Gains X0.1 Chips<br>when a face card<br>is destroyed<br>(Currently X1 Chips) | $6 | Uncommon | -- |
 | A.C.E. | Add the next 2 to 4<br>playing cards from<br>Deck to scoring hand | $7 | Rare | -- |
 | Adblocker | When Blind is selected,<br>Debuff a random suit<br>in your deck<br>(Debuffed: [Suit])<br>Played debuffed cards<br>give $1 before scoring | $8 | Rare | -- |
-| Afterimage | Copies ability of<br>Joker to the left<br>3 times | $20 | Legendary | -- |
+| Afterimage | Copies ability of<br>Joker to the left<br>3 times<br>Each Afterimage<br>reduces amount of<br>copies by 1 | $20 | Legendary | -- |
 | Agent 47 | When discarding<br>exactly 3 cards,<br>eliminate one<br>at random | $6 | Uncommon | -- |
 | Alpha | +1 Hand for<br>first scoring<br>Stone Card | $6 | Common | Magic |
 | Anchor | X2 Chips<br>Can't be<br>Highlighted | $4 | Common | Ocean |
@@ -82,7 +82,7 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | Echoing Joker | Creates 2 Negative<br>copies of the next<br>used Consumable,<br>self destructs | $7 | Rare | -- |
 | Eden's Blessing | X1.5 Chips or Mult,<br>favours the small<br>Grants a<br>Brighter Future<br>when Boss Blind<br>is defeated | $4 | Uncommon | Nature |
 | Emergency Button | Prevents Death and<br>Rerolls all Jokers<br>and Consumables | $6 | Uncommon | -- |
-| Eternal Fortune | +1 Hand, +1 Luck | $4 | Common | Nature |
+| Eternal Fortune | +1 Hand, +1 Luck | $4 | Uncommon | Nature |
 | 57 Leaf Clover | Retrigger all<br>Wild Cards<br>2 times | $8 | Uncommon | Nature |
 | Fire Exin't | Reduce Shop prices<br>by 1% every played<br>and unscored card,<br>resets when Boss<br>Blind is selected<br>(Currently 0%/50%) | $6 | Uncommon | -- |
 | Fortune Cookie | Gains a new random<br>Edition at the start<br>of every Blind<br>Sell this card to<br>apply (This Edition) to<br>a random Joker | $6 | Common | Food |
@@ -120,9 +120,9 @@ visit the [Steammodded Wiki](https://github.com/Steamodded/smods/wiki) to learn 
 | P.E.T. | This Joker gains<br>+2 Mult for every card<br>discarded this round<br>(Currently +0 Mult) | $5 | Common | -- |
 | Pickaxe | Each [Suit] card<br>held in hand has<br>a 50% chance<br>to give $2<br>Suit changes<br>every round<br>100/100 uses left | $5 | Common | Durability |
 | Piggy Bank | When Blind is selected<br>or skipped, spend $2 to<br>add $1 of sell value<br>Starts with $2<br>extra sell value<br>X0.2 Mult for every<br>$4 of sell value<br>(Currently X1 Mult) | $5 | Common | Animal |
-| Piñata | 1 in 5 chance to<br>break open each<br>hand played<br>Gain +1 permanent<br>Consumable slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed | $6 | Common | Animal, Food |
+| Piñata | 1 in 8 chance to<br>break open each<br>hand played<br>Gain +1 permanent<br>Consumable slot and<br>fill all Consumable<br>slots when Joker<br>gets destroyed<br>Won't appear again<br>when destroyed | $6 | Common | Animal, Food |
 | Plastic Key | Destroy this card and<br>create 2 Spectral cards<br>when Boss Blind is defeated<br>(Must have room) | $6 | Uncommon | -- |
-| Pocket Dimension | Cards in your<br>Consumable area<br>give X1.5 Mult<br>+3 Consumable slots | $8 | Rare | Magic, Space |
+| Pocket Dimension | Cards in your<br>Consumable area<br>give X1.25 Mult<br>+3 Consumable slots | $8 | Rare | Magic, Space |
 | Potted Flower | X4 Chips if poker<br>hand contains<br>4 different suits | $6 | Uncommon | Nature |
 | P2W | Spend $2 to<br>gain +30 Mult<br>each Hand | $4 | Common | -- |
 | PUSH UR T3MPRR | BLIND SELECTED,<br>CLOCK IT UP 200%<br>CARD PLAYED,<br>PUSH IT DOWN 6% | $5 | Uncommon | Animal, Music |

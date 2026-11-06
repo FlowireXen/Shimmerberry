@@ -3,6 +3,7 @@
 if Shimmerberry.compat.display then
 local jd_def = JokerDisplay.Definitions
 local jd_e_def = JokerDisplay.Edition_Definitions
+local jd_mod_def = JokerDisplay.Modifier_Definitions
 local jd_b_def = JokerDisplay.Blind_Definitions
 -- SEMBY Diff. Update Ticks
 local SLOW_UPDATE, NORM_UPDATE, FAST_UPDATE = 8, 4, 2
@@ -124,7 +125,7 @@ jd_def['j_SEMBY_afterimage'] = {
 				if card.area.cards[i] == card then
                     local other = card.area.cards[i - 1]
                     if other and card.joker_display_values then
-                        card.joker_display_values.repeats = card.ability.extra.repeats
+                        card.joker_display_values.repeats = math.max(1, card.ability.extra.repeats - card.ability.extra.current * card.ability.extra.penalty)
                         if other.joker_display_values and other.joker_display_values.repeats then
                             card.joker_display_values.repeats = card.joker_display_values.repeats * other.joker_display_values.repeats
                         end
@@ -2030,9 +2031,30 @@ jd_e_def['e_SEMBY_shiny'] = {
         return not card.debuff and (card.edition or {}).base_value and card.edition.key == 'e_SEMBY_shiny'
     end,
     mod_function = function(card)
-        return { dollars = card.edition.base_value, SEMBY_round = true }
+        return { SEMBY_eor_dollars = card.edition.base_value }
     end
 }
+jd_mod_def['SEMBY_percent'] = {
+    text = {
+        { ref_table = "card.modifiers", ref_value = "SEMBY_percent", colour = G.C.SEMBY_PERCENT_L, signed = true },
+        { text = "%", colour = G.C.SEMBY_PERCENT_L }
+    },
+    calc_function = function(card, old_modifier, new_modifier)
+        local ret_val = (old_modifier and new_modifier and old_modifier ^ new_modifier) or old_modifier or new_modifier
+        return ret_val and ret_val * 100
+    end
+}
+jd_mod_def['SEMBY_eor_dollars'] = {
+    text = {
+        { ref_table = "card.modifiers", ref_value = "SEMBY_eor_dollars", colour = G.C.GOLD, signed = "$" },
+        { text = " (" .. localize("k_round") .. ")", colour = G.C.UI.TEXT_INACTIVE, scale = 0.3 }
+    },
+    calc_function = function(card, old_modifier, new_modifier)
+        return (old_modifier and new_modifier and old_modifier + new_modifier) or old_modifier or new_modifier
+    end
+}
+JokerDisplay.mod_keys[#JokerDisplay.mod_keys+1] = "SEMBY_percent"
+JokerDisplay.mod_keys[#JokerDisplay.mod_keys+1] = "SEMBY_eor_dollars"
 -- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ##  ##  ##  ####  ##  ##  ##
 -- ## BLINDS (aka "Metador Checks")                         ## -- ##  ##  ##  #  #  ##  ##  ##
 -- ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## -- ###    ####  ##  ####    ###

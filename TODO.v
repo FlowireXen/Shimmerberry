@@ -10,10 +10,6 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-> UPCOMING:
-- Upload to: https://thunderstore.io/c/balatro
-- - Also add Link to README.md
-
 > Next TODO's:
 - Shimmerberry "Challenger Arrival"/"The Circus"
 - [SEMBL] Shimmerberry Lite :: Only the Challenges (and needed Patches)
@@ -31,7 +27,15 @@
 - [MINOR][Can't Fix]: "Parking Disc: 3" doesn't apply "context.modify_ante" correctly.
 
 > Current WiPs:
-- None!
+- Add Joke; "Dingleberry" -> https://www.youtube.com/watch?v=aIwjowN86wI
+- Multiplayer Support:
+- - BLIND SIZE MODIFIERS (Read docs to update scoring on both sides!)
+- - - Treat my Xblindsize like Xscore for the enemy
+- - "Soul Gem": Defeating Player grants a Rare, Losing doesn't trigger it (General fix; Check if player is getting saved and don't trigger!)
+- - T3MPRR: Give other Player an X2 score Buff for the round
+- - Hopeless Deck: Hides Enemy Score until playing the last Hand
+- - "Nashi Pear".
+- - "Quest" doesn't Win/Beat Player, Instead GRANTS A LIFE
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
